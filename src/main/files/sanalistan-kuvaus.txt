@@ -112,15 +112,18 @@ laatikko
 laatikon
 laatikkoa
 laatikkoon
+
 laatikot
 laatikkojen laatikoiden laatikoitten
 laatikkoja laatikoita
 laatikkoihin laatikoihin
+
 5
 risti
 ristin
 ristiä
 ristiin
+
 ristit
 ristien
 ristejä

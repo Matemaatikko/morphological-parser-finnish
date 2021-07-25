@@ -1,0 +1,12 @@
+
+- comitative alwaus plural?
+
+
+Codings Used
+============
+
+- - Base word.
+- [+] Astevaihtelu applied.
+- [-] Astevaihtelu not applied.
+- [-/+] It is applicable to use and not use: Astevaihtelu.
+- -- Remove last letter.
