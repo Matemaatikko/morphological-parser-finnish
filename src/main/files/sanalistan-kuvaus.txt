@@ -74,8 +74,10 @@ Nominit
 Esimerkkimuodot ovat yksikön nominatiivi, genetiivi, partitiivi ja
 illatiivi sekä monikon nominatiivi, genetiivi, partitiivi ja illatiivi.
 
+S
+
 1
-valo
+S. Nom: valo
 valon
 valoa
 valoon
@@ -134,6 +136,7 @@ paperi
 paperin
 paperia
 paperiin
+
 paperit
 paperien papereiden papereitten
 papereja papereita
@@ -143,6 +146,7 @@ ovi
 oven
 ovea
 oveen
+
 ovet
 ovien
 ovia
@@ -153,6 +157,7 @@ nalle
 nallen
 nallea
 nalleen
+
 nallet
 nallejen (nallein)
 nalleja
@@ -163,6 +168,7 @@ kala
 kalan
 kalaa
 kalaan
+
 kalat
 kalojen (kalain)
 kaloja
@@ -173,6 +179,7 @@ koira
 koiran
 koiraa
 koiraan
+
 koirat
 koirien (koirain)
 koiria
@@ -183,6 +190,7 @@ omena
 omenan
 omenaa
 omenaan
+
 omenat
 omenien omenoiden omenoitten (omenojen) (omenain)
 omenia omenoita (omenoja)
@@ -193,6 +201,7 @@ kulkija
 kulkijan
 kulkijaa
 kulkijaan
+
 kulkijat
 kulkijoiden kulkijoitten (kulkijain)
 kulkijoita
@@ -203,6 +212,7 @@ katiska
 katiskan
 katiskaa
 katiskaan
+
 katiskat
 katiskoiden katiskoitten katiskojen (katiskain)
 katiskoita katiskoja
@@ -213,15 +223,18 @@ solakka
 solakan
 solakkaa
 solakkaan
+
 solakat
 solakoiden solakoitten solakkojen (solakkain)
 solakoita solakkoja
 solakkoihin solakoihin
+
 15
 korkea
 korkean
 korkeaa korkeata
 korkeaan
+
 korkeat
 korkeiden korkeitten (korkeain)
 korkeita
@@ -232,6 +245,7 @@ vanhempi
 vanhemman
 vanhempaa
 vanhempaan
+
 vanhemmat
 vanhempien (vanhempain)
 vanhempia

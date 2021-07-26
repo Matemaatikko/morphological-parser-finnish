@@ -1,5 +1,14 @@
 
 - comitative alwaus plural?
+- Add omistusliitteet.
+- We need to resolve determination of the last letter.
+
+- Last letter is determined if word is etuvokalisana or takavokalisana.
+- Takavokalit: a, o, u
+- Etuvokalit: ä, ö, y, i, e
+- Voi esiintyä: i, e
+
+- Astevaihtelutyypit: 4, 14
 
 
 Codings Used
