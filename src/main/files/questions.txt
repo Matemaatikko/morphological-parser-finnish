@@ -10,6 +10,13 @@
 
 - Astevaihtelutyypit: 4, 14
 
+- -sti pääte täytyy käsitellä
+- monikkomuodot täytyy käsitellä
+
+- D has special bending !!!
+
+- Add word: Raamattu
+
 
 Codings Used
 ============
@@ -19,3 +26,550 @@ Codings Used
 - [-] Astevaihtelu not applied.
 - [-/+] It is applicable to use and not use: Astevaihtelu.
 - -- Remove last letter.
+
+
+
+- Error Words:
+Error Word: aamu-uutiset -> aamu-uutinen
+Error Word: akselivallat -> akselivalta
+
+Error Word: alakautta
+Error Word: alamaihin
+Error Word: alamaissa
+Error Word: alaspäin
+Error Word: alaviistoon
+Error Word: alaviistossa
+
+Error Word: alkeistiedot -> alkeistieto
+Error Word: alkuvaikeudet -> alkuvaikeus
+
+Error Word: allapäin
+Error Word: altapäin
+Error Word: A-oikeudet
+
+Error Word: appivanhemmat -> appivanhempi
+Error Word: aselepoehdot -> aselepoehto
+Error Word: asumiskustannukset -> asumiskustannus
+
+Error Word: avopäin
+
+Error Word: B-oikeudet
+Error Word: desimetriaallot
+
+Error Word: edeltäpäin
+Error Word: edespäin
+Error Word: edessäpäin
+Error Word: edestäpäin
+Error Word: eespäin
+
+Error Word: elinkustannukset
+
+Error Word: epäkunnossa
+Error Word: epäkuntoon
+
+Error Word: esivanhemmat
+
+Error Word: eteenpäin
+Error Word: etuajassa
+Error Word: etukautta
+Error Word: etukenoon
+Error Word: etukenossa
+Error Word: etuoikeaan
+Error Word: etuoikealla
+Error Word: etuoikealle
+Error Word: etuoikealta
+Error Word: etutietä
+Error Word: etuvasemmalla
+Error Word: etuvasemmalle
+Error Word: etuvasemmalta
+Error Word: etuvasempaan
+Error Word: etuviistoon
+Error Word: etuviistossa
+Error Word: etuviistosta
+
+Error Word: hankintakustannukset
+Error Word: henkilötiedot
+
+Error Word: herrajestas
+Error Word: herranjestas
+Error Word: hihhei
+Error Word: hiirenhiljaa
+Error Word: hikilaudat
+Error Word: hohoi
+
+Error Word: hoitokustannukset
+Error Word: hopeahapset
+Error Word: housunkannattimet
+Error Word: hovitavat
+Error Word: huoltojoukot
+
+Error Word: hyökkäyskannalla
+Error Word: hyökkäyskannalta
+
+Error Word: höyhensaaret
+Error Word: ihmistavat
+Error Word: ikenet
+Error Word: illanistujaiset
+Error Word: ilmatorjuntajoukot
+Error Word: iltauutiset
+Error Word: irtohiukset
+Error Word: irtoripset
+Error Word: isovanhemmat
+Error Word: istujaiset
+
+Error Word: itseruoskinta?
+
+Error Word: jakelukustannukset
+Error Word: jalkaraudat
+
+Error Word: jotenkuten
+Error Word: jäljestäpäin
+Error Word: jälkeenpäin
+Error Word: kahdeksankymmentä
+Error Word: kahdeksantoista
+Error Word: kahdeksantuhatta
+Error Word: kahdeksastoista
+Error Word: kahdestoista
+Error Word: kaksikymmentä
+Error Word: kaksitoista
+Error Word: kaksituhatta
+
+Error Word: kaksossisarukset
+Error Word: kaksostytöt
+Error Word: kaksosveljekset
+Error Word: kalpaveljekset
+Error Word: kamferitipat
+Error Word: kansalaisillalliset
+Error Word: kansalaispäivälliset
+
+Error Word: kasapäin
+
+Error Word: kasvattivanhemmat
+Error Word: kasvatusvanhemmat
+
+Error Word: katumapäälle
+Error Word: katumapäällä
+Error Word: keskiaallot
+Error Word: keskipaikkeilla
+Error Word: keskipaikkeille
+Error Word: kesäteloilla
+Error Word: kesäteloillaan
+Error Word: kesäteloille
+Error Word: kesäteloilleen
+Error Word: kesäteloiltaan
+
+Error Word: ketunraudat
+Error Word: kierreportaat
+Error Word: kippariaallot
+
+Error Word: kirkkoraamattu
+
+Error Word: kirkonkymmenykset
+
+Error Word: kiusanpäiten
+
+Error Word: kodinturvajoukot
+
+Error Word: kohtapuoleen
+Error Word: kohtsillään
+Error Word: kohtsiltään
+
+Error Word: kokonaiskustannukset
+Error Word: kokonaisyksikkökustannukset
+
+Error Word: kolmastoista
+Error Word: kolmekymmentä
+Error Word: kolmetoista
+Error Word: kolmetuhatta
+
+Error Word: kolmossisarukset
+Error Word: kolmostytöt
+Error Word: kommandojoukot
+
+Error Word: konepestävä
+
+Error Word: korjauskustannukset
+Error Word: korvatipat
+
+Error Word: kotiinpäin
+
+Error Word: koulutarvikkeet
+Error Word: kriisinhallintajoukot
+Error Word: kruununkalleudet
+Error Word: kuljetuskustannukset
+Error Word: kunnossapitokustannukset
+
+Error Word: kurinpitotietä
+Error Word: kuudestoista
+Error Word: kuusikymmentä
+Error Word: kuusitoista
+Error Word: kuvaraamattu
+Error Word: kymmenentuhatta
+Error Word: kymmeneuronen
+
+Error Word: käsiraudat
+Error Word: käyttökustannukset
+Error Word: köysiportaat
+Error Word: lainahöyhenet
+Error Word: laituriportaat
+Error Word: laskuportaat
+Error Word: laskuvarjojoukot
+
+Error Word: leikinpäin
+Error Word: leikinpäiten
+Error Word: liikekannalla
+Error Word: likimain
+Error Word: likipitäen
+
+Error Word: linnoitusjoukot
+
+Error Word: linnuntietä
+
+Error Word: lintukotolaiset
+Error Word: liukuportaat
+Error Word: luottotiedot
+
+Error Word: lähiseutuville
+
+Error Word: lähtökuopat
+
+Error Word: läjäpäin
+
+Error Word: lämmityskustannukset
+Error Word: länsivallat
+Error Word: lääkekustannukset
+Error Word: lääkintäjoukot
+Error Word: maahanlaskujoukot
+Error Word: maajoukot
+Error Word: maihinnousuportaat
+Error Word: materiaalitoiminnot
+Error Word: menekkivaikeudet
+
+Error Word: menopäällä
+
+Error Word: merenkulkusäännöt
+
+Error Word: merkille pantava
+Error Word: mielihyvin
+Error Word: mihinpäin
+
+Error Word: mikroaallot
+
+Error Word: minnepäin
+Error Word: missäpäin
+Error Word: mistäpäin
+Error Word: mitenkuten
+
+Error Word: morseaakkoset
+Error Word: mursunviikset
+
+Error Word: mustaraamattu
+
+Error Word: myöhäisuutiset
+Error Word: mäkisukset
+
+Error Word: neljäkymmentä
+Error Word: neljästoista
+Error Word: neljätoista
+Error Word: neljätuhatta
+Error Word: nenätipat
+Error Word: neuvottelutietä
+
+Error Word: nimikirjaimet
+Error Word: nokkaunet
+Error Word: nuhatipat
+Error Word: ohimohiukset
+Error Word: olympiarenkaat
+Error Word: omakustannukset
+
+Error Word: omenavarkaisiin
+Error Word: omenavarkaissa
+
+Error Word: ompelutarvikkeet
+Error Word: paikallisjoukot
+Error Word: pakkauskustannukset
+Error Word: palkkakustannukset
+Error Word: panssarijoukot
+Error Word: parihevoset
+
+Error Word: parikymmentä
+Error Word: parituhatta
+
+Error Word: perhekustannukset
+
+Error Word: perheraamattu
+Error Word: perushankinnat
+Error Word: perustiedot
+Error Word: peräjälkeen
+Error Word: perässäpäin
+Error Word: perästäpäin
+
+Error Word: piiritysjoukot
+Error Word: piirustustarvikkeet
+Error Word: pikahiutaleet
+
+Error Word: pikapikaa
+Error Word: pikapuoleen
+Error Word: pikipäin
+Error Word: pikkuhiljaa
+
+Error Word: pikkukengät
+Error Word: pikkuserkukset
+Error Word: pikkutunnit
+
+Error Word: pilanpäin
+Error Word: pilanpäiten
+Error Word: pintaliitäjä
+
+Error Word: pioneerijoukot
+
+Error Word: pitkinpäin
+
+Error Word: pitopohjasukset
+Error Word: pohjatiedot
+
+Error Word: poikkipäin
+Error Word: poispäin
+
+Error Word: polkupyöräjoukot
+Error Word: portaat
+Error Word: puhelinuutiset
+Error Word: pukimet
+
+Error Word: puolenkymmentä
+Error Word: puolentuhatta
+Error Word: puolihereillä
+Error Word: puolihiljaa
+Error Word: puolikuoliaaksi
+Error Word: puolikuoliaana
+Error Word: puolikymmentä
+Error Word: puolileikillään
+Error Word: puolimaihin
+Error Word: puolimaissa
+Error Word: puolinukuksissa
+Error Word: puolipyörryksiin
+Error Word: puolipyörryksissä
+Error Word: puolipökerryksiin
+Error Word: puolipökerryksissä
+Error Word: puolisisarukset
+Error Word: puolitainnoksiin
+Error Word: puolitainnoksissa
+Error Word: puolitoista
+Error Word: puolitoistakymmentä
+Error Word: puolituhatta
+Error Word: puoliummessa
+Error Word: puoliääneen
+Error Word: puolustuskannalla
+Error Word: puunpilkonta
+Error Word: pystypäin
+Error Word: päinvastoin
+Error Word: päällepäin
+Error Word: päälläpäin
+Error Word: päältäpäin
+
+Error Word: radioaallot
+Error Word: radiouutiset
+Error Word: rajajoukot
+Error Word: rakennuskustannukset
+Error Word: rauhanturvajoukot
+Error Word: ravit
+Error Word: reput
+Error Word: retkijalkineet
+Error Word: retkisukset
+
+Error Word: retuperälle
+Error Word: retuperällä
+
+Error Word: reunavuoret
+Error Word: revontulet
+
+Error Word: riippuliitäjä
+Error Word: ripirinnan
+Error Word: ritirinnan
+
+Error Word: rohtimet
+Error Word: rullaportaat
+Error Word: ryntäät
+Error Word: sairauskustannukset
+
+Error Word: salakihloihin
+Error Word: salakihloissa
+Error Word: sataeuronen
+Error Word: satatuhatta
+Error Word: seitsemisenkymmentä
+Error Word: seitsemänkymmentä
+Error Word: seitsemäntoista
+Error Word: seitsemäntuhatta
+Error Word: seitsemästoista
+
+Error Word: sekavihannekset
+
+Error Word: selkoselälleen
+Error Word: selkoselällään
+
+Error Word: senttimetriaallot
+
+Error Word: sielläpäin
+Error Word: sieltäpäin
+
+Error Word: siirtomaajoukot
+Error Word: silmälasinkehykset
+Error Word: silmätipat
+
+Error Word: sinnepäin
+Error Word: sinunkaupat
+
+Error Word: sipulihiutaleet
+Error Word: sissijoukot
+
+Error Word: sisäkautta
+Error Word: sisältäpäin
+Error Word: sisätaudit
+Error Word: sisäänpäin
+Error Word: sivullepäin
+Error Word: sivultapäin
+
+Error Word: sokeainaakkoset
+Error Word: sopimusehdot
+Error Word: stereokuulokkeet
+Error Word: suojajoukot
+
+Error Word: suorakulmain
+
+Error Word: sydänjuuret
+Error Word: sähkeuutiset
+Error Word: säätiedot
+
+Error Word: taaksepäin
+
+Error Word: taistelujoukot
+
+Error Word: taivasalla
+Error Word: taivasalle
+Error Word: taivasalta
+Error Word: takaapäin
+Error Word: takaisinpäin
+Error Word: takakautta
+Error Word: takakenoon
+Error Word: takakenossa
+Error Word: takalukkoon
+Error Word: takalukossa
+Error Word: takalukosta
+Error Word: takanapäin
+Error Word: takaoikeaan
+Error Word: takaoikealla
+Error Word: takaoikealle
+Error Word: takaoikealta
+Error Word: takavasemmalla
+Error Word: takavasemmalle
+Error Word: takavasemmalta
+Error Word: takavasempaan
+Error Word: takaviistoon
+Error Word: takaviistossa
+Error Word: takaviistosta
+Error Word: talvikorjuuseen
+Error Word: talviteloilla
+Error Word: talviteloillaan
+Error Word: talviteloille
+Error Word: talviteloilleen
+Error Word: talviteloiltaan
+
+Error Word: tekoripset
+Error Word: televisiouutiset
+
+Error Word: tiepuoleen
+Error Word: tiepuolesta
+
+Error Word: tikarappuset
+
+Error Word: tipotiehensä
+Error Word: tiptopkunnossa
+Error Word: tiptopkuntoon
+Error Word: toisinpäin
+Error Word: toistakymmentä
+Error Word: toistakymmentätuhatta
+Error Word: toistatuhatta
+
+Error Word: tomaattisilakat
+
+Error Word: tuhkatiheään
+
+Error Word: tukihiukset
+
+Error Word: tuollapäin
+Error Word: tuoltapäin
+
+Error Word: tuomarinohjeet
+
+Error Word: tuonnepäin
+
+Error Word: tupaantuliaiset
+
+Error Word: turhanpäiten
+
+Error Word: tutka-aallot
+
+Error Word: tyhjänpäiten
+Error Word: tännepäin
+Error Word: täpötäynnä
+Error Word: tästedes
+
+Error Word: täysisisarukset
+Error Word: täyssisarukset
+
+Error Word: täälläpäin
+Error Word: täältäpäin
+Error Word: uimahoususillaan
+Error Word: uimahoususilleen
+
+Error Word: ula-aallot
+
+Error Word: ulkoapäin
+Error Word: ulkokautta
+Error Word: ulospäin
+Error Word: unenpöpperössä
+
+Error Word: urheilujoukot
+Error Word: valmistuskustannukset
+Error Word: valoaallot
+Error Word: varastointikustannukset
+Error Word: varhaisuutiset
+Error Word: vastarintajoukot
+
+Error Word: vastedes
+Error Word: vastikään
+Error Word: veljekset
+Error Word: vetimet
+Error Word: vieraskunnossa
+Error Word: vieraskuntoon
+Error Word: viestijoukot
+Error Word: vihkiraamattu
+Error Word: viidestoista
+Error Word: viimeksi mainittu
+Error Word: viisikymmentä
+Error Word: viisitoista
+Error Word: viisituhatta
+Error Word: yhdeksänkymmentä
+Error Word: yhdeksäntoista
+Error Word: yhdeksäntuhatta
+Error Word: yhdeksästoista
+Error Word: yhdestoista
+Error Word: yhteystiedot
+Error Word: yksitoista
+Error Word: ykskaks
+Error Word: ylihuomenissa
+Error Word: ylihuomenna
+Error Word: ylioppilaskirjoitukset
+Error Word: yliset
+Error Word: ylläpitokustannukset
+Error Word: yltyleensä
+Error Word: yltympäri
+Error Word: yltympäriinsä
+Error Word: yltympärillä
+Error Word: yltäkyllin
+Error Word: yläkautta
+Error Word: yläviistoon
+Error Word: yläviistossa
+Error Word: ylöspäin
+Error Word: yökylästä
+Error Word: yökylään

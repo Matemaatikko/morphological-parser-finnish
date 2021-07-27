@@ -1,4 +1,4 @@
-package morph_fin
+package morph_fin.rulings
 
 import scala.annotation.tailrec
 
@@ -12,13 +12,16 @@ end Case
 enum Type:
   case Plural, Singular
 
+enum GradationType:
+  case Strong, Weak, Unnecessary
 
-case class Ruling(number: Int, lemma: String, cases: Seq[(Case, Type, String)])
+case class Gradation(strong: String, weak: String, gradationType: GradationType = GradationType.Unnecessary)
+case class Ruling(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(Case, Type, String)])
 
 class NomineRulesParser(stream: Iterator[Char]) {
 
-  import Type._
   import Case._
+  import Type._
 
   var currentCharacter: Option[Char] = Some(' ')
 
@@ -69,11 +72,27 @@ class NomineRulesParser(stream: Iterator[Char]) {
     skipWhiteSpaces
     skip('<')
     val number = collectUntil( !peek.isDigit).toInt
+    val gradation =
+      if peek == ':' then
+        skip(':')
+        skip('G')
+        skip(':')
+        val tpe = peek match {
+          case 'S' => GradationType.Strong
+          case 'W' => GradationType.Weak
+        }
+        consume
+        skip(':')
+        val strong = collectUntil( peek == '-')
+        skip('-')
+        val weak = collectUntil( peek == '>')
+        Some(Gradation(strong, weak, tpe))
+      else None
     skip('>')
     val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
     val lemma = lines.find(value => value._1 == Nominative && value._2 == Singular).get._3.head
     val wordList = lines.flatMap(a => a._3.map(b => (a._1, a._2, b)))
-    Ruling(number, lemma, wordList)
+    Ruling(number, lemma, gradation, wordList)
 
   def parseLine: (Case, Type, Seq[String]) =
     skipWhiteSpaces

@@ -879,7 +879,7 @@ kaikaisi
                                  
 99 = Sana on taipumaton tai vaillinaisesti taipuva.
 
-
+101 = Pronomini
 
 
 ASTEVAIHTELUTYYPIT

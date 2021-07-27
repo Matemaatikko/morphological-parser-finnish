@@ -104,7 +104,7 @@ P|Ins: valtioin
 P|Abe: valtioitta
 P|Kom: valtioine
 
-<4>
+<4:G:S:kk-k>
 S|Nom: laatikko
 S|Gen: laatikon
 S|Par: laatikkoa
@@ -394,7 +394,7 @@ P|Ins: katiskoin
 P|Abe: katiskoitta
 P|Kom: katiskoine
 
-<14>
+<14:G:S:kk-k>
 S|Nom: solakka
 S|Gen: solakan
 S|Par: solakkaa
@@ -439,21 +439,20 @@ S|Abe: korkeatta
 
 P|Nom: korkeat
 P|Gen: korkeiden korkeitten (korkeain)
-P|Par: korkeaita
+P|Par: korkeita
 P|Ine: korkeissa
 P|Ela: korkeista
 P|Ill: korkeisiin korkeihin
-P|Ade: korkeailla
-P|Abl: korkeailta
+P|Ade: korkeilla
+P|Abl: korkeilta
 P|All: korkeille
-P|Ess: korkeaina
+P|Ess: korkeina
 P|Tra: korkeiksi
 P|Ins: korkein
-P|Abe: koreitta
+P|Abe: korkeitta
 P|Kom: korkeine
 
-
-<16>
+<16:G:S:mp-mm>
 S|Nom: vanhempi
 S|Gen: vanhemman
 S|Par: vanhempaa
@@ -975,7 +974,7 @@ P|Ins: kytkimin
 P|Abe: kytkimittä
 P|Kom: kytkimine
 
-<34>
+<34:G:W:tt-t>
 S|Nom: onneton
 S|Gen: onnettoman
 S|Par: onnetonta
@@ -1004,7 +1003,7 @@ P|Ins: onnettomin
 P|Abe: onnettomitta
 P|Kom: onnettomine
 
-<35>
+<35:G:W:mp-mm>
 S|Nom: lämmin
 S|Gen: lämpimän
 S|Par: lämmintä
