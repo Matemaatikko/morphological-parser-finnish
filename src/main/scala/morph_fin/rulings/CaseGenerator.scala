@@ -105,8 +105,8 @@ case class Word(lemma: String, number: Int, gradation: Option[Gradation])
 case class ResultWord(word: String, cse: Case, tpe: Type, lemma: String)
 
 enum Vocalization:
-  case FrontWovel // a, o, u
-  case BackWovel //ä, ö, y, i, e
+  case FrontVowel // a, o, u
+  case BackVowel //ä, ö, y, i, e
 
 
 
@@ -138,22 +138,24 @@ object GenerateCases {
 
   def resolveVocalization(lemma: String): Vocalization =
     if lemma.forall(char => char != 'a' && char != 'o' && char != 'u')
-    then Vocalization.BackWovel
-    else Vocalization.FrontWovel
+    then Vocalization.BackVowel
+    else Vocalization.FrontVowel
 
+  //Example: laatikko
   def resolveRulingGradation(lemma: String, root: String, ruling: ExtensiveRuling, gradation: Gradation, lastVowel: Option[Char]) =
     import CaseEnding._
     val vocalization = resolveVocalization(lemma)
     ruling.cases.map(_.asInstanceOf[GradationEnding]).map(
       ending => {
-        val word = root + resolveGradation(ending.gradType, gradation) + updateEnding(ending, vocalization, lastVowel, true)
+        val grad = if ending.gradType == GradationType.Weak then gradation.weak else gradation.strong
+        val word = root + grad + updateEnding(ending, vocalization, lastVowel, true)
         ResultWord(word, ending.cse, ending.tpe, lemma)
       }
     )
 
   def updateEnding(ending: CaseEnding, vocalization: Vocalization, lastVowel: Option[Char], isGradation: Boolean): String =
     val result =
-      if vocalization == Vocalization.BackWovel
+      if vocalization == Vocalization.BackVowel
       then ending.ending.map( _ match {
         case a if a == 'a' => 'ä'
         case a if a == 'o' => 'ö'
@@ -179,33 +181,40 @@ object GenerateCases {
     then vowelUpdated.map(c => if listOfSomeVowels.contains(c) then lastVowel.get else c)
     else vowelUpdated
 
-  def resolveGradation(tpe: GradationType, gradation: Gradation) =
-    if tpe == GradationType.Weak then gradation.weak else gradation.strong
 
-  val list = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
 
+  val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
+
+
+  //Examples: ien, parka
   def resolveWordGradation(lemma: String, root: String, ruling: ExtensiveRuling, gradation: Gradation, lastVowel: Option[Char]) =
     import CaseEnding._
     val vocalization = resolveVocalization(lemma)
-    val lastLetter = lemma.last
-    val gradString =
-      if(list.contains(lastLetter)) gradation.strong
-      else gradation.weak
-    val (updatedRoot, vowel) = if listOfAllVowels.contains(root.last) then (root.dropRight(gradString.length +1), root.last) else (root.dropRight(gradString.length), "")
+
+    val (beforeGradation, afterGradation) = splitByGradationLocation(root, lemma, gradation)
 
     ruling.cases.map(_.asInstanceOf[Normal]).map(
       ending => {
-        val word = updatedRoot +
-          resolveGradationByType(lastLetter, ending.cse, ending.tpe, gradation) + vowel + 
-          updateEnding(ending, vocalization, lastVowel, true) //TODO lastVowel can be removed from Gradation cases
+        val word = beforeGradation +
+          resolveGradationByType(lemma.last, ending.cse, ending.tpe, gradation) +
+          afterGradation +
+          updateEnding(ending, vocalization, lastVowel, true)
         ResultWord(word, ending.cse, ending.tpe, lemma)
       }
     )
 
+  def splitByGradationLocation(root: String, lemma: String, gradation: Gradation): (String, String) =
+    val gradationString = if allVowelsExcepte.contains(lemma.last) then gradation.strong else gradation.weak
+    if listOfAllVowels.contains(root.last) then (root.dropRight(gradationString.length + 1) , root.last.toString)
+    else if root.lastOption != gradationString.headOption then (root.dropRight(gradationString.length + 2) , root.takeRight(2))
+    else (root.dropRight(gradationString.length) , "")
+
+
+
   def resolveGradationByType(lastLetterOfLemma: Char, cse: Case, tpe: Type, gradation: Gradation): String =
     import Case._
     import Type._
-    if list.contains(lastLetterOfLemma) then
+    if allVowelsExcepte.contains(lastLetterOfLemma) then
       (cse, tpe) match {
          case (Nominative, Singular)  => gradation.strong
          case (Partitive, Singular)   => gradation.strong

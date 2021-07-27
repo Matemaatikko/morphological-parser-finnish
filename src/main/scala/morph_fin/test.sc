@@ -33,6 +33,8 @@ genRulings(18).cases.mkString("\n")
 prin("työ", 19, None)*/
 
 prin("kettu", 1, Some('C'))
+prin("ien", 32, Some('D'))
+prin("aie", 48, Some('D'))
 /*
 prin("puu", 18)
 
@@ -54,43 +56,16 @@ val cases4 = GenerateCases(genRulings, ehdoton34)
 println(cases4.mkString("\n"))
 */
 
-def filterAway(word: String):Boolean =
-  word.endsWith("tta")
-    || word.endsWith("äin")
-    || word.endsWith("päiten")
-    || word.endsWith("tta")
-    || word.endsWith("lle")
-    || word.endsWith("lla")
-    || word.endsWith("llä")
-    || word.endsWith("lta")
-    || word.endsWith("ltä")
-    || word.endsWith("ssä")
-    || word.endsWith("ssa")
-    || word.endsWith("sta")
-    || word.endsWith("stä")
-    || word.endsWith("sin")
-    || word.endsWith("oon")
-    || word.endsWith("iin")
-    || word.endsWith("ntä")
-    || word.endsWith("ihin")
-    || word.endsWith("ksi")
-    || word.endsWith("ana")
-    || word.endsWith("aa")
-    || word.endsWith("een")
-    || word.endsWith("ain")
-    || word.endsWith("aan")
-    || word.endsWith("ään")
-    || word.endsWith("nsä")
 
 
-val result: Seq[UpdatedWord] = ReformatKotus(genRulings)
+/*val result: Seq[UpdatedWord] = ReformatKotus(genRulings)
 val errors = result.flatMap(word => word match {
   case UpdatedWord.CompoundError(value, _) => Some(value)
   case _                                => None
 })
 print(errors.mkString("\n"))
 
-ReformatKotus.save(result)
+ReformatKotus.save(result)*/
 /*
 
 print(errors.filter(_.last == 't').mkString("\n"))

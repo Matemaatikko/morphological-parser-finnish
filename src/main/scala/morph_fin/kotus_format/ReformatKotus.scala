@@ -19,8 +19,7 @@ enum UpdatedWord:
   case Pronoun(word: String)
   case Prefix(word: String)
   case NoBending(word: String)
-  case Adverb(word: String)
-  case AdverbSuffix(word: String)
+  case SuffixError(word: String)
   case Error(word: String)
   case CompoundError(word: String, bending: Bending)
 
@@ -30,10 +29,9 @@ object PrintUpdatedWord{
     case Pronoun(value)          => s"U:${value}"
     case Prefix(value)           => s"P:${value}"
     case NoBending(value)        => s"U:${value}"
-    case Adverb(value)           => s"U:${value}"
-    case AdverbSuffix(value)     => s"U:${value}"
-    case Error(value)            => s"U:${value}"
-    case CompoundError(value, _) => s"E:${value}"
+    case SuffixError(value)      => s"E:-${value}"
+    case Error(value)            => s"E:${value}"
+    case CompoundError(value, bending) => s"E:${value}" + bendingString(bending)
     case StandardBending(word, bending) =>
       s"W:${word}" + bendingString(bending)
     case Suffix(word, bending) =>
@@ -84,14 +82,11 @@ object ReformatKotus {
       entry match {
         case Entry(Prefix(value), _)             => UpdatedWord.Prefix(value)
         case Entry(Suffix(value), Some(bending)) => UpdatedWord.Suffix(value, bending)
-        case Entry(Suffix(value), None) =>
-          if(value.endsWith("sti")) UpdatedWord.AdverbSuffix(value)
-          else UpdatedWord.Error(value)
-        case Entry(Word(value), None) if value.endsWith("sti") => UpdatedWord.Adverb(value)
-        case Entry(Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
-        case Entry(Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
+        case Entry(Suffix(value), None)          => UpdatedWord.SuffixError(value)
         case Entry(Word(value), option) if option.isEmpty || option.exists(_.rule == 50)  => resolveCompound(value, false, option)
         case Entry(Word(value), Some(bending)) if bending.rule == 51 => resolveCompound(value, true, Some(bending))
+        case Entry(Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
+        case Entry(Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
         case Entry(Word(value), Some(bending)) => UpdatedWord.StandardBending(value, bending)
       }
 

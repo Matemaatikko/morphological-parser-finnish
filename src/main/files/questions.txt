@@ -14,7 +14,6 @@
 - monikkomuodot täytyy käsitellä
 
 - D has special bending !!!
-
 - Add word: Raamattu
 
 
