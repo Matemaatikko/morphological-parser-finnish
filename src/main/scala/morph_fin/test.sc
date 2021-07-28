@@ -1,6 +1,7 @@
-import morph_fin._
-import morph_fin.kotus_format._
-import morph_fin.rulings._
+import morph_fin.*
+import morph_fin.kotus_format.*
+import morph_fin.rulings.*
+import morph_fin.utils.{Hyphenation, KotusHyphenation}
 
 import java.io.File
 import scala.io.{Codec, Source}
@@ -23,51 +24,49 @@ def prin(word: String, number: Int, gradationLetter: Option[Char]) =
   println(cases.mkString("\n"))
 end prin
 
-//alfasäteet, beetasäteet, diplomaattisuhteet, housunkannattimet, hämäläismurteet, idänsuhteet, ikenet, illanistujaiset, istujaiset, jakopuitteet, kaakkoismurteet, kaikusuhteet, kauppatieteet, keliolosuhteet, korkeussuhteet, koulutarvikkeet, kuteet, lenkkivaatteet, liinavaatteet, likavaatteet, lounaismurteet, LVI-työt, lyydiläismurteet, lännensuhteet, länsisuhteet, mittasuhteet, olosuhteet, ompelutarvikkeet, perhesiteet, perhesuhteet, perintöhopeat, petivaatteet, piirustustarvikkeet, pitkäthousut, pitovaatteet, pukimet, pyhävaatteet, pöytähopeat, rohtimet, ruokatarpeet, ruumisvaatteet, savakkomurteet, sisävaatteet, sosiaalitieteet, stereokuulokkeet, sänkyvaatteet, sääolosuhteet, toukotyöt, tykötarpeet, työolosuhteet, ulkomaansuhteet, vanginvaatteet, vatsanpeitteet, vetimet, äyrämöismurteet, ääripiirteet
 
-
+/*
 prin("hapsi", 7, None)
 prin("säde", 48, Some('F'))
-/*genRulings(18)
+genRulings(18)
 genRulings(18).cases.mkString("\n")
-prin("työ", 19, None)*/
+prin("työ", 19, None)
 
 prin("kettu", 1, Some('C'))
 prin("ien", 32, Some('D'))
 prin("aie", 48, Some('D'))
-/*
-prin("puu", 18)
 
-val aavikko4 = Word("aavikko", 4, Some(Gradation("kk", "k", GradationType.Strong)))
-val cases = GenerateCases(genRulings, aavikko4)
-println(cases.mkString("\n"))
+prin("raffinoitunut", 47, None)
+prin("rahkeet", 48, Some('L'))
+prin("rattaat", 41, Some('C'))
+prin("ratas", 41, Some('C'))
+prin("reivit", 5, None)
+prin("riekkujaiset", 38, None)*/
 
-val aiti4 = Word("äiti", 5, Some(Gradation("t", "d", GradationType.Strong)))
-val cases2 = GenerateCases(genRulings, aiti4)
-println(cases2.mkString("\n"))
-
-val aima10 = Word("äimä", 10, None)
-val cases3 = GenerateCases(genRulings, aima10)
-println(cases3.mkString("\n"))
+//prin("valta", 9, Some('I'))
+prin("pitkä", 10, None)
+prin("iso", 1, None)
 
 
-val ehdoton34 = Word("ehdoton", 34, Some(Gradation("tt", "t", GradationType.Weak)))
-val cases4 = GenerateCases(genRulings, ehdoton34)
-println(cases4.mkString("\n"))
-*/
+/*Hyphenation.apply("kettu").mkString("-")
+Hyphenation.apply("öljytuikku").mkString("-")
+Hyphenation.apply("öljysorastaa").mkString("-")
+Hyphenation.apply("öljynviejämaa").mkString("-")
+Hyphenation.apply("öljynjalostusteollisuus").mkString("-")
+Hyphenation.apply("nähtävissä").mkString("-")
+Hyphenation.apply("kihlakunnansyyttäjä").mkString("-")
+Hyphenation.apply("syysilta").mkString("-")*/
 
-
+//println(KotusHyphenation.apply().mkString("\n"))
 
 /*val result: Seq[UpdatedWord] = ReformatKotus(genRulings)
+
 val errors = result.flatMap(word => word match {
-  case UpdatedWord.CompoundError(value, _) => Some(value)
-  case _                                => None
+  case a: UpdatedWord.Error => Some(a)
+  case _                    => None
 })
+println("Errors: " + errors.length)
 print(errors.mkString("\n"))
 
 ReformatKotus.save(result)*/
-/*
 
-print(errors.filter(_.last == 't').mkString("\n"))
-
-print(errors.filter(_.last != 't').filterNot(filterAway(_)).mkString("\n"))*/

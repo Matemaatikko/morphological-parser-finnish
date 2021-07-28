@@ -930,7 +930,7 @@ reikä : reiän
 hakea : haen
 
 – : k
-aie : aikeen
+aie  : aikeen
 maata : makaan
 
 

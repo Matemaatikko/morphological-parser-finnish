@@ -1777,7 +1777,7 @@ W:alus:B:39
 C1:alusastia:P:alus:S:astia:B:12
 C1:alusasu:P:alus:S:asu:B:1
 C1:alushame:P:alus:S:hame:B:48
-C1:alushousu:P:alus:S:housu:B:1
+C1:alushousut:P:alus:S:housut:B:1
 C1:aluskasvillisuus:P:alus:S:kasvillisuus:B:40
 C1:aluslaatta:P:alus:S:laatta:B:9:L:C
 C1:aluslakana:P:alus:S:lakana:B:12
@@ -3274,7 +3274,7 @@ W:asuntola:B:12
 C1:asuntolaina:P:asunto:S:laina:B:9
 C1:asuntolaiva:P:asunto:S:laiva:B:9
 C1:asuntoluotto:P:asunto:S:luotto:B:1:L:C
-C1:asuntomessu:P:asuntom:S:essu:B:1
+C1:asuntomessu:P:asunto:S:messu:B:1
 C1:asuntomurto:P:asunto:S:murto:B:1:L:K
 C1:asunto-oikeus:P:asunto:S:oikeus:B:40
 C1:asuntoolo:P:asunto:S:olo:B:1
@@ -4174,8 +4174,8 @@ W:biisoni:B:6
 C1:biisonihärkä:P:biisoni:S:härkä:B:10:L:D
 W:biitti:B:5:L:C
 W:bikarbonaatti:B:5:L:C
-C1:bikinialushousu:P:bikinialus:S:housu:B:1
-C1:bikinihousu:P:bikini:S:housu:B:1
+C1:bikinialushousut:P:bikinialus:S:housut:B:1
+C1:bikinihousut:P:bikini:S:housut:B:1
 W:bikinit:B:6
 W:bilanssi:B:5
 W:bilateraalinen:B:38
@@ -5297,7 +5297,7 @@ C1:edustuskyky:P:edustus:S:kyky:B:1:L:M
 C1:edustuskykyinen:P:edustus:S:kykyinen:B:38
 C1:edustuslaitos:P:edustus:S:laitos:B:39
 C1:edustuslounas:P:edustus:S:lounas:B:41
-C1:edustusmeno:P:edustusm:S:eno:B:1
+C1:edustusmeno:P:edustus:S:meno:B:1
 C1:edustusoikeus:P:edustu:S:soikeus:B:40
 C1:edustustehtävä:P:edustus:S:tehtävä:B:10
 C1:edustustilaisuus:P:edustus:S:tilaisuus:B:40
@@ -6192,7 +6192,7 @@ U:enintään
 U:eniten
 W:enkeli:B:6
 C1:enkelikuoro:P:enkeli:S:kuoro:B:1
-C1:enkelinkiharka:P:enkelinkih:S:arka:B:9:L:D
+C1:enkelinkihara:P:enkelin:S:kihara:B:11
 W:ennakko:B:4:L:A
 P:ennakko
 C1:ennakkoaavistus:P:ennakko:S:aavistus:B:39
@@ -7766,7 +7766,7 @@ W:farmanomi:B:5
 W:farmari:B:6
 C1:farmariauto:P:farmari:S:auto:B:1
 C1:farmarihame:P:farmari:S:hame:B:48
-C1:farmarihousu:P:farmari:S:housu:B:1
+C1:farmarihousut:P:farmari:S:housut:B:1
 W:farmarikangas:B:41:L:G
 W:farmarikankainen:B:38
 C1:farmaripusero:P:farmari:S:pusero:B:2
@@ -8509,7 +8509,7 @@ W:golf:B:5
 W:golfaaja:B:10
 W:golfata:B:73
 W:golffari:B:6
-C1:golfhousu:P:golf:S:housu:B:1
+C1:golfhousut:P:golf:S:housut:B:1
 C1:golfinpelaaja:P:golfin:S:pelaaja:B:10
 C1:golfmaila:P:golf:S:maila:B:9
 C1:golfpallo:P:golf:S:pallo:B:1
@@ -8708,7 +8708,7 @@ W:haarautua:B:52:L:F
 W:haarautuma:B:10
 W:haarautumiskohta:B:10:L:F
 W:haaremi:B:6
-C1:haaremihousu:P:haaremi:S:housu:B:1
+C1:haaremihousut:P:haaremi:S:housut:B:1
 W:haarikka:B:14:L:A
 W:haarikko:B:4:L:A
 W:haarniska:B:13
@@ -10806,7 +10806,7 @@ C1:henkireikä:P:henki:S:reikä:B:10:L:D
 C1:henkiriepu:P:henki:S:riepu:B:1:L:E
 C1:henkirikollinen:P:henki:S:rikollinen:B:38
 C1:henkirikos:P:henki:S:rikos:B:39
-C1:henkisapu:P:henkis:S:apu:B:1:L:E
+C1:henkisavu:P:henki:S:savu:B:1
 U:henkisesti
 W:henkistyä:B:52
 W:henkistää:B:53
@@ -10976,7 +10976,7 @@ C1:hermoratahieronta:P:hermorata:S:hieronta:B:9:L:J
 C1:hermoraunio:P:hermo:S:raunio:B:3
 C1:hermoromahdus:P:hermo:S:romahdus:B:39
 C1:hermosairaus:P:hermo:S:sairaus:B:40
-C1:hermosapu:P:hermos:S:apu:B:1:L:E
+C1:hermosavu:P:hermo:S:savu:B:1
 C1:hermosolmu:P:hermo:S:solmu:B:1
 C1:hermosolu:P:hermo:S:solu:B:1
 C1:hermosota:P:hermo:S:sota:B:10:L:F
@@ -11417,7 +11417,7 @@ W:hiihto:B:1:L:F
 C1:hiihtoasu:P:hiihto:S:asu:B:1
 C1:hiihtoesteratsastus:P:hiihtoeste:S:ratsastus:B:39
 C1:hiihtohissi:P:hiihto:S:hissi:B:5
-C1:hiihtohousu:P:hiihto:S:housu:B:1
+C1:hiihtohousut:P:hiihto:S:housut:B:1
 C1:hiihtojoukkue:P:hiihto:S:joukkue:B:48
 C1:hiihtokausi:P:hiihto:S:kausi:B:27
 C1:hiihtokeli:P:hiihto:S:keli:B:5
@@ -12479,7 +12479,7 @@ C1:housuprässi:P:housu:S:prässi:B:5
 C1:housupuku:P:housu:S:puku:B:1:L:M
 U:housusillaan
 U:housusilleen
-W:housu:B:1
+W:housut:B:1
 W:hovi:B:5
 C1:hovietiketti:P:hovi:S:etiketti:B:5:L:C
 C1:hovihankkija:P:hovi:S:hankkija:B:12
@@ -13913,7 +13913,7 @@ W:häppä:B:10:L:B
 W:häpy:B:1:L:E
 C1:häpyhuuli:P:häpy:S:huuli:B:24
 C1:häpykannus:P:häpy:S:kannus:B:39
-C1:häpykarpa:P:häpyk:S:arpa:B:9:L:E
+C1:häpykarva:P:häpy:S:karva:B:9
 C1:häpykarvoitus:P:häpy:S:karvoitus:B:39
 C1:häpykieli:P:häpy:S:kieli:B:26
 C1:häpykukkula:P:häpy:S:kukkula:B:12
@@ -14087,7 +14087,7 @@ W:häälyväinen:B:38
 W:häälyä:B:52
 C1:häämarssi:P:hää:S:marssi:B:5
 C1:häämatka:P:hää:S:matka:B:9
-C1:häämeno:P:hääm:S:eno:B:1
+C1:häämeno:P:hää:S:meno:B:1
 W:häämöttää:B:53:L:C
 W:häämötys:B:39
 W:hääpari:B:5
@@ -15005,7 +15005,7 @@ C1:ilmatäytteinen:P:ilma:S:täytteinen:B:38
 W:ilmaus:B:39
 W:ilmava:B:10
 W:ilmavaara:B:9
-C1:ilmavaiva:P:ilmava:S:iva:B:9
+C1:ilmavaiva:P:ilma:S:vaiva:B:9
 C1:ilmavalokuva:P:ilmavalo:S:kuva:B:10
 C1:ilmavalokuvaus:P:ilmavalo:S:kuvaus:B:39
 C1:ilmavalvonta:P:ilma:S:valvonta:B:9:L:J
@@ -15471,7 +15471,7 @@ W:inhotus:B:39
 W:ininä:B:12
 W:inistä:B:66
 W:initiaatio:B:3
-C1:initiaatiomeno:P:initiaatiom:S:eno:B:1
+C1:initiaatiomeno:P:initiaatio:S:meno:B:1
 W:injektio:B:3
 C1:injektioruisku:P:injektio:S:ruisku:B:1
 W:injektoida:B:62
@@ -15771,7 +15771,7 @@ W:irtisanomissuoja:B:10
 C1:irtisanoutua:P:irti:S:sanoutua:B:52:L:F
 P:irto
 C1:irtohius:P:irto:S:hius:B:39
-C1:irtohousu:P:irto:S:housu:B:1
+C1:irtohousut:P:irto:S:housut:B:1
 C1:irtokaramelli:P:irto:S:karamelli:B:5
 C1:irtokaulus:P:irto:S:kaulus:B:39
 W:irtolainen:B:38
@@ -15944,7 +15944,7 @@ U:isosti
 C1:isosuinen:P:iso:S:suinen:B:38
 W:isota:B:72
 W:isota:B:74
-C2:isoaivo:P:iso:B:1:S:aivo:B:1
+E:isotaivot:B:51
 W:isotella:B:67:L:C
 W:isotermi:B:5
 W:isotooppi:B:5:L:B
@@ -17368,7 +17368,7 @@ C1:juhlaliputus:P:juhla:S:liputus:B:39
 W:juhlallinen:B:38
 U:juhlallisesti
 W:juhlallisuus:B:40
-C1:juhlameno:P:juhlam:S:eno:B:1
+C1:juhlameno:P:juhla:S:meno:B:1
 C1:juhlamerkki:P:juhla:S:merkki:B:5:L:A
 C1:juhlamieli:P:juhla:S:mieli:B:26
 C1:juhlamielinen:P:juhla:S:mielinen:B:38
@@ -19171,7 +19171,7 @@ W:kahlita:B:69
 W:kahlitsematon:B:34:L:C
 W:kahluu:B:17
 C1:kahluuallas:P:kahluu:S:allas:B:41:L:I
-C1:kahluuhousu:P:kahluu:S:housu:B:1
+C1:kahluuhousut:P:kahluu:S:housut:B:1
 C1:kahluujalka:P:kahluu:S:jalka:B:9:L:D
 C1:kahluupaikka:P:kahluu:S:paikka:B:9:L:A
 C1:kahluusaapas:P:kahluu:S:saapas:B:41:L:B
@@ -19345,7 +19345,7 @@ W:kaimakset:B:39
 W:kainalo:B:2
 C1:kainalohiki:P:kainalo:S:hiki:B:7:L:D
 W:kainaloinen:B:38
-C1:kainalokarpa:P:kainalok:S:arpa:B:9:L:E
+C1:kainalokarva:P:kainalo:S:karva:B:9
 C1:kainalokotelo:P:kainalo:S:kotelo:B:2
 C1:kainalokuoppa:P:kainalo:S:kuoppa:B:10:L:B
 C1:kainalolämpö:P:kainalo:S:lämpö:B:1:L:H
@@ -23088,7 +23088,7 @@ W:kellonlyömä:B:10
 C1:kellonlyönti:P:kellon:S:lyönti:B:5:L:J
 C1:kellonmuotoinen:P:kellon:S:muotoinen:B:38
 C1:kellonmäärä:P:kellon:S:määrä:B:10
-C1:kellonperä:P:kellonp:S:erä:B:10
+C1:kellonperä:P:kellon:S:perä:B:10
 C1:kellonsoittaja:P:kellon:S:soittaja:B:10
 C1:kellonsoitto:P:kellon:S:soitto:B:1:L:C
 W:kellontikitys:B:39
@@ -24176,7 +24176,7 @@ U:keväämmällä
 U:keväämmäs
 U:keväämpänä
 W:khaki:B:5
-C1:khakihousu:P:khaki:S:housu:B:1
+C1:khakihousut:P:khaki:S:housut:B:1
 C1:khakinvärinen:P:khakin:S:värinen:B:38
 C1:khakipuku:P:khaki:S:puku:B:1:L:M
 C1:khakipukuinen:P:khaki:S:pukuinen:B:38
@@ -26807,7 +26807,7 @@ C1:kokonaiskustannus:P:kokonais:S:kustannus:B:39
 C1:kokonaiskuva:P:kokonais:S:kuva:B:10
 C1:kokonaiskäsitys:P:kokonais:S:käsitys:B:39
 C1:kokonaisluku:P:kokonais:S:luku:B:1:L:M
-C1:kokonaismeno:P:kokonaism:S:eno:B:1
+C1:kokonaismeno:P:kokonais:S:meno:B:1
 C1:kokonaismäärä:P:kokonais:S:määrä:B:10
 C1:kokonaisnäkemys:P:kokonais:S:näkemys:B:39
 C1:kokonaisobjekti:P:kokonais:S:objekti:B:5
@@ -27991,7 +27991,7 @@ C1:korkolappu:P:korko:S:lappu:B:1:L:B
 C1:korkolasku:P:korko:S:lasku:B:1
 C1:korkolippu:P:korko:S:lippu:B:1:L:B
 C1:korkomarginaali:P:korko:S:marginaali:B:5
-C1:korkomeno:P:korkom:S:eno:B:1
+C1:korkomeno:P:korko:S:meno:B:1
 C1:korkomerkki:P:korko:S:merkki:B:5:L:A
 C1:korko-ompelu:P:korko:S:ompelu:B:2
 C1:korkopainanta:P:korko:S:painanta:B:9:L:J
@@ -28261,7 +28261,7 @@ C1:kosimakirje:P:kosima:S:kirje:B:48
 W:kosini:B:5
 W:kosinta:B:9:L:J
 C1:kosintamatka:P:kosinta:S:matka:B:9
-C1:kosintameno:P:kosintam:S:eno:B:1
+C1:kosintameno:P:kosinta:S:meno:B:1
 C1:kosintaretki:P:kosinta:S:retki:B:7
 C1:kosiomatka:P:kosio:S:matka:B:9
 C1:kosioretki:P:kosio:S:retki:B:7
@@ -29829,7 +29829,7 @@ C1:kulutusjuhla:P:kulutus:S:juhla:B:10
 C1:kulutuskestävyys:P:kulutus:S:kestävyys:B:40
 C1:kulutusluotto:P:kulutus:S:luotto:B:1:L:C
 C1:kulutusmaito:P:kulutus:S:maito:B:1:L:F
-C1:kulutusmeno:P:kulutusm:S:eno:B:1
+C1:kulutusmeno:P:kulutus:S:meno:B:1
 C1:kulutusosuuskunta:P:kulutusosuus:S:kunta:B:10:L:J
 C1:kulutusosuustoiminta:P:kulutusosuus:S:toiminta:B:9:L:J
 C1:kulutuspinta:P:kulutus:S:pinta:B:9:L:J
@@ -30561,7 +30561,7 @@ C1:kupusuojain:P:kupu:S:suojain:B:33
 W:kura:B:10
 W:kuraantua:B:52:L:J
 W:kuraattori:B:6
-C1:kurahousu:P:kura:S:housu:B:1
+C1:kurahousut:P:kura:S:housut:B:1
 W:kurainen:B:38
 C1:kurakeli:P:kura:S:keli:B:5
 C1:kuralammikko:P:kura:S:lammikko:B:4:L:A
@@ -33270,7 +33270,7 @@ C1:lahjatavara:P:lahja:S:tavara:B:12
 C1:lahjateos:P:lahja:S:teos:B:39
 W:lahjaton:B:34:L:C
 W:lahjattomuus:B:40
-C1:lahjavarka:P:lahjav:S:arka:B:9:L:D
+C1:lahjavara:P:lahj:S:avara:B:10
 C1:lahjavero:P:lahja:S:vero:B:1
 W:lahje:B:48:L:L
 W:lahjoa:B:52
@@ -33437,7 +33437,7 @@ W:lainaus:B:39
 W:lainausaika:B:9:L:D
 C1:lainausmerkki:P:lainaus:S:merkki:B:5:L:A
 W:lainautua:B:52:L:F
-C1:lainavarka:P:lainav:S:arka:B:9:L:D
+C1:lainavara:P:lain:S:avara:B:10
 W:laine:B:48
 W:lainehdinta:B:9:L:J
 W:lainehtia:B:61:L:F
@@ -35372,7 +35372,7 @@ C1:lenkkimakkara:P:lenkki:S:makkara:B:12
 C1:lenkkipolku:P:lenkki:S:polku:B:1:L:D
 C1:lenkkipuku:P:lenkki:S:puku:B:1:L:M
 C1:lenkkitossu:P:lenkki:S:tossu:B:1
-C1:lenkkivaate:P:lenkkiv:S:aate:B:48:L:C
+C1:lenkkivaate:P:lenkki:S:vaate:B:48:L:C
 W:lenko:B:1:L:G
 C1:lenkosääri:P:lenko:S:sääri:B:26
 C1:lenkosäärinen:P:lenko:S:säärinen:B:38
@@ -35687,7 +35687,7 @@ C1:leukalukko:P:leuka:S:lukko:B:1:L:A
 C1:leukaluu:P:leuka:S:luu:B:18
 C1:leukanivel:P:leuka:S:nivel:B:32
 C1:leukaparta:P:leuka:S:parta:B:9:L:K
-C1:leukaperä:P:leukap:S:erä:B:10
+C1:leukaperä:P:leuka:S:perä:B:10
 C1:leukapieli:P:leuka:S:pieli:B:26
 C1:leukarihma:P:leuka:S:rihma:B:9
 W:leukava:B:10
@@ -36356,7 +36356,7 @@ C1:liinaharjainen:P:liina:S:harjainen:B:38
 W:liinakko:B:4:L:A
 C1:liinatukka:P:liina:S:tukka:B:10:L:A
 C1:liinatukkainen:P:liina:S:tukkainen:B:38
-C1:liinavaate:P:liinav:S:aate:B:48:L:C
+C1:liinavaate:P:liina:S:vaate:B:48:L:C
 U:liioin
 W:liioitella:B:67:L:C
 W:liioittelu:B:2
@@ -36479,7 +36479,7 @@ C1:likasanko:P:lika:S:sanko:B:1:L:G
 C1:likasankojournalismi:P:likasanko:S:journalismi:B:5
 C1:likavaatekori:P:likavaate:S:kori:B:5
 C1:likavaatepussi:P:likavaate:S:pussi:B:5
-C1:likavaate:P:likav:S:aate:B:48:L:C
+C1:likavaate:P:lika:S:vaate:B:48:L:C
 C1:likavesi:P:lika:S:vesi:B:27
 C1:likaviemäri:P:lika:S:viemäri:B:6
 C1:likaämpäri:P:lika:S:ämpäri:B:6
@@ -41539,7 +41539,7 @@ W:materiaalistaa:B:53
 W:materiaalistua:B:52
 C1:materiaalitaistelu:P:materiaali:S:taistelu:B:2
 C1:materiaalitappio:P:materiaali:S:tappio:B:3
-C1:materiaalitoiminto:P:materiaalitoim:S:into:B:1:L:J
+C1:materiaalitoiminto:P:materiaali:S:toiminto:B:1:L:J
 C1:materiaaliylivoima:P:materiaaliyli:S:voima:B:10
 W:materialisaatio:B:3
 W:materialismi:B:5
@@ -44449,7 +44449,7 @@ W:muona:B:10
 C1:muona-annos:P:muona:S:annos:B:39
 C1:muonamies:P:muona:S:mies:B:42
 C1:muonavahvuus:P:muona:S:vahvuus:B:40
-C1:muonavarka:P:muonav:S:arka:B:9:L:D
+C1:muonavara:P:muon:S:avara:B:10
 W:muonittaa:B:53:L:C
 W:muonittamo:B:2
 W:muonitus:B:39
@@ -45848,7 +45848,7 @@ W:nahka:B:9:L:D
 C1:nahkahame:P:nahka:S:hame:B:48
 C1:nahkahansikas:P:nahka:S:hansikas:B:41:L:A
 C1:nahkahihna:P:nahka:S:hihna:B:9
-C1:nahkahousu:P:nahka:S:housu:B:1
+C1:nahkahousut:P:nahka:S:housut:B:1
 C1:nahkahuonekalu:P:nahkahuone:S:kalu:B:1
 W:nahkainen:B:38
 S:nahkaisuus:B:40
@@ -47134,7 +47134,7 @@ C1:niskasärky:P:niska:S:särky:B:1:L:D
 C1:niskatuki:P:niska:S:tuki:B:7:L:D
 C1:niskatukka:P:niska:S:tukka:B:10:L:A
 C1:niskatyyny:P:niska:S:tyyny:B:1
-C1:niskavilta:P:niskav:S:ilta:B:9:L:I
+C1:niskavilla:P:niska:S:villa:B:9
 W:niskoitella:B:67:L:C
 W:niskoittelija:B:12
 W:niskoittelu:B:2
@@ -48675,7 +48675,7 @@ W:ohjanta:B:9:L:J
 W:ohjas:B:39
 C1:ohjaskelkka:P:ohjas:S:kelkka:B:9:L:A
 C1:ohjaskelkkailu:P:ohjas:S:kelkkailu:B:2
-C1:ohjasperä:P:ohjasp:S:erä:B:10
+C1:ohjasperä:P:ohjas:S:perä:B:10
 W:ohjastaa:B:53
 W:ohjastaja:B:10
 W:ohjastus:B:39
@@ -51319,7 +51319,7 @@ C1:palkkaliite:P:palkka:S:liite:B:48:L:C
 C1:palkkalista:P:palk:S:kalista:B:66
 C1:palkkaliukuma:P:palkka:S:liukuma:B:10
 C1:palkkaluokka:P:palkka:S:luokka:B:10:L:A
-C1:palkkameno:P:palkkam:S:eno:B:1
+C1:palkkameno:P:palkka:S:meno:B:1
 C1:palkkamurhaaja:P:palkka:S:murhaaja:B:10
 C1:palkkanauha:P:palkka:S:nauha:B:9
 C1:palkkaneuvottelu:P:palkka:S:neuvottelu:B:2
@@ -51607,7 +51607,7 @@ C1:palviliha:P:palvi:S:liha:B:9
 W:palvoa:B:52
 W:palvoja:B:10
 W:palvonta:B:9:L:J
-C1:palvontameno:P:palvontam:S:eno:B:1
+C1:palvontameno:P:palvonta:S:meno:B:1
 C1:palvontapaikka:P:palvonta:S:paikka:B:9:L:A
 U:palvovasti
 W:pamahdella:B:67:L:F
@@ -52701,7 +52701,7 @@ C1:peliautomaatti:P:peli:S:automaatti:B:5:L:C
 C1:peliharjoitus:P:peli:S:harjoitus:B:39
 C1:pelihelvetti:P:peli:S:helvetti:B:5:L:C
 C1:pelihimo:P:peli:S:himo:B:1
-C1:pelihousu:P:peli:S:housu:B:1
+C1:pelihousut:P:peli:S:housut:B:1
 C1:pelihuone:P:peli:S:huone:B:48
 C1:pelihuoneisto:P:peli:S:huoneisto:B:2
 C1:pelihuumori:P:peli:S:huumori:B:6
@@ -53791,7 +53791,7 @@ W:peti:B:5:L:F
 W:petiitti:B:5:L:C
 C1:petiittikirjain:P:petiitti:S:kirjain:B:33
 C1:petikaveri:P:peti:S:kaveri:B:6
-C1:petivaate:P:petiv:S:aate:B:48:L:C
+C1:petivaate:P:peti:S:vaate:B:48:L:C
 W:petkel:B:49
 W:petkele:B:49
 W:petkuttaa:B:53:L:C
@@ -54269,7 +54269,7 @@ W:piipullinen:B:38
 C1:piipunkoppa:P:piipun:S:koppa:B:10:L:B
 C1:piipunnysä:P:piipun:S:nysä:B:10
 C1:piipunperskat:P:piipun:S:perskat:B:9
-C1:piipunperä:P:piipunp:S:erä:B:10
+C1:piipunperä:P:piipun:S:perä:B:10
 C1:piipunpesä:P:piipun:S:pesä:B:10
 C1:piipunpolttaja:P:piipun:S:polttaja:B:10
 C1:piipunpuhdistin:P:piipun:S:puhdistin:B:33
@@ -54502,7 +54502,7 @@ C1:pikkuauto:P:pikku:S:auto:B:1
 C1:pikkubussi:P:pikku:S:bussi:B:5
 C1:pikkuesine:P:pikku:S:esine:B:48
 E:pikkuhiljaa
-C1:pikkuhousu:P:pikku:S:housu:B:1
+C1:pikkuhousut:P:pikku:S:housut:B:1
 C1:pikkuhuilu:P:pikku:S:huilu:B:1
 C1:pikkuilmoitus:P:pikku:S:ilmoitus:B:39
 W:pikkuinen:B:38
@@ -55226,7 +55226,7 @@ W:pitkästyttää:B:53:L:C
 W:pitkästyä:B:52
 C1:pitkäsäärinen:P:pitkä:S:säärinen:B:38
 C2:pitkätakki:P:pitkä:B:10:S:takki:B:5:L:A
-C2:pitkähousu:P:pitkä:B:10:S:housu:B:1
+E:pitkäthousut:B:51
 C1:pitkätukka:P:pitkä:S:tukka:B:10:L:A
 C1:pitkätukkainen:P:pitkä:S:tukkainen:B:38
 W:pitkätukkaisuus:B:40
@@ -55249,7 +55249,7 @@ C1:pitopohjasuksi:P:pitopohja:S:suksi:B:7
 C1:pitopöytä:P:pito:S:pöytä:B:10:L:F
 C1:pitoruoka:P:pito:S:ruoka:B:10:L:D
 C1:pitoteippi:P:pito:S:teippi:B:5:L:B
-C1:pitovaate:P:pitov:S:aate:B:48:L:C
+C1:pitovaate:P:pito:S:vaate:B:48:L:C
 C1:pitovaikeus:P:pito:S:vaikeus:B:40
 C1:pitovoide:P:pito:S:voide:B:48:L:F
 W:pitsa:B:9
@@ -55973,7 +55973,7 @@ C1:polveutumisoppi:P:polveutumi:S:soppi:B:7:L:B
 W:polvi:B:7
 C1:polviasento:P:polvi:S:asento:B:1:L:J
 C1:polviheijaste:P:polvi:S:heijaste:B:48
-C1:polvihousu:P:polvi:S:housu:B:1
+C1:polvihousut:P:polvi:S:housut:B:1
 C1:polvi-istunta:P:polvi:S:istunta:B:9:L:J
 C1:polvijänne:P:polvi:S:jänne:B:48:L:J
 C1:polvijänneheijaste:P:polvijänne:S:heijaste:B:48
@@ -56530,7 +56530,7 @@ W:potkija:B:12
 W:potkiskella:B:67
 W:potku:B:1
 W:potku:B:1
-C1:potkuhousu:P:potku:S:housu:B:1
+C1:potkuhousut:P:potku:S:housut:B:1
 S:potkuinen:B:38
 C1:potkukelkka:P:potku:S:kelkka:B:9:L:A
 C1:potkulauta:P:potku:S:lauta:B:9:L:F
@@ -57004,7 +57004,7 @@ W:prutkuttaa:B:53:L:C
 W:prutkutus:B:39
 W:präntti:B:5:L:C
 W:prässi:B:5
-C1:prässihousu:P:prässi:S:housu:B:1
+C1:prässihousut:P:prässi:S:housut:B:1
 C1:prässipuolustus:P:prässi:S:puolustus:B:39
 W:prässätä:B:73
 W:prässäys:B:39
@@ -57164,7 +57164,7 @@ C1:puhdistuskaivo:P:puhdistus:S:kaivo:B:1
 C1:puhdistuskasetti:P:puhdistus:S:kasetti:B:5:L:C
 C1:puhdistuslaitos:P:puhdistus:S:laitos:B:39
 C1:puhdistusmaito:P:puhdistus:S:maito:B:1:L:F
-C1:puhdistusmeno:P:puhdistusm:S:eno:B:1
+C1:puhdistusmeno:P:puhdistus:S:meno:B:1
 C1:puhdistusnauha:P:puhdistus:S:nauha:B:9
 C1:puhdistusneste:P:puhdistus:S:neste:B:48
 C1:puhdistuspuikko:P:puhdistus:S:puikko:B:1:L:A
@@ -58212,7 +58212,7 @@ C1:puolustuslaitos:P:puolustus:S:laitos:B:39
 C1:puolustusliitto:P:puolustus:S:liitto:B:1:L:C
 C1:puolustuslinja:P:puolustus:S:linja:B:9
 C1:puolustusmekanismi:P:puolustus:S:mekanismi:B:5
-C1:puolustusmeno:P:puolustusm:S:eno:B:1
+C1:puolustusmeno:P:puolustus:S:meno:B:1
 C1:puolustusministeri:P:puolustus:S:ministeri:B:6
 C1:puolustusministeriö:P:puolustus:S:ministeriö:B:3
 C1:puolustusneuvosto:P:puolustus:S:neuvosto:B:2
@@ -58477,7 +58477,7 @@ U:pusseittain
 W:pussi:B:5
 C1:pussieläin:P:pussi:S:eläin:B:33
 C1:pussihiha:P:pussi:S:hiha:B:9
-C1:pussihousu:P:pussi:S:housu:B:1
+C1:pussihousut:P:pussi:S:housut:B:1
 C1:pussijuoksu:P:pussi:S:juoksu:B:1
 C1:pussikarhu:P:pussi:S:karhu:B:1
 C1:pussikatu:P:pussi:S:katu:B:1:L:F
@@ -58879,7 +58879,7 @@ C1:pyhäpäivä:P:pyhä:S:päivä:B:10
 U:pyhästi
 W:pyhättö:B:1:L:C
 C1:pyhätyö:P:pyhä:S:työ:B:19
-C1:pyhävaate:P:pyhäv:S:aate:B:48:L:C
+C1:pyhävaate:P:pyhä:S:vaate:B:48:L:C
 W:pyjama:B:10
 U:pyjamaisillaan
 W:pykimä:B:10
@@ -60627,7 +60627,7 @@ C1:rahavaikeus:P:raha:S:vaikeus:B:40
 C1:rahavalta:P:raha:S:valta:B:9:L:I
 C1:rahavaltainen:P:raha:S:valtainen:B:38
 C1:rahavaltaisuus:P:raha:S:valtaisuus:B:40
-C1:rahavarka:P:rahav:S:arka:B:9:L:D
+C1:rahavara:P:rah:S:avara:B:10
 C1:rahavirta:P:raha:S:virta:B:9:L:K
 C1:rahayksikkö:P:raha:S:yksikkö:B:4:L:A
 W:rahdata:B:73:L:F
@@ -61641,7 +61641,7 @@ W:ratsastella:B:67
 C1:ratsastuksenopettaja:P:ratsastuksen:S:opettaja:B:10
 W:ratsastus:B:39
 W:ratsastushalli:B:5
-C1:ratsastushousu:P:ratsastus:S:housu:B:1
+C1:ratsastushousut:P:ratsastus:S:housut:B:1
 C1:ratsastuskenttä:P:ratsastus:S:kenttä:B:10:L:C
 C1:ratsastuskilpailu:P:ratsastus:S:kilpailu:B:2
 C1:ratsastuskoulu:P:ratsastus:S:koulu:B:1
@@ -63124,7 +63124,7 @@ C1:rintaelinkirurgia:P:rintaelin:S:kirurgia:B:12
 C1:rintaevä:P:rinta:S:evä:B:10
 S:rintainen:B:38
 C1:rintakappale:P:rinta:S:kappale:B:48
-C1:rintakarpa:P:rintak:S:arpa:B:9:L:E
+C1:rintakarva:P:rinta:S:karva:B:9
 C1:rintakehä:P:rinta:S:kehä:B:10
 C1:rintakipu:P:rinta:S:kipu:B:1:L:E
 C1:rintakirurgia:P:rinta:S:kirurgia:B:12
@@ -64362,7 +64362,7 @@ C1:ruokalista:P:ruo:S:kalista:B:66
 C1:ruokalusikallinen:P:ruoka:S:lusikallinen:B:38
 C1:ruokalusikka:P:ruoka:S:lusikka:B:14:L:A
 C1:ruokamakkara:P:ruoka:S:makkara:B:12
-C1:ruokameno:P:ruokam:S:eno:B:1
+C1:ruokameno:P:ruoka:S:meno:B:1
 C1:ruokamulta:P:ruoka:S:multa:B:10:L:I
 C1:ruokamyrkytys:P:ruoka:S:myrkytys:B:39
 C1:ruokaohje:P:ruoka:S:ohje:B:48
@@ -64403,7 +64403,7 @@ C1:ruokatottumus:P:ruoka:S:tottumus:B:39
 C1:ruokatunti:P:ruoka:S:tunti:B:5:L:J
 C1:ruokavalio:P:ruoka:S:valio:B:3
 C1:ruokavaliohoito:P:ruokavalio:S:hoito:B:1:L:F
-C1:ruokavarka:P:ruokav:S:arka:B:9:L:D
+C1:ruokavara:P:ruok:S:avara:B:10
 C1:ruokavieras:P:ruoka:S:vieras:B:41
 W:ruokaviini:B:5
 C1:ruokavälitunti:P:ruokaväli:S:tunti:B:5:L:J
@@ -64725,7 +64725,7 @@ C1:ruumismyrkky:P:ruumis:S:myrkky:B:1:L:A
 C1:ruumissaatto:P:ruumis:S:saatto:B:1:L:C
 W:ruumistua:B:52
 W:ruumistuma:B:10
-C1:ruumisvaate:P:ruumisv:S:aate:B:48:L:C
+C1:ruumisvaate:P:ruumis:S:vaate:B:48:L:C
 C1:ruumisvaunu:P:ruumis:S:vaunu:B:1
 W:ruuna:B:10
 W:ruunikko:B:4:L:A
@@ -65538,7 +65538,7 @@ C1:saantokelpoinen:P:saanto:S:kelpoinen:B:38
 C1:saantokelpoisuus:P:saanto:S:kelpoisuus:B:40
 C1:saantokirja:P:saanto:S:kirja:B:9
 W:saapas:B:41:L:B
-C1:saapashousu:P:saapas:S:housu:B:1
+C1:saapashousut:P:saapas:S:housut:B:1
 C1:saapasjalkainen:P:saapas:S:jalkainen:B:38
 C1:saapasmaa:P:saapas:S:maa:B:18
 W:saapaspari:B:5
@@ -66013,7 +66013,7 @@ W:salailla:B:67
 W:salailu:B:2
 W:salainen:B:38
 U:salaisesti
-C1:salaismeno:P:salaism:S:eno:B:1
+C1:salaismeno:P:salais:S:meno:B:1
 W:salaisuus:B:40
 C1:salaiva:P:sa:S:laiva:B:9
 C1:salajuoni:P:sala:S:juoni:B:26
@@ -66072,7 +66072,7 @@ C1:salamatkustaja:P:sala:S:matkustaja:B:10
 C1:salamavalo:P:salama:S:valo:B:1
 C1:salamavalolaite:P:salamavalo:S:laite:B:48:L:C
 C1:salamavauhti:P:salama:S:vauhti:B:5:L:F
-C1:salameno:P:salam:S:eno:B:1
+C1:salameno:P:sala:S:meno:B:1
 C1:salametsästys:P:sala:S:metsästys:B:39
 C1:salametsästäjä:P:sala:S:metsästäjä:B:10
 W:salami:B:5
@@ -66299,7 +66299,7 @@ C1:sametinpehmeä:P:sametin:S:pehmeä:B:15
 W:sametti:B:5:L:C
 C1:samettifarkut:P:sametti:S:farkut:B:1:L:A
 C1:samettifarmari:P:sametti:S:farmari:B:6
-C1:samettihousu:P:sametti:S:housu:B:1
+C1:samettihousut:P:sametti:S:housut:B:1
 C1:samettikukka:P:sametti:S:kukka:B:10:L:A
 C1:samettiminkki:P:sametti:S:minkki:B:5:L:A
 W:samettinen:B:38
@@ -66481,7 +66481,7 @@ C1:sanatulva:P:sana:S:tulva:B:10
 C1:sanavalmis:P:sana:S:valmis:B:41
 C1:sanavalmius:P:sana:S:valmius:B:40
 C1:sanavarasto:P:sana:S:varasto:B:2
-C1:sanavarka:P:sanav:S:arka:B:9:L:D
+C1:sanavara:P:san:S:avara:B:10
 C1:sanavuolaus:P:sana:S:vuolaus:B:40
 C1:sanaväli:P:sana:S:väli:B:5
 W:sandaali:B:6
@@ -66703,7 +66703,7 @@ U:sarjoittain
 W:sarjoitus:B:39
 W:sarka:B:9:L:D
 W:sarka:B:9:L:D
-C1:sarkahousu:P:sarka:S:housu:B:1
+C1:sarkahousut:P:sarka:S:housut:B:1
 W:sarkain:B:33
 W:sarkainen:B:38
 W:sarkainen:B:38
@@ -68600,7 +68600,7 @@ C1:siirtomaatavara:P:siirtomaa:S:tavara:B:12
 C1:siirtomaatavarakauppa:P:siirtomaatavara:S:kauppa:B:9:L:B
 C1:siirtomaatyyli:P:siirtomaa:S:tyyli:B:5
 C1:siirtomaavalta:P:siirtomaa:S:valta:B:9:L:I
-C1:siirtomeno:P:siirtom:S:eno:B:1
+C1:siirtomeno:P:siirto:S:meno:B:1
 C1:siirtomerkintä:P:siirto:S:merkintä:B:9:L:J
 C1:siirtomääräraha:P:siirtomäärä:S:raha:B:9
 C1:siirtomääräys:P:siirto:S:määräys:B:39
@@ -69722,7 +69722,7 @@ U:sisätysten
 C1:sisätyö:P:sisä:S:työ:B:19
 C1:sisätähystys:P:sisä:S:tähystys:B:39
 C1:sisäurheilu:P:sisä:S:urheilu:B:2
-C1:sisävaate:P:sisäv:S:aate:B:48:L:C
+C1:sisävaate:P:sisä:S:vaate:B:48:L:C
 C1:sisävalaisin:P:sisä:S:valaisin:B:33
 C1:sisävalo:P:sisä:S:valo:B:1
 C1:sisävesi:P:sisä:S:vesi:B:27
@@ -70268,7 +70268,7 @@ C1:soidensuojelu:P:soiden:S:suojelu:B:2
 C1:soidensuojelualue:P:soidensuojelu:S:alue:B:48
 W:soidin:B:33:L:F
 W:soidinlento:B:1:L:J
-C1:soidinmeno:P:soidinm:S:eno:B:1
+C1:soidinmeno:P:soidin:S:meno:B:1
 C1:soidinpaikka:P:soidin:S:paikka:B:9:L:A
 C1:soidinpuku:P:soidin:S:puku:B:1:L:M
 C1:soidinääni:P:soidin:S:ääni:B:26
@@ -70927,7 +70927,7 @@ C1:sosiaalikasvattaja:P:sosiaali:S:kasvattaja:B:10
 C1:sosiaaliluokka:P:sosiaali:S:luokka:B:10:L:A
 C1:sosiaaliluukku:P:sosiaali:S:luukku:B:1:L:A
 C1:sosiaalilääketiede:P:sosiaalilääke:S:tiede:B:48:L:F
-C1:sosiaalimeno:P:sosiaalim:S:eno:B:1
+C1:sosiaalimeno:P:sosiaali:S:meno:B:1
 C1:sosiaaliministeri:P:sosiaali:S:ministeri:B:6
 C1:sosiaaliministeriö:P:sosiaali:S:ministeriö:B:3
 W:sosiaalinen:B:38
@@ -71184,7 +71184,7 @@ C1:sotilasmaine:P:sotilas:S:maine:B:48
 C1:sotilasmalli:P:sotilas:S:malli:B:5
 C1:sotilasmallinen:P:sotilas:S:mallinen:B:38
 C1:sotilasmarssi:P:sotilas:S:marssi:B:5
-C1:sotilasmeno:P:sotilasm:S:eno:B:1
+C1:sotilasmeno:P:sotilas:S:meno:B:1
 C1:sotilasmestari:P:sotilas:S:mestari:B:6
 C1:sotilasmuistomerkki:P:sotilasmuisto:S:merkki:B:5:L:A
 C1:sotilasmusiikki:P:sotilas:S:musiikki:B:5:L:A
@@ -71963,7 +71963,7 @@ W:sukia:B:61:L:D
 W:sukijaki:B:5
 W:sukka:B:10:L:A
 W:sukkaatti:B:5:L:C
-C1:sukkahousu:P:sukka:S:housu:B:1
+C1:sukkahousut:P:sukka:S:housut:B:1
 U:sukkajalassa
 C1:sukkalanka:P:sukka:S:lanka:B:9:L:G
 C1:sukkamehu:P:sukka:S:mehu:B:1
@@ -74512,7 +74512,7 @@ C1:sänkykamari:P:sänky:S:kamari:B:6
 C1:sänkykohtaus:P:sänky:S:kohtaus:B:39
 C1:sänkypeite:P:sänky:S:peite:B:48:L:C
 C1:sänkypeitto:P:sänky:S:peitto:B:1:L:C
-C1:sänkyvaate:P:sänkyv:S:aate:B:48:L:C
+C1:sänkyvaate:P:sänky:S:vaate:B:48:L:C
 W:sännätä:B:73:L:J
 U:säntilleen
 W:säntillinen:B:38
@@ -74770,7 +74770,7 @@ C1:sääprofeetta:P:sää:S:profeetta:B:9:L:C
 C1:säärenlämmitin:P:säären:S:lämmitin:B:33:L:C
 W:sääri:B:26
 W:säärihaava:B:9
-C1:säärikarpa:P:säärik:S:arpa:B:9:L:E
+C1:säärikarva:P:sääri:S:karva:B:9
 C1:sääriluu:P:sääri:S:luu:B:18
 S:säärinen:B:38
 C1:säärintama:P:sää:S:rintama:B:10
@@ -75185,7 +75185,7 @@ C1:taikajuoma:P:taika:S:juoma:B:10
 C1:taikakalu:P:taika:S:kalu:B:1
 C1:taikakeino:P:taika:S:keino:B:1
 C1:taikalamppu:P:taika:S:lamppu:B:1:L:B
-C1:taikameno:P:taikam:S:eno:B:1
+C1:taikameno:P:taika:S:meno:B:1
 C1:taikaneliö:P:taika:S:neliö:B:3
 C1:taikapiiri:P:taika:S:piiri:B:5
 C1:taikasana:P:taika:S:sana:B:9
@@ -75907,7 +75907,7 @@ W:talouslama:B:9
 C1:talousliitto:P:talous:S:liitto:B:1:L:C
 C1:talousmaantiede:P:talousmaan:S:tiede:B:48:L:F
 C1:talousmahti:P:talous:S:mahti:B:5:L:F
-C1:talousmeno:P:talousm:S:eno:B:1
+C1:talousmeno:P:talous:S:meno:B:1
 C1:talousmetsä:P:talous:S:metsä:B:10
 C1:talousmies:P:talous:S:mies:B:42
 C1:talousmuoto:P:talous:S:muoto:B:1:L:F
@@ -79439,7 +79439,7 @@ C1:tomaattimurska:P:tomaatti:S:murska:B:10
 C1:tomaattimurske:P:tomaatti:S:murske:B:48
 C1:tomaattipyree:P:tomaatti:S:pyree:B:20
 C1:tomaattisalaatti:P:tomaatti:S:salaatti:B:5:L:C
-C1:tomaattisilakka:P:tomaattisil:S:akka:B:9:L:A
+C1:tomaattisilakka:P:tomaatti:S:silakka:B:14:L:A
 C1:tomaatti-sipulisalaatti:P:tomaatti-sipuli:S:salaatti:B:5:L:C
 C1:tomaattisose:P:tomaatti:S:sose:B:48
 C1:tomaattivoileipä:P:tomaattivoi:S:leipä:B:10:L:E
@@ -79525,7 +79525,7 @@ W:topografinen:B:38
 U:topografisesti
 W:toppa:B:10:L:B
 C1:toppahaalari:P:toppa:S:haalari:B:6
-C1:toppahousu:P:toppa:S:housu:B:1
+C1:toppahousut:P:toppa:S:housut:B:1
 W:toppakangas:B:41:L:G
 C1:toppapusakka:P:toppa:S:pusakka:B:14:L:A
 C1:toppapusero:P:toppa:S:pusero:B:2
@@ -83323,7 +83323,7 @@ C1:uhrilahja:P:uhri:S:lahja:B:9
 C1:uhrilammas:P:uhri:S:lammas:B:41:L:H
 C1:uhrilehto:P:uhri:S:lehto:B:1:L:F
 C1:uhrilähde:P:uhri:S:lähde:B:48:L:F
-C1:uhrimeno:P:uhrim:S:eno:B:1
+C1:uhrimeno:P:uhri:S:meno:B:1
 C1:uhrimieli:P:uhri:S:mieli:B:26
 C1:uhripaikka:P:uhri:S:paikka:B:9:L:A
 C1:uhripappi:P:uhri:S:pappi:B:5:L:B
@@ -83343,7 +83343,7 @@ C1:uima-allas:P:uima:S:allas:B:41:L:I
 W:uimahalli:B:5
 E:uimahoususillaan
 E:uimahoususilleen
-C1:uimahousu:P:uima:S:housu:B:1
+C1:uimahousut:P:uima:S:housut:B:1
 C1:uimahyppy:P:uima:S:hyppy:B:1:L:B
 C1:uimahyppääjä:P:uima:S:hyppääjä:B:10
 C1:uimakandidaatti:P:uima:S:kandidaatti:B:5:L:C
@@ -83447,7 +83447,7 @@ W:ukkeli:B:6
 W:ukki:B:5:L:A
 W:ukko:B:1:L:A
 C1:ukkoetana:P:ukko:S:etana:B:12
-C1:ukkohousu:P:ukko:S:housu:B:1
+C1:ukkohousut:P:ukko:S:housut:B:1
 C1:ukkoikä:P:ukko:S:ikä:B:10:L:D
 C1:ukkometso:P:ukko:S:metso:B:1
 C1:ukkomies:P:ukko:S:mies:B:42
@@ -84097,7 +84097,7 @@ C1:urheiluennätys:P:urheilu:S:ennätys:B:39
 W:urheiluhalli:B:5
 C1:urheiluhenkinen:P:urheilu:S:henkinen:B:38
 C1:urheiluhieroja:P:urheilu:S:hieroja:B:10
-C1:urheiluhousu:P:urheilu:S:housu:B:1
+C1:urheiluhousut:P:urheilu:S:housut:B:1
 C1:urheiluhullu:P:urheilu:S:hullu:B:1
 C1:urheiluilmailu:P:urheilu:S:ilmailu:B:2
 C1:urheilujohtaja:P:urheilu:S:johtaja:B:10
@@ -85091,7 +85091,7 @@ C1:vainukoira:P:vainu:S:koira:B:10
 W:vainuta:B:74
 W:vaippa:B:9:L:B
 C1:vaippaeläin:P:vaippa:S:eläin:B:33
-C1:vaippahousu:P:vaippa:S:housu:B:1
+C1:vaippahousut:P:vaippa:S:housut:B:1
 C1:vaippaihottuma:P:vaippa:S:ihottuma:B:10
 C1:vaippaikäinen:P:vaippa:S:ikäinen:B:38
 S:vaippainen:B:38
@@ -86183,7 +86183,7 @@ C1:vanerilevy:P:vaneri:S:levy:B:1
 W:vanerinen:B:38
 C1:vaneriteollisuus:P:vaneri:S:teollisuus:B:40
 C1:vanginpuku:P:vangin:S:puku:B:1:L:M
-C1:vanginvaate:P:vanginv:S:aate:B:48:L:C
+C1:vanginvaate:P:vangin:S:vaate:B:48:L:C
 C1:vanginvartija:P:vangin:S:vartija:B:12
 W:vangita:B:69
 W:vangitsija:B:12
@@ -87650,7 +87650,7 @@ C1:velkakiinnitys:P:velka:S:kiinnitys:B:39
 C1:velkakirja:P:velka:S:kirja:B:9
 C1:velkakuorma:P:velka:S:kuorma:B:10
 C1:velkaloukku:P:velka:S:loukku:B:1:L:A
-C1:velkameno:P:velkam:S:eno:B:1
+C1:velkameno:P:velka:S:meno:B:1
 C1:velkaneuvoja:P:velka:S:neuvoja:B:10
 C1:velkaneuvonta:P:velka:S:neuvonta:B:9:L:J
 C1:velkaorja:P:velka:S:orja:B:10
@@ -88157,7 +88157,7 @@ C1:verrokkipotilas:P:verrokki:S:potilas:B:41
 W:verrytellä:B:67:L:C
 W:verryttely:B:2
 C1:verryttelyheitto:P:verryttely:S:heitto:B:1:L:C
-C1:verryttelyhousu:P:verryttely:S:housu:B:1
+C1:verryttelyhousut:P:verryttely:S:housut:B:1
 C1:verryttelyjuoksu:P:verryttely:S:juoksu:B:1
 C1:verryttelyliike:P:verryttely:S:liike:B:48:L:A
 C1:verryttelypuku:P:verryttely:S:puku:B:1:L:M
@@ -88470,7 +88470,7 @@ C1:vesivirta:P:vesi:S:virta:B:9:L:K
 C1:vesivoima:P:vesi:S:voima:B:10
 C1:vesivoimakone:P:vesivoima:S:kone:B:48
 C1:vesivoimala:P:vesi:S:voimala:B:12
-C1:vesivoimavarka:P:vesivoimav:S:arka:B:9:L:D
+C1:vesivoimavara:P:vesivoim:S:avara:B:10
 C1:vesivoimistelu:P:vesi:S:voimistelu:B:2
 C1:vesivuode:P:vesi:S:vuode:B:48:L:F
 C1:vesiväri:P:vesi:S:väri:B:5
@@ -89688,7 +89688,7 @@ W:villa:B:9
 W:villa:B:9
 P:villa
 C1:villahiki:P:villa:S:hiki:B:7:L:D
-C1:villahousu:P:villa:S:housu:B:1
+C1:villahousut:P:villa:S:housut:B:1
 C1:villahuivi:P:villa:S:huivi:B:5
 C1:villahuopa:P:villa:S:huopa:B:10:L:E
 W:villainen:B:38
@@ -90590,7 +90590,7 @@ C1:voimatoimi:P:voima:S:toimi:B:25
 W:voimaton:B:34:L:C
 U:voimattomasti
 W:voimattomuus:B:40
-C1:voimavarka:P:voimav:S:arka:B:9:L:D
+C1:voimavara:P:voim:S:avara:B:10
 C1:voimaverkko:P:voima:S:verkko:B:1:L:A
 C1:voimaviiva:P:voima:S:viiva:B:9
 C1:voimayhtiö:P:voima:S:yhtiö:B:3
@@ -91421,7 +91421,7 @@ C1:välienselvitys:P:välien:S:selvitys:B:39
 C1:välierä:P:väli:S:erä:B:10
 C1:välieräottelu:P:välierä:S:ottelu:B:2
 C1:välietappi:P:väli:S:etappi:B:5:L:B
-C1:välihousu:P:väli:S:housu:B:1
+C1:välihousut:P:väli:S:housut:B:1
 C1:välihuomautus:P:väli:S:huomautus:B:39
 C1:välihuuto:P:väli:S:huuto:B:1:L:F
 C1:välihyökkääjä:P:väli:S:hyökkääjä:B:10

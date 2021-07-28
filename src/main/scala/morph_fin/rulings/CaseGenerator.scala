@@ -49,7 +49,10 @@ case class ExtensiveRuling(
                             drop: Int,
                             gradation: Option[Gradation],
                             cases: Seq[CaseEnding]
-                          )
+                          ){
+  def findCase(tpe: Type, cse: Case): Option[CaseEnding] = cases.find(ending => ending.cse == cse && ending.tpe == tpe)
+}
+
 
 
 object GenerateRuling {
@@ -112,6 +115,8 @@ enum Vocalization:
 
 
 object GenerateCases {
+
+  //Note: unsafe
   def getWord(entry: Entry): Word =
     Word(
       entry.word.value,
@@ -125,13 +130,21 @@ object GenerateCases {
 
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
+
+  //Note: unsafe
   def apply(rulings: Seq[ExtensiveRuling], word: Word): Seq[ResultWord] =
     val ruling = rulings.find(_.number == word.number).get
-    val root = word.lemma.dropRight(ruling.drop)
+    val pluralEnding = ruling.findCase(Type.Plural, Case.Nominative).get
+
+    val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
+    val root =
+      if isPluralLemma then word.lemma.dropRight(pluralEnding.ending.length)
+      else word.lemma.dropRight(ruling.drop)
+
     val lastVowel = if listOfSomeVowels.contains(word.lemma.last) && word.number != 19 then Some(word.lemma.last) else None
     word.gradation match {
       case Some(gradation) if ruling.gradation.nonEmpty  => resolveRulingGradation(word.lemma, root, ruling, gradation, lastVowel)
-      case Some(gradation) if ruling.gradation.isEmpty   => resolveWordGradation(word.lemma, root, ruling, gradation, lastVowel)
+      case Some(gradation) if ruling.gradation.isEmpty   => resolveWordGradation(word.lemma, root, ruling, gradation, lastVowel, isPluralLemma)
       case None if ruling.gradation.isEmpty              => resolveNoGradation(word.lemma, root, ruling, lastVowel)
       case None if ruling.gradation.nonEmpty             => resolveRulingGradation(word.lemma, root, ruling, ruling.gradation.get, lastVowel)
     }
@@ -153,8 +166,14 @@ object GenerateCases {
       }
     )
 
+  /**
+   * Example words:
+   * tie -> tiessä  (a -> ä in ending)
+   * valo -> valoon (a -> o in inessive case)
+   * -- TODO need the example for the missing case --
+   */
   def updateEnding(ending: CaseEnding, vocalization: Vocalization, lastVowel: Option[Char], isGradation: Boolean): String =
-    val result =
+    val updatedEnding =
       if vocalization == Vocalization.BackVowel
       then ending.ending.map( _ match {
         case a if a == 'a' => 'ä'
@@ -163,15 +182,16 @@ object GenerateCases {
         case a             => a
       })
       else ending.ending
+
     val updateCondition =
-      result.nonEmpty &&
-        listOfSomeVowels.contains(result.head) &&
+      updatedEnding.length > 1 &&
+        listOfSomeVowels.contains(updatedEnding.head) &&
         lastVowel.nonEmpty && ( ending.tpe == Type.Singular || ending.cse == Case.Nominative) &&
         !isGradation
 
     val vowelUpdated = if updateCondition then
-      lastVowel.get + result.drop(1)
-    else result
+      lastVowel.get + updatedEnding.drop(1)
+    else updatedEnding
 
     val illativeCondition =
       ending.cse == Case.Illative &&
@@ -181,17 +201,18 @@ object GenerateCases {
     then vowelUpdated.map(c => if listOfSomeVowels.contains(c) then lastVowel.get else c)
     else vowelUpdated
 
+  end updateEnding
 
 
   val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
 
 
   //Examples: ien, parka
-  def resolveWordGradation(lemma: String, root: String, ruling: ExtensiveRuling, gradation: Gradation, lastVowel: Option[Char]) =
+  def resolveWordGradation(lemma: String, root: String, ruling: ExtensiveRuling, gradation: Gradation, lastVowel: Option[Char], rootFromPlural: Boolean) =
     import CaseEnding._
     val vocalization = resolveVocalization(lemma)
 
-    val (beforeGradation, afterGradation) = splitByGradationLocation(root, lemma, gradation)
+    val (beforeGradation, afterGradation) = splitByGradationLocation(root, lemma, gradation, rootFromPlural)
 
     ruling.cases.map(_.asInstanceOf[Normal]).map(
       ending => {
@@ -203,12 +224,15 @@ object GenerateCases {
       }
     )
 
-  def splitByGradationLocation(root: String, lemma: String, gradation: Gradation): (String, String) =
-    val gradationString = if allVowelsExcepte.contains(lemma.last) then gradation.strong else gradation.weak
+  def splitByGradationLocation(root: String, lemma: String, gradation: Gradation, rootFromPlural: Boolean): (String, String) =
+    val gradationString =
+      if allVowelsExcepte.contains(lemma.last) && !rootFromPlural then gradation.strong
+      else if allVowelsExcepte.contains(lemma.last) && rootFromPlural then gradation.weak
+      else if !allVowelsExcepte.contains(lemma.last) && rootFromPlural then gradation.strong
+      else gradation.weak
     if listOfAllVowels.contains(root.last) then (root.dropRight(gradationString.length + 1) , root.last.toString)
-    else if root.lastOption != gradationString.headOption then (root.dropRight(gradationString.length + 2) , root.takeRight(2))
-    else (root.dropRight(gradationString.length) , "")
-
+    else if root.endsWith(gradationString) then (root.dropRight(gradationString.length) , "")
+    else (root.dropRight(gradationString.length + 2) , root.takeRight(2))
 
 
   def resolveGradationByType(lastLetterOfLemma: Char, cse: Case, tpe: Type, gradation: Gradation): String =

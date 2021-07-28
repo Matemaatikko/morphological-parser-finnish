@@ -1,7 +1,8 @@
 package morph_fin.kotus_format
 
 import morph_fin.kotus_format
-import morph_fin.rulings._
+import morph_fin.rulings.*
+import morph_fin.utils.Hyphenation
 
 import scala.io.{Codec, Source}
 
@@ -10,6 +11,12 @@ val fileName = "C:\\Users\\juho_.DESKTOP-UEAL9SV\\IdeaProjects\\morphological-pa
 val updatedFileName = "C:\\Users\\juho_.DESKTOP-UEAL9SV\\IdeaProjects\\morphological-parser-finnish\\src\\main\\files\\kotus_updated.txt"
 
 case class BendingWord(value: String, bending: Bending)
+
+enum ErrorSource:
+  case CompoundNotFound
+  case CompoundException
+  case PluralCompoundNotFound
+  case PluralCompoundException
 
 enum UpdatedWord:
   case Compound(word: String, prefix: String, suffix: BendingWord) //50
@@ -20,8 +27,7 @@ enum UpdatedWord:
   case Prefix(word: String)
   case NoBending(word: String)
   case SuffixError(word: String)
-  case Error(word: String)
-  case CompoundError(word: String, bending: Bending)
+  case Error(word: String, errorSource: ErrorSource, bendingOpt: Option[Bending] = None)
 
 object PrintUpdatedWord{
   import UpdatedWord._
@@ -30,8 +36,7 @@ object PrintUpdatedWord{
     case Prefix(value)           => s"P:${value}"
     case NoBending(value)        => s"U:${value}"
     case SuffixError(value)      => s"E:-${value}"
-    case Error(value)            => s"E:${value}"
-    case CompoundError(value, bending) => s"E:${value}" + bendingString(bending)
+    case Error(value, source, bendingOpt) => s"E:${value}"+ bendingOpt.map(bendingString(_)).getOrElse("")
     case StandardBending(word, bending) =>
       s"W:${word}" + bendingString(bending)
     case Suffix(word, bending) =>
@@ -48,116 +53,226 @@ object PrintUpdatedWord{
 }
 
 
-val customUpdates = Map(
-  "housut" -> ("housu", 1)
-)
 val remove = Seq("ikenet")
 
 val additions = Seq(
   Entry(KotusWord.Word("raamattu"), Some(Bending(4, Some('C'))))
 )
 
+case class Data(
+                 list: Seq[Entry],
+                 words: Map[String, Seq[Entry]],
+                 suffixes: Seq[Entry],
+                 pluralSuffixes: Seq[(String, Entry)],
+                 pluralWords: Map[String, Seq[Entry]],
+                 genetiveWords: Map[String, Seq[Entry]],
+                 lastSyllabuses: Seq[String]
+               )
+
 object ReformatKotus {
+
+  import KotusWord._
 
   def apply(rulings: Seq[ExtensiveRuling]): Seq[UpdatedWord] =
     val list: Seq[Entry] = (
       for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
       yield
-        if(line.startsWith("<st>"))
-          val parsedLine = ParseLine(line)
-          if(parsedLine.word.value == "housut") Some(Entry(KotusWord.Word("housu"), Some(Bending(1, None))))
-          else Some(parsedLine)
+        if(line.startsWith("<st>")) Some(ParseLine(line))
         else None
       ).flatten.toSeq.filterNot(a => remove.contains(a.word.value)) ++ additions
-    import KotusWord._
-    val validSuffixes = list.filter(entry => entry.bending.nonEmpty && entry.bending.exists(bend => bend.rule != 99 && bend.rule != 101) && entry.word.noPrefix)
-    val pluralSuffixes = list.filter(_.bending.exists(_.rule < 50)).map(entry =>
+
+    //===================================
+
+    val validSuffixes: Seq[Entry] = list
+      .filter(entry => entry.bending.nonEmpty &&
+        entry.bending.exists(bend => bend.rule != 99 && bend.rule != 101) &&
+        entry.word.noPrefix)
+
+    val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).map(entry =>
       entry ->
         GenerateCases.apply(rulings, GenerateCases.getWord(entry))
           .find(elem => elem.tpe == Type.Plural && elem.cse == Case.Nominative)
           .map(_.word)
-    ).flatMap(tuple => tuple._2.map(a => tuple._1 -> a))
+    ).flatMap(tuple => tuple._2.map(a => a -> tuple._1))
 
-    def resolveValue(entry: Entry): UpdatedWord =
-      entry match {
-        case Entry(Prefix(value), _)             => UpdatedWord.Prefix(value)
-        case Entry(Suffix(value), Some(bending)) => UpdatedWord.Suffix(value, bending)
-        case Entry(Suffix(value), None)          => UpdatedWord.SuffixError(value)
-        case Entry(Word(value), option) if option.isEmpty || option.exists(_.rule == 50)  => resolveCompound(value, false, option)
-        case Entry(Word(value), Some(bending)) if bending.rule == 51 => resolveCompound(value, true, Some(bending))
-        case Entry(Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
-        case Entry(Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
-        case Entry(Word(value), Some(bending)) => UpdatedWord.StandardBending(value, bending)
-      }
+    //===================================
 
-    def resolveCompound(value: String, bendBoth: Boolean, bendingOpt: Option[Bending]): UpdatedWord =
-      try
-        val resultOpt = findCompound(value)
-        resultOpt match {
-          case Some((prefix, suffixEntry)) =>
-            val suffixWord = BendingWord(suffixEntry.word.value, suffixEntry.bending.getOrElse(throw new Exception(s"No bending for suffix: ${suffixEntry.word.value}, word: ${value}")))
-            if !bendBoth then UpdatedWord.Compound(value, prefix, suffixWord)
-            else
-              val prefixEntry = findEntry(prefix).getOrElse(throw new Exception(s"No such prefix: $prefix, word: ${value}"))
-              UpdatedWord.Compound2(
-                value,
-                BendingWord(prefixEntry.word.value, prefixEntry.bending.getOrElse(throw new Exception(s"No bending for prefix: ${prefixEntry.word.value}, word: ${value}"))),
-                BendingWord(suffixEntry.word.value, suffixEntry.bending.getOrElse(throw new Exception(s"No bending for suffix: ${suffixEntry.word.value}, word: ${value}"))),
-              )
-          case None =>
-            resolveCompoundPlural(value, bendBoth, bendingOpt)
+    val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).map(entry =>
+      entry ->
+        GenerateCases.apply(rulings, GenerateCases.getWord(entry))
+          .find(elem => elem.tpe == Type.Plural && elem.cse == Case.Nominative)
+          .map(_.word)
+    ).flatMap(tuple => tuple._2.map(a => a -> tuple._1)).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))
 
-        }
-      catch
-        case e: Exception =>
-          println(e.getMessage())
-          resolveCompoundPlural(value, bendBoth, bendingOpt)
+    val genetiveWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).map(entry =>
+      entry ->
+        GenerateCases.apply(rulings, GenerateCases.getWord(entry))
+          .find(elem => elem.tpe == Type.Singular && elem.cse == Case.Genetive)
+          .map(_.word)
+    ).flatMap(tuple => tuple._2.map(a => a -> tuple._1)).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))
 
-    def findCompound(word: String): Option[(String, Entry)] =
-      val entryOpt: Option[Entry] =
-        validSuffixes
-          .filter(entry => word != entry.word.value && word.endsWith(entry.word.value))
-          .sortWith((a, b) => a.word.value.length > b.word.value.length)
-          .headOption
-      entryOpt.map(entry => {
-        val prefix = word.dropRight(entry.word.value.length)
-        val updatedPrefix = if prefix.last == '-' then prefix.dropRight(1) else prefix
-        (updatedPrefix, entry)
-      })
+    val listMap: Map[String, Seq[Entry]]  = list.map(entry => entry.word.value -> entry).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))
 
-    def findEntry(word: String): Option[Entry] =
-      list.find(entry => entry.word.value == word)
+    //===================================
 
-    def resolveCompoundPlural(pluralValue: String, bendBoth: Boolean, bendingOpt: Option[Bending]): UpdatedWord =
-      val resultOpt = findCompoundPlural(pluralValue)
+    val lastSyllabuses = list.map(_.word.value).map(Hyphenation(_)).map(_.last).distinct
+
+    val data = Data(list, listMap, validSuffixes, pluralSuffixes, pluralWords, genetiveWords, lastSyllabuses)
+
+    list.map(resolveValue(_)(data))
+  end apply
+
+
+
+  inline def resolveValue(entry: Entry)(data: Data): UpdatedWord =
+    entry match {
+      case Entry(Prefix(value), _)             => UpdatedWord.Prefix(value)
+      case Entry(Suffix(value), Some(bending)) => UpdatedWord.Suffix(value, bending)
+      case Entry(Suffix(value), None)          => UpdatedWord.SuffixError(value)
+      case Entry(Word(value), option) if option.isEmpty || option.exists(_.rule == 50)  => resolveCompound(value, false, option)(data)
+      case Entry(Word(value), Some(bending)) if bending.rule == 51 => resolveCompound(value, true, Some(bending))(data)
+      case Entry(Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
+      case Entry(Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
+      case Entry(Word(value), Some(bending)) => UpdatedWord.StandardBending(value, bending)
+    }
+
+
+  /**
+   * Resolve singular compound word
+   * ==============================
+   * Examples: normaalijakauma, raaka-aine
+   */
+  inline def resolveCompound(word: String, bendBoth: Boolean, bendingOpt: Option[Bending])
+                     (data: Data): UpdatedWord =
+    try
+      val resultOpt = findCompound(word)(data)
       resultOpt match {
         case Some((prefix, suffixEntry)) =>
-          val suffixWord = BendingWord(suffixEntry.word.value, suffixEntry.bending.getOrElse(throw new Exception(s"No bending for suffix: ${suffixEntry.word.value}, word: ${pluralValue}")))
-          if !bendBoth then UpdatedWord.Compound(prefix + suffixWord.value, prefix, suffixWord)
-          else
-            val prefixEntry = findEntryPlural(prefix).getOrElse(throw new Exception(s"No such plural prefix: $prefix, word: ${pluralValue}"))
-            UpdatedWord.Compound2(
-              prefixEntry.word.value + suffixEntry.word.value,
-              BendingWord(prefixEntry.word.value, prefixEntry.bending.getOrElse(throw new Exception(s"No bending for prefix: ${prefixEntry.word.value}, word: ${pluralValue}"))),
-              BendingWord(suffixEntry.word.value, suffixEntry.bending.getOrElse(throw new Exception(s"No bending for suffix: ${suffixEntry.word.value}, word: ${pluralValue}"))),
-            )
+          generateCompound(word, bendBoth, prefix, suffixEntry)(data)
         case None =>
-          bendingOpt.map(UpdatedWord.CompoundError(pluralValue, _)).getOrElse(UpdatedWord.Error(pluralValue))
+          if(word.last == 't') resolveCompoundPlural(word, bendBoth, bendingOpt)(data)
+          else UpdatedWord.Error(word, ErrorSource.CompoundNotFound, bendingOpt)
       }
+    catch
+      case e: Exception =>
+        //println(e.getMessage() + s"Word: ${value}")
+        if(word.last == 't') resolveCompoundPlural(word, bendBoth, bendingOpt)(data)
+        else UpdatedWord.Error(word, ErrorSource.CompoundException, bendingOpt)
 
-    def findCompoundPlural(word: String): Option[(String, Entry)] =
-      val tupleOpt: Option[(Entry, String)] = pluralSuffixes.find(tuple => word.endsWith(tuple._2) && word != tuple._2)
-      tupleOpt.map(tuple => {
-        val prefix = word.dropRight(tuple._2.length)
-        val updatedPrefix = if prefix.last == '-' then prefix.dropRight(1) else prefix
-        (updatedPrefix, tuple._1)
-      })
+  /***
+   * Tries to split compound word by finding suitable suffix for the word.
+   * Example: raaka-aine -> (String: raaka, Entry: aine)
+   */
+  inline def findCompound(word: String)(data: Data): Option[(String, Entry)] =
+    val suffixOpt: Option[Entry] =
+      data.suffixes
+        .filter(entry => word != entry.word.value && word.endsWith(entry.word.value))
+        //.filter(entry => isValidPrefix(word, entry.word.value)(data))
+        .sortWith((a, b) => compareEntry(a, b))
+        .headOption
+    suffixOpt.map(suffix => {
+      val prefix = word.dropRight(suffix.word.value.length)
+      val updatedPrefix = if prefix.last == '-' then prefix.dropRight(1) else prefix
+      (updatedPrefix, suffix)
+    })
 
-    def findEntryPlural(word: String): Option[Entry] =
-      pluralSuffixes.find(tuple => tuple._2 == word).map(_._1)
+  //a > b
+  inline def compareEntry(a: Entry, b: Entry): Boolean =
+    (a, b) match {
+      case (Entry(word, Some(bending)), Entry(word1, None)) => true
+      case (Entry(word, None), Entry(word1, Some(bending1))) => false
+      case (Entry(word, Some(bending)), Entry(word1, Some(bending1))) => word.value.length > word1.value.length
+      case (Entry(word, None), Entry(word1, None)) => word.value.length > word1.value.length
+    }
 
-    list.map(resolveValue(_))
-  end apply
+  /**
+   * Method tries to determine whether given prefix is valid finnish word or prefix word.
+   */
+  inline def isValidPrefix(word: String, suffix: String)(data: Data): Boolean =
+    val prefix = word.dropRight(suffix.length)
+    val prefixEntryOpt = findEntry(prefix)(data)
+    val prefixGenetiveEntryOpt = findGenetiveEntry(prefix)(data)
+    prefixEntryOpt.nonEmpty || prefixGenetiveEntryOpt.nonEmpty
+      || data.lastSyllabuses.contains(Hyphenation(prefix).last)
+      || prefix.endsWith("is")
+
+
+  inline def findEntry(word: String)(data: Data): Option[Entry] =
+    data.words(word)
+      .sortWith((a, b) => compareEntry(a, b))
+      .headOption
+
+  inline def findGenetiveEntry(word: String)(data: Data): Option[Entry] =
+    data.genetiveWords(word)
+      .sortWith((a, b) => compareEntry(a, b))
+      .headOption
+
+  inline def generateCompound(word: String, bendBoth: Boolean, prefix: String, suffixEntry: Entry)(data: Data): UpdatedWord =
+    val suffixWord = BendingWord(suffixEntry.word.value, suffixEntry.bending.get)
+    if !bendBoth then UpdatedWord.Compound(word, prefix, suffixWord)
+    else
+      val prefixEntry = findEntry(prefix)(data).get
+      val prefixWord = BendingWord(prefixEntry.word.value, prefixEntry.bending.get)
+      UpdatedWord.Compound2(word, prefixWord, suffixWord)
+
+
+  /**
+   * Resolve plural compound word
+   * ============================
+   * Examples: materiaali-toiminnot, isot-aivot
+   *
+   */
+  inline def resolveCompoundPlural(pluralWord: String, bendBoth: Boolean, bendingOpt: Option[Bending])
+                           (data: Data): UpdatedWord =
+    try
+      val resultOpt = findCompoundPlural(pluralWord)(data)
+      resultOpt match {
+        case Some((prefix, suffixEntry)) =>
+          generateCompoundPlural(pluralWord, bendBoth, prefix, suffixEntry)(data)
+        case None =>
+          UpdatedWord.Error(pluralWord, ErrorSource.PluralCompoundNotFound, bendingOpt)
+      }
+    catch
+      case e: Exception =>
+        println(s"Word: ${pluralWord}")
+        UpdatedWord.Error(pluralWord, ErrorSource.PluralCompoundException, bendingOpt)
+
+  inline def findCompoundPlural(word: String)(data: Data): Option[(String, Entry)] =
+    val tupleOpt: Option[(String, Entry)] = data.pluralSuffixes
+      .filter(tuple => word.endsWith(tuple._1) && word != tuple._1)
+      //.filter(tuple => isValidPluralPrefix(word, tuple._1)(data))
+      .sortWith((a, b) => compareEntry(a._2, b._2))
+      .headOption
+    tupleOpt.map(tuple => {
+      val prefix = word.dropRight(tuple._1.length)
+      val updatedPrefix = if prefix.last == '-' then prefix.dropRight(1) else prefix
+      (updatedPrefix, tuple._2)
+    })
+
+  /**
+   * Method tries to determine whether given prefix is valid finnish word or prefix word assuming that suffix is in plural form.
+   */
+  inline def isValidPluralPrefix(word: String, prefix: String)(data: Data): Boolean =
+    val prefixEntryOpt = findEntry(prefix)(data)
+    val prefixPluralEntryOpt = findPluralEntry(prefix)(data)
+    val prefixGenetiveEntryOpt = findGenetiveEntry(prefix)(data)
+    prefixEntryOpt.nonEmpty || prefixPluralEntryOpt.nonEmpty || prefixGenetiveEntryOpt.nonEmpty
+      || data.lastSyllabuses.contains(Hyphenation(prefix).last)
+      || prefix.endsWith("is")
+
+  inline def findPluralEntry(word: String)(data: Data): Option[Entry] =
+    data.pluralWords(word)
+      .sortWith((a, b) => compareEntry(a, b))
+      .headOption
+
+  inline def generateCompoundPlural(pluralWord: String, bendBoth: Boolean, prefix: String, suffixEntry: Entry)(data: Data): UpdatedWord =
+    val suffixWord = BendingWord(suffixEntry.word.value, suffixEntry.bending.get)
+    if !bendBoth then UpdatedWord.Compound(prefix + suffixWord.value, prefix, suffixWord)
+    else
+      val prefixEntry = findPluralEntry(pluralWord)(data).get
+      val prefixWord = BendingWord(prefixEntry.word.value, prefixEntry.bending.get)
+      UpdatedWord.Compound2(prefixWord.value + suffixWord.value, prefixWord, suffixWord)
+
 
   def save(list: Seq[UpdatedWord]): Unit =
     import java.io._
