@@ -1,25 +1,362 @@
-#
-52
-sanoa
-sanon
-sanoi
-sanoisi
-sanonee
-sanokoon
-sanonut
-sanottiin
+# Act = Active
+# Pas = Passive
+# -------------
+# Modus:
+# Ind = Indicative
+# Con = Conditional
+# Pot = Potential
+# Imp = Imperative
+# ----------------
+# Tempus:
+# Pre = Present
+# Imp = Imperfect
+# Per = Perfect
+# Plp = Pluperfect
+# ---------------------
+# Persona:
+# S = Singular, P = Plural
+# 1., 2., 3.
+# ---------------------
+# Neg = Negative
+# Inf = Infinitive
+# Pat = Participle
 
-53
-muistaa
-muistan
-muisti
-muistaisi
-muistanee
-muistakoon
-muistanut
-muistettiin
+<52>
 
-54
+#Indicative
+Akt:Ind:Pre:S1: sanon
+Akt:Ind:Pre:S2: sanot
+Akt:Ind:Pre:S3: sanoo
+Akt:Ind:Pre:P1: sanomme
+Akt:Ind:Pre:P2: sanotte
+Akt:Ind:Pre:P3: sanovat
+Pas:Ind:Pre:    sanotaan
+
+Akt:Ind:Pre:S1:Neg: sano
+Akt:Ind:Pre:S2:Neg: sano
+Akt:Ind:Pre:S3:Neg: sano
+Akt:Ind:Pre:P1:Neg: sano
+Akt:Ind:Pre:P2:Neg: sano
+Akt:Ind:Pre:P3:Neg: sano
+Pas:Ind:Pre:Neg:    sanota
+
+Akt:Ind:Imp:S1: sanoin
+Akt:Ind:Imp:S2: sanoit
+Akt:Ind:Imp:S3: sanoi
+Akt:Ind:Imp:P1: sanoimme
+Akt:Ind:Imp:P2: sanoitte
+Akt:Ind:Imp:P3: sanoivat
+Pas:Ind:Imp:    sanottiin
+
+Akt:Ind:Imp:S1:Neg: sanonut
+Akt:Ind:Imp:S2:Neg: sanonut
+Akt:Ind:Imp:S3:Neg: sanonut
+Akt:Ind:Imp:P1:Neg: sanoneet
+Akt:Ind:Imp:P2:Neg: sanoneet
+Akt:Ind:Imp:P3:Neg: sanoneet
+Pas:Ind:Imp:Neg:    sanottu
+
+Akt:Ind:Per:S1: sanonut
+Akt:Ind:Per:S2: sanonut
+Akt:Ind:Per:S3: sanonut
+Akt:Ind:Per:P1: sanoneet
+Akt:Ind:Per:P2: sanoneet
+Akt:Ind:Per:P3: sanoneet
+Pas:Ind:Per:    sanottu
+
+Akt:Ind:Per:S1:Neg: sanonut
+Akt:Ind:Per:S2:Neg: sanonut
+Akt:Ind:Per:S3:Neg: sanonut
+Akt:Ind:Per:P1:Neg: sanoneet
+Akt:Ind:Per:P2:Neg: sanoneet
+Akt:Ind:Per:P3:Neg: sanoneet
+Pas:Ind:Per:Neg:    sanottu
+
+Akt:Ind:Plp:S1: sanonut
+Akt:Ind:Plp:S2: sanonut
+Akt:Ind:Plp:S3: sanonut
+Akt:Ind:Plp:P1: sanoneet
+Akt:Ind:Plp:P2: sanoneet
+Akt:Ind:Plp:P3: sanoneet
+Pas:Ind:Plp:    sanottu
+
+Akt:Ind:Plp:S1:Neg: sanonut
+Akt:Ind:Plp:S2:Neg: sanonut
+Akt:Ind:Plp:S3:Neg: sanonut
+Akt:Ind:Plp:P1:Neg: sanoneet
+Akt:Ind:Plp:P2:Neg: sanoneet
+Akt:Ind:Plp:P3:Neg: sanoneet
+Pas:Ind:Plp:Neg:    sanottu
+
+#Potential
+
+Akt:Pot:Pre:S1: sanonen
+Akt:Pot:Pre:S2: sanonet
+Akt:Pot:Pre:S3: sanonee
+Akt:Pot:Pre:P1: sanonemme
+Akt:Pot:Pre:P2: sanonette
+Akt:Pot:Pre:P3: sanonevat
+Pas:Pot:Pre:    sanottaneen
+
+Akt:Pot:Pre:S1:Neg: sanone
+Akt:Pot:Pre:S2:Neg: sanone
+Akt:Pot:Pre:S3:Neg: sanone
+Akt:Pot:Pre:P1:Neg: sanone
+Akt:Pot:Pre:P2:Neg: sanone
+Akt:Pot:Pre:P3:Neg: sanone
+Pas:Pot:Pre:Neg:    sanottane
+
+Akt:Pot:Per:S1: sanonut
+Akt:Pot:Per:S2: sanonut
+Akt:Pot:Per:S3: sanonut
+Akt:Pot:Per:P1: sanoneet
+Akt:Pot:Per:P2: sanoneet
+Akt:Pot:Per:P3: sanoneet
+Pas:Pot:Per:    sanottu
+
+Akt:Pot:Per:S1:Neg: sanonut
+Akt:Pot:Per:S2:Neg: sanonut
+Akt:Pot:Per:S3:Neg: sanonut
+Akt:Pot:Per:P1:Neg: sanoneet
+Akt:Pot:Per:P2:Neg: sanoneet
+Akt:Pot:Per:P3:Neg: sanoneet
+Pas:Pot:Per:Neg:    sanottu
+
+#Conditional
+
+Akt:Con:Pre:S1: sanoisin
+Akt:Con:Pre:S2: sanoisit
+Akt:Con:Pre:S3: sanoisi
+Akt:Con:Pre:P1: sanoisimme
+Akt:Con:Pre:P2: sanoisitte
+Akt:Con:Pre:P3: sanoisivat
+Pas:Con:Pre:    sanottaisiin
+
+Akt:Con:Pre:S1:Neg: sanoisi
+Akt:Con:Pre:S2:Neg: sanoisi
+Akt:Con:Pre:S3:Neg: sanoisi
+Akt:Con:Pre:P1:Neg: sanoisi
+Akt:Con:Pre:P2:Neg: sanoisi
+Akt:Con:Pre:P3:Neg: sanoisi
+Pas:Con:Pre:Neg:    sanottaisi
+
+Akt:Con:Per:S1: sanonut
+Akt:Con:Per:S2: sanonut
+Akt:Con:Per:S3: sanonut
+Akt:Con:Per:P1: sanoneet
+Akt:Con:Per:P2: sanoneet
+Akt:Con:Per:P3: sanoneet
+Pas:Con:Per:    sanottu
+
+Akt:Con:Per:S1:Neg: sanonut
+Akt:Con:Per:S2:Neg: sanonut
+Akt:Con:Per:S3:Neg: sanonut
+Akt:Con:Per:P1:Neg: sanoneet
+Akt:Con:Per:P2:Neg: sanoneet
+Akt:Con:Per:P3:Neg: sanoneet
+Pas:Con:Per:Neg:    sanottu
+
+#Imperative
+
+Akt:Imp:Pre:S2: sano
+Akt:Imp:Pre:P1: sanokaamme
+Akt:Imp:Pre:P2: sanokaa
+
+Akt:Imp:Pre:S2:Neg: sano
+Akt:Imp:Pre:P1:Neg: sanoko
+Akt:Imp:Pre:P2:Neg: sanoko
+
+#Infinitive
+
+Inf1:Tra: sanoakseen
+Inf2:Ine: sanoessa
+Inf2:Ins: sanoen
+Inf3:Ine: sanomassa
+Inf3:Ela: sanomasta
+Inf3:Ill: sanomaan
+Inf3:Ade: sanomalla
+Inf3:Abe: sanomatta
+Inf3:Ins: sanoman
+Inf4:Nom: sanominen
+Inf4:Par: sanomista
+Inf5:     sanomaisillaan
+
+#Participle
+
+Pat1:    sanova
+Pat2:    sanonut
+Pat3:    sanoma
+PatN:    sanomaton
+
+
+<53>
+#Indicative
+Akt:Ind:Pre:S1: muistan
+Akt:Ind:Pre:S2: muistat
+Akt:Ind:Pre:S3: muistaa
+Akt:Ind:Pre:P1: muistamme
+Akt:Ind:Pre:P2: muistatte
+Akt:Ind:Pre:P3: muistavat
+Pas:Ind:Pre:    muistetaan
+
+Akt:Ind:Pre:S1:Neg: muista
+Akt:Ind:Pre:S2:Neg: muista
+Akt:Ind:Pre:S3:Neg: muista
+Akt:Ind:Pre:P1:Neg: muista
+Akt:Ind:Pre:P2:Neg: muista
+Akt:Ind:Pre:P3:Neg: muista
+Pas:Ind:Pre:Neg:    muisteta
+
+Akt:Ind:Imp:S1: muistin
+Akt:Ind:Imp:S2: muistit
+Akt:Ind:Imp:S3: muisti
+Akt:Ind:Imp:P1: muistimme
+Akt:Ind:Imp:P2: muistitte
+Akt:Ind:Imp:P3: muistivat
+Pas:Ind:Imp:    muistettiin
+
+Akt:Ind:Imp:S1:Neg: muistanut
+Akt:Ind:Imp:S2:Neg: muistanut
+Akt:Ind:Imp:S3:Neg: muistanut
+Akt:Ind:Imp:P1:Neg: muistaneet
+Akt:Ind:Imp:P2:Neg: muistaneet
+Akt:Ind:Imp:P3:Neg: muistaneet
+Pas:Ind:Imp:Neg:    muistettu
+
+Akt:Ind:Per:S1: muistanut
+Akt:Ind:Per:S2: muistanut
+Akt:Ind:Per:S3: muistanut
+Akt:Ind:Per:P1: muistaneet
+Akt:Ind:Per:P2: muistaneet
+Akt:Ind:Per:P3: muistaneet
+Pas:Ind:Per:    muistettu
+
+Akt:Ind:Per:S1:Neg: muistanut
+Akt:Ind:Per:S2:Neg: muistanut
+Akt:Ind:Per:S3:Neg: muistanut
+Akt:Ind:Per:P1:Neg: muistaneet
+Akt:Ind:Per:P2:Neg: muistaneet
+Akt:Ind:Per:P3:Neg: muistaneet
+Pas:Ind:Per:Neg:    muistettu
+
+Akt:Ind:Plp:S1: muistanut
+Akt:Ind:Plp:S2: muistanut
+Akt:Ind:Plp:S3: muistanut
+Akt:Ind:Plp:P1: muistaneet
+Akt:Ind:Plp:P2: muistaneet
+Akt:Ind:Plp:P3: muistaneet
+Pas:Ind:Plp:    muistettu
+
+Akt:Ind:Plp:S1:Neg: muistanut
+Akt:Ind:Plp:S2:Neg: muistanut
+Akt:Ind:Plp:S3:Neg: muistanut
+Akt:Ind:Plp:P1:Neg: muistaneet
+Akt:Ind:Plp:P2:Neg: muistaneet
+Akt:Ind:Plp:P3:Neg: muistaneet
+Pas:Ind:Plp:Neg:    muistettu
+
+#Potential
+
+Akt:Pot:Pre:S1: muistanen
+Akt:Pot:Pre:S2: muistanet
+Akt:Pot:Pre:S3: muistanee
+Akt:Pot:Pre:P1: muistanemme
+Akt:Pot:Pre:P2: muistanette
+Akt:Pot:Pre:P3: muistanevat
+Pas:Pot:Pre:    muistettaneen
+
+Akt:Pot:Pre:S1:Neg: muistane
+Akt:Pot:Pre:S2:Neg: muistane
+Akt:Pot:Pre:S3:Neg: muistane
+Akt:Pot:Pre:P1:Neg: muistane
+Akt:Pot:Pre:P2:Neg: muistane
+Akt:Pot:Pre:P3:Neg: muistane
+Pas:Pot:Pre:Neg:    muistettane
+
+Akt:Pot:Per:S1: muistanut
+Akt:Pot:Per:S2: muistanut
+Akt:Pot:Per:S3: muistanut
+Akt:Pot:Per:P1: muistaneet
+Akt:Pot:Per:P2: muistaneet
+Akt:Pot:Per:P3: muistaneet
+Pas:Pot:Per:    muistettu
+
+Akt:Pot:Per:S1:Neg: muistanut
+Akt:Pot:Per:S2:Neg: muistanut
+Akt:Pot:Per:S3:Neg: muistanut
+Akt:Pot:Per:P1:Neg: muistaneet
+Akt:Pot:Per:P2:Neg: muistaneet
+Akt:Pot:Per:P3:Neg: muistaneet
+Pas:Pot:Per:Neg:    muistettu
+
+#Conditional
+
+Akt:Con:Pre:S1: muistaisin
+Akt:Con:Pre:S2: muistaisit
+Akt:Con:Pre:S3: muistaisi
+Akt:Con:Pre:P1: muistaisimme
+Akt:Con:Pre:P2: muistaisitte
+Akt:Con:Pre:P3: muistaisivat
+Pas:Con:Pre:    muistettaisiin
+
+Akt:Con:Pre:S1:Neg: muistaisi
+Akt:Con:Pre:S2:Neg: muistaisi
+Akt:Con:Pre:S3:Neg: muistaisi
+Akt:Con:Pre:P1:Neg: muistaisi
+Akt:Con:Pre:P2:Neg: muistaisi
+Akt:Con:Pre:P3:Neg: muistaisi
+Pas:Con:Pre:Neg:    muistettaisi
+
+Akt:Con:Per:S1: muistanut
+Akt:Con:Per:S2: muistanut
+Akt:Con:Per:S3: muistanut
+Akt:Con:Per:P1: muistaneet
+Akt:Con:Per:P2: muistaneet
+Akt:Con:Per:P3: muistaneet
+Pas:Con:Per:    muistettu
+
+Akt:Con:Per:S1:Neg: muistanut
+Akt:Con:Per:S2:Neg: muistanut
+Akt:Con:Per:S3:Neg: muistanut
+Akt:Con:Per:P1:Neg: muistaneet
+Akt:Con:Per:P2:Neg: muistaneet
+Akt:Con:Per:P3:Neg: muistaneet
+Pas:Con:Per:Neg:    muistettu
+
+#Imperative
+
+Akt:Imp:Pre:S2: muista
+Akt:Imp:Pre:P1: muistakaamme
+Akt:Imp:Pre:P2: muistakaa
+
+Akt:Imp:Pre:S2:Neg: muista
+Akt:Imp:Pre:P1:Neg: muistako
+Akt:Imp:Pre:P2:Neg: muistako
+
+#Infinitive
+
+Inf1:Tra: muistaakseen
+Inf2:Ine: muistaessa
+Inf2:Ins: muistaen
+Inf3:Ine: muistamassa
+Inf3:Ela: muistamasta
+Inf3:Ill: muistamaan
+Inf3:Ade: muistamalla
+Inf3:Abe: muistamatta
+Inf3:Ins: muistaman
+Inf4:Nom: muistaminen
+Inf4:Par: muistamista
+Inf5:     muistamaisillaan
+
+#Participle
+
+Pat1:    muistava
+Pat2:    muistanut
+Pat3:    muistama
+PatN:    muistamaton
+
+<54>
+
 huutaa
 huudan
 huusi
