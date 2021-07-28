@@ -46,6 +46,7 @@ prin("riekkujaiset", 38, None)*/
 //prin("valta", 9, Some('I'))
 prin("pitkä", 10, None)
 prin("iso", 1, None)
+prin("aivot", 1, None)
 
 
 /*Hyphenation.apply("kettu").mkString("-")
@@ -59,7 +60,7 @@ Hyphenation.apply("syysilta").mkString("-")*/
 
 //println(KotusHyphenation.apply().mkString("\n"))
 
-/*val result: Seq[UpdatedWord] = ReformatKotus(genRulings)
+val result: Seq[UpdatedWord] = ReformatKotus(genRulings)
 
 val errors = result.flatMap(word => word match {
   case a: UpdatedWord.Error => Some(a)
@@ -68,5 +69,5 @@ val errors = result.flatMap(word => word match {
 println("Errors: " + errors.length)
 print(errors.mkString("\n"))
 
-ReformatKotus.save(result)*/
+ReformatKotus.save(result)
 
