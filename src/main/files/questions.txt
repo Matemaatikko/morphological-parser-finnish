@@ -10,9 +10,7 @@
 
 - TODO Print example file from all existing pairs: (number, letterOpt)
 - TODO implement verb cases
-- TODO Need to decide plural compound format: isotaivot -> isoaivo or isotaivot: isot * aivot *
-    - TODO If given in plural should sustain that information?
-- TODO Fix: isotaivot, pitkäthousut
+- TODO readme
 
 Codings Used
 ============

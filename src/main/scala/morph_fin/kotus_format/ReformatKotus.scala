@@ -56,7 +56,12 @@ object PrintUpdatedWord{
 val remove = Seq("ikenet")
 
 val additions = Seq(
-  Entry(KotusWord.Word("raamattu"), Some(Bending(4, Some('C'))))
+  Entry(KotusWord.Word("raamattu"), Some(Bending(4, Some('C')))),
+  Entry(KotusWord.Word("torvisieni"), Some(Bending(26, None))),
+  Entry(KotusWord.Word("viinimarja"), Some(Bending(9, None))),
+  Entry(KotusWord.Suffix("pestävä"), Some(Bending(10, None))),
+  Entry(KotusWord.Word("kulmain"), Some(Bending(33, None))),
+  Entry(KotusWord.Word("särkynyt"), Some(Bending(47, None)))
 )
 
 case class Data(

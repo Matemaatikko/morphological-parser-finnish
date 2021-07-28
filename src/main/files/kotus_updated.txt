@@ -27404,7 +27404,7 @@ C1:koneompelija:P:kone:S:ompelija:B:12
 C1:koneompelu:P:kone:S:ompelu:B:2
 C1:konepaja:P:kone:S:paja:B:9
 C1:konepelti:P:kone:S:pelti:B:5:L:I
-E:konepestävä:B:50
+C1:konepestävä:P:kone:S:pestävä:B:10
 C1:konepesu:P:kone:S:pesu:B:1
 C1:konepiirtäjä:P:kone:S:piirtäjä:B:10
 C1:konepiirustus:P:kone:S:piirustus:B:39
@@ -44898,7 +44898,7 @@ U:mustasukkaisesti
 W:mustasukkaisuus:B:40
 C1:mustasukkaisuusharha:P:mustasukkaisuus:S:harha:B:9
 W:mustata:B:73
-E:mustatorvisieni:B:51
+C2:mustatorvisieni:P:musta:B:10:S:torvisieni:B:26
 C1:mustavalkea:P:musta:S:valkea:B:15
 C1:mustavalkoelokuva:P:mustavalkoelo:S:kuva:B:10
 C1:mustavalkofilmi:P:mustavalko:S:filmi:B:5
@@ -44908,7 +44908,7 @@ C1:mustavalkoruutuinen:P:mustavalko:S:ruutuinen:B:38
 C1:mustavalkotelevisio:P:mustavalko:S:televisio:B:3
 C1:mustavalkovalokuvaus:P:mustavalkovalo:S:kuvaus:B:39
 C1:mustavaris:P:musta:S:varis:B:39
-E:mustaviinimarja:B:51
+C2:mustaviinimarja:P:musta:B:10:S:viinimarja:B:9
 C1:mustaviinimarjamehu:P:mustaviinimarja:S:mehu:B:1
 W:muste:B:48
 C1:mustekala:P:muste:S:kala:B:9
@@ -72701,7 +72701,7 @@ C1:suorakaide:P:suora:S:kaide:B:48:L:F
 C1:suorakauppa:P:suora:S:kauppa:B:9:L:B
 C1:suorakorvaus:P:suora:S:korvaus:B:39
 C1:suorakulma:P:suora:S:kulma:B:10
-E:suorakulmain:B:50
+C1:suorakulmain:P:suora:S:kulmain:B:33
 C1:suorakulmainen:P:suora:S:kulmainen:B:38
 C1:suorakulmio:P:suora:S:kulmio:B:3
 C1:suorakäyttö:P:suora:S:käyttö:B:1:L:C
@@ -74540,7 +74540,7 @@ W:särkiparvi:B:7
 W:särkkä:B:10:L:A
 W:särky:B:1:L:D
 C1:särkylääke:P:särky:S:lääke:B:48:L:A
-E:särkynytsydän:B:51
+C2:särkynytsydän:P:särkynyt:B:47:S:sydän:B:33
 W:särkyä:B:52:L:D
 W:särmi:B:5
 W:särmikkyys:B:40
@@ -94108,3 +94108,8 @@ W:öykkäröidä:B:62
 W:öykkäröinti:B:5:L:J
 W:öylätti:B:5:L:C
 W:raamattu:B:4:L:C
+W:torvisieni:B:26
+W:viinimarja:B:9
+S:pestävä:B:10
+W:kulmain:B:33
+W:särkynyt:B:47

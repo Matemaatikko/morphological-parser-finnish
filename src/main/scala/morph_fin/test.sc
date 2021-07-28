@@ -44,10 +44,11 @@ prin("reivit", 5, None)
 prin("riekkujaiset", 38, None)*/
 
 //prin("valta", 9, Some('I'))
-prin("pitkä", 10, None)
+/*prin("pitkä", 10, None)
 prin("iso", 1, None)
-prin("aivot", 1, None)
+prin("aivot", 1, None)*/
 
+//prin("särkynyt", 47, None)
 
 /*Hyphenation.apply("kettu").mkString("-")
 Hyphenation.apply("öljytuikku").mkString("-")
@@ -67,7 +68,10 @@ val errors = result.flatMap(word => word match {
   case _                    => None
 })
 println("Errors: " + errors.length)
-print(errors.mkString("\n"))
+print(errors.filter(_.bendingOpt.nonEmpty).mkString("\n"))
+
+
+print(errors.filter(_.bendingOpt.isEmpty).mkString("\n"))
 
 ReformatKotus.save(result)
 
