@@ -16,6 +16,9 @@
 #Ins = Instructive (valoin)
 #Abe = Abessive (valotta)
 #Kom = Komitative (valoine-O)
+#G = Gradation
+#S = Strong
+#W = Weak
 
 <1>
 S|Nom: valo

@@ -1,0 +1,14 @@
+
+
+Akt:S -> Akt:Ind:Imp:S:Neg: soutanut
+Akt:P -> Akt:Ind:Imp:P:Neg: soutaneet
+Pas   -> Pas:Ind:Imp:Neg:   soudettu
+
+Conditions to happen: Per, Plp
+
+Ind: Per
+Ind: Plp
+Pot: Per
+Con: Per
+
+Imp: Per (S3, P3, Pass)

@@ -20,6 +20,7 @@
 # Neg = Negative
 # Inf = Infinitive
 # Pat = Participle
+# Age = Agent
 
 <52>
 
@@ -56,38 +57,6 @@ Akt:Ind:Imp:P2:Neg: sanoneet
 Akt:Ind:Imp:P3:Neg: sanoneet
 Pas:Ind:Imp:Neg:    sanottu
 
-Akt:Ind:Per:S1: sanonut
-Akt:Ind:Per:S2: sanonut
-Akt:Ind:Per:S3: sanonut
-Akt:Ind:Per:P1: sanoneet
-Akt:Ind:Per:P2: sanoneet
-Akt:Ind:Per:P3: sanoneet
-Pas:Ind:Per:    sanottu
-
-Akt:Ind:Per:S1:Neg: sanonut
-Akt:Ind:Per:S2:Neg: sanonut
-Akt:Ind:Per:S3:Neg: sanonut
-Akt:Ind:Per:P1:Neg: sanoneet
-Akt:Ind:Per:P2:Neg: sanoneet
-Akt:Ind:Per:P3:Neg: sanoneet
-Pas:Ind:Per:Neg:    sanottu
-
-Akt:Ind:Plp:S1: sanonut
-Akt:Ind:Plp:S2: sanonut
-Akt:Ind:Plp:S3: sanonut
-Akt:Ind:Plp:P1: sanoneet
-Akt:Ind:Plp:P2: sanoneet
-Akt:Ind:Plp:P3: sanoneet
-Pas:Ind:Plp:    sanottu
-
-Akt:Ind:Plp:S1:Neg: sanonut
-Akt:Ind:Plp:S2:Neg: sanonut
-Akt:Ind:Plp:S3:Neg: sanonut
-Akt:Ind:Plp:P1:Neg: sanoneet
-Akt:Ind:Plp:P2:Neg: sanoneet
-Akt:Ind:Plp:P3:Neg: sanoneet
-Pas:Ind:Plp:Neg:    sanottu
-
 #Potential
 
 Akt:Pot:Pre:S1: sanonen
@@ -105,22 +74,6 @@ Akt:Pot:Pre:P1:Neg: sanone
 Akt:Pot:Pre:P2:Neg: sanone
 Akt:Pot:Pre:P3:Neg: sanone
 Pas:Pot:Pre:Neg:    sanottane
-
-Akt:Pot:Per:S1: sanonut
-Akt:Pot:Per:S2: sanonut
-Akt:Pot:Per:S3: sanonut
-Akt:Pot:Per:P1: sanoneet
-Akt:Pot:Per:P2: sanoneet
-Akt:Pot:Per:P3: sanoneet
-Pas:Pot:Per:    sanottu
-
-Akt:Pot:Per:S1:Neg: sanonut
-Akt:Pot:Per:S2:Neg: sanonut
-Akt:Pot:Per:S3:Neg: sanonut
-Akt:Pot:Per:P1:Neg: sanoneet
-Akt:Pot:Per:P2:Neg: sanoneet
-Akt:Pot:Per:P3:Neg: sanoneet
-Pas:Pot:Per:Neg:    sanottu
 
 #Conditional
 
@@ -140,53 +93,53 @@ Akt:Con:Pre:P2:Neg: sanoisi
 Akt:Con:Pre:P3:Neg: sanoisi
 Pas:Con:Pre:Neg:    sanottaisi
 
-Akt:Con:Per:S1: sanonut
-Akt:Con:Per:S2: sanonut
-Akt:Con:Per:S3: sanonut
-Akt:Con:Per:P1: sanoneet
-Akt:Con:Per:P2: sanoneet
-Akt:Con:Per:P3: sanoneet
-Pas:Con:Per:    sanottu
-
-Akt:Con:Per:S1:Neg: sanonut
-Akt:Con:Per:S2:Neg: sanonut
-Akt:Con:Per:S3:Neg: sanonut
-Akt:Con:Per:P1:Neg: sanoneet
-Akt:Con:Per:P2:Neg: sanoneet
-Akt:Con:Per:P3:Neg: sanoneet
-Pas:Con:Per:Neg:    sanottu
 
 #Imperative
 
 Akt:Imp:Pre:S2: sano
+Akt:Imp:Pre:S3: sanokoon
 Akt:Imp:Pre:P1: sanokaamme
 Akt:Imp:Pre:P2: sanokaa
+Akt:Imp:Pre:P3: sanokoot
+Pass:Imp:Pre:   sanottakoon
 
 Akt:Imp:Pre:S2:Neg: sano
+Akt:Imp:Pre:S3:Neg: sanoko
 Akt:Imp:Pre:P1:Neg: sanoko
 Akt:Imp:Pre:P2:Neg: sanoko
+Akt:Imp:Pre:P3:Neg: sanoko
+Pass:Imp:Pre:       sanottako
 
 #Infinitive
 
-Inf1:Tra: sanoakseen
-Inf2:Ine: sanoessa
-Inf2:Ins: sanoen
-Inf3:Ine: sanomassa
-Inf3:Ela: sanomasta
-Inf3:Ill: sanomaan
-Inf3:Ade: sanomalla
-Inf3:Abe: sanomatta
-Inf3:Ins: sanoman
+Inf1:      sanoa
+Inf1:L:    sanoakseen
+
+Inf2:Ine:Akt: sanoessa
+Inf2:Ine:Pas: sanottaessa
+Inf2:Ins:Akt: sanoen
+
+Inf3:Ine:Akt: sanomassa
+Inf3:Ela:Akt: sanomasta
+Inf3:Ill:Akt: sanomaan
+Inf3:Ade:Akt: sanomalla
+Inf3:Abe:Akt: sanomatta
+Inf3:Ins:Akt: sanoman
+Inf3:Ins:Pas: sanottaman
+
 Inf4:Nom: sanominen
 Inf4:Par: sanomista
-Inf5:     sanomaisillaan
+
+Inf5: sanomaisillaan
 
 #Participle
 
-Pat1:    sanova
-Pat2:    sanonut
-Pat3:    sanoma
-PatN:    sanomaton
+Pat:Pre:Akt: sanova
+Pat:Pre:Pas: sanottava
+Pat:Per:Akt: sanonut
+Pat:Per:Pas: sanottu
+Pat:Age:     sanoma
+Pat:Age:Neg: sanomaton
 
 
 <53>
@@ -223,38 +176,6 @@ Akt:Ind:Imp:P2:Neg: muistaneet
 Akt:Ind:Imp:P3:Neg: muistaneet
 Pas:Ind:Imp:Neg:    muistettu
 
-Akt:Ind:Per:S1: muistanut
-Akt:Ind:Per:S2: muistanut
-Akt:Ind:Per:S3: muistanut
-Akt:Ind:Per:P1: muistaneet
-Akt:Ind:Per:P2: muistaneet
-Akt:Ind:Per:P3: muistaneet
-Pas:Ind:Per:    muistettu
-
-Akt:Ind:Per:S1:Neg: muistanut
-Akt:Ind:Per:S2:Neg: muistanut
-Akt:Ind:Per:S3:Neg: muistanut
-Akt:Ind:Per:P1:Neg: muistaneet
-Akt:Ind:Per:P2:Neg: muistaneet
-Akt:Ind:Per:P3:Neg: muistaneet
-Pas:Ind:Per:Neg:    muistettu
-
-Akt:Ind:Plp:S1: muistanut
-Akt:Ind:Plp:S2: muistanut
-Akt:Ind:Plp:S3: muistanut
-Akt:Ind:Plp:P1: muistaneet
-Akt:Ind:Plp:P2: muistaneet
-Akt:Ind:Plp:P3: muistaneet
-Pas:Ind:Plp:    muistettu
-
-Akt:Ind:Plp:S1:Neg: muistanut
-Akt:Ind:Plp:S2:Neg: muistanut
-Akt:Ind:Plp:S3:Neg: muistanut
-Akt:Ind:Plp:P1:Neg: muistaneet
-Akt:Ind:Plp:P2:Neg: muistaneet
-Akt:Ind:Plp:P3:Neg: muistaneet
-Pas:Ind:Plp:Neg:    muistettu
-
 #Potential
 
 Akt:Pot:Pre:S1: muistanen
@@ -272,22 +193,6 @@ Akt:Pot:Pre:P1:Neg: muistane
 Akt:Pot:Pre:P2:Neg: muistane
 Akt:Pot:Pre:P3:Neg: muistane
 Pas:Pot:Pre:Neg:    muistettane
-
-Akt:Pot:Per:S1: muistanut
-Akt:Pot:Per:S2: muistanut
-Akt:Pot:Per:S3: muistanut
-Akt:Pot:Per:P1: muistaneet
-Akt:Pot:Per:P2: muistaneet
-Akt:Pot:Per:P3: muistaneet
-Pas:Pot:Per:    muistettu
-
-Akt:Pot:Per:S1:Neg: muistanut
-Akt:Pot:Per:S2:Neg: muistanut
-Akt:Pot:Per:S3:Neg: muistanut
-Akt:Pot:Per:P1:Neg: muistaneet
-Akt:Pot:Per:P2:Neg: muistaneet
-Akt:Pot:Per:P3:Neg: muistaneet
-Pas:Pot:Per:Neg:    muistettu
 
 #Conditional
 
@@ -307,84 +212,406 @@ Akt:Con:Pre:P2:Neg: muistaisi
 Akt:Con:Pre:P3:Neg: muistaisi
 Pas:Con:Pre:Neg:    muistettaisi
 
-Akt:Con:Per:S1: muistanut
-Akt:Con:Per:S2: muistanut
-Akt:Con:Per:S3: muistanut
-Akt:Con:Per:P1: muistaneet
-Akt:Con:Per:P2: muistaneet
-Akt:Con:Per:P3: muistaneet
-Pas:Con:Per:    muistettu
-
-Akt:Con:Per:S1:Neg: muistanut
-Akt:Con:Per:S2:Neg: muistanut
-Akt:Con:Per:S3:Neg: muistanut
-Akt:Con:Per:P1:Neg: muistaneet
-Akt:Con:Per:P2:Neg: muistaneet
-Akt:Con:Per:P3:Neg: muistaneet
-Pas:Con:Per:Neg:    muistettu
-
 #Imperative
 
 Akt:Imp:Pre:S2: muista
+Akt:Imp:Pre:S3: muistakoon
 Akt:Imp:Pre:P1: muistakaamme
 Akt:Imp:Pre:P2: muistakaa
+Akt:Imp:Pre:P3: muistakoot
+Pass:Imp:Pre:   muistettakoon
 
 Akt:Imp:Pre:S2:Neg: muista
+Akt:Imp:Pre:S3:Neg: muistako
 Akt:Imp:Pre:P1:Neg: muistako
 Akt:Imp:Pre:P2:Neg: muistako
+Akt:Imp:Pre:P3:Neg: muistako
+Pass:Imp:Pre:       muistettako
 
 #Infinitive
 
-Inf1:Tra: muistaakseen
-Inf2:Ine: muistaessa
-Inf2:Ins: muistaen
-Inf3:Ine: muistamassa
-Inf3:Ela: muistamasta
-Inf3:Ill: muistamaan
-Inf3:Ade: muistamalla
-Inf3:Abe: muistamatta
-Inf3:Ins: muistaman
+Inf1:      muistaa
+Inf1:L:    muistaakseen
+
+Inf2:Ine:Akt: muistaessa
+Inf2:Ine:Pas: muistettaessa
+Inf2:Ins:Akt: muistaen
+
+Inf3:Ine:Akt: muistamassa
+Inf3:Ela:Akt: muistamasta
+Inf3:Ill:Akt: muistamaan
+Inf3:Ade:Akt: muistamalla
+Inf3:Abe:Akt: muistamatta
+Inf3:Ins:Akt: muistaman
+Inf3:Ins:Pas: muistettaman
+
 Inf4:Nom: muistaminen
 Inf4:Par: muistamista
-Inf5:     muistamaisillaan
+
+Inf5: muistamaisillaan
 
 #Participle
 
-Pat1:    muistava
-Pat2:    muistanut
-Pat3:    muistama
-PatN:    muistamaton
+Pat:Pre:Akt: muistava
+Pat:Pre:Pas: muistettava
+Pat:Per:Akt: muistanut
+Pat:Per:Pas: muistettu
+Pat:Age:     muistama
+Pat:Age:Neg: muistamaton
 
-<54>
 
-huutaa
-huudan
-huusi
-huutaisi
-huutanee
-huutakoon
-huutanut
-huudettiin
+<54:G:S:t-d>
+#Indicative
+Akt:Ind:Pre:S1: huudan
+Akt:Ind:Pre:S2: huudat
+Akt:Ind:Pre:S3: huutaa
+Akt:Ind:Pre:P1: huudamme
+Akt:Ind:Pre:P2: huudatte
+Akt:Ind:Pre:P3: huutavat
+Pas:Ind:Pre:    huudetaan
 
-55
-soutaa
-soudan
-souti sousi
-soutaisi
-soutanee
-soutakoon
-soutanut
-soudettiin
+Akt:Ind:Pre:S1:Neg: huuda
+Akt:Ind:Pre:S2:Neg: huuda
+Akt:Ind:Pre:S3:Neg: huuda
+Akt:Ind:Pre:P1:Neg: huuda
+Akt:Ind:Pre:P2:Neg: huuda
+Akt:Ind:Pre:P3:Neg: huuda
+Pas:Ind:Pre:Neg:    huudeta
 
-56
-kaivaa
-kaivan
-kaivoi
-kaivaisi
-kaivanee
-kaivakoon
-kaivanut
-kaivettiin
+Akt:Ind:Imp:S1: huusin
+Akt:Ind:Imp:S2: huusit
+Akt:Ind:Imp:S3: huusi
+Akt:Ind:Imp:P1: huusimme
+Akt:Ind:Imp:P2: huusitte
+Akt:Ind:Imp:P3: huusivat
+Pas:Ind:Imp:    huudettiin
+
+Akt:Ind:Imp:S1:Neg: huutanut
+Akt:Ind:Imp:S2:Neg: huutanut
+Akt:Ind:Imp:S3:Neg: huutanut
+Akt:Ind:Imp:P1:Neg: huutaneet
+Akt:Ind:Imp:P2:Neg: huutaneet
+Akt:Ind:Imp:P3:Neg: huutaneet
+Pas:Ind:Imp:Neg:    huudettu
+
+#Potential
+
+Akt:Pot:Pre:S1: huutanen
+Akt:Pot:Pre:S2: huutanet
+Akt:Pot:Pre:S3: huutanee
+Akt:Pot:Pre:P1: huutanemme
+Akt:Pot:Pre:P2: huutanette
+Akt:Pot:Pre:P3: huutanevat
+Pas:Pot:Pre:    huudettaneen
+
+Akt:Pot:Pre:S1:Neg: huutane
+Akt:Pot:Pre:S2:Neg: huutane
+Akt:Pot:Pre:S3:Neg: huutane
+Akt:Pot:Pre:P1:Neg: huutane
+Akt:Pot:Pre:P2:Neg: huutane
+Akt:Pot:Pre:P3:Neg: huutane
+Pas:Pot:Pre:Neg:    huudettane
+
+#Conditional
+
+Akt:Con:Pre:S1: huutaisin
+Akt:Con:Pre:S2: huutaisit
+Akt:Con:Pre:S3: huutaisi
+Akt:Con:Pre:P1: huutaisimme
+Akt:Con:Pre:P2: huutaisitte
+Akt:Con:Pre:P3: huutaisivat
+Pas:Con:Pre:    huudettaisiin
+
+Akt:Con:Pre:S1:Neg: huutaisi
+Akt:Con:Pre:S2:Neg: huutaisi
+Akt:Con:Pre:S3:Neg: huutaisi
+Akt:Con:Pre:P1:Neg: huutaisi
+Akt:Con:Pre:P2:Neg: huutaisi
+Akt:Con:Pre:P3:Neg: huutaisi
+Pas:Con:Pre:Neg:    huudettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: huuda
+Akt:Imp:Pre:S3: huutakoon
+Akt:Imp:Pre:P1: huutakaamme
+Akt:Imp:Pre:P2: huutakaa
+Akt:Imp:Pre:P3: huutakoot
+Pass:Imp:Pre:   huudettakoon
+
+Akt:Imp:Pre:S2:Neg: huuda
+Akt:Imp:Pre:S3:Neg: huutako
+Akt:Imp:Pre:P1:Neg: huutako
+Akt:Imp:Pre:P2:Neg: huutako
+Akt:Imp:Pre:P3:Neg: huutako
+Pass:Imp:Pre:       huudettako
+
+#Infinitive
+
+Inf1:      huutaa
+Inf1:L:    huutaakseen
+
+Inf2:Ine:Akt: huutaessa
+Inf2:Ine:Pas: huudettaessa
+Inf2:Ins:Akt: huutaen
+
+Inf3:Ine:Akt: huutamassa
+Inf3:Ela:Akt: huutamasta
+Inf3:Ill:Akt: huutamaan
+Inf3:Ade:Akt: huutamalla
+Inf3:Abe:Akt: huutamatta
+Inf3:Ins:Akt: huutaman
+Inf3:Ins:Pas: huudettaman
+
+Inf4:Nom: huutaminen
+Inf4:Par: huutamista
+
+Inf5: huutamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: huutava
+Pat:Pre:Pas: huudettava
+Pat:Per:Akt: huutanut
+Pat:Per:Pas: huudettu
+Pat:Age:     huutama
+Pat:Age:Neg: huutamaton
+
+
+<55:G:S:t-d>
+#Indicative
+Akt:Ind:Pre:S1: soudan
+Akt:Ind:Pre:S2: soudat
+Akt:Ind:Pre:S3: soutaa
+Akt:Ind:Pre:P1: soudamme
+Akt:Ind:Pre:P2: soudatte
+Akt:Ind:Pre:P3: soutavat
+Pas:Ind:Pre:    soudetaan
+
+Akt:Ind:Pre:S1:Neg: souda
+Akt:Ind:Pre:S2:Neg: souda
+Akt:Ind:Pre:S3:Neg: souda
+Akt:Ind:Pre:P1:Neg: souda
+Akt:Ind:Pre:P2:Neg: souda
+Akt:Ind:Pre:P3:Neg: souda
+Pas:Ind:Pre:Neg:    soudeta
+
+Akt:Ind:Imp:S1: soudin sousin
+Akt:Ind:Imp:S2: soudit sousit
+Akt:Ind:Imp:S3: souti sousi
+Akt:Ind:Imp:P1: soudimme sousimme
+Akt:Ind:Imp:P2: souditte sousimme
+Akt:Ind:Imp:P3: souditte sousitte
+Pas:Ind:Imp:    soudettiin
+
+Akt:Ind:Imp:S1:Neg: soutanut
+Akt:Ind:Imp:S2:Neg: soutanut
+Akt:Ind:Imp:S3:Neg: soutanut
+Akt:Ind:Imp:P1:Neg: soutaneet
+Akt:Ind:Imp:P2:Neg: soutaneet
+Akt:Ind:Imp:P3:Neg: soutaneet
+Pas:Ind:Imp:Neg:    soudettu
+
+#Potential
+
+Akt:Pot:Pre:S1: soutanen
+Akt:Pot:Pre:S2: soutanet
+Akt:Pot:Pre:S3: soutanee
+Akt:Pot:Pre:P1: soutanemme
+Akt:Pot:Pre:P2: soutanette
+Akt:Pot:Pre:P3: soutanevat
+Pas:Pot:Pre:    soudettaneen
+
+Akt:Pot:Pre:S1:Neg: soutane
+Akt:Pot:Pre:S2:Neg: soutane
+Akt:Pot:Pre:S3:Neg: soutane
+Akt:Pot:Pre:P1:Neg: soutane
+Akt:Pot:Pre:P2:Neg: soutane
+Akt:Pot:Pre:P3:Neg: soutane
+Pas:Pot:Pre:Neg:    soudettane
+
+#Conditional
+
+Akt:Con:Pre:S1: soutaisin
+Akt:Con:Pre:S2: soutaisit
+Akt:Con:Pre:S3: soutaisi
+Akt:Con:Pre:P1: soutaisimme
+Akt:Con:Pre:P2: soutaisitte
+Akt:Con:Pre:P3: soutaisivat
+Pas:Con:Pre:    soudettaisiin
+
+Akt:Con:Pre:S1:Neg: soutaisi
+Akt:Con:Pre:S2:Neg: soutaisi
+Akt:Con:Pre:S3:Neg: soutaisi
+Akt:Con:Pre:P1:Neg: soutaisi
+Akt:Con:Pre:P2:Neg: soutaisi
+Akt:Con:Pre:P3:Neg: soutaisi
+Pas:Con:Pre:Neg:    soudettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: souda
+Akt:Imp:Pre:S3: soutakoon
+Akt:Imp:Pre:P1: soutakaamme
+Akt:Imp:Pre:P2: soutakaa
+Akt:Imp:Pre:P3: soutakoot
+Pass:Imp:Pre:   soudettakoon
+
+Akt:Imp:Pre:S2:Neg: souda
+Akt:Imp:Pre:S3:Neg: soutako
+Akt:Imp:Pre:P1:Neg: soutako
+Akt:Imp:Pre:P2:Neg: soutako
+Akt:Imp:Pre:P3:Neg: soutako
+Pass:Imp:Pre:       soudettako
+
+#Infinitive
+
+Inf1:      soutaa
+Inf1:L:    soutaakseen
+
+Inf2:Ine:Akt: soutaessa
+Inf2:Ine:Pas: soudettaessa
+Inf2:Ins:Akt: soutaen
+
+Inf3:Ine:Akt: soutamassa
+Inf3:Ela:Akt: soutamasta
+Inf3:Ill:Akt: soutamaan
+Inf3:Ade:Akt: soutamalla
+Inf3:Abe:Akt: soutamatta
+Inf3:Ins:Akt: soutaman
+Inf3:Ins:Pas: soudettaman
+
+Inf4:Nom: soutaminen
+Inf4:Par: soutamista
+
+Inf5: soutamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: soutava
+Pat:Pre:Pas: soudettava
+Pat:Per:Akt: soutanut
+Pat:Per:Pas: soudettu
+Pat:Age:     soutama
+Pat:Age:Neg: soutamaton
+
+<56>
+#Indicative
+Akt:Ind:Pre:S1: kaivan
+Akt:Ind:Pre:S2: kaivat
+Akt:Ind:Pre:S3: kaivaa
+Akt:Ind:Pre:P1: kaivamme
+Akt:Ind:Pre:P2: kaivatte
+Akt:Ind:Pre:P3: kaivavat
+Pas:Ind:Pre:    kaivetaan
+
+Akt:Ind:Pre:S1:Neg: kaiva
+Akt:Ind:Pre:S2:Neg: kaiva
+Akt:Ind:Pre:S3:Neg: kaiva
+Akt:Ind:Pre:P1:Neg: kaiva
+Akt:Ind:Pre:P2:Neg: kaiva
+Akt:Ind:Pre:P3:Neg: kaiva
+Pas:Ind:Pre:Neg:    kaiveta
+
+Akt:Ind:Imp:S1: kaivoin
+Akt:Ind:Imp:S2: kaivoit
+Akt:Ind:Imp:S3: kaivoi
+Akt:Ind:Imp:P1: kaivoimme
+Akt:Ind:Imp:P2: kaivoitte
+Akt:Ind:Imp:P3: kaivoivat
+Pas:Ind:Imp:    kaivettiin
+
+Akt:Ind:Imp:S1:Neg: kaivanut
+Akt:Ind:Imp:S2:Neg: kaivanut
+Akt:Ind:Imp:S3:Neg: kaivanut
+Akt:Ind:Imp:P1:Neg: kaivaneet
+Akt:Ind:Imp:P2:Neg: kaivaneet
+Akt:Ind:Imp:P3:Neg: kaivaneet
+Pas:Ind:Imp:Neg:    kaivettu
+
+#Potential
+
+Akt:Pot:Pre:S1: kaivanen
+Akt:Pot:Pre:S2: kaivanet
+Akt:Pot:Pre:S3: kaivanee
+Akt:Pot:Pre:P1: kaivanemme
+Akt:Pot:Pre:P2: kaivanette
+Akt:Pot:Pre:P3: kaivanevat
+Pas:Pot:Pre:    kaivettaneen
+
+Akt:Pot:Pre:S1:Neg: kaivane
+Akt:Pot:Pre:S2:Neg: kaivane
+Akt:Pot:Pre:S3:Neg: kaivane
+Akt:Pot:Pre:P1:Neg: kaivane
+Akt:Pot:Pre:P2:Neg: kaivane
+Akt:Pot:Pre:P3:Neg: kaivane
+Pas:Pot:Pre:Neg:    kaivettane
+
+#Conditional
+
+Akt:Con:Pre:S1: kaivaisin
+Akt:Con:Pre:S2: kaivaisit
+Akt:Con:Pre:S3: kaivaisi
+Akt:Con:Pre:P1: kaivaisimme
+Akt:Con:Pre:P2: kaivaisitte
+Akt:Con:Pre:P3: kaivaisivat
+Pas:Con:Pre:    kaivettaisiin
+
+Akt:Con:Pre:S1:Neg: kaivaisi
+Akt:Con:Pre:S2:Neg: kaivaisi
+Akt:Con:Pre:S3:Neg: kaivaisi
+Akt:Con:Pre:P1:Neg: kaivaisi
+Akt:Con:Pre:P2:Neg: kaivaisi
+Akt:Con:Pre:P3:Neg: kaivaisi
+Pas:Con:Pre:Neg:    kaivettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: kaiva
+Akt:Imp:Pre:S3: kaivakoon
+Akt:Imp:Pre:P1: kaivakaamme
+Akt:Imp:Pre:P2: kaivakaa
+Akt:Imp:Pre:P3: kaivakoot
+Pass:Imp:Pre:   kaivettakoon
+
+Akt:Imp:Pre:S2:Neg: kaiva
+Akt:Imp:Pre:S3:Neg: kaivako
+Akt:Imp:Pre:P1:Neg: kaivako
+Akt:Imp:Pre:P2:Neg: kaivako
+Akt:Imp:Pre:P3:Neg: kaivako
+Pass:Imp:Pre:       kaivettako
+
+#Infinitive
+
+Inf1:      kaivaa
+Inf1:L:    kaivaakseen
+
+Inf2:Ine:Akt: kaivaessa
+Inf2:Ine:Pas: kaivettaessa
+Inf2:Ins:Akt: kaivaen
+
+Inf3:Ine:Akt: kaivamassa
+Inf3:Ela:Akt: kaivamasta
+Inf3:Ill:Akt: kaivamaan
+Inf3:Ade:Akt: kaivamalla
+Inf3:Abe:Akt: kaivamatta
+Inf3:Ins:Akt: kaivaman
+Inf3:Ins:Pas: kaivettaman
+
+Inf4:Nom: kaivaminen
+Inf4:Par: kaivamista
+
+Inf5: kaivamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: kaivava
+Pat:Pre:Pas: kaivettava
+Pat:Per:Akt: kaivanut
+Pat:Per:Pas: kaivettu
+Pat:Age:     kaivama
+Pat:Age:Neg: kaivamaton
+
 
 57
 saartaa
