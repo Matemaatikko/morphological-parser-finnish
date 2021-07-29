@@ -1,5 +1,3 @@
-
-
 Akt:S -> Akt:Ind:Imp:S:Neg: soutanut
 Akt:P -> Akt:Ind:Imp:P:Neg: soutaneet
 Pas   -> Pas:Ind:Imp:Neg:   soudettu

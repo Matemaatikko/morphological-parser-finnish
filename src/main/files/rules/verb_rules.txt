@@ -612,213 +612,2389 @@ Pat:Per:Pas: kaivettu
 Pat:Age:     kaivama
 Pat:Age:Neg: kaivamaton
 
+<57:G:S:rt-rr>
 
-57
-saartaa
-saarran
-saarsi saartoi
-saartaisi
-saartanee
-saartakoon
-saartanut
-saarrettiin
+#Indicative
+Akt:Ind:Pre:S1: saarran
+Akt:Ind:Pre:S2: saarrat
+Akt:Ind:Pre:S3: saartaa
+Akt:Ind:Pre:P1: saarramme
+Akt:Ind:Pre:P2: saarratte
+Akt:Ind:Pre:P3: saartavat
+Pas:Ind:Pre:    saarretaan
 
-58
-laskea
-lasken
-laski
-laskisi
-laskenee
-laskekoon
-laskenut
-laskettiin
+Akt:Ind:Pre:S1:Neg: saarra
+Akt:Ind:Pre:S2:Neg: saarra
+Akt:Ind:Pre:S3:Neg: saarra
+Akt:Ind:Pre:P1:Neg: saarra
+Akt:Ind:Pre:P2:Neg: saarra
+Akt:Ind:Pre:P3:Neg: saarra
+Pas:Ind:Pre:Neg:    saarreta
 
-59
-tuntea
-tunnen
-tunsi
-tuntisi
-tuntenee
-tuntekoon
-tuntenut
-tunnettiin
+Akt:Ind:Imp:S1: saarroin saarsin
+Akt:Ind:Imp:S2: saarroit saarsit
+Akt:Ind:Imp:S3: saartoi saarsi
+Akt:Ind:Imp:P1: saarroimme saarsimme
+Akt:Ind:Imp:P2: saarroitte saarsitte
+Akt:Ind:Imp:P3: saartoivat saarsivat
+Pas:Ind:Imp:    saarrettiin
 
-60
-lähteä
-lähden
-lähti (läksi)
-lähtisi
-lähtenee
-lähteköön
-lähtenyt
-lähdettiin
+Akt:Ind:Imp:S1:Neg: saartanut
+Akt:Ind:Imp:S2:Neg: saartanut
+Akt:Ind:Imp:S3:Neg: saartanut
+Akt:Ind:Imp:P1:Neg: saartaneet
+Akt:Ind:Imp:P2:Neg: saartaneet
+Akt:Ind:Imp:P3:Neg: saartaneet
+Pas:Ind:Imp:Neg:    saarrettu
 
-61
-sallia
-sallin
-salli
-sallisi
-sallinee
-sallikoon
-sallinut
-sallittiin
-62
-voida
-voin
-voi
-voisi
-voinee
-voikoon
-voinut
-voitiin
+#Potential
 
-63
-saada
-saan
-sai
-saisi
-saanee
-saakoon
-saanut
-saatiin
+Akt:Pot:Pre:S1: saartanen
+Akt:Pot:Pre:S2: saartanet
+Akt:Pot:Pre:S3: saartanee
+Akt:Pot:Pre:P1: saartanemme
+Akt:Pot:Pre:P2: saartanette
+Akt:Pot:Pre:P3: saartanevat
+Pas:Pot:Pre:    saarrettaneen
 
-64
-juoda
-juon
-joi
-joisi
-juonee
-juokoon
-juonut
-juotiin
+Akt:Pot:Pre:S1:Neg: saartane
+Akt:Pot:Pre:S2:Neg: saartane
+Akt:Pot:Pre:S3:Neg: saartane
+Akt:Pot:Pre:P1:Neg: saartane
+Akt:Pot:Pre:P2:Neg: saartane
+Akt:Pot:Pre:P3:Neg: saartane
+Pas:Pot:Pre:Neg:    seerrettane
 
-65
-käydä
-käyn
-kävi
-kävisi
-käynee
-käyköön
-käynyt
-käytiin
+#Conditional
 
-66
-rohkaista
-rohkaisen
-rohkaisi
-rohkaisisi
-rohkaissee
-rohkaiskoon
-rohkaissut
-rohkaistiin
+Akt:Con:Pre:S1: saartaisin
+Akt:Con:Pre:S2: saartaisit
+Akt:Con:Pre:S3: saartaisi
+Akt:Con:Pre:P1: saartaisimme
+Akt:Con:Pre:P2: saartaisitte
+Akt:Con:Pre:P3: saartaisivat
+Pas:Con:Pre:    saarrettaisiin
 
-67
-tulla
-tulen
-tuli
-tulisi
-tullee
-tulkoon
-tullut
-tultiin
+Akt:Con:Pre:S1:Neg: saartaisi
+Akt:Con:Pre:S2:Neg: saartaisi
+Akt:Con:Pre:S3:Neg: saartaisi
+Akt:Con:Pre:P1:Neg: saartaisi
+Akt:Con:Pre:P2:Neg: saartaisi
+Akt:Con:Pre:P3:Neg: saartaisi
+Pas:Con:Pre:Neg:    saarrettaisi
 
-68
-tupakoida
-tupakoin (tupakoitsen)
-tupakoi (tupakoitsi)
-tupakoisi (tupakoitsisi)
-tupakoinee
-tupakoikoon
-tupakoinut
-tupakoitiin
+#Imperative
 
-69
-valita
-valitsen
-valitsi
-valitsisi
-valinnee
-valitkoon
-valinnut
-valittiin
+Akt:Imp:Pre:S2: saarra
+Akt:Imp:Pre:S3: saartakoon
+Akt:Imp:Pre:P1: saartakaamme
+Akt:Imp:Pre:P2: saartakaa
+Akt:Imp:Pre:P3: saartakoot
+Pass:Imp:Pre:   saarrettakoon
 
-70
-juosta
-juoksen
-juoksi
-juoksisi
-juossee
-juoskoon
-juossut
-juostiin
+Akt:Imp:Pre:S2:Neg: saarra
+Akt:Imp:Pre:S3:Neg: saartako
+Akt:Imp:Pre:P1:Neg: saartako
+Akt:Imp:Pre:P2:Neg: saartako
+Akt:Imp:Pre:P3:Neg: saartako
+Pass:Imp:Pre:       saarrettako
 
-71
-nähdä
-näen
-näki
-näkisi
-nähnee
-nähköön
-nähnyt
-nähtiin
+#Infinitive
 
-72
-vanheta
-vanhenen
-vanheni
-vanhenisi
-vanhennee
-vanhetkoon
-vanhennut
-vanhettiin
+Inf1:      saartaa
+Inf1:L:    saartaakseen
 
-73
-salata
-salaan
-salasi
-salaisi
-salannee
-salatkoon
-salannut
-salattiin
+Inf2:Ine:Akt: saartaessa
+Inf2:Ine:Pas: saarrettaessa
+Inf2:Ins:Akt: saartaen
 
-74
-katketa
-katkean
-katkesi
-katkeaisi (katkeisi)
-katkennee
-katketkoon
-katkennut
-katkettiin
+Inf3:Ine:Akt: saartamassa
+Inf3:Ela:Akt: saartamasta
+Inf3:Ill:Akt: saartamaan
+Inf3:Ade:Akt: saartamalla
+Inf3:Abe:Akt: saartamatta
+Inf3:Ins:Akt: saartaman
+Inf3:Ins:Pas: saarrettaman
 
-75
-selvitä
-selviän
-selvisi
-selviäisi
-selvinnee
-selvitköön
-selvinnyt
-selvittiin
+Inf4:Nom: saartaminen
+Inf4:Par: saartamista
 
-76
-taitaa
-taidan
-taisi
-taitaisi
-taitanee tainnee
-taitakoon
-tainnut taitanut
-taidettiin
+Inf5: saartamaisillaan
 
-77 (vaillinaisesti taipuvia verbejä; vain joitakin kolmannen persoonan
-muotoja)
-kumajaa
-kumaji
-kumajaisi
+#Participle
 
-78 (vaillinaisesti taipuvia verbejä; vain joitakin kolmannen persoonan
-muotoja)
-kaikaa
-kaikaisi
+Pat:Pre:Akt: saartava
+Pat:Pre:Pas: saarrettava
+Pat:Per:Akt: saartanut
+Pat:Per:Pas: saarrettu
+Pat:Age:     saartama
+Pat:Age:Neg: saartamaton
+
+<58>
+
+#Indicative
+Akt:Ind:Pre:S1: lasken
+Akt:Ind:Pre:S2: lasket
+Akt:Ind:Pre:S3: laskee
+Akt:Ind:Pre:P1: laskemme
+Akt:Ind:Pre:P2: laskette
+Akt:Ind:Pre:P3: laskevat
+Pas:Ind:Pre:    lasketaan
+
+Akt:Ind:Pre:S1:Neg: laske
+Akt:Ind:Pre:S2:Neg: laske
+Akt:Ind:Pre:S3:Neg: laske
+Akt:Ind:Pre:P1:Neg: laske
+Akt:Ind:Pre:P2:Neg: laske
+Akt:Ind:Pre:P3:Neg: laske
+Pas:Ind:Pre:Neg:    lasketa
+
+Akt:Ind:Imp:S1: laskin
+Akt:Ind:Imp:S2: laskit
+Akt:Ind:Imp:S3: laski
+Akt:Ind:Imp:P1: laskimme
+Akt:Ind:Imp:P2: laskitte
+Akt:Ind:Imp:P3: laskivat
+Pas:Ind:Imp:    laskettiin
+
+Akt:Ind:Imp:S1:Neg: laskenut
+Akt:Ind:Imp:S2:Neg: laskenut
+Akt:Ind:Imp:S3:Neg: laskenut
+Akt:Ind:Imp:P1:Neg: laskeneet
+Akt:Ind:Imp:P2:Neg: laskeneet
+Akt:Ind:Imp:P3:Neg: laskeneet
+Pas:Ind:Imp:Neg:    laskettu
+
+#Potential
+
+Akt:Pot:Pre:S1: laskenen
+Akt:Pot:Pre:S2: laskenet
+Akt:Pot:Pre:S3: laskenee
+Akt:Pot:Pre:P1: laskenemme
+Akt:Pot:Pre:P2: laskenette
+Akt:Pot:Pre:P3: laskenevat
+Pas:Pot:Pre:    laskettaneen
+
+Akt:Pot:Pre:S1:Neg: laskene
+Akt:Pot:Pre:S2:Neg: laskene
+Akt:Pot:Pre:S3:Neg: laskene
+Akt:Pot:Pre:P1:Neg: laskene
+Akt:Pot:Pre:P2:Neg: laskene
+Akt:Pot:Pre:P3:Neg: laskene
+Pas:Pot:Pre:Neg:    laskettane
+
+#Conditional
+
+Akt:Con:Pre:S1: laskisin
+Akt:Con:Pre:S2: laskisit
+Akt:Con:Pre:S3: laskisi
+Akt:Con:Pre:P1: laskisimme
+Akt:Con:Pre:P2: laskisitte
+Akt:Con:Pre:P3: laskisivat
+Pas:Con:Pre:    laskettaisiin
+
+Akt:Con:Pre:S1:Neg: laskisi
+Akt:Con:Pre:S2:Neg: laskisi
+Akt:Con:Pre:S3:Neg: laskisi
+Akt:Con:Pre:P1:Neg: laskisi
+Akt:Con:Pre:P2:Neg: laskisi
+Akt:Con:Pre:P3:Neg: laskisi
+Pas:Con:Pre:Neg:    laskettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: laske
+Akt:Imp:Pre:S3: laskekoon
+Akt:Imp:Pre:P1: laskekaamme
+Akt:Imp:Pre:P2: laskekaa
+Akt:Imp:Pre:P3: laskekoot
+Pass:Imp:Pre:   laskettakoon
+
+Akt:Imp:Pre:S2:Neg: laske
+Akt:Imp:Pre:S3:Neg: laskeko
+Akt:Imp:Pre:P1:Neg: laskeko
+Akt:Imp:Pre:P2:Neg: laskeko
+Akt:Imp:Pre:P3:Neg: laskeko
+Pass:Imp:Pre:       laskettako
+
+#Infinitive
+
+Inf1:      laskea
+Inf1:L:    laskeakseen
+
+Inf2:Ine:Akt: laskiessa
+Inf2:Ine:Pas: laskettaessa
+Inf2:Ins:Akt: laskien
+
+Inf3:Ine:Akt: laskemassa
+Inf3:Ela:Akt: laskemasta
+Inf3:Ill:Akt: laskemaan
+Inf3:Ade:Akt: laskemalla
+Inf3:Abe:Akt: laskematta
+Inf3:Ins:Akt: laskeman
+Inf3:Ins:Pas: laskettaman
+
+Inf4:Nom: laskeminen
+Inf4:Par: laskemista
+
+Inf5: laskemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: laskeva
+Pat:Pre:Pas: laskettava
+Pat:Per:Akt: laskenut
+Pat:Per:Pas: laskettu
+Pat:Age:     laskema
+Pat:Age:Neg: laskematon
+
+<59:G:S:nt-nn>
+
+#Indicative
+Akt:Ind:Pre:S1: tunnen
+Akt:Ind:Pre:S2: tunnet
+Akt:Ind:Pre:S3: tuntee
+Akt:Ind:Pre:P1: tunnemme
+Akt:Ind:Pre:P2: tunnette
+Akt:Ind:Pre:P3: tuntevat
+Pas:Ind:Pre:    tunnetaan
+
+Akt:Ind:Pre:S1:Neg: tunne
+Akt:Ind:Pre:S2:Neg: tunne
+Akt:Ind:Pre:S3:Neg: tunne
+Akt:Ind:Pre:P1:Neg: tunne
+Akt:Ind:Pre:P2:Neg: tunne
+Akt:Ind:Pre:P3:Neg: tunne
+Pas:Ind:Pre:Neg:    tunneta
+
+Akt:Ind:Imp:S1: tunsin
+Akt:Ind:Imp:S2: tunsit
+Akt:Ind:Imp:S3: tunsi
+Akt:Ind:Imp:P1: tunsimme
+Akt:Ind:Imp:P2: tunsitte
+Akt:Ind:Imp:P3: tunsivat
+Pas:Ind:Imp:    tunnettiin
+
+Akt:Ind:Imp:S1:Neg: tuntenut
+Akt:Ind:Imp:S2:Neg: tuntenut
+Akt:Ind:Imp:S3:Neg: tuntenut
+Akt:Ind:Imp:P1:Neg: tunteneet
+Akt:Ind:Imp:P2:Neg: tunteneet
+Akt:Ind:Imp:P3:Neg: tunteneet
+Pas:Ind:Imp:Neg:    tunnettu
+
+#Potential
+
+Akt:Pot:Pre:S1: tuntenen
+Akt:Pot:Pre:S2: tuntenet
+Akt:Pot:Pre:S3: tuntenee
+Akt:Pot:Pre:P1: tuntenemme
+Akt:Pot:Pre:P2: tuntenette
+Akt:Pot:Pre:P3: tuntenevat
+Pas:Pot:Pre:    tunnettaneen
+
+Akt:Pot:Pre:S1:Neg: tuntene
+Akt:Pot:Pre:S2:Neg: tuntene
+Akt:Pot:Pre:S3:Neg: tuntene
+Akt:Pot:Pre:P1:Neg: tuntene
+Akt:Pot:Pre:P2:Neg: tuntene
+Akt:Pot:Pre:P3:Neg: tuntene
+Pas:Pot:Pre:Neg:    tunnettane
+
+#Conditional
+
+Akt:Con:Pre:S1: tuntisin
+Akt:Con:Pre:S2: tuntisit
+Akt:Con:Pre:S3: tuntisi
+Akt:Con:Pre:P1: tuntisimme
+Akt:Con:Pre:P2: tuntisitte
+Akt:Con:Pre:P3: tuntisivat
+Pas:Con:Pre:    tunnettaisiin
+
+Akt:Con:Pre:S1:Neg: tuntisi
+Akt:Con:Pre:S2:Neg: tuntisi
+Akt:Con:Pre:S3:Neg: tuntisi
+Akt:Con:Pre:P1:Neg: tuntisi
+Akt:Con:Pre:P2:Neg: tuntisi
+Akt:Con:Pre:P3:Neg: tuntisi
+Pas:Con:Pre:Neg:    tunnettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: tunne
+Akt:Imp:Pre:S3: tuntekoon
+Akt:Imp:Pre:P1: tuntekaamme
+Akt:Imp:Pre:P2: tuntekaa
+Akt:Imp:Pre:P3: tuntekoot
+Pass:Imp:Pre:   tunnettakoon
+
+Akt:Imp:Pre:S2:Neg: tunne
+Akt:Imp:Pre:S3:Neg: tunteko
+Akt:Imp:Pre:P1:Neg: tunteko
+Akt:Imp:Pre:P2:Neg: tunteko
+Akt:Imp:Pre:P3:Neg: tunteko
+Pass:Imp:Pre:       tunnettako
+
+#Infinitive
+
+Inf1:      tuntea
+Inf1:L:    tunteakseen
+
+Inf2:Ine:Akt: tuntiessa
+Inf2:Ine:Pas: tunnettaessa
+Inf2:Ins:Akt: tuntien
+
+Inf3:Ine:Akt: tuntemassa
+Inf3:Ela:Akt: tuntemasta
+Inf3:Ill:Akt: tuntemaan
+Inf3:Ade:Akt: tuntemalla
+Inf3:Abe:Akt: tuntematta
+Inf3:Ins:Akt: tunteman
+Inf3:Ins:Pas: tunnettaman
+
+Inf4:Nom: tunteminen
+Inf4:Par: tuntemista
+
+Inf5: tuntemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: tunteva
+Pat:Pre:Pas: tunnettava
+Pat:Per:Akt: tuntenut
+Pat:Per:Pas: tunnettu
+Pat:Age:     tuntema
+Pat:Age:Neg: tuntematon
+
+<60:G:S:t-d>
+
+#Indicative
+Akt:Ind:Pre:S1: lähden
+Akt:Ind:Pre:S2: lähdet
+Akt:Ind:Pre:S3: lähtee
+Akt:Ind:Pre:P1: lähdemme
+Akt:Ind:Pre:P2: lähdette
+Akt:Ind:Pre:P3: lähtevät
+Pas:Ind:Pre:    lähdetään
+
+Akt:Ind:Pre:S1:Neg: lähde
+Akt:Ind:Pre:S2:Neg: lähde
+Akt:Ind:Pre:S3:Neg: lähde
+Akt:Ind:Pre:P1:Neg: lähde
+Akt:Ind:Pre:P2:Neg: lähde
+Akt:Ind:Pre:P3:Neg: lähde
+Pas:Ind:Pre:Neg:    lähdetä
+
+Akt:Ind:Imp:S1: lähdin (läksin)
+Akt:Ind:Imp:S2: lähdit (läksit)
+Akt:Ind:Imp:S3: lähti (läksi)
+Akt:Ind:Imp:P1: lähdimme (läksimme)
+Akt:Ind:Imp:P2: lähditte (läksitte)
+Akt:Ind:Imp:P3: lähtivät (läksivät)
+Pas:Ind:Imp:    lähdettiin
+
+Akt:Ind:Imp:S1:Neg: lähtenyt
+Akt:Ind:Imp:S2:Neg: lähtenyt
+Akt:Ind:Imp:S3:Neg: lähtenyt
+Akt:Ind:Imp:P1:Neg: lähteneet
+Akt:Ind:Imp:P2:Neg: lähteneet
+Akt:Ind:Imp:P3:Neg: lähteneet
+Pas:Ind:Imp:Neg:    lähdetty
+
+#Potential
+
+Akt:Pot:Pre:S1: lähtenen
+Akt:Pot:Pre:S2: lähtenet
+Akt:Pot:Pre:S3: lähtenee
+Akt:Pot:Pre:P1: lähtenemme
+Akt:Pot:Pre:P2: lähtenette
+Akt:Pot:Pre:P3: lähtenevät
+Pas:Pot:Pre:    lähdettäneen
+
+Akt:Pot:Pre:S1:Neg: lähtene
+Akt:Pot:Pre:S2:Neg: lähtene
+Akt:Pot:Pre:S3:Neg: lähtene
+Akt:Pot:Pre:P1:Neg: lähtene
+Akt:Pot:Pre:P2:Neg: lähtene
+Akt:Pot:Pre:P3:Neg: lähtene
+Pas:Pot:Pre:Neg:    lähdettäne
+
+#Conditional
+
+Akt:Con:Pre:S1: lähtisin
+Akt:Con:Pre:S2: lähtisit
+Akt:Con:Pre:S3: lähtisi
+Akt:Con:Pre:P1: lähtisimme
+Akt:Con:Pre:P2: lähtisitte
+Akt:Con:Pre:P3: lähtisivät
+Pas:Con:Pre:    lähdettäisiin
+
+Akt:Con:Pre:S1:Neg: lähtisi
+Akt:Con:Pre:S2:Neg: lähtisi
+Akt:Con:Pre:S3:Neg: lähtisi
+Akt:Con:Pre:P1:Neg: lähtisi
+Akt:Con:Pre:P2:Neg: lähtisi
+Akt:Con:Pre:P3:Neg: lähtisi
+Pas:Con:Pre:Neg:    lähdettäisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: lähde
+Akt:Imp:Pre:S3: lähteköön
+Akt:Imp:Pre:P1: lähtekäämme
+Akt:Imp:Pre:P2: lähtekää
+Akt:Imp:Pre:P3: lähtekööt
+Pass:Imp:Pre:   lähdettäköön
+
+Akt:Imp:Pre:S2:Neg: lähde
+Akt:Imp:Pre:S3:Neg: lähtekö
+Akt:Imp:Pre:P1:Neg: lähtekö
+Akt:Imp:Pre:P2:Neg: lähtekö
+Akt:Imp:Pre:P3:Neg: lähtekö
+Pass:Imp:Pre:       lähdettäkö
+
+#Infinitive
+
+Inf1:      lähteä
+Inf1:L:    lähteäkseen
+
+Inf2:Ine:Akt: lähtiessä
+Inf2:Ine:Pas: lähdettäessä
+Inf2:Ins:Akt: lähtien
+
+Inf3:Ine:Akt: lähtemässä
+Inf3:Ela:Akt: lähtemästä
+Inf3:Ill:Akt: lähtemään
+Inf3:Ade:Akt: lähtemällä
+Inf3:Abe:Akt: lähtemättä
+Inf3:Ins:Akt: lähtemän
+Inf3:Ins:Pas: lähdettämän
+
+Inf4:Nom: lähteminen
+Inf4:Par: lähtemistä
+
+Inf5: lähtemäisillään
+
+#Participle
+
+Pat:Pre:Akt: lähtevä
+Pat:Pre:Pas: lähdettävä
+Pat:Per:Akt: lähtenyt
+Pat:Per:Pas: lähdetty
+Pat:Age:     lähtemä
+Pat:Age:Neg: lähtemätön
+
+<61>
+
+#Indicative
+Akt:Ind:Pre:S1: sallin
+Akt:Ind:Pre:S2: sallit
+Akt:Ind:Pre:S3: sallii
+Akt:Ind:Pre:P1: sallimme
+Akt:Ind:Pre:P2: sallitte
+Akt:Ind:Pre:P3: sallivat
+Pas:Ind:Pre:    sallitaan
+
+Akt:Ind:Pre:S1:Neg: salli
+Akt:Ind:Pre:S2:Neg: salli
+Akt:Ind:Pre:S3:Neg: salli
+Akt:Ind:Pre:P1:Neg: salli
+Akt:Ind:Pre:P2:Neg: salli
+Akt:Ind:Pre:P3:Neg: salli
+Pas:Ind:Pre:Neg:    sallita
+
+Akt:Ind:Imp:S1: sallin
+Akt:Ind:Imp:S2: sallit
+Akt:Ind:Imp:S3: salli
+Akt:Ind:Imp:P1: sallimme
+Akt:Ind:Imp:P2: sallitte
+Akt:Ind:Imp:P3: sallivat
+Pas:Ind:Imp:    sallittiin
+
+Akt:Ind:Imp:S1:Neg: sallinut
+Akt:Ind:Imp:S2:Neg: sallinut
+Akt:Ind:Imp:S3:Neg: sallinut
+Akt:Ind:Imp:P1:Neg: sallineet
+Akt:Ind:Imp:P2:Neg: sallineet
+Akt:Ind:Imp:P3:Neg: sallineet
+Pas:Ind:Imp:Neg:    sallittu
+
+#Potential
+
+Akt:Pot:Pre:S1: sallinen
+Akt:Pot:Pre:S2: sallinet
+Akt:Pot:Pre:S3: sallinee
+Akt:Pot:Pre:P1: sallinemme
+Akt:Pot:Pre:P2: sallinette
+Akt:Pot:Pre:P3: sallinevat
+Pas:Pot:Pre:    sallittaneen
+
+Akt:Pot:Pre:S1:Neg: salline
+Akt:Pot:Pre:S2:Neg: salline
+Akt:Pot:Pre:S3:Neg: salline
+Akt:Pot:Pre:P1:Neg: salline
+Akt:Pot:Pre:P2:Neg: salline
+Akt:Pot:Pre:P3:Neg: salline
+Pas:Pot:Pre:Neg:    sallittane
+
+#Conditional
+
+Akt:Con:Pre:S1: sallisin
+Akt:Con:Pre:S2: sallisit
+Akt:Con:Pre:S3: sallisi
+Akt:Con:Pre:P1: sallisimme
+Akt:Con:Pre:P2: sallisitte
+Akt:Con:Pre:P3: sallisivat
+Pas:Con:Pre:    sallittaisiin
+
+Akt:Con:Pre:S1:Neg: sallisi
+Akt:Con:Pre:S2:Neg: sallisi
+Akt:Con:Pre:S3:Neg: sallisi
+Akt:Con:Pre:P1:Neg: sallisi
+Akt:Con:Pre:P2:Neg: sallisi
+Akt:Con:Pre:P3:Neg: sallisi
+Pas:Con:Pre:Neg:    sallittaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: salli
+Akt:Imp:Pre:S3: sallikoon
+Akt:Imp:Pre:P1: sallikaamme
+Akt:Imp:Pre:P2: sallikaa
+Akt:Imp:Pre:P3: sallikoot
+Pass:Imp:Pre:   sallittakoon
+
+Akt:Imp:Pre:S2:Neg: salli
+Akt:Imp:Pre:S3:Neg: salliko
+Akt:Imp:Pre:P1:Neg: salliko
+Akt:Imp:Pre:P2:Neg: salliko
+Akt:Imp:Pre:P3:Neg: salliko
+Pass:Imp:Pre:       sallittako
+
+#Infinitive
+
+Inf1:      sallia
+Inf1:L:    salliakseen
+
+Inf2:Ine:Akt: salliesssa
+Inf2:Ine:Pas: sallittaessa
+Inf2:Ins:Akt: sallien
+
+Inf3:Ine:Akt: sallimassa
+Inf3:Ela:Akt: sallimasta
+Inf3:Ill:Akt: sallimaan
+Inf3:Ade:Akt: sallimalla
+Inf3:Abe:Akt: sallimatta
+Inf3:Ins:Akt: salliman
+Inf3:Ins:Pas: sallittaman
+
+Inf4:Nom: salliminen
+Inf4:Par: sallimista
+
+Inf5: sallimaisillaan
+
+#Participle
+
+Pat:Pre:Akt: salliva
+Pat:Pre:Pas: sallittava
+Pat:Per:Akt: sallinut
+Pat:Per:Pas: sallittu
+Pat:Age:     sallima
+Pat:Age:Neg: sallimaton
+
+
+<62>
+
+#Indicative
+Akt:Ind:Pre:S1: voin
+Akt:Ind:Pre:S2: voit
+Akt:Ind:Pre:S3: voi
+Akt:Ind:Pre:P1: voimme
+Akt:Ind:Pre:P2: voitte
+Akt:Ind:Pre:P3: voivat
+Pas:Ind:Pre:    voidaan
+
+Akt:Ind:Pre:S1:Neg: voi
+Akt:Ind:Pre:S2:Neg: voi
+Akt:Ind:Pre:S3:Neg: voi
+Akt:Ind:Pre:P1:Neg: voi
+Akt:Ind:Pre:P2:Neg: voi
+Akt:Ind:Pre:P3:Neg: voi
+Pas:Ind:Pre:Neg:    voida
+
+Akt:Ind:Imp:S1: voin
+Akt:Ind:Imp:S2: voit
+Akt:Ind:Imp:S3: voi
+Akt:Ind:Imp:P1: voimme
+Akt:Ind:Imp:P2: voitte
+Akt:Ind:Imp:P3: voivat
+Pas:Ind:Imp:    voitiin
+
+Akt:Ind:Imp:S1:Neg: voinut
+Akt:Ind:Imp:S2:Neg: voinut
+Akt:Ind:Imp:S3:Neg: voinut
+Akt:Ind:Imp:P1:Neg: voineet
+Akt:Ind:Imp:P2:Neg: voineet
+Akt:Ind:Imp:P3:Neg: voineet
+Pas:Ind:Imp:Neg:    voitu
+
+#Potential
+
+Akt:Pot:Pre:S1: voinen
+Akt:Pot:Pre:S2: voinet
+Akt:Pot:Pre:S3: voinee
+Akt:Pot:Pre:P1: voinemme
+Akt:Pot:Pre:P2: voinette
+Akt:Pot:Pre:P3: voinevat
+Pas:Pot:Pre:    voitaneen
+
+Akt:Pot:Pre:S1:Neg: voine
+Akt:Pot:Pre:S2:Neg: voine
+Akt:Pot:Pre:S3:Neg: voine
+Akt:Pot:Pre:P1:Neg: voine
+Akt:Pot:Pre:P2:Neg: voine
+Akt:Pot:Pre:P3:Neg: voine
+Pas:Pot:Pre:Neg:    voitane
+
+#Conditional
+
+Akt:Con:Pre:S1: voisin
+Akt:Con:Pre:S2: voisit
+Akt:Con:Pre:S3: voisi
+Akt:Con:Pre:P1: voisimme
+Akt:Con:Pre:P2: voisitte
+Akt:Con:Pre:P3: voisivat
+Pas:Con:Pre:    voitaisiin
+
+Akt:Con:Pre:S1:Neg: voisi
+Akt:Con:Pre:S2:Neg: voisi
+Akt:Con:Pre:S3:Neg: voisi
+Akt:Con:Pre:P1:Neg: voisi
+Akt:Con:Pre:P2:Neg: voisi
+Akt:Con:Pre:P3:Neg: voisi
+Pas:Con:Pre:Neg:    voitaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: voi
+Akt:Imp:Pre:S3: voikoon
+Akt:Imp:Pre:P1: voikaamme
+Akt:Imp:Pre:P2: voikaa
+Akt:Imp:Pre:P3: voikoot
+Pass:Imp:Pre:   voitakoon
+
+Akt:Imp:Pre:S2:Neg: voi
+Akt:Imp:Pre:S3:Neg: voiko
+Akt:Imp:Pre:P1:Neg: voiko
+Akt:Imp:Pre:P2:Neg: voiko
+Akt:Imp:Pre:P3:Neg: voiko
+Pass:Imp:Pre:       voitako
+
+#Infinitive
+
+Inf1:      voida
+Inf1:L:    voidakseen
+
+Inf2:Ine:Akt: voidessa
+Inf2:Ine:Pas: voitaessa
+Inf2:Ins:Akt: voiden
+
+Inf3:Ine:Akt: voimassa
+Inf3:Ela:Akt: voimasta
+Inf3:Ill:Akt: voimaan
+Inf3:Ade:Akt: voimalla
+Inf3:Abe:Akt: voimatta
+Inf3:Ins:Akt: voiman
+Inf3:Ins:Pas: voitaman
+
+Inf4:Nom: voiminen
+Inf4:Par: voimista
+
+Inf5: voimaisillaan
+
+#Participle
+
+Pat:Pre:Akt: voiva
+Pat:Pre:Pas: voitava
+Pat:Per:Akt: voinut
+Pat:Per:Pas: voitu
+Pat:Age:     voima
+Pat:Age:Neg: voimaton
+
+<63>
+
+#Indicative
+Akt:Ind:Pre:S1: saan
+Akt:Ind:Pre:S2: saat
+Akt:Ind:Pre:S3: saa
+Akt:Ind:Pre:P1: saamme
+Akt:Ind:Pre:P2: saatte
+Akt:Ind:Pre:P3: saavat
+Pas:Ind:Pre:    saadaan
+
+Akt:Ind:Pre:S1:Neg: saa
+Akt:Ind:Pre:S2:Neg: saa
+Akt:Ind:Pre:S3:Neg: saa
+Akt:Ind:Pre:P1:Neg: saa
+Akt:Ind:Pre:P2:Neg: saa
+Akt:Ind:Pre:P3:Neg: saa
+Pas:Ind:Pre:Neg:    saada
+
+Akt:Ind:Imp:S1: sain
+Akt:Ind:Imp:S2: sait
+Akt:Ind:Imp:S3: sai
+Akt:Ind:Imp:P1: saimme
+Akt:Ind:Imp:P2: saitte
+Akt:Ind:Imp:P3: saivat
+Pas:Ind:Imp:    saatiin
+
+Akt:Ind:Imp:S1:Neg: saanut
+Akt:Ind:Imp:S2:Neg: saanut
+Akt:Ind:Imp:S3:Neg: saanut
+Akt:Ind:Imp:P1:Neg: saaneet
+Akt:Ind:Imp:P2:Neg: saaneet
+Akt:Ind:Imp:P3:Neg: saaneet
+Pas:Ind:Imp:Neg:    saatu
+
+#Potential
+
+Akt:Pot:Pre:S1: saanen
+Akt:Pot:Pre:S2: saanet
+Akt:Pot:Pre:S3: saanee
+Akt:Pot:Pre:P1: saanemme
+Akt:Pot:Pre:P2: saanette
+Akt:Pot:Pre:P3: saanevat
+Pas:Pot:Pre:    saataneen
+
+Akt:Pot:Pre:S1:Neg: saane
+Akt:Pot:Pre:S2:Neg: saane
+Akt:Pot:Pre:S3:Neg: saane
+Akt:Pot:Pre:P1:Neg: saane
+Akt:Pot:Pre:P2:Neg: saane
+Akt:Pot:Pre:P3:Neg: saane
+Pas:Pot:Pre:Neg:    saatane
+
+#Conditional
+
+Akt:Con:Pre:S1: saisin
+Akt:Con:Pre:S2: saisit
+Akt:Con:Pre:S3: saisi
+Akt:Con:Pre:P1: saisimme
+Akt:Con:Pre:P2: saisitte
+Akt:Con:Pre:P3: saisivat
+Pas:Con:Pre:    saataisiin
+
+Akt:Con:Pre:S1:Neg: saisi
+Akt:Con:Pre:S2:Neg: saisi
+Akt:Con:Pre:S3:Neg: saisi
+Akt:Con:Pre:P1:Neg: saisi
+Akt:Con:Pre:P2:Neg: saisi
+Akt:Con:Pre:P3:Neg: saisi
+Pas:Con:Pre:Neg:    saataisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: saa
+Akt:Imp:Pre:S3: saakoon
+Akt:Imp:Pre:P1: saakaamme
+Akt:Imp:Pre:P2: saakaa
+Akt:Imp:Pre:P3: saakoot
+Pass:Imp:Pre:   saatakoon
+
+Akt:Imp:Pre:S2:Neg: saa
+Akt:Imp:Pre:S3:Neg: saako
+Akt:Imp:Pre:P1:Neg: saako
+Akt:Imp:Pre:P2:Neg: saako
+Akt:Imp:Pre:P3:Neg: saako
+Pass:Imp:Pre:       saatako
+
+#Infinitive
+
+Inf1:      saada
+Inf1:L:    saadakseen
+
+Inf2:Ine:Akt: saadessa
+Inf2:Ine:Pas: saataessa
+Inf2:Ins:Akt: saaden
+
+Inf3:Ine:Akt: saamassa
+Inf3:Ela:Akt: saamasta
+Inf3:Ill:Akt: saamaan
+Inf3:Ade:Akt: saamalla
+Inf3:Abe:Akt: saamatta
+Inf3:Ins:Akt: saaman
+Inf3:Ins:Pas: saataman
+
+Inf4:Nom: saaminen
+Inf4:Par: saamista
+
+Inf5: saamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: saava
+Pat:Pre:Pas: saatava
+Pat:Per:Akt: saanut
+Pat:Per:Pas: saatu
+Pat:Age:     saama
+Pat:Age:Neg: saamaton
+
+<64>
+
+#Indicative
+Akt:Ind:Pre:S1: juon
+Akt:Ind:Pre:S2: juot
+Akt:Ind:Pre:S3: juo
+Akt:Ind:Pre:P1: juomme
+Akt:Ind:Pre:P2: juotte
+Akt:Ind:Pre:P3: juovat
+Pas:Ind:Pre:    juodaan
+
+Akt:Ind:Pre:S1:Neg: juo
+Akt:Ind:Pre:S2:Neg: juo
+Akt:Ind:Pre:S3:Neg: juo
+Akt:Ind:Pre:P1:Neg: juo
+Akt:Ind:Pre:P2:Neg: juo
+Akt:Ind:Pre:P3:Neg: juo
+Pas:Ind:Pre:Neg:    juoda
+
+Akt:Ind:Imp:S1: join
+Akt:Ind:Imp:S2: joit
+Akt:Ind:Imp:S3: joi
+Akt:Ind:Imp:P1: joimme
+Akt:Ind:Imp:P2: joitte
+Akt:Ind:Imp:P3: joivat
+Pas:Ind:Imp:    juotiin
+
+Akt:Ind:Imp:S1:Neg: juonot
+Akt:Ind:Imp:S2:Neg: juonot
+Akt:Ind:Imp:S3:Neg: juonot
+Akt:Ind:Imp:P1:Neg: juoneet
+Akt:Ind:Imp:P2:Neg: juoneet
+Akt:Ind:Imp:P3:Neg: juoneet
+Pas:Ind:Imp:Neg:    juotu
+
+#Potential
+
+Akt:Pot:Pre:S1: juonen
+Akt:Pot:Pre:S2: juonet
+Akt:Pot:Pre:S3: juonee
+Akt:Pot:Pre:P1: juonemme
+Akt:Pot:Pre:P2: juonette
+Akt:Pot:Pre:P3: juonevat
+Pas:Pot:Pre:    juotaneen
+
+Akt:Pot:Pre:S1:Neg: juone
+Akt:Pot:Pre:S2:Neg: juone
+Akt:Pot:Pre:S3:Neg: juone
+Akt:Pot:Pre:P1:Neg: juone
+Akt:Pot:Pre:P2:Neg: juone
+Akt:Pot:Pre:P3:Neg: juone
+Pas:Pot:Pre:Neg:    juotane
+
+#Conditional
+
+Akt:Con:Pre:S1: joisin
+Akt:Con:Pre:S2: joisit
+Akt:Con:Pre:S3: joisi
+Akt:Con:Pre:P1: joisimme
+Akt:Con:Pre:P2: joisitte
+Akt:Con:Pre:P3: joisivat
+Pas:Con:Pre:    juotaisiin
+
+Akt:Con:Pre:S1:Neg: joisi
+Akt:Con:Pre:S2:Neg: joisi
+Akt:Con:Pre:S3:Neg: joisi
+Akt:Con:Pre:P1:Neg: joisi
+Akt:Con:Pre:P2:Neg: joisi
+Akt:Con:Pre:P3:Neg: joisi
+Pas:Con:Pre:Neg:    juotaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: juo
+Akt:Imp:Pre:S3: juokoon
+Akt:Imp:Pre:P1: juokaamme
+Akt:Imp:Pre:P2: juokaa
+Akt:Imp:Pre:P3: juokoot
+Pass:Imp:Pre:   juotakoon
+
+Akt:Imp:Pre:S2:Neg: juo
+Akt:Imp:Pre:S3:Neg: juoko
+Akt:Imp:Pre:P1:Neg: juoko
+Akt:Imp:Pre:P2:Neg: juoko
+Akt:Imp:Pre:P3:Neg: juoko
+Pass:Imp:Pre:       juotako
+
+#Infinitive
+
+Inf1:      juoda
+Inf1:L:    juodakseen
+
+Inf2:Ine:Akt: juodessa
+Inf2:Ine:Pas: juotaessa
+Inf2:Ins:Akt: juoden
+
+Inf3:Ine:Akt: juomassa
+Inf3:Ela:Akt: juomasta
+Inf3:Ill:Akt: juomaan
+Inf3:Ade:Akt: juomalla
+Inf3:Abe:Akt: juomatta
+Inf3:Ins:Akt: juoman
+Inf3:Ins:Pas: juotaman
+
+Inf4:Nom: juominen
+Inf4:Par: juomista
+
+Inf5: juomaisillaan
+
+#Participle
+
+Pat:Pre:Akt: juova
+Pat:Pre:Pas: juotava
+Pat:Per:Akt: juonut
+Pat:Per:Pas: juotu
+Pat:Age:     juoma
+Pat:Age:Neg: juomaton
+
+<65>
+
+#Indicative
+Akt:Ind:Pre:S1: käyn
+Akt:Ind:Pre:S2: käyt
+Akt:Ind:Pre:S3: käy
+Akt:Ind:Pre:P1: käymme
+Akt:Ind:Pre:P2: käytte
+Akt:Ind:Pre:P3: käyvat
+Pas:Ind:Pre:    käydaan
+
+Akt:Ind:Pre:S1:Neg: käy
+Akt:Ind:Pre:S2:Neg: käy
+Akt:Ind:Pre:S3:Neg: käy
+Akt:Ind:Pre:P1:Neg: käy
+Akt:Ind:Pre:P2:Neg: käy
+Akt:Ind:Pre:P3:Neg: käy
+Pas:Ind:Pre:Neg:    käyda
+
+Akt:Ind:Imp:S1: kävin
+Akt:Ind:Imp:S2: kävit
+Akt:Ind:Imp:S3: kävi
+Akt:Ind:Imp:P1: kävimme
+Akt:Ind:Imp:P2: kävitte
+Akt:Ind:Imp:P3: kävivät
+Pas:Ind:Imp:    käytiin
+
+Akt:Ind:Imp:S1:Neg: käynyt
+Akt:Ind:Imp:S2:Neg: käynyt
+Akt:Ind:Imp:S3:Neg: käynyt
+Akt:Ind:Imp:P1:Neg: käyneet
+Akt:Ind:Imp:P2:Neg: käyneet
+Akt:Ind:Imp:P3:Neg: käyneet
+Pas:Ind:Imp:Neg:    käyty
+
+#Potential
+
+Akt:Pot:Pre:S1: käynen
+Akt:Pot:Pre:S2: käynet
+Akt:Pot:Pre:S3: käynee
+Akt:Pot:Pre:P1: käynemme
+Akt:Pot:Pre:P2: käynette
+Akt:Pot:Pre:P3: käynevat
+Pas:Pot:Pre:    käytäneen
+
+Akt:Pot:Pre:S1:Neg: käyne
+Akt:Pot:Pre:S2:Neg: käyne
+Akt:Pot:Pre:S3:Neg: käyne
+Akt:Pot:Pre:P1:Neg: käyne
+Akt:Pot:Pre:P2:Neg: käyne
+Akt:Pot:Pre:P3:Neg: käyne
+Pas:Pot:Pre:Neg:    käytäne
+
+#Conditional
+
+Akt:Con:Pre:S1: kävisin
+Akt:Con:Pre:S2: kävisit
+Akt:Con:Pre:S3: kävisi
+Akt:Con:Pre:P1: kävisimme
+Akt:Con:Pre:P2: kävisitte
+Akt:Con:Pre:P3: kävisivät
+Pas:Con:Pre:    käytäisiin
+
+Akt:Con:Pre:S1:Neg: kävisi
+Akt:Con:Pre:S2:Neg: kävisi
+Akt:Con:Pre:S3:Neg: kävisi
+Akt:Con:Pre:P1:Neg: kävisi
+Akt:Con:Pre:P2:Neg: kävisi
+Akt:Con:Pre:P3:Neg: kävisi
+Pas:Con:Pre:Neg:    käytäisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: käy
+Akt:Imp:Pre:S3: käyköön
+Akt:Imp:Pre:P1: käykäämme
+Akt:Imp:Pre:P2: käykää
+Akt:Imp:Pre:P3: käykööt
+Pass:Imp:Pre:   käytäköön
+
+Akt:Imp:Pre:S2:Neg: käy
+Akt:Imp:Pre:S3:Neg: käykö
+Akt:Imp:Pre:P1:Neg: käykö
+Akt:Imp:Pre:P2:Neg: käykö
+Akt:Imp:Pre:P3:Neg: käykö
+Pass:Imp:Pre:       käytäkö
+
+#Infinitive
+
+Inf1:      käydä
+Inf1:L:    käydäkseen
+
+Inf2:Ine:Akt: käydessä
+Inf2:Ine:Pas: käytäessä
+Inf2:Ins:Akt: käyden
+
+Inf3:Ine:Akt: käymässä
+Inf3:Ela:Akt: käymästä
+Inf3:Ill:Akt: käymään
+Inf3:Ade:Akt: käymällä
+Inf3:Abe:Akt: käymättä
+Inf3:Ins:Akt: käymän
+Inf3:Ins:Pas: käytämän
+
+Inf4:Nom: käyminen
+Inf4:Par: käymistä
+
+Inf5: käymäisillään
+
+#Participle
+
+Pat:Pre:Akt: käyvä
+Pat:Pre:Pas: käytävä
+Pat:Per:Akt: käynyt
+Pat:Per:Pas: käyty
+Pat:Age:     käymä
+Pat:Age:Neg: käymätön
+
+<66>
+
+
+#Indicative
+Akt:Ind:Pre:S1: rohkaisin
+Akt:Ind:Pre:S2: rohkaiset
+Akt:Ind:Pre:S3: kohkaisee
+Akt:Ind:Pre:P1: rohkaisemme
+Akt:Ind:Pre:P2: rohkaisette
+Akt:Ind:Pre:P3: rohkaisevat
+Pas:Ind:Pre:    rohkaistaan
+
+Akt:Ind:Pre:S1:Neg: rohkaise
+Akt:Ind:Pre:S2:Neg: rohkaise
+Akt:Ind:Pre:S3:Neg: rohkaise
+Akt:Ind:Pre:P1:Neg: rohkaise
+Akt:Ind:Pre:P2:Neg: rohkaise
+Akt:Ind:Pre:P3:Neg: rohkaise
+Pas:Ind:Pre:Neg:    rohkaista
+
+Akt:Ind:Imp:S1: rohkaisin
+Akt:Ind:Imp:S2: rohkaisit
+Akt:Ind:Imp:S3: rohkaisi
+Akt:Ind:Imp:P1: rohkaisimme
+Akt:Ind:Imp:P2: rohkaisitte
+Akt:Ind:Imp:P3: rohkaisivat
+Pas:Ind:Imp:    rohkaistiin
+
+Akt:Ind:Imp:S1:Neg: rohkaissut
+Akt:Ind:Imp:S2:Neg: rohkaissut
+Akt:Ind:Imp:S3:Neg: rohkaissut
+Akt:Ind:Imp:P1:Neg: rohkaisseet
+Akt:Ind:Imp:P2:Neg: rohkaisseet
+Akt:Ind:Imp:P3:Neg: rohkaisseet
+Pas:Ind:Imp:Neg:    rohkaistu
+
+#Potential
+
+Akt:Pot:Pre:S1: rohkaissen
+Akt:Pot:Pre:S2: rohkaisset
+Akt:Pot:Pre:S3: rohkaissee
+Akt:Pot:Pre:P1: rohkaissemme
+Akt:Pot:Pre:P2: rohkaissette
+Akt:Pot:Pre:P3: rohkaissevat
+Pas:Pot:Pre:    rohkaistaneen
+
+Akt:Pot:Pre:S1:Neg: rohkaisse
+Akt:Pot:Pre:S2:Neg: rohkaisse
+Akt:Pot:Pre:S3:Neg: rohkaisse
+Akt:Pot:Pre:P1:Neg: rohkaisse
+Akt:Pot:Pre:P2:Neg: rohkaisse
+Akt:Pot:Pre:P3:Neg: rohkaisse
+Pas:Pot:Pre:Neg:    rohkaistane
+
+#Conditional
+
+Akt:Con:Pre:S1: rohkaisisin
+Akt:Con:Pre:S2: rohkaisisit
+Akt:Con:Pre:S3: rohkaisisi
+Akt:Con:Pre:P1: rohkaisisimme
+Akt:Con:Pre:P2: rohkaisisitte
+Akt:Con:Pre:P3: rohkaisisivat
+Pas:Con:Pre:    rohkaistaisiin
+
+Akt:Con:Pre:S1:Neg: rohkaisisi
+Akt:Con:Pre:S2:Neg: rohkaisisi
+Akt:Con:Pre:S3:Neg: rohkaisisi
+Akt:Con:Pre:P1:Neg: rohkaisisi
+Akt:Con:Pre:P2:Neg: rohkaisisi
+Akt:Con:Pre:P3:Neg: rohkaisisi
+Pas:Con:Pre:Neg:    rohkaistaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: rohkaise
+Akt:Imp:Pre:S3: rohkaiskoon
+Akt:Imp:Pre:P1: rohkaiskaamme
+Akt:Imp:Pre:P2: rohkaiskaa
+Akt:Imp:Pre:P3: rohkaiskoot
+Pass:Imp:Pre:   rohkaistakoon
+
+Akt:Imp:Pre:S2:Neg: rohkaise
+Akt:Imp:Pre:S3:Neg: rohkaisko
+Akt:Imp:Pre:P1:Neg: rohkaisko
+Akt:Imp:Pre:P2:Neg: rohkaisko
+Akt:Imp:Pre:P3:Neg: rohkaisko
+Pass:Imp:Pre:       rohkaistako
+
+#Infinitive
+
+Inf1:      rohkaista
+Inf1:L:    rohkaistakseen
+
+Inf2:Ine:Akt: rohkaistessa
+Inf2:Ine:Pas: rohkaistaessa
+Inf2:Ins:Akt: rohkaisten
+
+Inf3:Ine:Akt: rohkaisemassa
+Inf3:Ela:Akt: rohkaisemasta
+Inf3:Ill:Akt: rohkaisemaan
+Inf3:Ade:Akt: rohkaisemalla
+Inf3:Abe:Akt: rohkaisematta
+Inf3:Ins:Akt: rohkaiseman
+Inf3:Ins:Pas: rohkaistaman
+
+Inf4:Nom: rohkaiseminen
+Inf4:Par: rohkaisemista
+
+Inf5: rohkaisemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: rohkaiseva
+Pat:Pre:Pas: rohkaistava
+Pat:Per:Akt: rohkaissut
+Pat:Per:Pas: rohkaistu
+Pat:Age:     rohkaisema
+Pat:Age:Neg: rohkaisematon
+
+<67>
+
+#Indicative
+Akt:Ind:Pre:S1: tulen
+Akt:Ind:Pre:S2: tulet
+Akt:Ind:Pre:S3: tulee
+Akt:Ind:Pre:P1: tulemme
+Akt:Ind:Pre:P2: tulette
+Akt:Ind:Pre:P3: tulevat
+Pas:Ind:Pre:    tullaan
+
+Akt:Ind:Pre:S1:Neg: tule
+Akt:Ind:Pre:S2:Neg: tule
+Akt:Ind:Pre:S3:Neg: tule
+Akt:Ind:Pre:P1:Neg: tule
+Akt:Ind:Pre:P2:Neg: tule
+Akt:Ind:Pre:P3:Neg: tule
+Pas:Ind:Pre:Neg:    tulla
+
+Akt:Ind:Imp:S1: tulin
+Akt:Ind:Imp:S2: tulit
+Akt:Ind:Imp:S3: tuli
+Akt:Ind:Imp:P1: tulimme
+Akt:Ind:Imp:P2: tulitte
+Akt:Ind:Imp:P3: tulivat
+Pas:Ind:Imp:    tultiin
+
+Akt:Ind:Imp:S1:Neg: tullut
+Akt:Ind:Imp:S2:Neg: tullut
+Akt:Ind:Imp:S3:Neg: tullut
+Akt:Ind:Imp:P1:Neg: tulleet
+Akt:Ind:Imp:P2:Neg: tulleet
+Akt:Ind:Imp:P3:Neg: tulleet
+Pas:Ind:Imp:Neg:    tultu
+
+#Potential
+
+Akt:Pot:Pre:S1: tullen
+Akt:Pot:Pre:S2: tullet
+Akt:Pot:Pre:S3: tullee
+Akt:Pot:Pre:P1: tullemme
+Akt:Pot:Pre:P2: tullette
+Akt:Pot:Pre:P3: tullevat
+Pas:Pot:Pre:    tultaneen
+
+Akt:Pot:Pre:S1:Neg: tulle
+Akt:Pot:Pre:S2:Neg: tulle
+Akt:Pot:Pre:S3:Neg: tulle
+Akt:Pot:Pre:P1:Neg: tulle
+Akt:Pot:Pre:P2:Neg: tulle
+Akt:Pot:Pre:P3:Neg: tulle
+Pas:Pot:Pre:Neg:    tultane
+
+#Conditional
+
+Akt:Con:Pre:S1: tulisin
+Akt:Con:Pre:S2: tulisit
+Akt:Con:Pre:S3: tulisi
+Akt:Con:Pre:P1: tulisimme
+Akt:Con:Pre:P2: tulisitte
+Akt:Con:Pre:P3: tulisivat
+Pas:Con:Pre:    tultaisiin
+
+Akt:Con:Pre:S1:Neg: tulisi
+Akt:Con:Pre:S2:Neg: tulisi
+Akt:Con:Pre:S3:Neg: tulisi
+Akt:Con:Pre:P1:Neg: tulisi
+Akt:Con:Pre:P2:Neg: tulisi
+Akt:Con:Pre:P3:Neg: tulisi
+Pas:Con:Pre:Neg:    tultaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: tule
+Akt:Imp:Pre:S3: tulkoon
+Akt:Imp:Pre:P1: tulkaamme
+Akt:Imp:Pre:P2: tulkaa
+Akt:Imp:Pre:P3: tulkoot
+Pass:Imp:Pre:   tultakoon
+
+Akt:Imp:Pre:S2:Neg: tule
+Akt:Imp:Pre:S3:Neg: tulko
+Akt:Imp:Pre:P1:Neg: tulko
+Akt:Imp:Pre:P2:Neg: tulko
+Akt:Imp:Pre:P3:Neg: tulko
+Pass:Imp:Pre:       tultako
+
+#Infinitive
+
+Inf1:      tulla
+Inf1:L:    tullakseen
+
+Inf2:Ine:Akt: tullessa
+Inf2:Ine:Pas: tultaessa
+Inf2:Ins:Akt: tullen
+
+Inf3:Ine:Akt: tulemassa
+Inf3:Ela:Akt: tulemasta
+Inf3:Ill:Akt: tulemaan
+Inf3:Ade:Akt: tulemalla
+Inf3:Abe:Akt: tulematta
+Inf3:Ins:Akt: tuleman
+Inf3:Ins:Pas: tultaman
+
+Inf4:Nom: tuleminen
+Inf4:Par: tulemista
+
+Inf5: tulemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: tuleva
+Pat:Pre:Pas: tultava
+Pat:Per:Akt: tullut
+Pat:Per:Pas: tultu
+Pat:Age:     tulema
+Pat:Age:Neg: tulematon
+
+<68>
+
+#Indicative
+Akt:Ind:Pre:S1: tupakoin (tupakoitsen)
+Akt:Ind:Pre:S2: tupakoit (tupakoitset)
+Akt:Ind:Pre:S3: tupakoi (tupakoitsee)
+Akt:Ind:Pre:P1: tupakoimme (tupakoitsemme)
+Akt:Ind:Pre:P2: tupakoitte (tupakoitsette)
+Akt:Ind:Pre:P3: tupakoivat (tupakoitsevat)
+Pas:Ind:Pre:    tupakoidaan
+
+Akt:Ind:Pre:S1:Neg: tupakoi (tupakoitse)
+Akt:Ind:Pre:S2:Neg: tupakoi (tupakoitse)
+Akt:Ind:Pre:S3:Neg: tupakoi (tupakoitse)
+Akt:Ind:Pre:P1:Neg: tupakoi (tupakoitse)
+Akt:Ind:Pre:P2:Neg: tupakoi (tupakoitse)
+Akt:Ind:Pre:P3:Neg: tupakoi (tupakoitse)
+Pas:Ind:Pre:Neg:    tupakoida
+
+Akt:Ind:Imp:S1: tupakoin (tupakoitsin)
+Akt:Ind:Imp:S2: tupakoit (tupakoitsit)
+Akt:Ind:Imp:S3: tupakoi (tupakoitsi)
+Akt:Ind:Imp:P1: tupakoimme (tupakoitsimme)
+Akt:Ind:Imp:P2: tupakoitte (tupakoitsitte)
+Akt:Ind:Imp:P3: tupakoivat (tupakoitsivat)
+Pas:Ind:Imp:    tupakoitiin
+
+Akt:Ind:Imp:S1:Neg: tupakoinut
+Akt:Ind:Imp:S2:Neg: tupakoinut
+Akt:Ind:Imp:S3:Neg: tupakoinut
+Akt:Ind:Imp:P1:Neg: tupakoineet
+Akt:Ind:Imp:P2:Neg: tupakoineet
+Akt:Ind:Imp:P3:Neg: tupakoineet
+Pas:Ind:Imp:Neg:    tupakoitu
+
+#Potential
+
+Akt:Pot:Pre:S1: tupakoinen
+Akt:Pot:Pre:S2: tupakoinet
+Akt:Pot:Pre:S3: tupakoinee
+Akt:Pot:Pre:P1: tupakoinemme
+Akt:Pot:Pre:P2: tupakoinette
+Akt:Pot:Pre:P3: tupakoinevat
+Pas:Pot:Pre:    tupakoitaneen
+
+Akt:Pot:Pre:S1:Neg: tupakoine
+Akt:Pot:Pre:S2:Neg: tupakoine
+Akt:Pot:Pre:S3:Neg: tupakoine
+Akt:Pot:Pre:P1:Neg: tupakoine
+Akt:Pot:Pre:P2:Neg: tupakoine
+Akt:Pot:Pre:P3:Neg: tupakoine
+Pas:Pot:Pre:Neg:    tupakoitane
+
+#Conditional
+
+Akt:Con:Pre:S1: tupakoisin (tupakoitsisin)
+Akt:Con:Pre:S2: tupakoisit (tupakoitsisit)
+Akt:Con:Pre:S3: tupakoisi (tupakoitsisi)
+Akt:Con:Pre:P1: tupakoisimme (tupakoitsisimme)
+Akt:Con:Pre:P2: tupakoisitte (tupakoitsisitte)
+Akt:Con:Pre:P3: tupakoisivat (tupakoitsisivat)
+Pas:Con:Pre:    tupakoitaisiin
+
+Akt:Con:Pre:S1:Neg: tulisi
+Akt:Con:Pre:S2:Neg: tulisi
+Akt:Con:Pre:S3:Neg: tulisi
+Akt:Con:Pre:P1:Neg: tulisi
+Akt:Con:Pre:P2:Neg: tulisi
+Akt:Con:Pre:P3:Neg: tulisi
+Pas:Con:Pre:Neg:    tultaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: tupakoi (tupakoitse)
+Akt:Imp:Pre:S3: tupakoikoon
+Akt:Imp:Pre:P1: tupakoikaamme
+Akt:Imp:Pre:P2: tupakoikaa
+Akt:Imp:Pre:P3: tupakoikoot
+Pass:Imp:Pre:   tupakoitakoon
+
+Akt:Imp:Pre:S2:Neg: tupakoi (tupakoitse)
+Akt:Imp:Pre:S3:Neg: tupakoiko
+Akt:Imp:Pre:P1:Neg: tupakoiko
+Akt:Imp:Pre:P2:Neg: tupakoiko
+Akt:Imp:Pre:P3:Neg: tupakoiko
+Pass:Imp:Pre:       tupakoitako
+
+#Infinitive
+
+Inf1:      tupakoida
+Inf1:L:    tupakoidakseen
+
+Inf2:Ine:Akt: tupakoidessa
+Inf2:Ine:Pas: tupakoitaessa
+Inf2:Ins:Akt: tupakoiden
+
+Inf3:Ine:Akt: tupakoimassa (tupakoitsemassa)
+Inf3:Ela:Akt: tupakoimasta (tupakoitsemasta)
+Inf3:Ill:Akt: tupakoimaan (tupakoitsemaan)
+Inf3:Ade:Akt: tupakoimalla (tupakoitsemalla)
+Inf3:Abe:Akt: tupakoimatta (tupakoitsematta)
+Inf3:Ins:Akt: tupakoiman
+Inf3:Ins:Pas: tupakoitaman
+
+Inf4:Nom: tupakoiminen (tupakoitseminen)
+Inf4:Par: tupakoimista (tupakoitsemista)
+
+Inf5: tupakoimaisillaan (tupakoitsemaisillaan)
+
+#Participle
+
+Pat:Pre:Akt: tupakoiva (tupakoitseva)
+Pat:Pre:Pas: tupakoitava
+Pat:Per:Akt: tupakoinut
+Pat:Per:Pas: tupakoitu
+Pat:Age:     tupakoima (tupakoitsema)
+Pat:Age:Neg: tupakoimaton (tupakoitsematon)
+
+<69>
+
+#Indicative
+Akt:Ind:Pre:S1: valitsen
+Akt:Ind:Pre:S2: valitset
+Akt:Ind:Pre:S3: valitsee
+Akt:Ind:Pre:P1: valitsemme
+Akt:Ind:Pre:P2: valitsette
+Akt:Ind:Pre:P3: valitsevat
+Pas:Ind:Pre:    valitaan
+
+Akt:Ind:Pre:S1:Neg: valitse
+Akt:Ind:Pre:S2:Neg: valitse
+Akt:Ind:Pre:S3:Neg: valitse
+Akt:Ind:Pre:P1:Neg: valitse
+Akt:Ind:Pre:P2:Neg: valitse
+Akt:Ind:Pre:P3:Neg: valitse
+Pas:Ind:Pre:Neg:    valita
+
+Akt:Ind:Imp:S1: valitsin
+Akt:Ind:Imp:S2: valitsit
+Akt:Ind:Imp:S3: valitsi
+Akt:Ind:Imp:P1: valitsimme
+Akt:Ind:Imp:P2: valitsitte
+Akt:Ind:Imp:P3: valitsivat
+Pas:Ind:Imp:    valittiin
+
+Akt:Ind:Imp:S1:Neg: valinnut
+Akt:Ind:Imp:S2:Neg: valinnut
+Akt:Ind:Imp:S3:Neg: valinnut
+Akt:Ind:Imp:P1:Neg: valinneet
+Akt:Ind:Imp:P2:Neg: valinneet
+Akt:Ind:Imp:P3:Neg: valinneet
+Pas:Ind:Imp:Neg:    valittu
+
+#Potential
+
+Akt:Pot:Pre:S1: valinnen
+Akt:Pot:Pre:S2: valinnet
+Akt:Pot:Pre:S3: valinnee
+Akt:Pot:Pre:P1: valinnemme
+Akt:Pot:Pre:P2: valinnette
+Akt:Pot:Pre:P3: valinnevat
+Pas:Pot:Pre:    valittaneen
+
+Akt:Pot:Pre:S1:Neg: valinne
+Akt:Pot:Pre:S2:Neg: valinne
+Akt:Pot:Pre:S3:Neg: valinne
+Akt:Pot:Pre:P1:Neg: valinne
+Akt:Pot:Pre:P2:Neg: valinne
+Akt:Pot:Pre:P3:Neg: valinne
+Pas:Pot:Pre:Neg:    valittane
+
+#Conditional
+
+Akt:Con:Pre:S1: valitsisin
+Akt:Con:Pre:S2: valitsisit
+Akt:Con:Pre:S3: valitsisi
+Akt:Con:Pre:P1: valitsisimme
+Akt:Con:Pre:P2: valitsisitte
+Akt:Con:Pre:P3: valitsisivat
+Pas:Con:Pre:    valittaisiin
+
+Akt:Con:Pre:S1:Neg: valitsisi
+Akt:Con:Pre:S2:Neg: valitsisi
+Akt:Con:Pre:S3:Neg: valitsisi
+Akt:Con:Pre:P1:Neg: valitsisi
+Akt:Con:Pre:P2:Neg: valitsisi
+Akt:Con:Pre:P3:Neg: valitsisi
+Pas:Con:Pre:Neg:    valittaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: valitse
+Akt:Imp:Pre:S3: valitkoon
+Akt:Imp:Pre:P1: valitkaamme
+Akt:Imp:Pre:P2: valitkaa
+Akt:Imp:Pre:P3: valitkoot
+Pass:Imp:Pre:   valittakoon
+
+Akt:Imp:Pre:S2:Neg: valitse
+Akt:Imp:Pre:S3:Neg: valitko
+Akt:Imp:Pre:P1:Neg: valitko
+Akt:Imp:Pre:P2:Neg: valitko
+Akt:Imp:Pre:P3:Neg: valitko
+Pass:Imp:Pre:       valittako
+
+#Infinitive
+
+Inf1:      valita
+Inf1:L:    valitakseen
+
+Inf2:Ine:Akt: valitessa
+Inf2:Ine:Pas: valittaessa
+Inf2:Ins:Akt: valiten
+
+Inf3:Ine:Akt: valitsemassa
+Inf3:Ela:Akt: valitsemasta
+Inf3:Ill:Akt: valitsemaan
+Inf3:Ade:Akt: valitsemalla
+Inf3:Abe:Akt: valitsematta
+Inf3:Ins:Akt: valitseman
+Inf3:Ins:Pas: valittaman
+
+Inf4:Nom: valitseminen
+Inf4:Par: valitsemista
+
+Inf5: valitsemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: valitseva
+Pat:Pre:Pas: valittava
+Pat:Per:Akt: valinnut
+Pat:Per:Pas: valittu
+Pat:Age:     valitsema
+Pat:Age:Neg: valitsematon
+
+<70>
+
+#Indicative
+Akt:Ind:Pre:S1: juoksen
+Akt:Ind:Pre:S2: juokset
+Akt:Ind:Pre:S3: juoksee
+Akt:Ind:Pre:P1: juoksemme
+Akt:Ind:Pre:P2: juoksette
+Akt:Ind:Pre:P3: juoksevat
+Pas:Ind:Pre:    juostaan
+
+Akt:Ind:Pre:S1:Neg: juokse
+Akt:Ind:Pre:S2:Neg: juokse
+Akt:Ind:Pre:S3:Neg: juokse
+Akt:Ind:Pre:P1:Neg: juokse
+Akt:Ind:Pre:P2:Neg: juokse
+Akt:Ind:Pre:P3:Neg: juokse
+Pas:Ind:Pre:Neg:    juosta
+
+Akt:Ind:Imp:S1: juoksin
+Akt:Ind:Imp:S2: juoksit
+Akt:Ind:Imp:S3: juoksi
+Akt:Ind:Imp:P1: juoksimme
+Akt:Ind:Imp:P2: juoksitte
+Akt:Ind:Imp:P3: juoksivat
+Pas:Ind:Imp:    juostiin
+
+Akt:Ind:Imp:S1:Neg: juossut
+Akt:Ind:Imp:S2:Neg: juossut
+Akt:Ind:Imp:S3:Neg: juossut
+Akt:Ind:Imp:P1:Neg: juosseet
+Akt:Ind:Imp:P2:Neg: juosseet
+Akt:Ind:Imp:P3:Neg: juosseet
+Pas:Ind:Imp:Neg:    juostu
+
+#Potential
+
+Akt:Pot:Pre:S1: juossen
+Akt:Pot:Pre:S2: juosset
+Akt:Pot:Pre:S3: juossee
+Akt:Pot:Pre:P1: juossemme
+Akt:Pot:Pre:P2: juossette
+Akt:Pot:Pre:P3: juossevat
+Pas:Pot:Pre:    juostaneen
+
+Akt:Pot:Pre:S1:Neg: juosse
+Akt:Pot:Pre:S2:Neg: juosse
+Akt:Pot:Pre:S3:Neg: juosse
+Akt:Pot:Pre:P1:Neg: juosse
+Akt:Pot:Pre:P2:Neg: juosse
+Akt:Pot:Pre:P3:Neg: juosse
+Pas:Pot:Pre:Neg:    juostane
+
+#Conditional
+
+Akt:Con:Pre:S1: juoksisin
+Akt:Con:Pre:S2: juoksisit
+Akt:Con:Pre:S3: juoksisi
+Akt:Con:Pre:P1: juoksisimme
+Akt:Con:Pre:P2: juoksisitte
+Akt:Con:Pre:P3: juoksisivat
+Pas:Con:Pre:    juostaisiin
+
+Akt:Con:Pre:S1:Neg: juoksisi
+Akt:Con:Pre:S2:Neg: juoksisi
+Akt:Con:Pre:S3:Neg: juoksisi
+Akt:Con:Pre:P1:Neg: juoksisi
+Akt:Con:Pre:P2:Neg: juoksisi
+Akt:Con:Pre:P3:Neg: juoksisi
+Pas:Con:Pre:Neg:    juostaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: juokse
+Akt:Imp:Pre:S3: juoskoon
+Akt:Imp:Pre:P1: juoskaamme
+Akt:Imp:Pre:P2: juoskaa
+Akt:Imp:Pre:P3: juoskoot
+Pass:Imp:Pre:   juostakoon
+
+Akt:Imp:Pre:S2:Neg: juokse
+Akt:Imp:Pre:S3:Neg: juosko
+Akt:Imp:Pre:P1:Neg: juosko
+Akt:Imp:Pre:P2:Neg: juosko
+Akt:Imp:Pre:P3:Neg: juosko
+Pass:Imp:Pre:       juostako
+
+#Infinitive
+
+Inf1:      juosta
+Inf1:L:    juostakseen
+
+Inf2:Ine:Akt: juostessa
+Inf2:Ine:Pas: juostaessa
+Inf2:Ins:Akt: juosten
+
+Inf3:Ine:Akt: juoksemassa
+Inf3:Ela:Akt: juoksemasta
+Inf3:Ill:Akt: juoksemaan
+Inf3:Ade:Akt: juoksemalla
+Inf3:Abe:Akt: juoksematta
+Inf3:Ins:Akt: juokseman
+Inf3:Ins:Pas: juostaman
+
+Inf4:Nom: juokseminen
+Inf4:Par: juoksemista
+
+Inf5: juoksemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: juokseva
+Pat:Pre:Pas: juostava
+Pat:Per:Akt: juossut
+Pat:Per:Pas: juostu
+Pat:Age:     juoksema
+Pat:Age:Neg: juoksematon
+
+
+<71>
+
+#Indicative
+Akt:Ind:Pre:S1: näen
+Akt:Ind:Pre:S2: näet
+Akt:Ind:Pre:S3: näkee
+Akt:Ind:Pre:P1: näemme
+Akt:Ind:Pre:P2: näette
+Akt:Ind:Pre:P3: näkevät
+Pas:Ind:Pre:    nähdään
+
+Akt:Ind:Pre:S1:Neg: näe
+Akt:Ind:Pre:S2:Neg: näe
+Akt:Ind:Pre:S3:Neg: näe
+Akt:Ind:Pre:P1:Neg: näe
+Akt:Ind:Pre:P2:Neg: näe
+Akt:Ind:Pre:P3:Neg: näe
+Pas:Ind:Pre:Neg:    nähdä
+
+Akt:Ind:Imp:S1: näin
+Akt:Ind:Imp:S2: näit
+Akt:Ind:Imp:S3: näki
+Akt:Ind:Imp:P1: näimme
+Akt:Ind:Imp:P2: näitte
+Akt:Ind:Imp:P3: näkivät
+Pas:Ind:Imp:    nähtiin
+
+Akt:Ind:Imp:S1:Neg: nähnyt
+Akt:Ind:Imp:S2:Neg: nähnyt
+Akt:Ind:Imp:S3:Neg: nähnyt
+Akt:Ind:Imp:P1:Neg: nähneet
+Akt:Ind:Imp:P2:Neg: nähneet
+Akt:Ind:Imp:P3:Neg: nähneet
+Pas:Ind:Imp:Neg:    nähty
+
+#Potential
+
+Akt:Pot:Pre:S1: nähnen
+Akt:Pot:Pre:S2: nähnet
+Akt:Pot:Pre:S3: nähnee
+Akt:Pot:Pre:P1: nähnemme
+Akt:Pot:Pre:P2: nähnette
+Akt:Pot:Pre:P3: nähnevät
+Pas:Pot:Pre:    nähtäneen
+
+Akt:Pot:Pre:S1:Neg: nähne
+Akt:Pot:Pre:S2:Neg: nähne
+Akt:Pot:Pre:S3:Neg: nähne
+Akt:Pot:Pre:P1:Neg: nähne
+Akt:Pot:Pre:P2:Neg: nähne
+Akt:Pot:Pre:P3:Neg: nähne
+Pas:Pot:Pre:Neg:    nähtäne
+
+#Conditional
+
+Akt:Con:Pre:S1: näkisin
+Akt:Con:Pre:S2: näkisit
+Akt:Con:Pre:S3: näkisi
+Akt:Con:Pre:P1: näkisimme
+Akt:Con:Pre:P2: näkisitte
+Akt:Con:Pre:P3: näkisivät
+Pas:Con:Pre:    nähtäisiin
+
+Akt:Con:Pre:S1:Neg: näkisi
+Akt:Con:Pre:S2:Neg: näkisi
+Akt:Con:Pre:S3:Neg: näkisi
+Akt:Con:Pre:P1:Neg: näkisi
+Akt:Con:Pre:P2:Neg: näkisi
+Akt:Con:Pre:P3:Neg: näkisi
+Pas:Con:Pre:Neg:    nähtäisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: näe
+Akt:Imp:Pre:S3: nähköön
+Akt:Imp:Pre:P1: nähkäämme
+Akt:Imp:Pre:P2: nähkää
+Akt:Imp:Pre:P3: nähkööt
+Pass:Imp:Pre:   nähtäköön
+
+Akt:Imp:Pre:S2:Neg: näe
+Akt:Imp:Pre:S3:Neg: nähkö
+Akt:Imp:Pre:P1:Neg: nähkö
+Akt:Imp:Pre:P2:Neg: nähkö
+Akt:Imp:Pre:P3:Neg: nähkö
+Pass:Imp:Pre:       nähtäkö
+
+#Infinitive
+
+Inf1:      nähdä
+Inf1:L:    nähdäkseen
+
+Inf2:Ine:Akt: nähdessä
+Inf2:Ine:Pas: nähtäessä
+Inf2:Ins:Akt: nähden
+
+Inf3:Ine:Akt: näkemässä
+Inf3:Ela:Akt: näkemästä
+Inf3:Ill:Akt: näkemään
+Inf3:Ade:Akt: näkemällä
+Inf3:Abe:Akt: näkemättä
+Inf3:Ins:Akt: näkemän
+Inf3:Ins:Pas: nähtämän
+
+Inf4:Nom: näkeminen
+Inf4:Par: näkemistä
+
+Inf5: näkemäisillään
+
+#Participle
+
+Pat:Pre:Akt: näkevä
+Pat:Pre:Pas: nähtävä
+Pat:Per:Akt: nähnyt
+Pat:Per:Pas: nähty
+Pat:Age:     näkemä
+Pat:Age:Neg: näkemätön
+
+
+<72>
+
+#Indicative
+Akt:Ind:Pre:S1: vanhenen
+Akt:Ind:Pre:S2: vanhenet
+Akt:Ind:Pre:S3: vanhenee
+Akt:Ind:Pre:P1: vanhenemme
+Akt:Ind:Pre:P2: vanhenette
+Akt:Ind:Pre:P3: vanhenevat
+Pas:Ind:Pre:    vanhetaan
+
+Akt:Ind:Pre:S1:Neg: vanhene
+Akt:Ind:Pre:S2:Neg: vanhene
+Akt:Ind:Pre:S3:Neg: vanhene
+Akt:Ind:Pre:P1:Neg: vanhene
+Akt:Ind:Pre:P2:Neg: vanhene
+Akt:Ind:Pre:P3:Neg: vanhene
+Pas:Ind:Pre:Neg:    vanheta
+
+Akt:Ind:Imp:S1: vanhenin
+Akt:Ind:Imp:S2: vanhenit
+Akt:Ind:Imp:S3: vanheni
+Akt:Ind:Imp:P1: vanhenimme
+Akt:Ind:Imp:P2: vanhenitte
+Akt:Ind:Imp:P3: vanhenivat
+Pas:Ind:Imp:    vanhettiin
+
+Akt:Ind:Imp:S1:Neg: vanhennut
+Akt:Ind:Imp:S2:Neg: vanhennut
+Akt:Ind:Imp:S3:Neg: vanhennut
+Akt:Ind:Imp:P1:Neg: vanhenneet
+Akt:Ind:Imp:P2:Neg: vanhenneet
+Akt:Ind:Imp:P3:Neg: vanhenneet
+Pas:Ind:Imp:Neg:    vanhettu
+
+#Potential
+
+Akt:Pot:Pre:S1: vanhennen
+Akt:Pot:Pre:S2: vanhennet
+Akt:Pot:Pre:S3: vanhennee
+Akt:Pot:Pre:P1: vanhennemme
+Akt:Pot:Pre:P2: vanhennette
+Akt:Pot:Pre:P3: vanhennevat
+Pas:Pot:Pre:    vanhettaneen
+
+Akt:Pot:Pre:S1:Neg: vanhenne
+Akt:Pot:Pre:S2:Neg: vanhenne
+Akt:Pot:Pre:S3:Neg: vanhenne
+Akt:Pot:Pre:P1:Neg: vanhenne
+Akt:Pot:Pre:P2:Neg: vanhenne
+Akt:Pot:Pre:P3:Neg: vanhenne
+Pas:Pot:Pre:Neg:    vanhettane
+
+#Conditional
+
+Akt:Con:Pre:S1: vanhenisin
+Akt:Con:Pre:S2: vanhenisit
+Akt:Con:Pre:S3: vanhenisi
+Akt:Con:Pre:P1: vanhenisimme
+Akt:Con:Pre:P2: vanhenisitte
+Akt:Con:Pre:P3: vanhenisivat
+Pas:Con:Pre:    vanhettaisiin
+
+Akt:Con:Pre:S1:Neg: vanhenisi
+Akt:Con:Pre:S2:Neg: vanhenisi
+Akt:Con:Pre:S3:Neg: vanhenisi
+Akt:Con:Pre:P1:Neg: vanhenisi
+Akt:Con:Pre:P2:Neg: vanhenisi
+Akt:Con:Pre:P3:Neg: vanhenisi
+Pas:Con:Pre:Neg:    vanhettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: vanhene
+Akt:Imp:Pre:S3: vanhetkoon
+Akt:Imp:Pre:P1: vanhetkaamme
+Akt:Imp:Pre:P2: vanhetkaa
+Akt:Imp:Pre:P3: vanhetkoot
+Pass:Imp:Pre:   vanhettakoon
+
+Akt:Imp:Pre:S2:Neg: vanhene
+Akt:Imp:Pre:S3:Neg: vanhetko
+Akt:Imp:Pre:P1:Neg: vanhetko
+Akt:Imp:Pre:P2:Neg: vanhetko
+Akt:Imp:Pre:P3:Neg: vanhetko
+Pass:Imp:Pre:       vanhettako
+
+#Infinitive
+
+Inf1:      vanheta
+Inf1:L:    vanhetakseen
+
+Inf2:Ine:Akt: vanhetessa
+Inf2:Ine:Pas: vanhettaessa
+Inf2:Ins:Akt: vanheten
+
+Inf3:Ine:Akt: vanhenemassa
+Inf3:Ela:Akt: vanhenemasta
+Inf3:Ill:Akt: vanhenemaan
+Inf3:Ade:Akt: vanhenemalla
+Inf3:Abe:Akt: vanhenematta
+Inf3:Ins:Akt: vanheneman
+Inf3:Ins:Pas: vanhettaman
+
+Inf4:Nom: vanheneminen
+Inf4:Par: vanhenemista
+
+Inf5: vanhenemaisillaan
+
+#Participle
+
+Pat:Pre:Akt: vanheneva
+Pat:Pre:Pas: vanhettava
+Pat:Per:Akt: vanhennut
+Pat:Per:Pas: vanhettu
+Pat:Age:     vanhenema
+Pat:Age:Neg: vanhenematon
+
+
+<73>
+
+#Indicative
+Akt:Ind:Pre:S1: salaan
+Akt:Ind:Pre:S2: salaat
+Akt:Ind:Pre:S3: salaa
+Akt:Ind:Pre:P1: salaamme
+Akt:Ind:Pre:P2: salaatte
+Akt:Ind:Pre:P3: salaavat
+Pas:Ind:Pre:    salataan
+
+Akt:Ind:Pre:S1:Neg: salaa
+Akt:Ind:Pre:S2:Neg: salaa
+Akt:Ind:Pre:S3:Neg: salaa
+Akt:Ind:Pre:P1:Neg: salaa
+Akt:Ind:Pre:P2:Neg: salaa
+Akt:Ind:Pre:P3:Neg: salaa
+Pas:Ind:Pre:Neg:    salata
+
+Akt:Ind:Imp:S1: salasin
+Akt:Ind:Imp:S2: salasit
+Akt:Ind:Imp:S3: salasi
+Akt:Ind:Imp:P1: salasimme
+Akt:Ind:Imp:P2: salasitte
+Akt:Ind:Imp:P3: salasivat
+Pas:Ind:Imp:    salattiin
+
+Akt:Ind:Imp:S1:Neg: salannut
+Akt:Ind:Imp:S2:Neg: salannut
+Akt:Ind:Imp:S3:Neg: salannut
+Akt:Ind:Imp:P1:Neg: salanneet
+Akt:Ind:Imp:P2:Neg: salanneet
+Akt:Ind:Imp:P3:Neg: salanneet
+Pas:Ind:Imp:Neg:    salattu
+
+#Potential
+
+Akt:Pot:Pre:S1: salannen
+Akt:Pot:Pre:S2: salannet
+Akt:Pot:Pre:S3: salannee
+Akt:Pot:Pre:P1: salannemme
+Akt:Pot:Pre:P2: salannette
+Akt:Pot:Pre:P3: salannevat
+Pas:Pot:Pre:    salattaneen
+
+Akt:Pot:Pre:S1:Neg: salanne
+Akt:Pot:Pre:S2:Neg: salanne
+Akt:Pot:Pre:S3:Neg: salanne
+Akt:Pot:Pre:P1:Neg: salanne
+Akt:Pot:Pre:P2:Neg: salanne
+Akt:Pot:Pre:P3:Neg: salanne
+Pas:Pot:Pre:Neg:    salattane
+
+#Conditional
+
+Akt:Con:Pre:S1: salaisin
+Akt:Con:Pre:S2: salaisit
+Akt:Con:Pre:S3: salaisi
+Akt:Con:Pre:P1: salaisimme
+Akt:Con:Pre:P2: salaisitte
+Akt:Con:Pre:P3: salaisivat
+Pas:Con:Pre:    salattaisiin
+
+Akt:Con:Pre:S1:Neg: salaisi
+Akt:Con:Pre:S2:Neg: salaisi
+Akt:Con:Pre:S3:Neg: salaisi
+Akt:Con:Pre:P1:Neg: salaisi
+Akt:Con:Pre:P2:Neg: salaisi
+Akt:Con:Pre:P3:Neg: salaisi
+Pas:Con:Pre:Neg:    salattaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: salaa
+Akt:Imp:Pre:S3: salatkoon
+Akt:Imp:Pre:P1: salatkaamme
+Akt:Imp:Pre:P2: salatkaa
+Akt:Imp:Pre:P3: salatkoot
+Pass:Imp:Pre:   salattakoon
+
+Akt:Imp:Pre:S2:Neg: salaa
+Akt:Imp:Pre:S3:Neg: salatko
+Akt:Imp:Pre:P1:Neg: salatko
+Akt:Imp:Pre:P2:Neg: salatko
+Akt:Imp:Pre:P3:Neg: salatko
+Pass:Imp:Pre:       salattako
+
+#Infinitive
+
+Inf1:      salata
+Inf1:L:    salatakseen
+
+Inf2:Ine:Akt: salatessa
+Inf2:Ine:Pas: salattaessa
+Inf2:Ins:Akt: salaten
+
+Inf3:Ine:Akt: salaamassa
+Inf3:Ela:Akt: salaamasta
+Inf3:Ill:Akt: salaamaan
+Inf3:Ade:Akt: salaamalla
+Inf3:Abe:Akt: salaamatta
+Inf3:Ins:Akt: salaaman
+Inf3:Ins:Pas: salattaman
+
+Inf4:Nom: salaaminen
+Inf4:Par: salaamista
+
+Inf5: salaamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: salaava
+Pat:Pre:Pas: salattava
+Pat:Per:Akt: salannut
+Pat:Per:Pas: salattu
+Pat:Age:     salaama
+Pat:Age:Neg: salaamaton
+
+<74>
+
+
+#Indicative
+Akt:Ind:Pre:S1: katkean
+Akt:Ind:Pre:S2: katkeat
+Akt:Ind:Pre:S3: katkeaa
+Akt:Ind:Pre:P1: katkeamme
+Akt:Ind:Pre:P2: katkeatte
+Akt:Ind:Pre:P3: katkeavat
+Pas:Ind:Pre:    katketaan
+
+Akt:Ind:Pre:S1:Neg: katkea
+Akt:Ind:Pre:S2:Neg: katkea
+Akt:Ind:Pre:S3:Neg: katkea
+Akt:Ind:Pre:P1:Neg: katkea
+Akt:Ind:Pre:P2:Neg: katkea
+Akt:Ind:Pre:P3:Neg: katkea
+Pas:Ind:Pre:Neg:    katketa
+
+Akt:Ind:Imp:S1: katkesin
+Akt:Ind:Imp:S2: katkesit
+Akt:Ind:Imp:S3: katkesi
+Akt:Ind:Imp:P1: katkesimme
+Akt:Ind:Imp:P2: katkesitte
+Akt:Ind:Imp:P3: katkesivat
+Pas:Ind:Imp:    katkettiin
+
+Akt:Ind:Imp:S1:Neg: katkennut
+Akt:Ind:Imp:S2:Neg: katkennut
+Akt:Ind:Imp:S3:Neg: katkennut
+Akt:Ind:Imp:P1:Neg: katkenneet
+Akt:Ind:Imp:P2:Neg: katkenneet
+Akt:Ind:Imp:P3:Neg: katkenneet
+Pas:Ind:Imp:Neg:    katkettu
+
+#Potential
+
+Akt:Pot:Pre:S1: katkennen
+Akt:Pot:Pre:S2: katkennet
+Akt:Pot:Pre:S3: katkennee
+Akt:Pot:Pre:P1: katkennemme
+Akt:Pot:Pre:P2: katkennette
+Akt:Pot:Pre:P3: katkennevat
+Pas:Pot:Pre:    katkettaneen
+
+Akt:Pot:Pre:S1:Neg: katkene
+Akt:Pot:Pre:S2:Neg: katkene
+Akt:Pot:Pre:S3:Neg: katkene
+Akt:Pot:Pre:P1:Neg: katkene
+Akt:Pot:Pre:P2:Neg: katkene
+Akt:Pot:Pre:P3:Neg: katkene
+Pas:Pot:Pre:Neg:    katkettane
+
+#Conditional
+
+Akt:Con:Pre:S1: katkeaisin (katkeisin)
+Akt:Con:Pre:S2: katkeaisit (katkeisit)
+Akt:Con:Pre:S3: katkeaisi (katkeisi)
+Akt:Con:Pre:P1: katkeaisimme (katkeisimme)
+Akt:Con:Pre:P2: katkeaisitte (katkeisitte)
+Akt:Con:Pre:P3: katkeaisivat (katkeisivat)
+Pas:Con:Pre:    katkettaisiin
+
+Akt:Con:Pre:S1:Neg: katkeaisi (katkeisi)
+Akt:Con:Pre:S2:Neg: katkeaisi (katkeisi)
+Akt:Con:Pre:S3:Neg: katkeaisi (katkeisi)
+Akt:Con:Pre:P1:Neg: katkeaisi (katkeisi)
+Akt:Con:Pre:P2:Neg: katkeaisi (katkeisi)
+Akt:Con:Pre:P3:Neg: katkeaisi (katkeisi)
+Pas:Con:Pre:Neg:    katkettaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: katkea
+Akt:Imp:Pre:S3: katketkoon
+Akt:Imp:Pre:P1: katketkaamme
+Akt:Imp:Pre:P2: katketkaa
+Akt:Imp:Pre:P3: katketkoot
+Pass:Imp:Pre:   katkettakoon
+
+Akt:Imp:Pre:S2:Neg: katkea
+Akt:Imp:Pre:S3:Neg: katketko
+Akt:Imp:Pre:P1:Neg: katketko
+Akt:Imp:Pre:P2:Neg: katketko
+Akt:Imp:Pre:P3:Neg: katketko
+Pass:Imp:Pre:       katkettako
+
+#Infinitive
+
+Inf1:      katketa
+Inf1:L:    katketakseen
+
+Inf2:Ine:Akt: katketessa
+Inf2:Ine:Pas: katkettaessa
+Inf2:Ins:Akt: katketen
+
+Inf3:Ine:Akt: katkeamassa
+Inf3:Ela:Akt: katkeamasta
+Inf3:Ill:Akt: katkeamaan
+Inf3:Ade:Akt: katkeamalla
+Inf3:Abe:Akt: katkeamatta
+Inf3:Ins:Akt: katkeaman
+Inf3:Ins:Pas: katkettaman
+
+Inf4:Nom: katkeaminen
+Inf4:Par: katkeamista
+
+Inf5: katkeamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: katkeava
+Pat:Pre:Pas: katkettava
+Pat:Per:Akt: katkennut
+Pat:Per:Pas: katkettu
+Pat:Age:     katkeama
+Pat:Age:Neg: katkeamaton
+
+
+<75>
+
+#Indicative
+Akt:Ind:Pre:S1: selviä
+Akt:Ind:Pre:S2: selviät
+Akt:Ind:Pre:S3: selviää
+Akt:Ind:Pre:P1: selviämme
+Akt:Ind:Pre:P2: selviätte
+Akt:Ind:Pre:P3: selviävät
+Pas:Ind:Pre:    selvitään
+
+Akt:Ind:Pre:S1:Neg: selviä
+Akt:Ind:Pre:S2:Neg: selviä
+Akt:Ind:Pre:S3:Neg: selviä
+Akt:Ind:Pre:P1:Neg: selviä
+Akt:Ind:Pre:P2:Neg: selviä
+Akt:Ind:Pre:P3:Neg: selviä
+Pas:Ind:Pre:Neg:    selvitä
+
+Akt:Ind:Imp:S1: selvisin
+Akt:Ind:Imp:S2: selvisit
+Akt:Ind:Imp:S3: selvisi
+Akt:Ind:Imp:P1: selvisimme
+Akt:Ind:Imp:P2: selvisitte
+Akt:Ind:Imp:P3: selvisivät
+Pas:Ind:Imp:    selvittiin
+
+Akt:Ind:Imp:S1:Neg: selvinnyt
+Akt:Ind:Imp:S2:Neg: selvinnyt
+Akt:Ind:Imp:S3:Neg: selvinnyt
+Akt:Ind:Imp:P1:Neg: selvinneet
+Akt:Ind:Imp:P2:Neg: selvinneet
+Akt:Ind:Imp:P3:Neg: selvinneet
+Pas:Ind:Imp:Neg:    selvitty
+
+#Potential
+
+Akt:Pot:Pre:S1: selvinnen
+Akt:Pot:Pre:S2: selvinnet
+Akt:Pot:Pre:S3: selvinnee
+Akt:Pot:Pre:P1: selvinnemme
+Akt:Pot:Pre:P2: selvinnette
+Akt:Pot:Pre:P3: selvinnevät
+Pas:Pot:Pre:    selvittäneen
+
+Akt:Pot:Pre:S1:Neg: selvinne
+Akt:Pot:Pre:S2:Neg: selvinne
+Akt:Pot:Pre:S3:Neg: selvinne
+Akt:Pot:Pre:P1:Neg: selvinne
+Akt:Pot:Pre:P2:Neg: selvinne
+Akt:Pot:Pre:P3:Neg: selvinne
+Pas:Pot:Pre:Neg:    selvittäne
+
+#Conditional
+
+Akt:Con:Pre:S1: selviäisin
+Akt:Con:Pre:S2: selviäisit
+Akt:Con:Pre:S3: selviäisi
+Akt:Con:Pre:P1: selviäisimme
+Akt:Con:Pre:P2: selviäisitte
+Akt:Con:Pre:P3: selviäisivät
+Pas:Con:Pre:    selvittäisiin
+
+Akt:Con:Pre:S1:Neg: selviäisi
+Akt:Con:Pre:S2:Neg: selviäisi
+Akt:Con:Pre:S3:Neg: selviäisi
+Akt:Con:Pre:P1:Neg: selviäisi
+Akt:Con:Pre:P2:Neg: selviäisi
+Akt:Con:Pre:P3:Neg: selviäisi
+Pas:Con:Pre:Neg:    selvittäisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: selviä
+Akt:Imp:Pre:S3: selvitköön
+Akt:Imp:Pre:P1: selvitkäämme
+Akt:Imp:Pre:P2: selvitkää
+Akt:Imp:Pre:P3: selvitkööt
+Pass:Imp:Pre:   selvittäköön
+
+Akt:Imp:Pre:S2:Neg: selviä
+Akt:Imp:Pre:S3:Neg: selvitkö
+Akt:Imp:Pre:P1:Neg: selvitkö
+Akt:Imp:Pre:P2:Neg: selvitkö
+Akt:Imp:Pre:P3:Neg: selvitkö
+Pass:Imp:Pre:       selvittäkö
+
+#Infinitive
+
+Inf1:      selvitä
+Inf1:L:    selvitäkseen
+
+Inf2:Ine:Akt: selvitessä
+Inf2:Ine:Pas: selvittäessä
+Inf2:Ins:Akt: selviten
+
+Inf3:Ine:Akt: selviämässä
+Inf3:Ela:Akt: selviämästä
+Inf3:Ill:Akt: selviämään
+Inf3:Ade:Akt: selviämällä
+Inf3:Abe:Akt: selviämättä
+Inf3:Ins:Akt: selviämän
+Inf3:Ins:Pas: selvittämän
+
+Inf4:Nom: selviäminen
+Inf4:Par: selviämistä
+
+Inf5: selviämäisillään
+
+#Participle
+
+Pat:Pre:Akt: selviävä
+Pat:Pre:Pas: selvittävä
+Pat:Per:Akt: selvinnyt
+Pat:Per:Pas: selvitty
+Pat:Age:     selviämä
+Pat:Age:Neg: selviämätön
+
+
+<76:G:S:t-d>
+
+#Indicative
+Akt:Ind:Pre:S1: taidan
+Akt:Ind:Pre:S2: taidat
+Akt:Ind:Pre:S3: taitaa
+Akt:Ind:Pre:P1: taidamme
+Akt:Ind:Pre:P2: taidatte
+Akt:Ind:Pre:P3: taitavat
+Pas:Ind:Pre:    taidetaan
+
+Akt:Ind:Pre:S1:Neg: taida
+Akt:Ind:Pre:S2:Neg: taida
+Akt:Ind:Pre:S3:Neg: taida
+Akt:Ind:Pre:P1:Neg: taida
+Akt:Ind:Pre:P2:Neg: taida
+Akt:Ind:Pre:P3:Neg: taida
+Pas:Ind:Pre:Neg:    taideta
+
+Akt:Ind:Imp:S1: taisin
+Akt:Ind:Imp:S2: taisit
+Akt:Ind:Imp:S3: taisi
+Akt:Ind:Imp:P1: taisimme
+Akt:Ind:Imp:P2: taisitte
+Akt:Ind:Imp:P3: taisivat
+Pas:Ind:Imp:    taidettiin taittiin
+
+Akt:Ind:Imp:S1:Neg: taitanut tainnut
+Akt:Ind:Imp:S2:Neg: taitanut tainnut
+Akt:Ind:Imp:S3:Neg: taitanut tainnut
+Akt:Ind:Imp:P1:Neg: taitaneet tainneet
+Akt:Ind:Imp:P2:Neg: taitaneet tainneet
+Akt:Ind:Imp:P3:Neg: taitaneet tainneet
+Pas:Ind:Imp:Neg:    taidettu (taittu)
+
+#Potential
+
+Akt:Pot:Pre:S1: taitanen tainnen
+Akt:Pot:Pre:S2: taitanet tainnet
+Akt:Pot:Pre:S3: taitanee tainnee
+Akt:Pot:Pre:P1: taitanemme tainnemme
+Akt:Pot:Pre:P2: taitanette tainnette
+Akt:Pot:Pre:P3: taitanevat tainnevat
+Pas:Pot:Pre:    taidettaneen (taittaneen)
+
+Akt:Pot:Pre:S1:Neg: taitane tainne
+Akt:Pot:Pre:S2:Neg: taitane tainne
+Akt:Pot:Pre:S3:Neg: taitane tainne
+Akt:Pot:Pre:P1:Neg: taitane tainne
+Akt:Pot:Pre:P2:Neg: taitane tainne
+Akt:Pot:Pre:P3:Neg: taitane tainne
+Pas:Pot:Pre:Neg:    taidettane (taittane)
+
+#Conditional
+
+Akt:Con:Pre:S1: taitaisin
+Akt:Con:Pre:S2: taitaisit
+Akt:Con:Pre:S3: taitaisi
+Akt:Con:Pre:P1: taitaisimme
+Akt:Con:Pre:P2: taitaisitte
+Akt:Con:Pre:P3: taitaisivat
+Pas:Con:Pre:    taidettaisiin (taittaisiin)
+
+Akt:Con:Pre:S1:Neg: taitaisi
+Akt:Con:Pre:S2:Neg: taitaisi
+Akt:Con:Pre:S3:Neg: taitaisi
+Akt:Con:Pre:P1:Neg: taitaisi
+Akt:Con:Pre:P2:Neg: taitaisi
+Akt:Con:Pre:P3:Neg: taitaisi
+Pas:Con:Pre:Neg:    taidettaisi (taittaisi)
+
+#Imperative
+
+Akt:Imp:Pre:S2: taida
+Akt:Imp:Pre:S3: taitakoon
+Akt:Imp:Pre:P1: taitakaamme
+Akt:Imp:Pre:P2: taitakaa
+Akt:Imp:Pre:P3: taitakoot
+Pass:Imp:Pre:   taidettakoon (taittakoon)
+
+Akt:Imp:Pre:S2:Neg: taida
+Akt:Imp:Pre:S3:Neg: taitako
+Akt:Imp:Pre:P1:Neg: taitako
+Akt:Imp:Pre:P2:Neg: taitako
+Akt:Imp:Pre:P3:Neg: taitako
+Pass:Imp:Pre:       taittako (taidettako)
+
+#Infinitive
+
+Inf1:      taitaa
+Inf1:L:    taitaakseen
+
+Inf2:Ine:Akt: taitaessa
+Inf2:Ine:Pas: taidettaessa
+Inf2:Ins:Akt: taitaen
+
+Inf3:Ine:Akt: taitamassa
+Inf3:Ela:Akt: taitamasta
+Inf3:Ill:Akt: taitamaan
+Inf3:Ade:Akt: taitamalla
+Inf3:Abe:Akt: taitamatta
+Inf3:Ins:Akt: taitaman
+Inf3:Ins:Pas: taidettaman
+
+Inf4:Nom: taitaminen
+Inf4:Par: taitamista
+
+Inf5: taitamaisillaan
+
+#Participle
+
+Pat:Pre:Akt: taitava
+Pat:Pre:Pas: taidettava
+Pat:Per:Akt: taitanut tainnut
+Pat:Per:Pas: taidettu (taittu)
+Pat:Age:     taitama
+Pat:Age:Neg: taitamaton
+
+<77>
+
+Inf1:               kumajaa
+Akt:Ind:Pre:S3:     kumajaa
+Akt:Ind:Imp:S3:     kumaji
+Akt:Con:Pre:S3:     kumajaisi
+Akt:Con:Pre:S3:Neg: kumajaisi
+Akt:Ind:Pre:S3:Neg: kumaja
+Pat:Pre:Akt:        kumajava
+
+
+<78>
+
+Inf1:               kaikaa
+Akt:Ind:Pre:S3:     kaikaa
+Akt:Con:Pre:S3:     kaikaisi
+Akt:Con:Pre:S3:Neg: kaikaisi
+Akt:Ind:Pre:S3:Neg: kaikaa
