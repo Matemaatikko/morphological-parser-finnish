@@ -2,6 +2,7 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
+import morph_fin.rulings.nomines.{GenerateNomineBendings, Gradation, NomineBending, Word}
 import morph_fin.utils.Hyphenation
 
 import scala.io.{Codec, Source}
@@ -76,7 +77,7 @@ object ReformatKotus {
 
   import KotusWord._
 
-  def apply(rulings: Seq[ExtensiveRuling]): Seq[UpdatedWord] =
+  def apply(rulings: Seq[NomineBending]): Seq[UpdatedWord] =
     val list: Seq[Entry] = (
       for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
       yield
@@ -92,16 +93,16 @@ object ReformatKotus {
         entry.word.noPrefix)
 
     val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        GenerateCases.apply(rulings, GenerateCases.getWord(entry))
-          .find(elem => elem.tpe == Type.Plural && elem.cse == Case.Nominative)
+        GenerateNomineBendings.apply(rulings, EntryToWord(entry).get)
+          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, Form.Plural))
           .map(casing => casing.word -> entry)
     )
 
     //===================================
 
     val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        GenerateCases.apply(rulings, GenerateCases.getWord(entry))
-          .find(elem => elem.tpe == Type.Plural && elem.cse == Case.Nominative)
+        GenerateNomineBendings.apply(rulings, EntryToWord(entry).get)
+          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, Form.Plural))
           .map(casing => casing.word -> entry)
     ).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))
 
@@ -123,11 +124,11 @@ object ReformatKotus {
       case Entry(Prefix(value), _)             => UpdatedWord.Prefix(value)
       case Entry(Suffix(value), Some(bending)) => UpdatedWord.Suffix(value, bending)
       case Entry(Suffix(value), None)          => UpdatedWord.SuffixError(value)
-      case Entry(Word(value), option) if option.isEmpty || option.exists(_.rule == 50)  => resolveCompound(value, false, option)(data)
-      case Entry(Word(value), Some(bending)) if bending.rule == 51 => resolveCompound(value, true, Some(bending))(data)
-      case Entry(Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
-      case Entry(Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
-      case Entry(Word(value), Some(bending)) => UpdatedWord.StandardBending(value, bending)
+      case Entry(KotusWord.Word(value), option) if option.isEmpty || option.exists(_.rule == 50)  => resolveCompound(value, false, option)(data)
+      case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 51 => resolveCompound(value, true, Some(bending))(data)
+      case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
+      case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
+      case Entry(KotusWord.Word(value), Some(bending)) => UpdatedWord.StandardBending(value, bending)
     }
 
 
