@@ -90,7 +90,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
       val strong = collectUntil( peek == '-')
       skip('-')
       val weak = collectUntil( peek == '>')
-      Some(nomines.Gradation(strong, weak, tpe))
+      Some(nomines.Gradation(strong, weak))
     else None
 
   inline def parseLine: (VerbMophemes, Seq[String]) =

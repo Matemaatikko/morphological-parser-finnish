@@ -4,7 +4,7 @@ import morph_fin.rulings.*
 
 import scala.annotation.tailrec
 
-case class Gradation(strong: String, weak: String, gradationType: GradationType = GradationType.Unnecessary)
+case class Gradation(strong: String, weak: String)
 case class NomineExampleBending(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String)])
 
 class NomineRulesParser(stream: Iterator[Char]) {
@@ -85,7 +85,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
       val strong = collectUntil( peek == '-')
       skip('-')
       val weak = collectUntil( peek == '>')
-      Some(nomines.Gradation(strong, weak, tpe))
+      Some(nomines.Gradation(strong, weak))
     else None
 
 

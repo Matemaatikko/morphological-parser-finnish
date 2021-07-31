@@ -57,3 +57,5 @@ enum VerbMophemes:
   case InfinitiveV
   case Participle(tempus: Tempus, voice: Voice)
   case ParticipleAgent(mode: Mode)
+
+//TODO implement to string methods

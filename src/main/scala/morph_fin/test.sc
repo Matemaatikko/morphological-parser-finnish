@@ -2,7 +2,7 @@ import morph_fin.*
 import morph_fin.kotus_format.*
 import morph_fin.rulings.*
 import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, NomineRulesParser}
-import morph_fin.rulings.verbs.VerbRulesParser
+import morph_fin.rulings.verbs.{GenerateVerbRules, VerbRulesParser}
 import morph_fin.utils.{Hyphenation, KotusHyphenation}
 
 import java.io.File
@@ -23,6 +23,10 @@ val nomineRulings1 = new NomineRulesParser(content.mkString("\n").iterator).pars
 val verbRulings1 = new VerbRulesParser(content2.mkString("\n").iterator).parse
 
 val nomineRulings = nomineRulings1.map(GenerateNomineRules(_))
+val verbRulings = verbRulings1.map(GenerateVerbRules(_))
+
+
+println(verbRulings.mkString("\n"))
 
 def prin(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get

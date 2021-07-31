@@ -45,10 +45,10 @@ extension (bending: NomineBending)
  */
 object GenerateNomineRules {
 
-  def apply(ruling: NomineExampleBending): NomineBending =
-    ruling.gradation match {
-      case Some(gradation) => resolveGradation(ruling: NomineExampleBending, gradation)
-      case None            => resolveNonGradation(ruling: NomineExampleBending)
+  def apply(bending: NomineExampleBending): NomineBending =
+    bending.gradation match {
+      case Some(gradation) => resolveGradation(bending, gradation)
+      case None            => resolveNonGradation(bending)
     }
 
   import NomineEnding.*
@@ -76,7 +76,7 @@ object GenerateNomineRules {
 
   def resolveNonGradation(ruling: NomineExampleBending): NomineBending =
     val casedWords = ruling.cases.map(_._2)
-    val root = ShortestSubstring(casedWords)
+    val root = LongestStartingSubstring(casedWords)
     val drop = ruling.lemma.length - root.length
     val cases = ruling.cases.map(a => NomineEnding(a._1, a._2.drop(root.length)))
     NomineBending(ruling.number, drop, false, cases)
@@ -85,7 +85,7 @@ object GenerateNomineRules {
 /***
  * Example: Seq("algorithm", "algotim", "algonat") -> "algo"
  */
-object ShortestSubstring {
+object LongestStartingSubstring {
   def apply(list: Seq[String]): String =
     val sortedList = list.sorted
     val first = sortedList.head

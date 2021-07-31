@@ -1681,7 +1681,7 @@ Cip:Age:Neg: käymätön
 #Indicative
 Akt:Ind:Pre:S1: rohkaisin
 Akt:Ind:Pre:S2: rohkaiset
-Akt:Ind:Pre:S3: kohkaisee
+Akt:Ind:Pre:S3: rohkaisee
 Akt:Ind:Pre:P1: rohkaisemme
 Akt:Ind:Pre:P2: rohkaisette
 Akt:Ind:Pre:P3: rohkaisevat
@@ -1975,13 +1975,13 @@ Akt:Con:Pre:P2: tupakoisitte (tupakoitsisitte)
 Akt:Con:Pre:P3: tupakoisivat (tupakoitsisivat)
 Pas:Con:Pre:    tupakoitaisiin
 
-Akt:Con:Pre:S1:Neg: tulisi
-Akt:Con:Pre:S2:Neg: tulisi
-Akt:Con:Pre:S3:Neg: tulisi
-Akt:Con:Pre:P1:Neg: tulisi
-Akt:Con:Pre:P2:Neg: tulisi
-Akt:Con:Pre:P3:Neg: tulisi
-Pas:Con:Pre:Neg:    tultaisi
+Akt:Con:Pre:S1:Neg: tupakoisi (tupakoitsisi)
+Akt:Con:Pre:S2:Neg: tupakoisi (tupakoitsisi)
+Akt:Con:Pre:S3:Neg: tupakoisi (tupakoitsisi)
+Akt:Con:Pre:P1:Neg: tupakoisi (tupakoitsisi)
+Akt:Con:Pre:P2:Neg: tupakoisi (tupakoitsisi)
+Akt:Con:Pre:P3:Neg: tupakoisi (tupakoitsisi)
+Pas:Con:Pre:Neg:    tupakoitaisi
 
 #Imperative
 
