@@ -1,0 +1,235 @@
+<Type1>
+#t-d
+#Indicative
+Akt:Ind:Pre:S1: W taidan
+Akt:Ind:Pre:S2: W  taidat
+Akt:Ind:Pre:S3: S taitaa
+Akt:Ind:Pre:P1: W taidamme
+Akt:Ind:Pre:P2: W taidatte
+Akt:Ind:Pre:P3: S taitavat
+Pas:Ind:Pre:    W taidetaan
+
+Akt:Ind:Pre:S1:Neg: W taida
+Akt:Ind:Pre:S2:Neg: W taida
+Akt:Ind:Pre:S3:Neg: W taida
+Akt:Ind:Pre:P1:Neg: W taida
+Akt:Ind:Pre:P2:Neg: W taida
+Akt:Ind:Pre:P3:Neg: W taida
+Pas:Ind:Pre:Neg:    W taideta
+
+Akt:Ind:Imp:S1: W lähdin (läksin)
+Akt:Ind:Imp:S2: W lähdit (läksit)
+Akt:Ind:Imp:S3: S lähti (läksi)
+Akt:Ind:Imp:P1: W lähdimme (läksimme)
+Akt:Ind:Imp:P2: W lähditte (läksitte)
+Akt:Ind:Imp:P3: S lähtivät (läksivät)
+Pas:Ind:Imp:    W lähdettiin
+
+Akt:Ind:Imp:S1:Neg: S taitanut tainnut
+Akt:Ind:Imp:S2:Neg: S taitanut tainnut
+Akt:Ind:Imp:S3:Neg: S taitanut tainnut
+Akt:Ind:Imp:P1:Neg: S taitaneet tainneet
+Akt:Ind:Imp:P2:Neg: S taitaneet tainneet
+Akt:Ind:Imp:P3:Neg: S taitaneet tainneet
+Pas:Ind:Imp:Neg:    W taidettu (taittu)
+
+#Potential
+
+Akt:Pot:Pre:S1: S taitanen tainnen
+Akt:Pot:Pre:S2: S taitanet tainnet
+Akt:Pot:Pre:S3: S taitanee tainnee
+Akt:Pot:Pre:P1: S taitanemme tainnemme
+Akt:Pot:Pre:P2: S taitanette tainnette
+Akt:Pot:Pre:P3: S taitanevat tainnevat
+Pas:Pot:Pre:    W taidettaneen (taittaneen)
+
+Akt:Pot:Pre:S1:Neg: S taitane tainne
+Akt:Pot:Pre:S2:Neg: S taitane tainne
+Akt:Pot:Pre:S3:Neg: S taitane tainne
+Akt:Pot:Pre:P1:Neg: S taitane tainne
+Akt:Pot:Pre:P2:Neg: S taitane tainne
+Akt:Pot:Pre:P3:Neg: S taitane tainne
+Pas:Pot:Pre:Neg:    W taidettane (taittane)
+
+#Conditional
+
+Akt:Con:Pre:S1: S taitaisin
+Akt:Con:Pre:S2: S taitaisit
+Akt:Con:Pre:S3: S taitaisi
+Akt:Con:Pre:P1: S taitaisimme
+Akt:Con:Pre:P2: S taitaisitte
+Akt:Con:Pre:P3: S taitaisivat
+Pas:Con:Pre:    W taidettaisiin (taittaisiin)
+
+Akt:Con:Pre:S1:Neg: S taitaisi
+Akt:Con:Pre:S2:Neg: S taitaisi
+Akt:Con:Pre:S3:Neg: S taitaisi
+Akt:Con:Pre:P1:Neg: S taitaisi
+Akt:Con:Pre:P2:Neg: S taitaisi
+Akt:Con:Pre:P3:Neg: S taitaisi
+Pas:Con:Pre:Neg:    W taidettaisi (taittaisi)
+
+#Imperative
+
+Akt:Imp:Pre:S2: W taida
+Akt:Imp:Pre:S3: S taitakoon
+Akt:Imp:Pre:P1: S taitakaamme
+Akt:Imp:Pre:P2: S taitakaa
+Akt:Imp:Pre:P3: S taitakoot
+Pas:Imp:Pre:   W taidettakoon (taittakoon)
+
+Akt:Imp:Pre:S2:Neg: W taida
+Akt:Imp:Pre:S3:Neg: S taitako
+Akt:Imp:Pre:P1:Neg: S taitako
+Akt:Imp:Pre:P2:Neg: S taitako
+Akt:Imp:Pre:P3:Neg: S taitako
+Pas:Imp:Pre:       S taittako (taidettako)
+
+#Infinitive
+
+Inf1:      S taitaa
+Inf1:L:    S taitaakseen
+
+Inf2:Ine:Akt: S taitaessa
+Inf2:Ine:Pas: W taidettaessa
+Inf2:Ins:Akt: S taitaen
+
+Inf3:Ine:Akt: S taitamassa
+Inf3:Ela:Akt: S taitamasta
+Inf3:Ill:Akt: S taitamaan
+Inf3:Ade:Akt: S taitamalla
+Inf3:Abe:Akt: S taitamatta
+Inf3:Ins:Akt: S taitaman
+Inf3:Ins:Pas: W taidettaman
+
+Inf4:Nom: S taitaminen
+Inf4:Par: S taitamista
+
+Inf5: S taitamaisillaan
+
+#Participle
+
+Cip:Pre:Akt: S taitava
+Cip:Pre:Pas: W taidettava
+Cip:Per:Akt: S taitanut tainnut
+Cip:Per:Pas: W taidettu (taittu)
+Cip:Age:     S taitama
+Cip:Age:Neg: S taitamaton
+
+<Type2>
+#tt-t
+#Indicative
+Akt:Ind:Pre:S1: S mittaan
+Akt:Ind:Pre:S2: S mittaat
+Akt:Ind:Pre:S3: S mittaa
+Akt:Ind:Pre:P1: S mittaamme
+Akt:Ind:Pre:P2: S mittaatte
+Akt:Ind:Pre:P3: S mittaavat
+Pas:Ind:Pre:    W mitataan
+
+Akt:Ind:Pre:S1:Neg: S mittaa
+Akt:Ind:Pre:S2:Neg: S mittaa
+Akt:Ind:Pre:S3:Neg: S mittaa
+Akt:Ind:Pre:P1:Neg: S mittaa
+Akt:Ind:Pre:P2:Neg: S mittaa
+Akt:Ind:Pre:P3:Neg: S mittaa
+Pas:Ind:Pre:Neg:    W mitata
+
+Akt:Ind:Imp:S1: S mittasin
+Akt:Ind:Imp:S2: S mittasit
+Akt:Ind:Imp:S3: S mittasi
+Akt:Ind:Imp:P1: S mittasimme
+Akt:Ind:Imp:P2: S mittasitte
+Akt:Ind:Imp:P3: S mittasivat
+Pas:Ind:Imp:    W mitattiin
+
+Akt:Ind:Imp:S1:Neg: W mitannut
+Akt:Ind:Imp:S2:Neg: W mitannut
+Akt:Ind:Imp:S3:Neg: W mitannut
+Akt:Ind:Imp:P1:Neg: W mitanneet
+Akt:Ind:Imp:P2:Neg: W mitanneet
+Akt:Ind:Imp:P3:Neg: W mitanneet
+Pas:Ind:Imp:Neg:    W mitattu
+
+#Potential
+
+Akt:Pot:Pre:S1: W mitannen
+Akt:Pot:Pre:S2: W mitannet
+Akt:Pot:Pre:S3: W mitannee
+Akt:Pot:Pre:P1: W mitannemme
+Akt:Pot:Pre:P2: W mitannette
+Akt:Pot:Pre:P3: W mitannevat
+Pas:Pot:Pre:    W mitattaneen
+
+Akt:Pot:Pre:S1:Neg: W mitanne
+Akt:Pot:Pre:S2:Neg: W mitanne
+Akt:Pot:Pre:S3:Neg: W mitanne
+Akt:Pot:Pre:P1:Neg: W mitanne
+Akt:Pot:Pre:P2:Neg: W mitanne
+Akt:Pot:Pre:P3:Neg: W mitanne
+Pas:Pot:Pre:Neg:    W mitattane
+
+#Conditional
+
+Akt:Con:Pre:S1: S mittaisin
+Akt:Con:Pre:S2: S mittaisit
+Akt:Con:Pre:S3: S mittaisi
+Akt:Con:Pre:P1: S mittaisimme
+Akt:Con:Pre:P2: S mittaisitte
+Akt:Con:Pre:P3: S mittaisivat
+Pas:Con:Pre:    W mitattaisi
+
+Akt:Con:Pre:S1:Neg: S mittaisi
+Akt:Con:Pre:S2:Neg: S mittaisi
+Akt:Con:Pre:S3:Neg: S mittaisi
+Akt:Con:Pre:P1:Neg: S mittaisi
+Akt:Con:Pre:P2:Neg: S mittaisi
+Akt:Con:Pre:P3:Neg: S mittaisi
+Pas:Con:Pre:Neg:    W mitattaisi
+
+#Imperative
+
+Akt:Imp:Pre:S2: S mittaa
+Akt:Imp:Pre:S3: W mitatkoon
+Akt:Imp:Pre:P1: W mitatkaamme
+Akt:Imp:Pre:P2: W mitatkaa
+Akt:Imp:Pre:P3: W mitatkoot
+Pas:Imp:Pre:   W mitattakoon
+
+Akt:Imp:Pre:S2:Neg: S mittaa
+Akt:Imp:Pre:S3:Neg: W mitatko
+Akt:Imp:Pre:P1:Neg: W mitatko
+Akt:Imp:Pre:P2:Neg: W mitatko
+Akt:Imp:Pre:P3:Neg: W mitatko
+Pas:Imp:Pre:       W mitattako
+
+#Infinitive
+
+Inf1:      W mitata
+Inf1:L:    W mitatakseen
+
+Inf2:Ine:Akt: W mitatessa
+Inf2:Ine:Pas: W mitattaessa
+Inf2:Ins:Akt: W mitaten
+
+Inf3:Ine:Akt: S mittaamassa
+Inf3:Ela:Akt: S mittaamasta
+Inf3:Ill:Akt: S mittamaan
+Inf3:Ade:Akt: S mittaamalla
+Inf3:Abe:Akt: S mittaamatta
+Inf3:Ins:Akt: S mittaaman
+Inf3:Ins:Pas: W mitattaman
+
+Inf4:Nom: S mittaaminen
+Inf4:Par: S mittaamista
+
+Inf5: S mittaamaisillaan
+
+#Participle
+
+Cip:Pre:Akt: S mittaava
+Cip:Pre:Pas: W mitattava
+Cip:Per:Akt: W mitannut
+Cip:Per:Pas: W mitattu
+Cip:Age:     S mittaama
+Cip:Age:Neg: S mittaamaton
