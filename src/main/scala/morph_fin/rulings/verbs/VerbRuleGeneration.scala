@@ -4,7 +4,10 @@ import morph_fin.rulings._
 import morph_fin.rulings.nomines.{Gradation, LongestStartingSubstring, NomineBending, NomineEnding, NomineExampleBending}
 
 
-case class VerbEnding(morphemes: VerbMophemes, ending: String, missingsGradation: Boolean)
+enum VerbGradationType:
+  case Strong, Weak, Nothing, Missing
+
+case class VerbEnding(morphemes: VerbMophemes, ending: String, tpe: VerbGradationType)
 case class VerbBending(ruleNumber: Int, drop: Int, isGradation: Boolean, cases: Seq[VerbEnding])
 
 extension (bending: VerbBending)
@@ -22,7 +25,7 @@ object GenerateVerbRules {
 
     def addMappedBendings(bending: VerbBending): VerbBending =
       val cases = bending.cases
-      val mappedEndings = VerbMappings.list.map(tuple => VerbEnding(tuple._1, cases.find(value => value.morphemes == tuple._2).getOrElse(throw new Exception(s"${tuple._2}")).ending, false))
+      val mappedEndings = VerbMappings.list.map(tuple => VerbEnding(tuple._1, cases.find(value => value.morphemes == tuple._2).get.ending,  VerbGradationType.Nothing))
       bending.copy(cases = cases ++ mappedEndings)
 
     def resolveGradation(exampleBendind: VerbExampleBendind, gradation: Gradation): VerbBending =
@@ -46,15 +49,15 @@ object GenerateVerbRules {
     def resolveEnding(tuple: (VerbMophemes, String), root: String, gradation: Gradation): VerbEnding =
       import GradationType.*
       val endingWithGradation = tuple._2.drop(root.length)
-      val (ending, missingGradation) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> false
-      else if endingWithGradation.startsWith(gradation.weak) then endingWithGradation.drop(gradation.weak.length) -> false
-      else endingWithGradation -> true
-      VerbEnding(tuple._1, ending, missingGradation)
+      val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
+      else if endingWithGradation.startsWith(gradation.weak) then endingWithGradation.drop(gradation.weak.length) ->  VerbGradationType.Weak
+      else endingWithGradation ->  VerbGradationType.Missing
+      VerbEnding(tuple._1, ending, tpe)
 
     def resolveNonGradation(ruling: VerbExampleBendind): VerbBending =
       val words = ruling.cases.map(_._2)
       val root = LongestStartingSubstring(words)
       val drop = ruling.lemma.length - root.length
-      val cases = ruling.cases.map(a => VerbEnding(a._1, a._2.drop(root.length), false))
+      val cases = ruling.cases.map(a => VerbEnding(a._1, a._2.drop(root.length), VerbGradationType.Nothing))
       VerbBending(ruling.number, drop, false, cases)
 }

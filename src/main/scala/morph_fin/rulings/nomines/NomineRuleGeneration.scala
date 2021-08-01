@@ -2,7 +2,10 @@ package morph_fin.rulings.nomines
 
 import morph_fin.rulings.*
 
-case class NomineEnding(val morphemes: NomineMorphemes, val ending: String)
+enum NomineGradationType:
+  case Strong, Weak, Nothing
+
+case class NomineEnding(morphemes: NomineMorphemes, ending: String, tpe: NomineGradationType)
 
 case class NomineBending(number: Int, drop: Int, isGradation: Boolean, cases: Seq[NomineEnding])
 
@@ -69,16 +72,16 @@ object GenerateNomineRules {
   def resolveCase(tuple: (NomineMorphemes, String), root: String, gradation: Gradation): NomineEnding =
     import GradationType.*
     val endingWithGradation = tuple._2.drop(root.length)
-    val ending = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length)
-      else endingWithGradation.drop(gradation.weak.length)
-    NomineEnding(tuple._1, ending)
+    val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> NomineGradationType.Strong
+      else endingWithGradation.drop(gradation.weak.length) -> NomineGradationType.Weak
+    NomineEnding(tuple._1, ending, tpe)
 
 
   def resolveNonGradation(ruling: NomineExampleBending): NomineBending =
     val casedWords = ruling.cases.map(_._2)
     val root = LongestStartingSubstring(casedWords)
     val drop = ruling.lemma.length - root.length
-    val cases = ruling.cases.map(a => NomineEnding(a._1, a._2.drop(root.length)))
+    val cases = ruling.cases.map(a => NomineEnding(a._1, a._2.drop(root.length), NomineGradationType.Nothing))
     NomineBending(ruling.number, drop, false, cases)
 }
 

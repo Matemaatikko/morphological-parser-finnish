@@ -60,8 +60,11 @@ object GenerateNomineBendings {
     val lastVowel = if(listOfSomeVowels.contains(word.lemma.last) && word.ruleNumber != 19) Some(word.lemma.last) else None
     val updatedEnding = updateEnding(ending, vocalization, lastVowel, word.gradation.nonEmpty)
     val gradation = word.gradation match {
+      case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
+      case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
       case Some(gradation) =>
-        val tpe = GradationHandler.resolveGradationType(word.lemma.last, ending.morphemes)
+        val nominativeGradationType = GradationHandler.getNominativeGradationType(word.lemma)
+        val tpe = GradationHandler.resolveNomineGradationType(nominativeGradationType, ending.morphemes)
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
       case None            => ""
     }

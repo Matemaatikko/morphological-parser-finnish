@@ -13,5 +13,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.5:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala3-library_3:3.0.0:jar" level="project" />
+    <orderEntry type="library" name="scala-sdk-3.0.1" level="application" />
   </component>
 </module>

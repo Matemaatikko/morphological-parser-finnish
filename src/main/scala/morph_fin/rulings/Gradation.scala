@@ -6,14 +6,14 @@ object GradationHandler {
   val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
 
-  def getNominativeGradationType(nomineLemma: String): GradationType = ???
-
-  def getVerbGradationType(verbLemma: String): GradationType = ???
+  def getNominativeGradationType(nomineLemma: String): GradationType =
+    if(allVowelsExcepte.contains(nomineLemma.last)) GradationType.Strong
+    else GradationType.Weak
 
   /**
    * Method gives gradation type for bending based on last letter of lemma.
    */
-  def resolveGradationType(gradationTypeOfLemma: GradationType, morphemes: NomineMorphemes): GradationType =
+  def resolveNomineGradationType(gradationTypeOfLemma: GradationType, morphemes: NomineMorphemes): GradationType =
     import Case._
     import Form._
 
@@ -42,7 +42,9 @@ object GradationHandler {
         case NomineMorphemes(_, Plural)             => GradationType.Strong
       }
 
-  def resolveGradationType(gradationTypeOfLemma: GradationType, morphemes: VerbMophemes): GradationType = ???
+  def getInfinitiveGradationType(verbLemma: String): GradationType = ???
+
+  def resolveVerbGradationType(gradationTypeOfLemma: GradationType, morphemes: VerbMophemes): GradationType = ???
 
 
   /**
