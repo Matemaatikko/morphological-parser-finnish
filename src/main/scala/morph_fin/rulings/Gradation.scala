@@ -1,50 +1,68 @@
 package morph_fin.rulings
 
+import morph_fin.rulings.Case.Illative
+import morph_fin.rulings.Form.Singular
 import morph_fin.rulings.nomines.Gradation
+import morph_fin.utils.{Hyphenation, Letters}
+
+//Gradation
+
+enum GradationType:
+  case Strong, Weak
+
+enum WordGradationType:
+  case Straight, Inverted
 
 object GradationHandler {
   val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
-  val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
 
-  def getNominativeGradationType(nomineLemma: String): GradationType =
-    if(allVowelsExcepte.contains(nomineLemma.last)) GradationType.Strong
-    else GradationType.Weak
+  def getWordGradationType(lemma: String, gradation: Gradation): WordGradationType =
+    ???
 
   /**
-   * Method gives gradation type for bending based on last letter of lemma.
+   * ending is defined from the word by:
+   * root | gradation | ending
    */
-  def resolveNomineGradationType(gradationTypeOfLemma: GradationType, morphemes: NomineMorphemes): GradationType =
+  def gradationTypeByEnding(ending: String): GradationType =
+    assert(ending.nonEmpty)
+    val firstSyllable = Hyphenation.getForEnding(ending).head
+    Letters.isConsonant(firstSyllable.last) match {
+      case true  => GradationType.Weak
+      case false => GradationType.Strong
+    }
+
+  /**
+   * In straight consonant gradation illative has strong gradation.
+   * In inverted consonant gradation words ending with 'e' can have strong gradation if the following syllabus contains two vowels.
+   * Implementation for inverted exceptions does not follow this logic, but will give the same output.
+   */
+  def resolveNomineException(lemma: String, tpe: WordGradationType, morphemes: NomineMorphemes): Option[GradationType] =
     import Case._
     import Form._
+    import WordGradationType._
+    (tpe, morphemes) match {
+      case (Straight, NomineMorphemes(Illative, Singular | Plural)) => Some(GradationType.Strong)
+      case (Inverted, NomineMorphemes(Nominative | Partitive | Akkusative, Plural)) if lemma.last == 'e' => Some(GradationType.Weak)
+      case (Inverted, _) if lemma.last == 'e' => Some(GradationType.Strong)
+      case _ => None
+    }
 
-    if gradationTypeOfLemma == GradationType.Strong then
-      morphemes match {
-        case NomineMorphemes(Nominative, Singular)  => GradationType.Strong
-        case NomineMorphemes(Partitive, Singular)   => GradationType.Strong
-        case NomineMorphemes(Akkusative, Singular)  => GradationType.Strong
-        case NomineMorphemes(Illative, Singular)    => GradationType.Strong
-        case NomineMorphemes(Essive, Singular)      => GradationType.Strong
-        case NomineMorphemes(_, Singular)           => GradationType.Weak
+  /**
+   *
+   *
+   */
+  def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: VerbMophemes): Option[GradationType] =
+    import WordGradationType._
+    import Voice._, Modus._, Tempus._,  Mode._
+    (tpe, morphemes) match {
+      case (Straight, VerbMophemes.Standard(Indicative, Presens, Persona.Passive, Positive)) =>
+        Some(GradationType.Weak)
+      case (Straight, VerbMophemes.Standard(Imperative, Presens, Persona.Active(Singular, PersonaNumber.Second), _)) =>
+        Some(GradationType.Weak)
+      case (Straight, VerbMophemes.Standard(Indicative, Presens, _, Negative)) =>
+        Some(GradationType.Weak)
+    }
 
-        case NomineMorphemes(Partitive, Plural)   => GradationType.Strong
-        case NomineMorphemes(Genetive, Plural)    => GradationType.Strong
-        case NomineMorphemes(Illative, Plural)    => GradationType.Strong
-        case NomineMorphemes(Essive, Plural)      => GradationType.Strong
-        case NomineMorphemes(Komitative, Plural)  => GradationType.Strong
-        case NomineMorphemes(_, Plural)           => GradationType.Weak
-      }
-    else
-      morphemes match {
-        case NomineMorphemes(Nominative, Singular)  => GradationType.Weak
-        case NomineMorphemes(Akkusative, Singular)  => GradationType.Weak
-        case NomineMorphemes(Partitive, Singular)   => GradationType.Weak
-        case NomineMorphemes(_, Singular)           => GradationType.Strong
-        case NomineMorphemes(_, Plural)             => GradationType.Strong
-      }
-
-  def getInfinitiveGradationType(verbLemma: String): GradationType = ???
-
-  def resolveVerbGradationType(gradationTypeOfLemma: GradationType, morphemes: VerbMophemes): GradationType = ???
 
 
   /**
@@ -71,7 +89,7 @@ object GradationHandler {
     def resolveEmptyWeakCase: (String, String) =
       if root.dropRight(0).endsWith(gradation.strong) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
       else if root.dropRight(1).endsWith(gradation.strong) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
-      else if !listOfAllVowels.contains(root.last) then  (root.dropRight(2), root.takeRight(2))
+      else if !Letters.isVowel(root.last) then  (root.dropRight(2), root.takeRight(2))
       else (root.dropRight(1), root.takeRight(1))
 
     if gradation.weak.isEmpty then resolveEmptyWeakCase

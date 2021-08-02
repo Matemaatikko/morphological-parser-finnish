@@ -63,8 +63,7 @@ object GenerateNomineBendings {
       case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
       case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
       case Some(gradation) =>
-        val nominativeGradationType = GradationHandler.getNominativeGradationType(word.lemma)
-        val tpe = GradationHandler.resolveNomineGradationType(nominativeGradationType, ending.morphemes)
+        val tpe = ???
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
       case None            => ""
     }

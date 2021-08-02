@@ -11,11 +11,6 @@ end Case
 enum Form:
   case Plural, Singular
 
-//Gradation
-
-enum GradationType:
-  case Strong, Weak, Unnecessary
-
 //Verb
 
 enum Mode:
@@ -49,7 +44,7 @@ enum Type:
 case class NomineMorphemes(cse: Case, form: Form)
 
 enum VerbMophemes:
-  case Standard(voice: Voice, modus: Modus, tempus: Tempus, persona: Persona, mode: Mode)
+  case Standard(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode)
   case InfinitiveI(tpe: Type)
   case InfinitiveII(cse: Case, voice: Voice)
   case InfinitiveIII(cse: Case, voice: Voice)
