@@ -80,7 +80,7 @@ object GradationHandler {
     }
 
   /**
-   * The following method manages exceptions to consonant gradation.
+   * The following method manages exceptions to consonant gradation for verbs.
    */
   def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: VerbMophemes): Option[GradationType] =
     import WordGradationType._

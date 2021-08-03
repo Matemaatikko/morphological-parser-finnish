@@ -26,19 +26,19 @@ val verbRulings1 = new VerbRulesParser(content2.mkString("\n").iterator).parse
 val nomineRulings = nomineRulings1.map(GenerateNomineRules(_))
 val verbRulings = verbRulings1.map(GenerateVerbRules(_))
 
-def prin(word: String, number: Int, gradationLetter: Option[Char]) =
+def nprint(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
   val cases = GenerateNomineBendings(nomineRulings, word1)
   println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
-end prin
+end nprint
 
-def vin(word: String, number: Int, gradationLetter: Option[Char]) =
+def vprint(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
   val cases = GenerateVerbBendings(verbRulings, word1)
   println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
-end vin
+end vprint
 
 def printNomine(word: Word) =
   val cases = GenerateNomineBendings(nomineRulings, word)
@@ -80,7 +80,7 @@ print(results)*/
 
 //vin("vastata", 73, None)
 //vin("hypätä", 73, Some('B'))
-vin("hypähtää", 53, Some('F'))
+vprint("hypähtää", 53, Some('F'))
 
 //prin("ies", 41, Some('D'))
 //prin("ahdas", 41, Some('F'))

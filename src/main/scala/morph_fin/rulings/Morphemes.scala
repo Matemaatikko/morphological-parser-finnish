@@ -56,8 +56,6 @@ enum VerbMophemes extends Morphemes:
   case Participle(tempus: Tempus, voice: Voice)
   case ParticipleAgent(mode: Mode)
 
-//TODO implement to string methods
-
 object Print {
   import VerbMophemes._
   def apply(morphemes: Morphemes): String = morphemes match {

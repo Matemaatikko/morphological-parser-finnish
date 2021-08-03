@@ -1,13 +1,4 @@
 
-- comitative alwaus plural?
-- Add omistusliitteet.
-- We need to resolve determination of the last letter.
-
-- Last letter is determined if word is etuvokalisana or takavokalisana.
-- Takavokalit: a, o, u
-- Etuvokalit: ä, ö, y, i, e
-- Voi esiintyä: i, e
-
 - TODO Print example file from all existing pairs: (number, letterOpt)
 - TODO Add some tag for bendings in paranthesis ()
 - TODO attribute multiple bending options
@@ -16,6 +7,7 @@
 - TODO attribute numeral bendings
 - TODO readme
 - TODO comparation forms
+- TODO omitusliitteet
 - TODO 'hapan' - word does not bend correctly in any class.
 - TODO 'jälsi' has unique bending. s-t
 - TODO Attribute
@@ -28,16 +20,3 @@ monikossa – sana taipuu tn-elementin mukaisesti monikossa
 
 astevaihtelu-attribuutin arvo:
 valinnainen – sana voidaan taivuttaa astevaihtelullisena tai ilman astevaihtelua
-
-- TODO Errors:
-ResultWord(ajain,NomineMorphemes(Genetive,Plural),aika)
-- (form) need to be Strong in genetive plural???
-
-Codings Used
-============
-
-- - Base word.
-- [+] Astevaihtelu applied.
-- [-] Astevaihtelu not applied.
-- [-/+] It is applicable to use and not use: Astevaihtelu.
-- -- Remove last letter.
