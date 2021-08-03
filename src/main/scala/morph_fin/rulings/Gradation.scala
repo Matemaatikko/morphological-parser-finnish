@@ -16,17 +16,39 @@ enum WordGradationType:
 object GradationHandler {
   val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
 
+  /**
+   * Some words ending with 'e' have straight gradation. Examples: nukke, jeppe, bourette
+   */
   def getWordGradationTypeForNomine(lemma: String, gradation: Gradation): WordGradationType =
-    allVowelsExcepte.contains(lemma.last) match {
+    if lemma.last == 'e' && lemma.dropRight(1).endsWith(gradation.strong) then WordGradationType.Straight
+    else allVowelsExcepte.contains(lemma.last) match {
       case true => WordGradationType.Straight
       case false => WordGradationType.Inverted
     }
+
+  def getWordGradationTypeForVerb(lemma: String, gradation: Gradation): WordGradationType =
+    def tryFind(amount: Int): Option[WordGradationType] =
+      val dropped = lemma.dropRight(amount)
+      if dropped.endsWith(gradation.strong) then Some(WordGradationType.Straight)
+      else None
+
+    def recursion(amount: Int): WordGradationType =
+      if(amount >= 4) WordGradationType.Inverted
+      else
+        val trying = tryFind(amount)
+        trying match {
+          case Some(a) => a
+          case None    => recursion(amount + 1)
+        }
+
+    recursion(0)
+  end getWordGradationTypeForVerb
 
   /**
    * ending is defined from the word by:
    * root | gradation | ending
    */
-  def gradationTypeByEnding(ending: String): GradationType =
+  def getGradationTypeByEnding(ending: String): GradationType =
     assert(ending.nonEmpty)
     val firstSyllable = Hyphenation.getForEnding(ending).head
     Letters.isConsonant(firstSyllable.last) match {
@@ -48,9 +70,11 @@ object GradationHandler {
         Some(GradationType.Strong)
       case (Straight, NomineMorphemes(Genetive, Plural)) if ending.endsWith("in")   =>
         Some(GradationType.Strong)
-      case (Inverted, NomineMorphemes(Nominative | Partitive | Akkusative, Singular)) if lemma.last == 'e' =>
+      case (Inverted, NomineMorphemes(Nominative | Partitive | Akkusative, Singular)) =>
         Some(GradationType.Weak)
-      case (Inverted, _) if lemma.last == 'e' =>
+      case (Inverted, NomineMorphemes(Genetive, Plural)) if ending.endsWith("ten") =>
+        Some(GradationType.Weak)
+      case (Inverted, _)  =>
         Some(GradationType.Strong)
       case _ => None
     }
@@ -68,6 +92,8 @@ object GradationHandler {
         Some(GradationType.Weak)
       case (Straight, VerbMophemes.Standard(Indicative, Presens, _, Negative)) =>
         Some(GradationType.Weak)
+      case (Inverted, VerbMophemes.Standard(Indicative, Presens, Persona.Passive, Negative)) =>
+        Some(GradationType.Weak)
       case (Inverted, VerbMophemes.Standard(Indicative, Presens, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
         Some(GradationType.Strong)
       case (Inverted, VerbMophemes.Standard(Indicative, _, Persona.Passive, Positive)) if endsWith_tA(lemma)  =>
@@ -76,6 +102,7 @@ object GradationHandler {
         Some(GradationType.Weak)
       case (Inverted, VerbMophemes.InfinitiveII(_, Voice.Active)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
+      case _ => None
     }
 
   inline def endsWith_tA(lemma: String): Boolean = (lemma.last == 'a' || lemma.last == 'ä') && lemma.dropRight(1).last == 't'

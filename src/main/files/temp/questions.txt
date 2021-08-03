@@ -8,7 +8,6 @@
 - Etuvokalit: ä, ö, y, i, e
 - Voi esiintyä: i, e
 
-- TODO Add tests!
 - TODO Print example file from all existing pairs: (number, letterOpt)
 - TODO Add some tag for bendings in paranthesis ()
 - TODO attribute multiple bending options
@@ -16,8 +15,11 @@
 - TODO add pronoun bendings
 - TODO attribute numeral bendings
 - TODO readme
+- TODO comparation forms
+- TODO 'hapan' - word does not bend correctly in any class.
+- TODO 'jälsi' has unique bending. s-t
+- TODO Attribute
 
-- TODO Attribue
 taivutus-attribuutin arvot:
 harvinainen – t-elementin mukainen taivutus on harvinainen
 mahdollinen – t-elementin mukainen taivutus on mahdollinen

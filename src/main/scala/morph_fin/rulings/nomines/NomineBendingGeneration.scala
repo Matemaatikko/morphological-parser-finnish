@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets
 
 
 case class Word(lemma: String, ruleNumber: Int, gradation: Option[Gradation])
-case class ResultWord(word: String, morphemes: NomineMorphemes, lemma: String)
+case class ResultWord(word: String, morphemes: Morphemes, lemma: String)
 
 enum Vocalization:
   case FrontVowel // a, o, u
@@ -57,19 +57,19 @@ object GenerateNomineBendings {
     }
 
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word))
-
+  end apply
 
   def resolveWord(ending: NomineEnding, root: (String, String), lemma: String, word: Word): ResultWord =
     val vocalization = resolveVocalization(lemma)
     val lastVowel = if(listOfSomeVowels.contains(lemma.last) && word.ruleNumber != 19) Some(lemma.last) else None
-    val updatedEnding = updateEnding(ending, vocalization, lastVowel, word.gradation.nonEmpty)
+    val updatedEnding = updateEnding(ending, vocalization, lastVowel, root._2, word.gradation.nonEmpty)
     var exceptionalBeginning: Option[String] = None
     val gradation = word.gradation match {
       case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
       case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
       case Some(gradation) =>
         val wordGradationType = GradationHandler.getWordGradationTypeForNomine(lemma, gradation)
-        val defaultGradationType = GradationHandler.gradationTypeByEnding(root._2 + updatedEnding)
+        val defaultGradationType = GradationHandler.getGradationTypeByEnding(root._2 + updatedEnding)
         val exceptionGradationType = GradationHandler.resolveNomineException(lemma, updatedEnding, wordGradationType, ending.morphemes)
         val tpe = exceptionGradationType.getOrElse(defaultGradationType)
         exceptionalBeginning = resolve_i_j(root._1, lemma, gradation, tpe)
@@ -78,6 +78,7 @@ object GenerateNomineBendings {
     }
     val resultWord = exceptionalBeginning.getOrElse(root._1) + gradation + root._2 + updatedEnding
     ResultWord(resultWord, ending.morphemes, word.lemma)
+  end resolveWord
 
   def resolveVocalization(lemma: String): Vocalization =
     if lemma.forall(char => char != 'a' && char != 'o' && char != 'u')
@@ -102,9 +103,9 @@ object GenerateNomineBendings {
    * Example words:
    * tie -> tiessä  (a -> ä in ending)
    * valo -> valoon (a -> o in inessive case)
-   * -- TODO need the example for the missing case --
+   * ies -> ikeen (-än as ending (ikeän))
    */
-  def updateEnding(ending: NomineEnding, vocalization: Vocalization, lastVowel: Option[Char], isGradation: Boolean): String =
+  def updateEnding(ending: NomineEnding, vocalization: Vocalization, lastVowel: Option[Char], rootEnding: String, isGradation: Boolean): String =
     val updatedEnding =
       if vocalization == Vocalization.BackVowel
       then ending.ending.map( _ match {
@@ -113,7 +114,12 @@ object GenerateNomineBendings {
         case a if a == 'u' => 'y'
         case a             => a
       })
-      else ending.ending
+      else ending.ending.map( _ match {
+        case a if a == 'ä' => 'a'
+        case a if a == 'ö' => 'o'
+        case a if a == 'y' => 'u'
+        case a             => a
+      })
 
     val updateCondition =
       updatedEnding.length > 1 &&
@@ -121,8 +127,15 @@ object GenerateNomineBendings {
         lastVowel.nonEmpty && ( ending.morphemes == NomineMorphemes(Case.Nominative, Form.Singular)) &&
         !isGradation
 
+    val updateCondition2 =
+      updatedEnding.length > 1 &&
+      listOfSomeVowels.contains(updatedEnding.head) &&
+      rootEnding.length == 1 &&  //TODO not sure if root-ending can get any other values than empty and size 1.
+      isGradation
+
     val vowelUpdated = if updateCondition then
       lastVowel.get.toString + updatedEnding.drop(1)
+    else if updateCondition2 then rootEnding + updatedEnding.drop(1)
     else updatedEnding
 
     val illativeCondition =

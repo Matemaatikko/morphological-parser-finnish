@@ -1,11 +1,12 @@
 import morph_fin.*
 import morph_fin.kotus_format.*
-import morph_fin.rulings.*
-import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, NomineRulesParser}
-import morph_fin.rulings.verbs.{GenerateVerbRules, VerbRulesParser}
+import morph_fin.rulings.{Print, *}
+import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, Gradation, NomineRulesParser, Word}
+import morph_fin.rulings.verbs.{GenerateVerbBendings, GenerateVerbRules, VerbRulesParser}
 import morph_fin.utils.Hyphenation
 
 import java.io.File
+import scala.collection.mutable
 import scala.io.{Codec, Source}
 
 val path = "C:\\Users\\juho_.DESKTOP-UEAL9SV\\IdeaProjects\\morphological-parser-finnish"
@@ -25,25 +26,45 @@ val verbRulings1 = new VerbRulesParser(content2.mkString("\n").iterator).parse
 val nomineRulings = nomineRulings1.map(GenerateNomineRules(_))
 val verbRulings = verbRulings1.map(GenerateVerbRules(_))
 
-
-println(verbRulings.mkString("\n"))
-
 def prin(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
   val cases = GenerateNomineBendings(nomineRulings, word1)
-  println(cases.mkString("\n"))
+  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  println("============================")
 end prin
 
-/*
+def vin(word: String, number: Int, gradationLetter: Option[Char]) =
+  val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
+  val cases = GenerateVerbBendings(verbRulings, word1)
+  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  println("============================")
+end vin
 
-val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
+def printNomine(word: Word) =
+  val cases = GenerateNomineBendings(nomineRulings, word)
+  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  println("============================")
+end printNomine
+
+
+/*val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
   yield
     if(line.startsWith("<st>")) Some(ParseLine(line))
     else None
 ).flatten.toSeq
 
 val objects = lines.flatMap(EntryToWord(_)).filter(_.gradation.nonEmpty).filter(_.ruleNumber < 50)
-val results = objects
+var usedCases = mutable.Buffer[(Int, Option[Gradation])]()
+
+for(a <- objects) {
+  if !usedCases.contains(a.ruleNumber -> a.gradation) then
+    usedCases += a.ruleNumber -> a.gradation
+    println(s"${a.ruleNumber -> a.gradation -> a.lemma}")
+    println("-------------------")
+    printNomine(a)
+}*/
+
+/*val results = objects
   .filterNot(word => GenerateNomineBendings.getBending(nomineRulings, word).isGradation)
   .filter(word => GradationHandler.resolveGradationType(word.lemma.last, NomineMorphemes(Case.Nominative, Form.Singular)) == GradationType.Weak)
   .filter(_.gradation.get.weak.isEmpty)
@@ -51,9 +72,26 @@ val results = objects
   .map(tuple => (tuple._1, tuple._2, GradationHandler.splitByGradationLocation(tuple._2, tuple._1.gradation.get)))
   .map(tuple => (tuple._1.lemma, tuple._2, tuple._3, tuple._1.gradation))
   .mkString("\n")
-print(results)
+print(results)*/
 
-*/
+
+//vin("keriytyä", 52, Some('F'))
+//vin("juosta", 70, None)
+
+//vin("vastata", 73, None)
+//vin("hypätä", 73, Some('B'))
+vin("hypähtää", 53, Some('F'))
+
+//prin("ies", 41, Some('D'))
+//prin("ahdas", 41, Some('F'))
+//prin("aaprotti", 5, Some('C'))
+//
+//prin("hapan", 33, Some('B'))
+//prin("kiittimet", 33, Some('C'))
+//prin("morsian", 33, None)
+
+//prin("nukke", 8, Some('A'))
+//prin("jeppe", 8, Some('B'))
 
 //prin("hapsi", 7, None)
 //prin("säde", 48, Some('F'))
@@ -62,7 +100,7 @@ print(results)
 //prin("kettu", 1, Some('C'))
 //prin("ien", 32, Some('D'))
 //prin("aie", 48, Some('D'))
-prin("aika", 9, Some('D'))
+//prin("aika", 9, Some('D'))
 //prin("taika", 9, Some('D'))
 //prin("tuote", 48, Some('C'))
 

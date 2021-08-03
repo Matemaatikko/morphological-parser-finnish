@@ -1,5 +1,6 @@
 package morph_fin.rulings
 
+
 //Nomine
 enum Case:
   case Nominative, Genetive, Akkusative, Partitive
@@ -41,9 +42,11 @@ enum Type:
 
 //Morphemes
 
-case class NomineMorphemes(cse: Case, form: Form)
+trait Morphemes
 
-enum VerbMophemes:
+case class NomineMorphemes(cse: Case, form: Form) extends Morphemes
+
+enum VerbMophemes extends Morphemes:
   case Standard(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode)
   case InfinitiveI(tpe: Type)
   case InfinitiveII(cse: Case, voice: Voice)
@@ -54,3 +57,30 @@ enum VerbMophemes:
   case ParticipleAgent(mode: Mode)
 
 //TODO implement to string methods
+
+object Print {
+  import VerbMophemes._
+  def apply(morphemes: Morphemes): String = morphemes match {
+    case NomineMorphemes(cse, form) => cse.toString + " " + form.toString
+    case Standard(modus, tempus, Persona.Passive, mode) =>
+      modus.toString + " " + tempus.toString + " Passive" + (if mode == Mode.Negative then " Negative" else "")
+    case Standard(modus, tempus, Persona.Active(form, number), mode) =>
+      modus.toString + " " + tempus.toString + " Active " + form.toString + " " + number.toString + (if mode == Mode.Negative then " Negative" else "")
+    case InfinitiveI(Type.Short) =>
+      "Infinitive I"
+    case InfinitiveI(Type.Long) =>
+      "Infinitive I Long"
+    case InfinitiveII(cse, voice) =>
+      "Infinitive II " + voice.toString + " " + cse.toString
+    case InfinitiveIII(cse, voice) =>
+      "Infinitive III " + voice.toString + " " + cse.toString
+    case InfinitiveIV(cse) =>
+      "Infinitive IV " + cse.toString
+    case InfinitiveV =>
+      "Infinitive V"
+    case Participle(tempus, voice) =>
+      "Participle " + voice.toString + " " + tempus.toString
+    case ParticipleAgent(mode) =>
+      "Agent Participle " + (if mode == Mode.Negative then " Negative" else "")
+  }
+}
