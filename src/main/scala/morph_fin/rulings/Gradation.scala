@@ -16,8 +16,11 @@ enum WordGradationType:
 object GradationHandler {
   val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
 
-  def getWordGradationType(lemma: String, gradation: Gradation): WordGradationType =
-    ???
+  def getWordGradationTypeForNomine(lemma: String, gradation: Gradation): WordGradationType =
+    allVowelsExcepte.contains(lemma.last) match {
+      case true => WordGradationType.Straight
+      case false => WordGradationType.Inverted
+    }
 
   /**
    * ending is defined from the word by:
@@ -36,20 +39,24 @@ object GradationHandler {
    * In inverted consonant gradation words ending with 'e' can have strong gradation if the following syllabus contains two vowels.
    * Implementation for inverted exceptions does not follow this logic, but will give the same output.
    */
-  def resolveNomineException(lemma: String, tpe: WordGradationType, morphemes: NomineMorphemes): Option[GradationType] =
+  def resolveNomineException(lemma: String, ending: String, tpe: WordGradationType, morphemes: NomineMorphemes): Option[GradationType] =
     import Case._
     import Form._
     import WordGradationType._
     (tpe, morphemes) match {
-      case (Straight, NomineMorphemes(Illative, Singular | Plural)) => Some(GradationType.Strong)
-      case (Inverted, NomineMorphemes(Nominative | Partitive | Akkusative, Plural)) if lemma.last == 'e' => Some(GradationType.Weak)
-      case (Inverted, _) if lemma.last == 'e' => Some(GradationType.Strong)
+      case (Straight, NomineMorphemes(Illative, Singular | Plural)) =>
+        Some(GradationType.Strong)
+      case (Straight, NomineMorphemes(Genetive, Plural)) if ending.endsWith("in")   =>
+        Some(GradationType.Strong)
+      case (Inverted, NomineMorphemes(Nominative | Partitive | Akkusative, Singular)) if lemma.last == 'e' =>
+        Some(GradationType.Weak)
+      case (Inverted, _) if lemma.last == 'e' =>
+        Some(GradationType.Strong)
       case _ => None
     }
 
   /**
-   *
-   *
+   * The following method manages exceptions to consonant gradation.
    */
   def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: VerbMophemes): Option[GradationType] =
     import WordGradationType._
@@ -61,8 +68,17 @@ object GradationHandler {
         Some(GradationType.Weak)
       case (Straight, VerbMophemes.Standard(Indicative, Presens, _, Negative)) =>
         Some(GradationType.Weak)
+      case (Inverted, VerbMophemes.Standard(Indicative, Presens, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
+        Some(GradationType.Strong)
+      case (Inverted, VerbMophemes.Standard(Indicative, _, Persona.Passive, Positive)) if endsWith_tA(lemma)  =>
+        Some(GradationType.Weak)
+      case (Inverted, VerbMophemes.InfinitiveI(_)) if endsWith_tA(lemma)  =>
+        Some(GradationType.Weak)
+      case (Inverted, VerbMophemes.InfinitiveII(_, Voice.Active)) if endsWith_tA(lemma)  =>
+        Some(GradationType.Weak)
     }
 
+  inline def endsWith_tA(lemma: String): Boolean = (lemma.last == 'a' || lemma.last == 'ä') && lemma.dropRight(1).last == 't'
 
 
   /**

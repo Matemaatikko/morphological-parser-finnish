@@ -5,7 +5,7 @@ import morph_fin.rulings.*
 import scala.annotation.tailrec
 
 case class Gradation(strong: String, weak: String)
-case class NomineExampleBending(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String)])
+case class NomineExampleBending(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String, Boolean)])
 
 class NomineRulesParser(stream: Iterator[Char]) {
 
@@ -65,8 +65,8 @@ class NomineRulesParser(stream: Iterator[Char]) {
     skip('>')
     val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
     val lemma = lines.find(tuple => isLemma(tuple._1)).get._2.head
-    val wordList = lines.flatMap(a => a._2.map(b => (a._1, b)))
-    NomineExampleBending(number, lemma, gradation, wordList)
+    val wordList = lines.flatMap(a => a._2.map(b => (a._1, b._1, b._2)))
+    NomineExampleBending(number, lemma._1, gradation, wordList)
 
   inline def isLemma(moprhemes: NomineMorphemes): Boolean =
     moprhemes.cse == Nominative && moprhemes.form == Singular
@@ -89,7 +89,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     else None
 
 
-  inline def parseLine: (NomineMorphemes, Seq[String]) =
+  inline def parseLine: (NomineMorphemes, Seq[(String, Boolean)]) =
     skipWhiteSpaces
     val form = peek match {
       case 'S' => Singular
@@ -102,7 +102,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     skip(':')
     skipWhiteSpaces
     val words = collectUntil(currentCharacter.isEmpty || currentCharacter.contains('\n')).split(' ')
-    val paranthesesRemoved = words.map(_.replace("(", "").replace(")", ""))
+    val paranthesesRemoved = words.map(word => if word.contains("(") then word.replace("(", "").replace(")", "") -> true else word -> false )
     skipWhiteSpaces
     (NomineMorphemes(cse, form), paranthesesRemoved)
 

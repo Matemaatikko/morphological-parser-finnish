@@ -3,7 +3,7 @@ import morph_fin.kotus_format.*
 import morph_fin.rulings.*
 import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, NomineRulesParser}
 import morph_fin.rulings.verbs.{GenerateVerbRules, VerbRulesParser}
-import morph_fin.utils.{Hyphenation, KotusHyphenation}
+import morph_fin.utils.Hyphenation
 
 import java.io.File
 import scala.io.{Codec, Source}
@@ -55,27 +55,32 @@ print(results)
 
 */
 
-prin("hapsi", 7, None)
-prin("säde", 48, Some('F'))
-prin("työ", 19, None)
+//prin("hapsi", 7, None)
+//prin("säde", 48, Some('F'))
+//prin("työ", 19, None)
+//
+//prin("kettu", 1, Some('C'))
+//prin("ien", 32, Some('D'))
+//prin("aie", 48, Some('D'))
+prin("aika", 9, Some('D'))
+//prin("taika", 9, Some('D'))
+//prin("tuote", 48, Some('C'))
 
-prin("kettu", 1, Some('C'))
-prin("ien", 32, Some('D'))
-prin("aie", 48, Some('D'))
-
-prin("raffinoitunut", 47, None)
-prin("rahkeet", 48, Some('L'))
-prin("rattaat", 41, Some('C'))
-prin("ratas", 41, Some('C'))
-prin("reivit", 5, None)
-prin("riekkujaiset", 38, None)
-
+//prin("raffinoitunut", 47, None)
+//prin("rahkeet", 48, Some('L'))
+//prin("rattaat", 41, Some('C'))
+//prin("reivit", 5, None)
+//prin("riekkujaiset", 38, None)
+//
 //prin("valta", 9, Some('I'))
-/*prin("pitkä", 10, None)
-prin("iso", 1, None)
-prin("aivot", 1, None)*/
-
+//prin("pitkä", 10, None)
+//prin("iso", 1, None)
+//prin("aivot", 1, None)
+//
 //prin("särkynyt", 47, None)
+//
+//prin("kahdeksa", 10, None)
+//prin("vemmel", 49, Some('H'))
 
 /*Hyphenation.apply("kettu").mkString("-")
 Hyphenation.apply("öljytuikku").mkString("-")

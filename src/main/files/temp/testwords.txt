@@ -1,0 +1,5 @@
+aika, poika, taika
+ien
+tuote
+
+aikain -> P.G

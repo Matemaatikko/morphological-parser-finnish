@@ -117,7 +117,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
       case Voice.Passive => Persona.Passive
     }
     val mode = parseMode
-    VerbMophemes.Standard(voice, modus, tempus, persona, mode)
+    VerbMophemes.Standard(modus, tempus, persona, mode)
 
   inline def parsePersona: Persona.Active =
     val form = parseForm

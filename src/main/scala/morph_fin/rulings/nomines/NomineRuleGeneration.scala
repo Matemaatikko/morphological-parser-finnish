@@ -68,13 +68,15 @@ object GenerateNomineRules {
   /**
    *  Removes root and gradation from cased word to resolve ending.
    *  Example: solakat -> sola | k | at -> -at
+   *
+   *  Boolean in triple tells if word has been parsed with paranthesis. i.e. (jalkain)
    */
-  def resolveCase(tuple: (NomineMorphemes, String), root: String, gradation: Gradation): NomineEnding =
+  def resolveCase(triple: (NomineMorphemes, String, Boolean), root: String, gradation: Gradation): NomineEnding =
     import GradationType.*
-    val endingWithGradation = tuple._2.drop(root.length)
+    val endingWithGradation = triple._2.drop(root.length)
     val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> NomineGradationType.Strong
       else endingWithGradation.drop(gradation.weak.length) -> NomineGradationType.Weak
-    NomineEnding(tuple._1, ending, tpe)
+    NomineEnding(triple._1, ending, tpe)
 
 
   def resolveNonGradation(ruling: NomineExampleBending): NomineBending =

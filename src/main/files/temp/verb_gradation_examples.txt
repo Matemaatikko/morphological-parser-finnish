@@ -119,13 +119,13 @@ Cip:Age:Neg: S taitamaton
 <Type2>
 #tt-t
 #Indicative
-Akt:Ind:Pre:S1: S mittaan
-Akt:Ind:Pre:S2: S mittaat
+Akt:Ind:Pre:S1: S mittaan *
+Akt:Ind:Pre:S2: S mittaat *
 Akt:Ind:Pre:S3: S mittaa
-Akt:Ind:Pre:P1: S mittaamme
-Akt:Ind:Pre:P2: S mittaatte
-Akt:Ind:Pre:P3: S mittaavat
-Pas:Ind:Pre:    W mitataan
+Akt:Ind:Pre:P1: S mittaamme *
+Akt:Ind:Pre:P2: S mittaatte *
+Akt:Ind:Pre:P3: S mittaavat *
+Pas:Ind:Pre:    W mitataan *
 
 Akt:Ind:Pre:S1:Neg: S mittaa
 Akt:Ind:Pre:S2:Neg: S mittaa
@@ -133,7 +133,7 @@ Akt:Ind:Pre:S3:Neg: S mittaa
 Akt:Ind:Pre:P1:Neg: S mittaa
 Akt:Ind:Pre:P2:Neg: S mittaa
 Akt:Ind:Pre:P3:Neg: S mittaa
-Pas:Ind:Pre:Neg:    W mitata
+Pas:Ind:Pre:Neg:    W mitata *
 
 Akt:Ind:Imp:S1: S mittasin
 Akt:Ind:Imp:S2: S mittasit
@@ -205,16 +205,16 @@ Pas:Imp:Pre:       W mitattako
 
 #Infinitive
 
-Inf1:      W mitata
-Inf1:L:    W mitatakseen
+Inf1:      W mitata *
+Inf1:L:    W mitatakseen *
 
-Inf2:Ine:Akt: W mitatessa
+Inf2:Ine:Akt: W mitatessa *
 Inf2:Ine:Pas: W mitattaessa
-Inf2:Ins:Akt: W mitaten
+Inf2:Ins:Akt: W mitaten *
 
 Inf3:Ine:Akt: S mittaamassa
 Inf3:Ela:Akt: S mittaamasta
-Inf3:Ill:Akt: S mittamaan
+Inf3:Ill:Akt: S mittaamaan
 Inf3:Ade:Akt: S mittaamalla
 Inf3:Abe:Akt: S mittaamatta
 Inf3:Ins:Akt: S mittaaman

@@ -41,10 +41,14 @@ object GenerateNomineBendings {
   def apply(rules: Seq[NomineBending], word: Word): Seq[ResultWord] =
     val rule = rules.find(_.number == word.ruleNumber).getOrElse(throw new Exception(s"No nomine rule found for: ${word.ruleNumber}"))
     val pluralEnding = rule.findCase(NomineMorphemes(Case.Nominative, Form.Plural))
+    val singularEnding = rule.findCase(NomineMorphemes(Case.Nominative, Form.Singular))
 
     //Resolve root
     val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
-    val root = if isPluralLemma then word.lemma.dropRight(pluralEnding.ending.length) else word.lemma.dropRight(rule.drop)
+    val lemmaFromPlural = word.lemma.dropRight(pluralEnding.ending.length) + singularEnding.ending //Might have wrong gradation.
+    val rootFromPlural = lemmaFromPlural.dropRight(rule.drop)
+    val root = if isPluralLemma then rootFromPlural else word.lemma.dropRight(rule.drop)
+    val lemma = if isPluralLemma then lemmaFromPlural else word.lemma
 
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
@@ -52,28 +56,46 @@ object GenerateNomineBendings {
       case _                                    => (root, "")
     }
 
-    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word))
+    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word))
 
 
-  def resolveWord(ending: NomineEnding, root: (String, String), word: Word): ResultWord =
-    val vocalization = resolveVocalization(word.lemma)
-    val lastVowel = if(listOfSomeVowels.contains(word.lemma.last) && word.ruleNumber != 19) Some(word.lemma.last) else None
+  def resolveWord(ending: NomineEnding, root: (String, String), lemma: String, word: Word): ResultWord =
+    val vocalization = resolveVocalization(lemma)
+    val lastVowel = if(listOfSomeVowels.contains(lemma.last) && word.ruleNumber != 19) Some(lemma.last) else None
     val updatedEnding = updateEnding(ending, vocalization, lastVowel, word.gradation.nonEmpty)
+    var exceptionalBeginning: Option[String] = None
     val gradation = word.gradation match {
       case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
       case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
       case Some(gradation) =>
-        val tpe = ???
+        val wordGradationType = GradationHandler.getWordGradationTypeForNomine(lemma, gradation)
+        val defaultGradationType = GradationHandler.gradationTypeByEnding(root._2 + updatedEnding)
+        val exceptionGradationType = GradationHandler.resolveNomineException(lemma, updatedEnding, wordGradationType, ending.morphemes)
+        val tpe = exceptionGradationType.getOrElse(defaultGradationType)
+        exceptionalBeginning = resolve_i_j(root._1, lemma, gradation, tpe)
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
       case None            => ""
     }
-    val resultWord = root._1 + gradation + root._2 + updatedEnding
+    val resultWord = exceptionalBeginning.getOrElse(root._1) + gradation + root._2 + updatedEnding
     ResultWord(resultWord, ending.morphemes, word.lemma)
 
   def resolveVocalization(lemma: String): Vocalization =
     if lemma.forall(char => char != 'a' && char != 'o' && char != 'u')
     then Vocalization.BackVowel
     else Vocalization.FrontVowel
+
+  /**
+   * Words: aika, poika has i-j variation in consonant gradation.
+   * Example: aika -> ajan
+   */
+  def resolve_i_j(root: String, lemma: String, gradation: Gradation, tpe: GradationType): Option[String] =
+    val suitableLemma = lemma != "taika" && lemma != "juhannustaika"
+    val suitableEnding = lemma.endsWith("aika") || lemma.endsWith("poika")
+    if gradation == Gradation("k", "") &&
+      suitableLemma &&
+      suitableEnding &&
+      tpe == GradationType.Weak then Some(root.dropRight(1) + "j")
+    else None
 
 
   /**
