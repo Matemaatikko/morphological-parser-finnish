@@ -14,7 +14,34 @@ enum WordGradationType:
   case Straight, Inverted
 
 object GradationHandler {
-  val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
+  private val allVowelsExcepte = Seq('a', 'o', 'u', 'i', 'ä', 'ö', 'y')
+  private val letterMap = Map(
+    'A' -> 0, 'B' -> 1, 'C' -> 2, 'D' -> 3,
+    'E' -> 4, 'F' -> 5, 'G' -> 6, 'H' -> 7,
+    'I' -> 8, 'J' -> 9, 'K' -> 10, 'L' -> 11,
+    'M' -> 12, 'N' -> 13
+  )
+
+  private val gradationMap = Seq(
+    "kk" -> "k",
+    "pp" -> "p",
+    "tt" -> "t",
+    "k" -> "",
+    "p" -> "v",
+    "t" -> "d",
+    "nk" -> "ng",
+    "mp" -> "mm",
+    "lt" -> "ll",
+    "nt" -> "nn",
+    "rt" -> "rr",
+    "k" -> "j",
+    "k" -> "v"
+  )
+
+  def getGradationByLetter(letter: Char): Gradation =
+    val (strong, weak) = gradationMap(letterMap(letter))
+    Gradation(strong, weak)
+
 
   /**
    * Some words ending with 'e' have straight gradation. Examples: nukke, jeppe, bourette

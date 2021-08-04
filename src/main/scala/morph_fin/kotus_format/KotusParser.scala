@@ -2,8 +2,22 @@ package morph_fin.kotus_format
 
 
 import morph_fin.rulings.nomines.Gradation
+import morph_fin.utils.FilesLocation
 
 import scala.annotation.tailrec
+import scala.io.{Codec, Source}
+
+object ParseKotus {
+  val fileName = FilesLocation.files_path + "/kotus-sanalista_v1_original.xml"
+
+  def apply(): Seq[Entry] = (
+    for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
+      yield
+        if(line.startsWith("<st>")) ParseLine(line)
+        else Nil
+    ).flatten.toSeq
+}
+
 
 enum KotusWord(val value: String, val noPrefix: Boolean):
   case Prefix(override val value: String) extends KotusWord(value, false)

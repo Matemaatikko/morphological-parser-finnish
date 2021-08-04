@@ -13,7 +13,7 @@ import scala.io.{Codec, Source}
 object LoadAndParseVerbRules {
 
   def apply(): Seq[VerbExampleBendind] = {
-    val filename = FilesLocation.files_path  + "/verb_rules.txt"
+    val filename = FilesLocation.rules_path  + "/verb_rules.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
     new VerbRulesParser(content.mkString("\n").iterator).parse
   }

@@ -39,7 +39,15 @@ def printVerb(word: Word) =
   println("============================")
 end printVerb
 
-ReformatKotus.reformat
+def timed[A](fun: => A): A = {
+  val start = System.currentTimeMillis()
+  val result = fun
+  val end = System.currentTimeMillis()
+  println(s"Timed: ${end - start} ms")
+  result
+}
+
+timed(ReformatKotus.generateBendings)
 
 //
 //val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)

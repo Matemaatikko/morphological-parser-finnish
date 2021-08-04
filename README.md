@@ -77,7 +77,7 @@ C2:lemma:P:prefix:bending:S:suffix:bending   compound word with prefix having be
 Bending - wordlist
 -----------------------
 Based on kotus - wordlist we generate list that maps bent words to lemma and bending information. 
-[Document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/words_with_bending.txt).
+[Document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/final_wordlist.txt).
 
 
 Consonant gradation rules
@@ -98,6 +98,7 @@ Missing properties (Upcoming)
 - Possessive suffixes
 - Comparation of adjectives
 - Clitics (Liitepartikkelit)
+- Nominal forms of verbs: declension
 
 Copyright
 =========

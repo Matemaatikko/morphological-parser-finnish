@@ -10,7 +10,7 @@ import scala.io.{Codec, Source}
 object LoadAndParseNomineRules {
 
   def apply(): Seq[NomineExampleBending] = {
-    val filename = FilesLocation.files_path  + "/nomine_rules.txt"
+    val filename = FilesLocation.rules_path  + "/nomine_rules.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
     new NomineRulesParser(content.mkString("\n").iterator).parse
   }
