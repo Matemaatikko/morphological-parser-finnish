@@ -272,11 +272,11 @@ object ReformatKotus {
   def bendingsFilename(char: Char) = FilesLocation.files_path + s"/result/${char.toString.toUpperCase}.txt"
 
   def generateBendings: Unit =
-    val result: Seq[(Char, Seq[UpdatedWord])] = apply(nomineBendings).groupBy(_.value.head).toSeq
+    val result: Seq[(Char, Seq[UpdatedWord])] = apply(nomineBendings).groupBy(_.value.head.toLower).toSeq
     result.foreach(tuple => handle(tuple._1, tuple._2))
 
   def handle(char: Char, words: Seq[UpdatedWord]): Unit =
-    val writer = new OutputStreamWriter(new FileOutputStream(bendingsFilename(char)), StandardCharsets.UTF_8)
+    val writer = new OutputStreamWriter(new FileOutputStream(bendingsFilename(char.toUpper)), StandardCharsets.UTF_8)
 
     import UpdatedWord._
     def generate(updatedWord: UpdatedWord): Unit =
@@ -311,7 +311,7 @@ object ReformatKotus {
 
     def addHyphenIfNeeded(prefix: String, suffix: String): String =
       if(prefix.length == 1) prefix + "-" + suffix
-      else if(Letters.isVowel(prefix.last) && prefix.last == suffix.last) prefix + "-" + suffix
+      else if(Letters.isVowel(prefix.last) && prefix.last == suffix.head) prefix + "-" + suffix
       else prefix + suffix
 
     def print(word: String, morphemes: Morphemes, lemma: String): String =
