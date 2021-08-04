@@ -57,7 +57,7 @@ M       k : v
 
 Updated kotus - wordlist
 -----------------------
-We reformat kotus-list to contain more information about bending. [Document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/kotus_updated.txt).
+We reformat kotus-list to contain more information about bending. [Document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/result/kotus_updated.txt).
 
 ````
 paranthesis means that body is optional.
@@ -76,8 +76,8 @@ C2:lemma:P:prefix:bending:S:suffix:bending   compound word with prefix having be
 
 Bending - wordlist
 -----------------------
-Based on kotus - wordlist we generate list that maps bent words to lemma and bending information. 
-[Document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/final_wordlist.txt).
+Based on kotus - wordlist we generate list that maps words to lemma and bending information. 
+[Documents](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/result/).
 
 
 Consonant gradation rules
@@ -103,6 +103,6 @@ Missing properties (Upcoming)
 Copyright
 =========
 Published under: <b> Creative Commons NonCommercial license:
-[See](https://creativecommons.org/licenses/by-nc/4.0/legalcode). </b>
+[Lisence](https://creativecommons.org/licenses/by-nc/4.0/legalcode). </b>
 
 © Juho Salmensuu 2021

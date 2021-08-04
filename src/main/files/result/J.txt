@@ -1,53 +1,53 @@
 Jehovan todistaja                       :S:Nom:                   Jehovan todistaja
-Jehovan todistajan                      :S:Gen:                   Jehovan todistajan
-Jehovan todistajaa                      :S:Par:                   Jehovan todistajaa
-Jehovan todistajassa                    :S:Ine:                   Jehovan todistajassa
-Jehovan todistajasta                    :S:Ela:                   Jehovan todistajasta
-Jehovan todistajaan                     :S:Ill:                   Jehovan todistajaan
-Jehovan todistajalla                    :S:Ade:                   Jehovan todistajalla
-Jehovan todistajalta                    :S:Abl:                   Jehovan todistajalta
-Jehovan todistajalle                    :S:All:                   Jehovan todistajalle
-Jehovan todistajana                     :S:Ess:                   Jehovan todistajana
-Jehovan todistajaksi                    :S:Tra:                   Jehovan todistajaksi
-Jehovan todistajatta                    :S:Abe:                   Jehovan todistajatta
-Jehovan todistajat                      :P:Nom:                   Jehovan todistajat
-Jehovan todistajien                     :P:Gen:                   Jehovan todistajien
-Jehovan todistajain                     :P:Gen:                   Jehovan todistajain
-Jehovan todistajia                      :P:Par:                   Jehovan todistajia
-Jehovan todistajissa                    :P:Ine:                   Jehovan todistajissa
-Jehovan todistajista                    :P:Ela:                   Jehovan todistajista
-Jehovan todistajiin                     :P:Ill:                   Jehovan todistajiin
-Jehovan todistajilla                    :P:Ade:                   Jehovan todistajilla
-Jehovan todistajilta                    :P:Abl:                   Jehovan todistajilta
-Jehovan todistajille                    :P:All:                   Jehovan todistajille
-Jehovan todistajina                     :P:Ess:                   Jehovan todistajina
-Jehovan todistajiksi                    :P:Tra:                   Jehovan todistajiksi
-Jehovan todistajin                      :P:Ins:                   Jehovan todistajin
-Jehovan todistajitta                    :P:Abe:                   Jehovan todistajitta
-Jehovan todistajine                     :P:Kom:                   Jehovan todistajine
+Jehovan todistajan                      :S:Gen:                   Jehovan todistaja
+Jehovan todistajaa                      :S:Par:                   Jehovan todistaja
+Jehovan todistajassa                    :S:Ine:                   Jehovan todistaja
+Jehovan todistajasta                    :S:Ela:                   Jehovan todistaja
+Jehovan todistajaan                     :S:Ill:                   Jehovan todistaja
+Jehovan todistajalla                    :S:Ade:                   Jehovan todistaja
+Jehovan todistajalta                    :S:Abl:                   Jehovan todistaja
+Jehovan todistajalle                    :S:All:                   Jehovan todistaja
+Jehovan todistajana                     :S:Ess:                   Jehovan todistaja
+Jehovan todistajaksi                    :S:Tra:                   Jehovan todistaja
+Jehovan todistajatta                    :S:Abe:                   Jehovan todistaja
+Jehovan todistajat                      :P:Nom:                   Jehovan todistaja
+Jehovan todistajien                     :P:Gen:                   Jehovan todistaja
+Jehovan todistajain                     :P:Gen:                   Jehovan todistaja
+Jehovan todistajia                      :P:Par:                   Jehovan todistaja
+Jehovan todistajissa                    :P:Ine:                   Jehovan todistaja
+Jehovan todistajista                    :P:Ela:                   Jehovan todistaja
+Jehovan todistajiin                     :P:Ill:                   Jehovan todistaja
+Jehovan todistajilla                    :P:Ade:                   Jehovan todistaja
+Jehovan todistajilta                    :P:Abl:                   Jehovan todistaja
+Jehovan todistajille                    :P:All:                   Jehovan todistaja
+Jehovan todistajina                     :P:Ess:                   Jehovan todistaja
+Jehovan todistajiksi                    :P:Tra:                   Jehovan todistaja
+Jehovan todistajin                      :P:Ins:                   Jehovan todistaja
+Jehovan todistajitta                    :P:Abe:                   Jehovan todistaja
+Jehovan todistajine                     :P:Kom:                   Jehovan todistaja
 Jussi                                   :S:Nom:                   Jussi
-Jussin                                  :S:Gen:                   Jussin
-Jussia                                  :S:Par:                   Jussia
-Jussissa                                :S:Ine:                   Jussissa
-Jussista                                :S:Ela:                   Jussista
-Jussiin                                 :S:Ill:                   Jussiin
-Jussilla                                :S:Ade:                   Jussilla
-Jussilta                                :S:Abl:                   Jussilta
-Jussille                                :S:All:                   Jussille
-Jussina                                 :S:Ess:                   Jussina
-Jussiksi                                :S:Tra:                   Jussiksi
-Jussitta                                :S:Abe:                   Jussitta
-Jussit                                  :P:Nom:                   Jussit
-Jussien                                 :P:Gen:                   Jussien
-Jusseja                                 :P:Par:                   Jusseja
-Jusseissa                               :P:Ine:                   Jusseissa
-Jusseista                               :P:Ela:                   Jusseista
-Jusseihin                               :P:Ill:                   Jusseihin
-Jusseilla                               :P:Ade:                   Jusseilla
-Jusseilta                               :P:Abl:                   Jusseilta
-Jusseille                               :P:All:                   Jusseille
-Jusseina                                :P:Ess:                   Jusseina
-Jusseiksi                               :P:Tra:                   Jusseiksi
-Jussein                                 :P:Ins:                   Jussein
-Jusseitta                               :P:Abe:                   Jusseitta
-Jusseine                                :P:Kom:                   Jusseine
+Jussin                                  :S:Gen:                   Jussi
+Jussia                                  :S:Par:                   Jussi
+Jussissa                                :S:Ine:                   Jussi
+Jussista                                :S:Ela:                   Jussi
+Jussiin                                 :S:Ill:                   Jussi
+Jussilla                                :S:Ade:                   Jussi
+Jussilta                                :S:Abl:                   Jussi
+Jussille                                :S:All:                   Jussi
+Jussina                                 :S:Ess:                   Jussi
+Jussiksi                                :S:Tra:                   Jussi
+Jussitta                                :S:Abe:                   Jussi
+Jussit                                  :P:Nom:                   Jussi
+Jussien                                 :P:Gen:                   Jussi
+Jusseja                                 :P:Par:                   Jussi
+Jusseissa                               :P:Ine:                   Jussi
+Jusseista                               :P:Ela:                   Jussi
+Jusseihin                               :P:Ill:                   Jussi
+Jusseilla                               :P:Ade:                   Jussi
+Jusseilta                               :P:Abl:                   Jussi
+Jusseille                               :P:All:                   Jussi
+Jusseina                                :P:Ess:                   Jussi
+Jusseiksi                               :P:Tra:                   Jussi
+Jussein                                 :P:Ins:                   Jussi
+Jusseitta                               :P:Abe:                   Jussi
+Jusseine                                :P:Kom:                   Jussi

@@ -4,7 +4,7 @@ import morph_fin.kotus_format
 import morph_fin.rulings.*
 import morph_fin.rulings.nomines.{GenerateNomineBendings, Gradation, LoadAndParseNomineRules, NomineBending, Word}
 import morph_fin.rulings.verbs.{GenerateVerbBendings, LoadAndParseVerbRules}
-import morph_fin.utils.{FilesLocation, Hyphenation}
+import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
 import java.nio.charset.StandardCharsets
@@ -284,8 +284,10 @@ object ReformatKotus {
         updatedWord match {
           case Compound(word, prefix, suffixWord) =>
             val bendings = getBendings(suffixWord.value, suffixWord.bending)
-            bendings.map(result => print(prefix + result.word, result.morphemes,  word))
-              .foreach(writer.write(_))
+            bendings.map(result => {
+              val resultWord = addHyphenIfNeeded(prefix, result.word)
+              print(resultWord, result.morphemes, word)
+            }).foreach(writer.write(_))
           case Compound2(word, prefixWord, suffixWord) =>
             val prefixBendings = getBendings(prefixWord.value, prefixWord.bending)
             val suffixBendings = getBendings(suffixWord.value, suffixWord.bending)
@@ -293,7 +295,8 @@ object ReformatKotus {
             morphemes.map(morphemes => {
               val prefixBending = prefixBendings.find(_.morphemes == morphemes).get
               val suffixBending = suffixBendings.find(_.morphemes == morphemes).get
-              print(prefixBending.word + suffixBending.word, morphemes, word)
+              val resultWord = addHyphenIfNeeded(prefixBending.word, suffixBending.word)
+              print(resultWord, morphemes, word)
             }).foreach(writer.write(_))
           case StandardBending(word, bending) =>
             val bendings = getBendings(word, bending)
@@ -306,8 +309,13 @@ object ReformatKotus {
           println("Error: " + updatedWord.toString)
       writer.flush()
 
+    def addHyphenIfNeeded(prefix: String, suffix: String): String =
+      if(prefix.length == 1) prefix + "-" + suffix
+      else if(Letters.isVowel(prefix.last) && prefix.last == suffix.last) prefix + "-" + suffix
+      else prefix + suffix
+
     def print(word: String, morphemes: Morphemes, lemma: String): String =
-      fill(word, 40) + ":" + fill(FilePrint(morphemes)+ ":", 25)  + word + "\n"
+      fill(word, 40) + ":" + fill(FilePrint(morphemes)+ ":", 25)  + lemma + "\n"
 
     def fill(word: String, upTo: Int): String =
       val num = upTo - word.length

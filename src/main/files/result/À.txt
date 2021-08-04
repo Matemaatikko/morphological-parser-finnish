@@ -1,54 +1,54 @@
 à la carte                              :S:Nom:                   à la carte
-à la carten                             :S:Gen:                   à la carten
-à la cartea                             :S:Par:                   à la cartea
-à la cartessa                           :S:Ine:                   à la cartessa
-à la cartesta                           :S:Ela:                   à la cartesta
-à la carteen                            :S:Ill:                   à la carteen
-à la cartella                           :S:Ade:                   à la cartella
-à la cartelta                           :S:Abl:                   à la cartelta
-à la cartelle                           :S:All:                   à la cartelle
-à la cartena                            :S:Ess:                   à la cartena
-à la carteksi                           :S:Tra:                   à la carteksi
-à la cartetta                           :S:Abe:                   à la cartetta
-à la cartet                             :P:Nom:                   à la cartet
-à la cartejen                           :P:Gen:                   à la cartejen
-à la cartein                            :P:Gen:                   à la cartein
-à la carteja                            :P:Par:                   à la carteja
-à la carteissa                          :P:Ine:                   à la carteissa
-à la carteista                          :P:Ela:                   à la carteista
-à la carteihin                          :P:Ill:                   à la carteihin
-à la carteilla                          :P:Ade:                   à la carteilla
-à la carteilta                          :P:Abl:                   à la carteilta
-à la carteille                          :P:All:                   à la carteille
-à la carteina                           :P:Ess:                   à la carteina
-à la carteiksi                          :P:Tra:                   à la carteiksi
-à la cartein                            :P:Ins:                   à la cartein
-à la carteitta                          :P:Abe:                   à la carteitta
-à la carteine                           :P:Kom:                   à la carteine
-à la carte annos                        :S:Nom:                   à la carte annos
-à la carte annoksen                     :S:Gen:                   à la carte annoksen
-à la carte annosta                      :S:Par:                   à la carte annosta
-à la carte annoksessa                   :S:Ine:                   à la carte annoksessa
-à la carte annoksesta                   :S:Ela:                   à la carte annoksesta
-à la carte annokseen                    :S:Ill:                   à la carte annokseen
-à la carte annoksella                   :S:Ade:                   à la carte annoksella
-à la carte annokselta                   :S:Abl:                   à la carte annokselta
-à la carte annokselle                   :S:All:                   à la carte annokselle
-à la carte annoksena                    :S:Ess:                   à la carte annoksena
-à la carte annokseksi                   :S:Tra:                   à la carte annokseksi
-à la carte annoksetta                   :S:Abe:                   à la carte annoksetta
-à la carte annokset                     :P:Nom:                   à la carte annokset
-à la carte annosten                     :P:Gen:                   à la carte annosten
-à la carte annoksien                    :P:Gen:                   à la carte annoksien
-à la carte annoksia                     :P:Par:                   à la carte annoksia
-à la carte annoksissa                   :P:Ine:                   à la carte annoksissa
-à la carte annoksista                   :P:Ela:                   à la carte annoksista
-à la carte annoksiin                    :P:Ill:                   à la carte annoksiin
-à la carte annoksilla                   :P:Ade:                   à la carte annoksilla
-à la carte annoksilta                   :P:Abl:                   à la carte annoksilta
-à la carte annoksille                   :P:All:                   à la carte annoksille
-à la carte annoksina                    :P:Ess:                   à la carte annoksina
-à la carte annoksiksi                   :P:Tra:                   à la carte annoksiksi
-à la carte annoksin                     :P:Ins:                   à la carte annoksin
-à la carte annoksitta                   :P:Abe:                   à la carte annoksitta
-à la carte annoksine                    :P:Kom:                   à la carte annoksine
+à la carten                             :S:Gen:                   à la carte
+à la cartea                             :S:Par:                   à la carte
+à la cartessa                           :S:Ine:                   à la carte
+à la cartesta                           :S:Ela:                   à la carte
+à la carteen                            :S:Ill:                   à la carte
+à la cartella                           :S:Ade:                   à la carte
+à la cartelta                           :S:Abl:                   à la carte
+à la cartelle                           :S:All:                   à la carte
+à la cartena                            :S:Ess:                   à la carte
+à la carteksi                           :S:Tra:                   à la carte
+à la cartetta                           :S:Abe:                   à la carte
+à la cartet                             :P:Nom:                   à la carte
+à la cartejen                           :P:Gen:                   à la carte
+à la cartein                            :P:Gen:                   à la carte
+à la carteja                            :P:Par:                   à la carte
+à la carteissa                          :P:Ine:                   à la carte
+à la carteista                          :P:Ela:                   à la carte
+à la carteihin                          :P:Ill:                   à la carte
+à la carteilla                          :P:Ade:                   à la carte
+à la carteilta                          :P:Abl:                   à la carte
+à la carteille                          :P:All:                   à la carte
+à la carteina                           :P:Ess:                   à la carte
+à la carteiksi                          :P:Tra:                   à la carte
+à la cartein                            :P:Ins:                   à la carte
+à la carteitta                          :P:Abe:                   à la carte
+à la carteine                           :P:Kom:                   à la carte
+à la carte annos                        :S:Nom:                   à la carte -annos
+à la carte annoksen                     :S:Gen:                   à la carte -annos
+à la carte annosta                      :S:Par:                   à la carte -annos
+à la carte annoksessa                   :S:Ine:                   à la carte -annos
+à la carte annoksesta                   :S:Ela:                   à la carte -annos
+à la carte annokseen                    :S:Ill:                   à la carte -annos
+à la carte annoksella                   :S:Ade:                   à la carte -annos
+à la carte annokselta                   :S:Abl:                   à la carte -annos
+à la carte annokselle                   :S:All:                   à la carte -annos
+à la carte annoksena                    :S:Ess:                   à la carte -annos
+à la carte annokseksi                   :S:Tra:                   à la carte -annos
+à la carte annoksetta                   :S:Abe:                   à la carte -annos
+à la carte annokset                     :P:Nom:                   à la carte -annos
+à la carte annosten                     :P:Gen:                   à la carte -annos
+à la carte annoksien                    :P:Gen:                   à la carte -annos
+à la carte annoksia                     :P:Par:                   à la carte -annos
+à la carte annoksissa                   :P:Ine:                   à la carte -annos
+à la carte annoksista                   :P:Ela:                   à la carte -annos
+à la carte annoksiin                    :P:Ill:                   à la carte -annos
+à la carte annoksilla                   :P:Ade:                   à la carte -annos
+à la carte annoksilta                   :P:Abl:                   à la carte -annos
+à la carte annoksille                   :P:All:                   à la carte -annos
+à la carte annoksina                    :P:Ess:                   à la carte -annos
+à la carte annoksiksi                   :P:Tra:                   à la carte -annos
+à la carte annoksin                     :P:Ins:                   à la carte -annos
+à la carte annoksitta                   :P:Abe:                   à la carte -annos
+à la carte annoksine                    :P:Kom:                   à la carte -annos
