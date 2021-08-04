@@ -10,14 +10,12 @@ object GenerateVerbBendings {
 
   def apply(rules: Seq[VerbBending], word: Word): Seq[ResultWord] =
     val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No verb rule found for: ${word.ruleNumber}"))
-
     //Resolve root
     val root = word.lemma.dropRight(rule.drop)
-
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation)
-      case _                                    => (root, "")
+      case Some(gradation)  => GradationHandler.splitByGradationLocation(root, gradation)
+      case _                => (root, "")
     }
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word))
   end apply
@@ -36,15 +34,16 @@ object GenerateVerbBendings {
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
       case None            => ""
     }
-    val resultWord = handleSpecialCase(root._1 + gradation + root._2 + updatedEnding, ending.morphemes)
+    val updatedGradation = if ending.tpe == VerbGradationType.Missing then gradation.dropRight(1) else gradation
+    val resultWord = handleSpecialCase(root._1 + updatedGradation + root._2 + updatedEnding, updatedEnding, word.ruleNumber, ending.morphemes)
     ResultWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
 
 
   val IndPreS3 = VerbMophemes.Standard(Modus.Indicative, Tempus.Presens, Persona.Active(Form.Singular, PersonaNumber.Third), Mode.Positive)
 
-  def handleSpecialCase(word: String, morphemes: Morphemes): String =
-    if morphemes == IndPreS3 then
+  def handleSpecialCase(word: String, ending: String, ruleNumber: Int, morphemes: Morphemes): String =
+    if morphemes == IndPreS3 && ending.nonEmpty && ruleNumber != 64 then
       val dropped = word.dropRight(1)
       val char = dropped.last
       dropped + char 

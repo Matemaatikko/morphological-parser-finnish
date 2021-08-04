@@ -2,7 +2,7 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
-import morph_fin.rulings.nomines.{GenerateNomineBendings, Gradation, NomineBending, Word}
+import morph_fin.rulings.nomines.{GenerateNomineBendings, Gradation, LoadAndParseNomineRules, NomineBending, Word}
 import morph_fin.utils.Hyphenation
 
 import scala.io.{Codec, Source}
@@ -35,7 +35,7 @@ object PrintUpdatedWord{
   def apply(updated: UpdatedWord) : String = updated match {
     case Pronoun(value)          => s"U:${value}"
     case Prefix(value)           => s"P:${value}"
-    case NoBending(value)        => s"U:${value}"
+    case NoBending(value)        => s"N:${value}"
     case SuffixError(value)      => s"E:-${value}"
     case Error(value, source, bendingOpt) => s"E:${value}"+ bendingOpt.map(bendingString(_)).getOrElse("")
     case StandardBending(word, bending) =>
@@ -244,8 +244,16 @@ object ReformatKotus {
   def save(list: Seq[UpdatedWord]): Unit =
     import java.io._
     import java.nio.charset.StandardCharsets
-    //val str: String = list.map(PrintUpdatedWord(_)).mkString("\n")
     val writer = new OutputStreamWriter(new FileOutputStream(updatedFileName), StandardCharsets.UTF_8)
     list.foreach(value => writer.write(PrintUpdatedWord(value) + "\n"))
     writer.close()
+
+  def reformat: Unit =
+    val nomineBendings = LoadAndParseNomineRules.rules
+    val result: Seq[UpdatedWord] = apply(nomineBendings)
+/*    val errors = result.flatMap(word => word match {
+      case a: UpdatedWord.Error => Some(a)
+      case _                    => None
+    })*/
+    save(result)
 }

@@ -1466,9 +1466,9 @@ Akt:Ind:Imp:P2: joitte
 Akt:Ind:Imp:P3: joivat
 Pas:Ind:Imp:    juotiin
 
-Akt:Ind:Imp:S1:Neg: juonot
-Akt:Ind:Imp:S2:Neg: juonot
-Akt:Ind:Imp:S3:Neg: juonot
+Akt:Ind:Imp:S1:Neg: juonut
+Akt:Ind:Imp:S2:Neg: juonut
+Akt:Ind:Imp:S3:Neg: juonut
 Akt:Ind:Imp:P1:Neg: juoneet
 Akt:Ind:Imp:P2:Neg: juoneet
 Akt:Ind:Imp:P3:Neg: juoneet
@@ -2746,7 +2746,7 @@ Cip:Age:Neg: katkeamaton
 <75>
 
 #Indicative
-Akt:Ind:Pre:S1: selviä
+Akt:Ind:Pre:S1: selviän
 Akt:Ind:Pre:S2: selviät
 Akt:Ind:Pre:S3: selviää
 Akt:Ind:Pre:P1: selviämme

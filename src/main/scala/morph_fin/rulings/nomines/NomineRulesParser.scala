@@ -1,8 +1,24 @@
 package morph_fin.rulings.nomines
 
 import morph_fin.rulings.*
+import morph_fin.utils.FilesLocation
 
 import scala.annotation.tailrec
+import scala.io.{Codec, Source}
+
+
+object LoadAndParseNomineRules {
+
+  def apply(): Seq[NomineExampleBending] = {
+    val filename = FilesLocation.files_path  + "/nomine_rules.txt"
+    val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
+    new NomineRulesParser(content.mkString("\n").iterator).parse
+  }
+
+  def rules: Seq[NomineBending] = {
+    apply().map(GenerateNomineRules(_))
+  }
+}
 
 case class Gradation(strong: String, weak: String)
 case class NomineExampleBending(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String, Boolean)])

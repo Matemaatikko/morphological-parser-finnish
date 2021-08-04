@@ -10,7 +10,11 @@
 - TODO omitusliitteet
 - TODO 'hapan' - word does not bend correctly in any class.
 - TODO 'jälsi' has unique bending. s-t
+- TODO 'viedä' unique bending
 - TODO Attribute
+
+
+- TODO missing
 
 taivutus-attribuutin arvot:
 harvinainen – t-elementin mukainen taivutus on harvinainen

@@ -3,9 +3,25 @@ package morph_fin.rulings.verbs
 import morph_fin.rulings.*
 import morph_fin.rulings.Case.*
 import morph_fin.rulings.nomines.Gradation
+import morph_fin.utils.FilesLocation
 
+import java.io.File
 import scala.annotation.tailrec
+import scala.io.{Codec, Source}
 
+
+object LoadAndParseVerbRules {
+
+  def apply(): Seq[VerbExampleBendind] = {
+    val filename = FilesLocation.files_path  + "/verb_rules.txt"
+    val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
+    new VerbRulesParser(content.mkString("\n").iterator).parse
+  }
+
+  def rules: Seq[VerbBending] = {
+    apply().map(GenerateVerbRules(_))
+  }
+}
 
 case class VerbExampleBendind(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(VerbMophemes, String)])
 

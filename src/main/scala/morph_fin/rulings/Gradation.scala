@@ -26,9 +26,14 @@ object GradationHandler {
       case false => WordGradationType.Inverted
     }
 
+  /**
+   * root = beginnig + gradation (- ending)
+   */
   def getWordGradationTypeForVerb(lemma: String, gradation: Gradation): WordGradationType =
+    val root = if endsWith_tA(lemma) then lemma.dropRight(2) else lemma
+
     def tryFind(amount: Int): Option[WordGradationType] =
-      val dropped = lemma.dropRight(amount)
+      val dropped = root.dropRight(amount)
       if dropped.endsWith(gradation.strong) then Some(WordGradationType.Straight)
       else None
 

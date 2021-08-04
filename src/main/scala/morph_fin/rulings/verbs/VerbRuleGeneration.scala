@@ -30,15 +30,16 @@ object GenerateVerbRules {
 
     def resolveGradation(exampleBendind: VerbExampleBendind, gradation: Gradation): VerbBending =
       //Resolve root. Resolvation is based on verb_rules.txt file analysation. Root does not contain gradation part.
-      val drop = exampleBendind.number match {
+      val dropForRoot = exampleBendind.number match {
         case 54 | 55 | 60 | 76 => 3
         case 57 | 59 => 4
       }
-      val root = exampleBendind.lemma.dropRight(drop)
+      val dropForBending = 2
+      val root = exampleBendind.lemma.dropRight(dropForRoot)
 
       //Resolve cases
       val endings = exampleBendind.cases.map(resolveEnding(_, root, gradation))
-      VerbBending(exampleBendind.number, drop, true, endings)
+      VerbBending(exampleBendind.number, dropForBending, true, endings)
 
     /**
      *  Removes root and gradation from cased word to resolve ending.
@@ -50,7 +51,7 @@ object GenerateVerbRules {
       import GradationType.*
       val endingWithGradation = tuple._2.drop(root.length)
       val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
-      else if endingWithGradation.startsWith(gradation.weak) then endingWithGradation.drop(gradation.weak.length) ->  VerbGradationType.Weak
+      else if endingWithGradation.startsWith(gradation.weak) then endingWithGradation.drop(gradation.weak.length) -> VerbGradationType.Weak
       else endingWithGradation ->  VerbGradationType.Missing
       VerbEnding(tuple._1, ending, tpe)
 

@@ -1,30 +1,17 @@
 import morph_fin.*
 import morph_fin.kotus_format.*
 import morph_fin.rulings.{Print, *}
-import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, Gradation, NomineRulesParser, Word}
-import morph_fin.rulings.verbs.{GenerateVerbBendings, GenerateVerbRules, VerbRulesParser}
-import morph_fin.utils.Hyphenation
+import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, Gradation, LoadAndParseNomineRules, NomineRulesParser, Word}
+import morph_fin.rulings.verbs.{GenerateVerbBendings, GenerateVerbRules, LoadAndParseVerbRules, VerbRulesParser}
+import morph_fin.utils.{FilesLocation, Hyphenation}
 
 import java.io.File
 import scala.collection.mutable
 import scala.io.{Codec, Source}
 
-val path = "C:\\Users\\juho_.DESKTOP-UEAL9SV\\IdeaProjects\\morphological-parser-finnish"
-val rulingLocations = "/src/main/files/rules/"
 
-val location = path + rulingLocations
-
-val filename = location + "nomine_rules.txt"
-val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
-
-val filename2 = location + "verb_rules.txt"
-val content2 = for (line <- Source.fromFile(filename2)(Codec.UTF8).getLines) yield line
-
-val nomineRulings1 = new NomineRulesParser(content.mkString("\n").iterator).parse
-val verbRulings1 = new VerbRulesParser(content2.mkString("\n").iterator).parse
-
-val nomineRulings = nomineRulings1.map(GenerateNomineRules(_))
-val verbRulings = verbRulings1.map(GenerateVerbRules(_))
+val nomineRulings = LoadAndParseNomineRules.rules
+val verbRulings = LoadAndParseVerbRules.rules
 
 def nprint(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
@@ -47,22 +34,51 @@ def printNomine(word: Word) =
 end printNomine
 
 
-/*val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
+def printVerb(word: Word) =
+  val cases = GenerateVerbBendings(verbRulings, word)
+  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  println("============================")
+end printVerb
+
+
+val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
   yield
     if(line.startsWith("<st>")) Some(ParseLine(line))
     else None
 ).flatten.toSeq
 
-val objects = lines.flatMap(EntryToWord(_)).filter(_.gradation.nonEmpty).filter(_.ruleNumber < 50)
+val nomines = lines.flatMap(EntryToWord(_)).filter(_.ruleNumber < 50 )
+val verbs = lines.flatMap(EntryToWord(_)).filter(a => a.ruleNumber > 51 && a.ruleNumber < 99)
 var usedCases = mutable.Buffer[(Int, Option[Gradation])]()
 
+/*
 for(a <- objects) {
   if !usedCases.contains(a.ruleNumber -> a.gradation) then
     usedCases += a.ruleNumber -> a.gradation
     println(s"${a.ruleNumber -> a.gradation -> a.lemma}")
     println("-------------------")
     printNomine(a)
-}*/
+}
+*/
+
+//
+//for(a <- verbs) {
+//  if !usedCases.contains(a.ruleNumber -> a.gradation) then
+//    usedCases += a.ruleNumber -> a.gradation
+//    println(s"${a.ruleNumber -> a.gradation -> a.lemma}")
+//    println("-------------------")
+//    printVerb(a)
+//}
+
+verbRulings.find(_.ruleNumber == 64).get.cases.mkString("\n")
+
+val IndPreS3 = VerbMophemes.Standard(Modus.Indicative, Tempus.Presens, Persona.Active(Form.Singular, PersonaNumber.Third), Mode.Positive)
+val results = verbs
+  .filter(_.ruleNumber == 64)
+  .map(word => GenerateVerbBendings(verbRulings, word))
+  .flatMap(words => words.find(_.morphemes == IndPreS3))
+  .mkString("\n")
+print(results)
 
 /*val results = objects
   .filterNot(word => GenerateNomineBendings.getBending(nomineRulings, word).isGradation)
@@ -80,7 +96,14 @@ print(results)*/
 
 //vin("vastata", 73, None)
 //vin("hypätä", 73, Some('B'))
-vprint("hypähtää", 53, Some('F'))
+//vprint("hypähtää", 53, Some('F'))
+//vprint("aateloida", 62, None)
+//vprint("juoda", 64, None)
+//vprint("ahdata", 73, Some('F'))
+//vprint("kadota", 74, Some('F'))
+//vprint("ahertaa", 54, Some('K'))
+//vprint("aientaa", 54, Some('J'))
+vprint("viedä", 64, None)
 
 //prin("ies", 41, Some('D'))
 //prin("ahdas", 41, Some('F'))
@@ -120,30 +143,4 @@ vprint("hypähtää", 53, Some('F'))
 //prin("kahdeksa", 10, None)
 //prin("vemmel", 49, Some('H'))
 
-/*Hyphenation.apply("kettu").mkString("-")
-Hyphenation.apply("öljytuikku").mkString("-")
-Hyphenation.apply("öljysorastaa").mkString("-")
-Hyphenation.apply("öljynviejämaa").mkString("-")
-Hyphenation.apply("öljynjalostusteollisuus").mkString("-")
-Hyphenation.apply("nähtävissä").mkString("-")
-Hyphenation.apply("kihlakunnansyyttäjä").mkString("-")
-Hyphenation.apply("syysilta").mkString("-")*/
-
-//println(KotusHyphenation.apply().mkString("\n"))
-
-/*
-val result: Seq[UpdatedWord] = ReformatKotus(genRulings)
-
-val errors = result.flatMap(word => word match {
-  case a: UpdatedWord.Error => Some(a)
-  case _                    => None
-})
-println("Errors: " + errors.length)
-print(errors.filter(_.bendingOpt.nonEmpty).mkString("\n"))
-
-
-print(errors.filter(_.bendingOpt.isEmpty).mkString("\n"))
-
-ReformatKotus.save(result)
-*/
 
