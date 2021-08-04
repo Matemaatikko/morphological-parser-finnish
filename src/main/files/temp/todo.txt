@@ -1,26 +1,4 @@
-
-- TODO Print example file from all existing pairs: (number, letterOpt)
-- TODO Add some tag for bendings in paranthesis ()
-- TODO attribute multiple bending options
-- TODO attribute comments in kotus-list
-- TODO add pronoun bendings
-- TODO attribute numeral bendings
-- TODO readme
-- TODO comparation forms
-- TODO omitusliitteet
-- TODO 'hapan' - word does not bend correctly in any class.
-- TODO 'jälsi' has unique bending. s-t
-- TODO 'viedä' unique bending
-- TODO Attribute
+- TODO bending_mapping
 
 
-- TODO missing
 
-taivutus-attribuutin arvot:
-harvinainen – t-elementin mukainen taivutus on harvinainen
-mahdollinen – t-elementin mukainen taivutus on mahdollinen
-yksikössä – sana taipuu tn-elementin mukaisesti yksikössä
-monikossa – sana taipuu tn-elementin mukaisesti monikossa
-
-astevaihtelu-attribuutin arvo:
-valinnainen – sana voidaan taivuttaa astevaihtelullisena tai ilman astevaihtelua

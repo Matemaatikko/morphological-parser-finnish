@@ -9,7 +9,6 @@ import java.io.File
 import scala.collection.mutable
 import scala.io.{Codec, Source}
 
-
 val nomineRulings = LoadAndParseNomineRules.rules
 val verbRulings = LoadAndParseVerbRules.rules
 
@@ -40,16 +39,18 @@ def printVerb(word: Word) =
   println("============================")
 end printVerb
 
+ReformatKotus.reformat
 
-val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
-  yield
-    if(line.startsWith("<st>")) Some(ParseLine(line))
-    else None
-).flatten.toSeq
-
-val nomines = lines.flatMap(EntryToWord(_)).filter(_.ruleNumber < 50 )
-val verbs = lines.flatMap(EntryToWord(_)).filter(a => a.ruleNumber > 51 && a.ruleNumber < 99)
-var usedCases = mutable.Buffer[(Int, Option[Gradation])]()
+//
+//val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
+//  yield
+//    if(line.startsWith("<st>")) Some(ParseLine(line))
+//    else None
+//).flatten.toSeq
+//
+//val nomines = lines.flatMap(EntryToWord(_)).filter(_.ruleNumber < 50 )
+//val verbs = lines.flatMap(EntryToWord(_)).filter(a => a.ruleNumber > 51 && a.ruleNumber < 99)
+//var usedCases = mutable.Buffer[(Int, Option[Gradation])]()
 
 /*
 for(a <- objects) {
@@ -70,15 +71,15 @@ for(a <- objects) {
 //    printVerb(a)
 //}
 
-verbRulings.find(_.ruleNumber == 64).get.cases.mkString("\n")
-
-val IndPreS3 = VerbMophemes.Standard(Modus.Indicative, Tempus.Presens, Persona.Active(Form.Singular, PersonaNumber.Third), Mode.Positive)
-val results = verbs
-  .filter(_.ruleNumber == 64)
-  .map(word => GenerateVerbBendings(verbRulings, word))
-  .flatMap(words => words.find(_.morphemes == IndPreS3))
-  .mkString("\n")
-print(results)
+//verbRulings.find(_.ruleNumber == 64).get.cases.mkString("\n")
+//
+//val IndPreS3 = VerbMophemes.Standard(Modus.Indicative, Tempus.Presens, Persona.Active(Form.Singular, PersonaNumber.Third), Mode.Positive)
+//val results = verbs
+//  .filter(_.ruleNumber == 64)
+//  .map(word => GenerateVerbBendings(verbRulings, word))
+//  .flatMap(words => words.find(_.morphemes == IndPreS3))
+//  .mkString("\n")
+//print(results)
 
 /*val results = objects
   .filterNot(word => GenerateNomineBendings.getBending(nomineRulings, word).isGradation)
@@ -103,7 +104,7 @@ print(results)*/
 //vprint("kadota", 74, Some('F'))
 //vprint("ahertaa", 54, Some('K'))
 //vprint("aientaa", 54, Some('J'))
-vprint("viedä", 64, None)
+//vprint("viedä", 64, None)
 
 //prin("ies", 41, Some('D'))
 //prin("ahdas", 41, Some('F'))

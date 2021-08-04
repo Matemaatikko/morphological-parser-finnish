@@ -81,8 +81,8 @@ object ReformatKotus {
     val list: Seq[Entry] = (
       for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
       yield
-        if(line.startsWith("<st>")) Some(ParseLine(line))
-        else None
+        if(line.startsWith("<st>")) ParseLine(line)
+        else Nil
       ).flatten.toSeq.filterNot(a => remove.contains(a.word.value)) ++ additions
 
     //===================================

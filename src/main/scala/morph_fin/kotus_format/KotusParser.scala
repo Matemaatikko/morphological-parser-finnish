@@ -1,6 +1,8 @@
 package morph_fin.kotus_format
 
 
+import morph_fin.rulings.nomines.Gradation
+
 import scala.annotation.tailrec
 
 enum KotusWord(val value: String, val noPrefix: Boolean):
@@ -13,7 +15,7 @@ case class Entry(word: KotusWord, bending: Option[Bending])
 
 
 object ParseLine{
-  def apply(str: String): Entry =
+  def apply(str: String): Seq[Entry] =
     try
       new KotusParser(str.iterator).parse
     catch
@@ -68,7 +70,7 @@ class KotusParser(stream: Iterator[Char]) {
       else result
     iter(Nil)
 
-  def parse =
+  def parse: Seq[Entry] =
     skipWhiteSpaces
     skipAll("<st>")
     skipAll("<s>")
@@ -80,14 +82,26 @@ class KotusParser(stream: Iterator[Char]) {
       consume
       skipAll("</hn>")
       skip('<')
-    val bendingOpt = if(peek == 't') Some(parseBending) else None
+    val bendingList = parseBendingList
     val kotusWord =
       if word.startsWith("-") then KotusWord.Suffix(word.drop(1))
       else if word.endsWith("-") then KotusWord.Prefix(word.dropRight(1))
       else KotusWord.Word(word)
-    Entry(kotusWord, bendingOpt)
+    if bendingList.isEmpty then Seq(Entry(kotusWord, None))
+    else bendingList.map(bending => Entry(kotusWord, Some(bending)))
 
-  def parseBending: Bending =
+  def parseBendingList: Seq[Bending] =
+    @tailrec
+    def iter(result: Seq[Bending] = Nil): Seq[Bending] =
+      if(peek == 't')
+        val bending = parseBending
+        skip('<')
+        iter(result ++ bending)
+      else result
+
+    iter(Nil)
+
+  def parseBending: Seq[Bending] =
     skip('t')
     skipUntil('>') //Possible info skipped
     skip('>')
@@ -95,14 +109,17 @@ class KotusParser(stream: Iterator[Char]) {
     val number = collectUntil(peek == '<').toInt
     skipAll("</tn>")
     skip('<')
-    val gradation = if(peek == 'a')
+    val (gradation, optional) = if(peek == 'a')
       skipAll("av")
-      skipUntil('>') //Possible info skipped
+      val value = collectUntil(peek == '>') //Possible info skipped
+      val opt = value.trim == "astevaihtelu=\"valinnainen\""
       skip('>')
       val res = consume
       skipAll("</av>")
-      Some(res)
-    else None
-    Bending(number, gradation)
+      skip('<')
+      Some(res) -> opt
+    else None -> false
+    skipAll("/t>")
+    if(optional) Seq(Bending(number, gradation), Bending(number, None)) else Seq(Bending(number, gradation))
 
 }

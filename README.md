@@ -84,6 +84,21 @@ Consonant gradation rules
 -------------------------
 
 
+Incorrect bending (To be fixed)
+=============================
+- The following words have incorrect bending:
+  - hapan
+  - jälsi
+  - viedä
+- Some numerals have incorrect bending. Example: 'kahdeksan'
+
+Missing properties (Upcoming)
+=============================
+- Bending of pronouns
+- Possessive suffixes
+- Comparation of adjectives
+- Clitics (Liitepartikkelit)
+
 Copyright
 =========
 Published under: <b> Creative Commons NonCommercial license:
