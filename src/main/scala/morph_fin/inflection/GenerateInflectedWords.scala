@@ -1,4 +1,4 @@
-package morph_fin.bending_generation
+package morph_fin.inflection
 
 import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
 import morph_fin.kotus_format.{Bending, LoadUpdatedKotus, UpdatedWord}

@@ -16,23 +16,23 @@ For finnish explanation see: https://kaino.kotus.fi/sanat/nykysuomi/.
 ###English:
 ```
 <s></s>     lemma 
-<tn></tn>   bending class number
+<tn></tn>   inflection class number
 <av></av>   consonant gradation type
 ```
 
 In nomines <b>lemma</b> is singular nominative form of a word. In some cases it can also be in plural form.
 For verbs <b>lemma</b> is 1. Infinitive form of a word. 
 
-<b>Bending class number</b> tells the bending class of a word. 
-Example bendings for each bending classes can be found from [Rules](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/src/main/files/rules). 
+<b>Inflection class number</b> tells the inflection class of a word. 
+Example inflection for each inflection classes can be found from [Rules](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/src/main/files/rules). 
 
 ````
 1-49    nomines
-50      compound word with prefix has no bending in cases 
-51      compound word with prefix has bending in cases 
+50      compound word with prefix has no declension in cases 
+51      compound word with prefix has declension in cases 
 52-76   verbs
-77-78   verbs with partial bending
-99      no bending
+77-78   verbs with partial conjugation
+99      no inflection
 101     pronoun
 -       some compound words, adverbs and other words are missing class number
 ````
@@ -57,21 +57,21 @@ M       k : v
 
 Updated kotus - wordlist
 -----------------------
-We reformat kotus-list to contain more information about bending. [Document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/result/kotus_updated.txt).
+Based on kotus-wordlist we generate file that contains inflection data for all compound words. See [document](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/result/kotus_updated.txt).
 
 ````
 paranthesis means that body is optional.
-bending =  B:bending-class-number(:L:gradation-letter)
+inflection =  B:inflection-class-number(:L:gradation-letter)
 -------------
-W:lemma:bending                              word
-U:lemma                                      pronoun
-N:lemma                                      no bending
-P:prefix                                     prefix
-e:value                                      suffix with bending class parsing failed (will be treated as unbending)
-E:lemma(:bending)                            word with bending class parsing failed (will be treated as unbending)
-S:lemma:bending                              suffix
-1:lemma:P:prefix:S:suffix:bending            compound word with prefix having no bending in cases
-2:lemma:P:prefix:bending:S:suffix:bending    compound word with prefix having bending in cases
+W:lemma:inflection                               word
+U:lemma                                          pronoun
+N:lemma                                          no inflection
+P:prefix                                         prefix
+e:value                                          suffix with inflection class parsing failed (will be treated as indeclinable)
+E:lemma(:inflection)                             word with inflection class parsing failed (will be treated as indeclinable)
+S:lemma:inflection                               suffix
+1:lemma:P:prefix:S:suffix:inflection             compound word with prefix having no inflection in cases
+2:lemma:P:prefix:inflection:S:suffix:inflection  compound word with prefix having inflection in cases
 ````
 
 Bending - wordlist
@@ -106,7 +106,7 @@ Verbs
   
   - Present, Imperfect, Perfect, Pluperfect
 - <b> Person: </b> (Persoona) Distinction between deictic references to participant(s) in an event; typically the distinction is between the speaker (first person), the addressee (second person), and others (third person)
-- <b> Nominal forms: </b> (Nominaalimuodot) Form of conjugation of verbs which are similar to nouns and can have noun inflections. 
+- <b> Nominal form: </b> (Nominaalimuoto) Form of conjugation of verbs which are similar to nouns and can have noun inflections. 
 
   - Infinitive, Participle
 
@@ -119,15 +119,15 @@ Consonant gradation
 
 Incorrect bending (To be fixed)
 =============================
-- The following words have incorrect bending:
+- The following words have incorrect inflection:
   - hapan
   - jälsi
   - viedä
-- Some numerals have incorrect bending. Example: 'kahdeksan'
+- Some numerals have incorrect inflection. Example: 'kahdeksan'
 
 Missing properties (Upcoming)
 =============================
-- Bending of pronouns
+- inflection of pronouns
 - Possessive suffixes
 - Comparation of adjectives (Requires separation of adjectives from the list)
 - Clitics (Liitepartikkelit)

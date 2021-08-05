@@ -1,5 +1,5 @@
 import morph_fin.*
-import morph_fin.bending_generation.GenerateInflectedWords
+import morph_fin.inflection.GenerateInflectedWords
 import morph_fin.kotus_format.*
 import morph_fin.rulings.{Print, *}
 import morph_fin.rulings.nomines.{GenerateDeclensionWords, GenerateDeclensionRules, Gradation, LoadAndParseNomineRules, NomineRulesParser, Word}
