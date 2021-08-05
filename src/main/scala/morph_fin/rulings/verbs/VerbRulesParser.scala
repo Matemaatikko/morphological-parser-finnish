@@ -12,18 +12,18 @@ import scala.io.{Codec, Source}
 
 object LoadAndParseVerbRules {
 
-  def apply(): Seq[VerbExampleBendind] = {
+  def apply(): Seq[VerbExampleConjugations] = {
     val filename = FilesLocation.rules_path  + "/verb_rules.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
     new VerbRulesParser(content.mkString("\n").iterator).parse
   }
 
-  def rules: Seq[VerbBending] = {
-    apply().map(GenerateVerbRules(_))
+  def rules: Seq[ConjugationRules] = {
+    apply().map(GenerateConjugationRules(_))
   }
 }
 
-case class VerbExampleBendind(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(VerbMophemes, String)])
+case class VerbExampleConjugations(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(VerbMophemes, String)])
 
 class VerbRulesParser(stream: Iterator[Char]) {
 
@@ -65,7 +65,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
       else result
     iter(Nil)
 
-  def parse: Seq[VerbExampleBendind] =
+  def parse: Seq[VerbExampleConjugations] =
     skipWhiteSpaces
     skipComments
     doUntil(parseNextEntry, !currentCharacter.contains('<'))
@@ -75,7 +75,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
     skipWhiteSpaces
     if(currentCharacter == Some('#')) skipComments
 
-  inline def parseNextEntry: VerbExampleBendind =
+  inline def parseNextEntry: VerbExampleConjugations =
     skipComments
     skip('<')
     val number = collectUntil( !peek.isDigit).toInt
@@ -84,7 +84,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
     val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
     val lemma = lines.find(tuple => isLemma(tuple._1)).get._2.head
     val wordList = lines.flatMap(a => a._2.map(b => (a._1, b)))
-    VerbExampleBendind(number, lemma, gradation, wordList)
+    VerbExampleConjugations(number, lemma, gradation, wordList)
 
   inline def isLemma(moprhemes: VerbMophemes): Boolean =
     moprhemes match {
@@ -138,16 +138,16 @@ class VerbRulesParser(stream: Iterator[Char]) {
   inline def parsePersona: Persona.Active =
     val form = parseForm
     val persona = peek match {
-      case '1' => consume; PersonaNumber.First
-      case '2' => consume; PersonaNumber.Second
-      case '3' => consume; PersonaNumber.Third
+      case '1' => consume; Person.First
+      case '2' => consume; Person.Second
+      case '3' => consume; Person.Third
     }
     skip(':')
     Persona.Active(form, persona)
 
   inline def parseForm = peek match {
-    case 'P' => consume; Form.Plural
-    case 'S' => consume; Form.Singular
+    case 'P' => consume; GNumber.Plural
+    case 'S' => consume; GNumber.Singular
   }
 
   inline def parseVoice = peek match {
@@ -167,7 +167,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
   inline def parseTempus: Tempus =
     peek match {
       case 'P' => consume; peek match {
-        case 'r' => skipAll("re:"); Tempus.Presens
+        case 'r' => skipAll("re:"); Tempus.Present
         case 'e' => skipAll("er:"); Tempus.Perfect
         case 'l' => skipAll("lp:"); Tempus.Pluperfect
       }
@@ -231,8 +231,8 @@ class VerbRulesParser(stream: Iterator[Char]) {
 
   inline def resolveCase(str: String): Case = str.toLowerCase match {
     case a: String if a == "nom" => Nominative
-    case a: String if a == "gen" => Genetive
-    case a: String if a == "akk" => Akkusative
+    case a: String if a == "gen" => Genitive
+    case a: String if a == "akk" => Accusative
     case a: String if a == "par" => Partitive
     case a: String if a == "ine" => Inessive
     case a: String if a == "ela" => Elative
@@ -244,7 +244,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
     case a: String if a == "tra" => Translative
     case a: String if a == "ins" => Instructive
     case a: String if a == "abe" => Abessive
-    case a: String if a == "kom" => Komitative
+    case a: String if a == "kom" => Comitative
   }
 
   //=========================================

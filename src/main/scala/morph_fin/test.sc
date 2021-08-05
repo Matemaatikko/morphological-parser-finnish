@@ -1,8 +1,9 @@
 import morph_fin.*
+import morph_fin.bending_generation.GenerateInflectedWords
 import morph_fin.kotus_format.*
 import morph_fin.rulings.{Print, *}
-import morph_fin.rulings.nomines.{GenerateNomineBendings, GenerateNomineRules, Gradation, LoadAndParseNomineRules, NomineRulesParser, Word}
-import morph_fin.rulings.verbs.{GenerateVerbBendings, GenerateVerbRules, LoadAndParseVerbRules, VerbRulesParser}
+import morph_fin.rulings.nomines.{GenerateDeclensionWords, GenerateDeclensionRules, Gradation, LoadAndParseNomineRules, NomineRulesParser, Word}
+import morph_fin.rulings.verbs.{GenerateConjugatedWords, GenerateConjugationRules, LoadAndParseVerbRules, VerbRulesParser}
 import morph_fin.utils.{FilesLocation, Hyphenation}
 
 import java.io.File
@@ -14,28 +15,28 @@ val verbRulings = LoadAndParseVerbRules.rules
 
 def nprint(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
-  val cases = GenerateNomineBendings(nomineRulings, word1)
-  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  val cases = GenerateDeclensionWords(nomineRulings, word1)
+  println(cases.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 end nprint
 
 def vprint(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
-  val cases = GenerateVerbBendings(verbRulings, word1)
-  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  val cases = GenerateConjugatedWords(verbRulings, word1)
+  println(cases.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 end vprint
 
 def printNomine(word: Word) =
-  val cases = GenerateNomineBendings(nomineRulings, word)
-  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  val cases = GenerateDeclensionWords(nomineRulings, word)
+  println(cases.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 end printNomine
 
 
 def printVerb(word: Word) =
-  val cases = GenerateVerbBendings(verbRulings, word)
-  println(cases.map(a => a.word + " : " + Print(a.morphemes)).mkString("\n"))
+  val cases = GenerateConjugatedWords(verbRulings, word)
+  println(cases.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 end printVerb
 
@@ -47,7 +48,12 @@ def timed[A](fun: => A): A = {
   result
 }
 
-timed(ReformatKotus.generateBendings)
+//vprint("abstraktistua", 52, None)
+
+//timed(ReformatKotus.reformat)
+
+//timed(LoadUpdatedKotus.apply())
+timed(GenerateInflectedWords.apply)
 
 //
 //val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)

@@ -1,7 +1,7 @@
 package morph_fin.rulings
 
 import morph_fin.rulings.Case.Illative
-import morph_fin.rulings.Form.Singular
+import morph_fin.rulings.GNumber.Singular
 import morph_fin.rulings.nomines.Gradation
 import morph_fin.utils.{Hyphenation, Letters}
 
@@ -95,16 +95,16 @@ object GradationHandler {
    */
   def resolveNomineException(lemma: String, ending: String, tpe: WordGradationType, morphemes: NomineMorphemes): Option[GradationType] =
     import Case._
-    import Form._
+    import GNumber._
     import WordGradationType._
     (tpe, morphemes) match {
       case (Straight, NomineMorphemes(Illative, Singular | Plural)) =>
         Some(GradationType.Strong)
-      case (Straight, NomineMorphemes(Genetive, Plural)) if ending.endsWith("in")   =>
+      case (Straight, NomineMorphemes(Genitive, Plural)) if ending.endsWith("in")   =>
         Some(GradationType.Strong)
-      case (Inverted, NomineMorphemes(Nominative | Partitive | Akkusative, Singular)) =>
+      case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular)) =>
         Some(GradationType.Weak)
-      case (Inverted, NomineMorphemes(Genetive, Plural)) if ending.endsWith("ten") =>
+      case (Inverted, NomineMorphemes(Genitive, Plural)) if ending.endsWith("ten") =>
         Some(GradationType.Weak)
       case (Inverted, _)  =>
         Some(GradationType.Strong)
@@ -118,15 +118,15 @@ object GradationHandler {
     import WordGradationType._
     import Voice._, Modus._, Tempus._,  Mode._
     (tpe, morphemes) match {
-      case (Straight, VerbMophemes.Standard(Indicative, Presens, Persona.Passive, Positive)) =>
+      case (Straight, VerbMophemes.Standard(Indicative, Present, Persona.Passive, Positive)) =>
         Some(GradationType.Weak)
-      case (Straight, VerbMophemes.Standard(Imperative, Presens, Persona.Active(Singular, PersonaNumber.Second), _)) =>
+      case (Straight, VerbMophemes.Standard(Imperative, Present, Persona.Active(Singular, Person.Second), _)) =>
         Some(GradationType.Weak)
-      case (Straight, VerbMophemes.Standard(Indicative, Presens, _, Negative)) =>
+      case (Straight, VerbMophemes.Standard(Indicative, Present, _, Negative)) =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.Standard(Indicative, Presens, Persona.Passive, Negative)) =>
+      case (Inverted, VerbMophemes.Standard(Indicative, Present, Persona.Passive, Negative)) =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.Standard(Indicative, Presens, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
+      case (Inverted, VerbMophemes.Standard(Indicative, Present, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
         Some(GradationType.Strong)
       case (Inverted, VerbMophemes.Standard(Indicative, _, Persona.Passive, Positive)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)

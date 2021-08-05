@@ -67,11 +67,11 @@ W:lemma:bending                              word
 U:lemma                                      pronoun
 N:lemma                                      no bending
 P:prefix                                     prefix
-E:-value                                     suffix with bending class parsing failed (will be treated as unbending)
+e:value                                      suffix with bending class parsing failed (will be treated as unbending)
 E:lemma(:bending)                            word with bending class parsing failed (will be treated as unbending)
 S:lemma:bending                              suffix
-C1:lemma:P:prefix:S:suffix:bending           compound word with prefix having no bending in cases
-C2:lemma:P:prefix:bending:S:suffix:bending   compound word with prefix having bending in cases
+1:lemma:P:prefix:S:suffix:bending            compound word with prefix having no bending in cases
+2:lemma:P:prefix:bending:S:suffix:bending    compound word with prefix having bending in cases
 ````
 
 Bending - wordlist
@@ -80,8 +80,41 @@ Based on kotus - wordlist we generate list that maps words to lemma and bending 
 [Documents](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/result/).
 
 
-Consonant gradation rules
--------------------------
+Terminology
+===========
+General
+-------
+- <b> Inflection: </b> (Taivutus) word formation, in which a word is modified to express different grammatical categories.
+- <b> Conjugation: </b> Inflection of verbs.
+- <b> Declension: </b> Inflection of non-verbs.
+- <b> Lemma: </b> (Perusmuoto)  canonical form, dictionary form or citation form of a word.
+
+Noun
+----
+- <b> Case: </b> (Sijamuoto) Used to express the grammatical case of a word. Examples: Nominative, Genitive, Partitive
+- <b> Number: </b> (Luku) Used to express whether word is in plural or singular form.
+
+Verbs
+-----
+- <b> Voice: </b> (Pääluokka) The relationship between the action (or state) that the verb expresses and the participants identified by its arguments (subject, object, etc.).
+  
+  - Active, Passive
+- <b> Modus: </b> (Tapaluokka) The use of verbal inflections that allow speakers to express their attitude toward what they are saying.
+
+  - Indicative, Pontential, Conditional, Imperative 
+- <b> Tempus: </b> (Aikamuoto)  Express time reference.
+  
+  - Present, Imperfect, Perfect, Pluperfect
+- <b> Person: </b> (Persoona) Distinction between deictic references to participant(s) in an event; typically the distinction is between the speaker (first person), the addressee (second person), and others (third person)
+- <b> Nominal forms: </b> (Nominaalimuodot) Form of conjugation of verbs which are similar to nouns and can have noun inflections. 
+
+  - Infinitive, Participle
+
+Language specifications
+=======================
+
+Consonant gradation
+-------------------
 
 
 Incorrect bending (To be fixed)
@@ -96,7 +129,7 @@ Missing properties (Upcoming)
 =============================
 - Bending of pronouns
 - Possessive suffixes
-- Comparation of adjectives
+- Comparation of adjectives (Requires separation of adjectives from the list)
 - Clitics (Liitepartikkelit)
 - Nominal forms of verbs: declension
 

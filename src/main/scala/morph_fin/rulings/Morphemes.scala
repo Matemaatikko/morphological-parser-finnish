@@ -3,13 +3,13 @@ package morph_fin.rulings
 
 //Nomine
 enum Case:
-  case Nominative, Genetive, Akkusative, Partitive
+  case Nominative, Genitive, Accusative, Partitive
   case Inessive, Elative, Illative
   case Adessive, Ablative, Allative
-  case Essive, Translative, Instructive, Abessive, Komitative
+  case Essive, Translative, Instructive, Abessive, Comitative
 end Case
 
-enum Form:
+enum GNumber:
   case Plural, Singular
 
 //Verb
@@ -24,14 +24,14 @@ enum Modus:
   case Indicative, Conditional, Potential, Imperative
 
 enum Tempus:
-  case Presens, Imperfect, Perfect, Pluperfect
+  case Present, Imperfect, Perfect, Pluperfect
 
-enum PersonaNumber:
+enum Person:
   case First, Second, Third
 
 
 enum Persona:
-  case Active(form: Form, number: PersonaNumber)
+  case Active(number: GNumber, person: Person)
   case Passive
 
 
@@ -44,7 +44,7 @@ enum Type:
 
 trait Morphemes
 
-case class NomineMorphemes(cse: Case, form: Form) extends Morphemes
+case class NomineMorphemes(cse: Case, form: GNumber) extends Morphemes
 
 enum VerbMophemes extends Morphemes:
   case Standard(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode)
@@ -111,8 +111,8 @@ object FilePrint {
     import Case._
     cse match {
       case Nominative  => "Nom"
-      case Genetive    => "Gen"
-      case Akkusative  => "Akk"
+      case Genitive    => "Gen"
+      case Accusative  => "Akk"
       case Partitive   => "Par"
       case Inessive    => "Ine"
       case Elative     => "Ela"
@@ -124,11 +124,11 @@ object FilePrint {
       case Translative => "Tra"
       case Instructive => "Ins"
       case Abessive    => "Abe"
-      case Komitative  => "Kom"
+      case Comitative  => "Kom"
     }
 
-  def printForm(form: Form): String =
-    import Form._
+  def printForm(form: GNumber): String =
+    import GNumber._
     form match {
       case Singular => "S"
       case Plural   => "P"
@@ -146,7 +146,7 @@ object FilePrint {
   def printTempus(tempus: Tempus): String =
     import Tempus._
     tempus match {
-      case Presens     => "Pre"
+      case Present     => "Pre"
       case Imperfect   => "Imp"
       case Perfect     => "Per"
       case Pluperfect  => "Plp"
@@ -159,8 +159,8 @@ object FilePrint {
       case Active(form, number) => "Akt:" + printForm(form) + printNumber(number)
     }
 
-  def printNumber(personaNumber: PersonaNumber): String =
-    import PersonaNumber._
+  def printNumber(personaNumber: Person): String =
+    import Person._
     personaNumber match {
       case First  => "1"
       case Second => "2"

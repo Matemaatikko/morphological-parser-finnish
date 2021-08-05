@@ -9,24 +9,24 @@ import scala.io.{Codec, Source}
 
 object LoadAndParseNomineRules {
 
-  def apply(): Seq[NomineExampleBending] = {
+  def apply(): Seq[NomineExampleDeclensions] = {
     val filename = FilesLocation.rules_path  + "/nomine_rules.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
     new NomineRulesParser(content.mkString("\n").iterator).parse
   }
 
-  def rules: Seq[NomineBending] = {
-    apply().map(GenerateNomineRules(_))
+  def rules: Seq[DeclensionRules] = {
+    apply().map(GenerateDeclensionRules(_))
   }
 }
 
 case class Gradation(strong: String, weak: String)
-case class NomineExampleBending(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String, Boolean)])
+case class NomineExampleDeclensions(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String, Boolean)])
 
 class NomineRulesParser(stream: Iterator[Char]) {
 
   import Case.*
-  import Form.*
+  import GNumber.*
 
   var currentCharacter: Option[Char] = Some(' ')
 
@@ -63,7 +63,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
       else result
     iter(Nil)
 
-  def parse: Seq[NomineExampleBending] =
+  def parse: Seq[NomineExampleDeclensions] =
     skipWhiteSpaces
     skipComments
     doUntil(parseNextEntry, !currentCharacter.contains('<'))
@@ -73,7 +73,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     skipWhiteSpaces
     if(peek == '#') skipComments
 
-  inline def parseNextEntry: NomineExampleBending =
+  inline def parseNextEntry: NomineExampleDeclensions =
     skipWhiteSpaces
     skip('<')
     val number = collectUntil( !peek.isDigit).toInt
@@ -82,7 +82,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
     val lemma = lines.find(tuple => isLemma(tuple._1)).get._2.head
     val wordList = lines.flatMap(a => a._2.map(b => (a._1, b._1, b._2)))
-    NomineExampleBending(number, lemma._1, gradation, wordList)
+    NomineExampleDeclensions(number, lemma._1, gradation, wordList)
 
   inline def isLemma(moprhemes: NomineMorphemes): Boolean =
     moprhemes.cse == Nominative && moprhemes.form == Singular
@@ -124,8 +124,8 @@ class NomineRulesParser(stream: Iterator[Char]) {
 
   inline def resolveCase(str: String): Case = str.toLowerCase match {
     case a: String if a == "nom" => Nominative
-    case a: String if a == "gen" => Genetive
-    case a: String if a == "akk" => Akkusative
+    case a: String if a == "gen" => Genitive
+    case a: String if a == "akk" => Accusative
     case a: String if a == "par" => Partitive
     case a: String if a == "ine" => Inessive
     case a: String if a == "ela" => Elative
@@ -137,7 +137,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     case a: String if a == "tra" => Translative
     case a: String if a == "ins" => Instructive
     case a: String if a == "abe" => Abessive
-    case a: String if a == "kom" => Komitative
+    case a: String if a == "kom" => Comitative
   }
 
 

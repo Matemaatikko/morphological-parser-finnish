@@ -29,7 +29,7 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
   //TODO testing not comprehensive
 
   "resolveNomineException - method" should "work" in {
-    val result1 = resolveNomineException("tuote", "elle", WordGradationType.Inverted, NomineMorphemes(Case.Allative, Form.Singular))
+    val result1 = resolveNomineException("tuote", "elle", WordGradationType.Inverted, NomineMorphemes(Case.Allative, GNumber.Singular))
     assert(result1 == Some(GradationType.Strong))
   }
 }

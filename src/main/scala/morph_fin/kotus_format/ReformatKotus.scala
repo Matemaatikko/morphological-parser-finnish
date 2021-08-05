@@ -2,8 +2,8 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
-import morph_fin.rulings.nomines.{GenerateNomineBendings, Gradation, LoadAndParseNomineRules, NomineBending, Word}
-import morph_fin.rulings.verbs.{GenerateVerbBendings, LoadAndParseVerbRules}
+import morph_fin.rulings.nomines.{GenerateDeclensionWords, Gradation, LoadAndParseNomineRules, DeclensionRules, Word}
+import morph_fin.rulings.verbs.{GenerateConjugatedWords, LoadAndParseVerbRules}
 import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
@@ -33,20 +33,32 @@ enum UpdatedWord(val value: String):
 
 object PrintUpdatedWord{
   import UpdatedWord._
+
+  /***
+   * U - pronoun
+   * P - Prefix
+   * N - No bending
+   * e - suffix error
+   * E - other error
+   * W - word
+   * S - suffix
+   * 1 - Counpound1
+   * 2 - Counpound2
+   */
   def apply(updated: UpdatedWord) : String = updated match {
     case Pronoun(value)          => s"U:${value}"
     case Prefix(value)           => s"P:${value}"
     case NoBending(value)        => s"N:${value}"
-    case SuffixError(value)      => s"E:-${value}"
+    case SuffixError(value)      => s"e:${value}"
     case Error(value, source, bendingOpt) => s"E:${value}"+ bendingOpt.map(bendingString(_)).getOrElse("")
     case StandardBending(word, bending) =>
       s"W:${word}" + bendingString(bending)
     case Suffix(word, bending) =>
       s"S:${word}" + bendingString(bending)
     case Compound(word, prefix, suffix) =>
-      s"C1:${word}:P:${prefix}:S:${suffix.value}" + bendingString(suffix.bending)
+      s"1:${word}:P:${prefix}:S:${suffix.value}" + bendingString(suffix.bending)
     case Compound2(word, prefix, suffix) =>
-      s"C2:${word}:P:${toString(prefix)}:S:${toString(suffix)}"
+      s"2:${word}:P:${toString(prefix)}:S:${toString(suffix)}"
   }
   def toString(bendingWord: BendingWord): String =
     bendingWord.value + bendingString(bendingWord.bending)
@@ -92,7 +104,7 @@ object ReformatKotus {
 
 
 
-  def apply(rulings: Seq[NomineBending]): Seq[UpdatedWord] =
+  def apply(rulings: Seq[DeclensionRules]): Seq[UpdatedWord] =
     val list: Seq[Entry] = ParseKotus().filterNot(a => remove.contains(a.word.value)) ++ additions
 
     //===================================
@@ -103,17 +115,17 @@ object ReformatKotus {
         entry.word.noPrefix)
 
     val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        GenerateNomineBendings.apply(rulings, EntryToWord(entry).get)
-          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, Form.Plural))
-          .map(casing => casing.word -> entry)
+        GenerateDeclensionWords.apply(rulings, EntryToWord(entry).get)
+          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, GNumber.Plural))
+          .map(casing => casing.word.toString -> entry)
     )
 
     //===================================
 
     val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        GenerateNomineBendings.apply(rulings, EntryToWord(entry).get)
-          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, Form.Plural))
-          .map(casing => casing.word -> entry)
+        GenerateDeclensionWords.apply(rulings, EntryToWord(entry).get)
+          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, GNumber.Plural))
+          .map(casing => casing.word.toString -> entry)
     ).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))
 
 
@@ -266,69 +278,4 @@ object ReformatKotus {
     result.foreach(value => writer.write(PrintUpdatedWord(value) + "\n"))
     writer.close()
 
-  val nomineBendings = LoadAndParseNomineRules.rules
-  val verbBendings = LoadAndParseVerbRules.rules
-
-  def bendingsFilename(char: Char) = FilesLocation.files_path + s"/result/${char.toString.toUpperCase}.txt"
-
-  def generateBendings: Unit =
-    val result: Seq[(Char, Seq[UpdatedWord])] = apply(nomineBendings).groupBy(_.value.head.toLower).toSeq
-    result.foreach(tuple => handle(tuple._1, tuple._2))
-
-  def handle(char: Char, words: Seq[UpdatedWord]): Unit =
-    val writer = new OutputStreamWriter(new FileOutputStream(bendingsFilename(char.toUpper)), StandardCharsets.UTF_8)
-
-    import UpdatedWord._
-    def generate(updatedWord: UpdatedWord): Unit =
-      try
-        updatedWord match {
-          case Compound(word, prefix, suffixWord) =>
-            val bendings = getBendings(suffixWord.value, suffixWord.bending)
-            bendings.map(result => {
-              val resultWord = addHyphenIfNeeded(prefix, result.word)
-              print(resultWord, result.morphemes, word)
-            }).foreach(writer.write(_))
-          case Compound2(word, prefixWord, suffixWord) =>
-            val prefixBendings = getBendings(prefixWord.value, prefixWord.bending)
-            val suffixBendings = getBendings(suffixWord.value, suffixWord.bending)
-            val morphemes = prefixBendings.map(_.morphemes).distinct
-            morphemes.map(morphemes => {
-              val prefixBending = prefixBendings.find(_.morphemes == morphemes).get
-              val suffixBending = suffixBendings.find(_.morphemes == morphemes).get
-              val resultWord = addHyphenIfNeeded(prefixBending.word, suffixBending.word)
-              print(resultWord, morphemes, word)
-            }).foreach(writer.write(_))
-          case StandardBending(word, bending) =>
-            val bendings = getBendings(word, bending)
-            bendings.map(result => print(result.word, result.morphemes, result.lemma))
-                .foreach(writer.write(_))
-          case _ =>
-        }
-      catch
-        case e: Exception =>
-          println("Error: " + updatedWord.toString)
-      writer.flush()
-
-    def addHyphenIfNeeded(prefix: String, suffix: String): String =
-      if(prefix.length == 1) prefix + "-" + suffix
-      else if(Letters.isVowel(prefix.last) && prefix.last == suffix.head) prefix + "-" + suffix
-      else prefix + suffix
-
-    def print(word: String, morphemes: Morphemes, lemma: String): String =
-      fill(word, 40) + ":" + fill(FilePrint(morphemes)+ ":", 25)  + lemma + "\n"
-
-    def fill(word: String, upTo: Int): String =
-      val num = upTo - word.length
-      if(num > 0) word + " "*num
-      else word
-
-    def getBendings(lemma: String, bending: Bending) =
-      val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-      if(bending.rule < 50) GenerateNomineBendings(nomineBendings, word)
-      else if(bending.rule > 51 && bending.rule < 79) GenerateVerbBendings(verbBendings, word)
-      else throw new Exception()
-
-    words.foreach(generate(_))
-    writer.close()
-  end handle
 }
