@@ -2,13 +2,16 @@ package morph_fin.inflection
 
 import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
 import morph_fin.kotus_format.{Bending, LoadUpdatedKotus, UpdatedWord}
-import morph_fin.rulings.nomines.{GenerateDeclensionWords, LoadAndParseNomineRules, Word}
+import morph_fin.rulings.nomines.{GenerateDeclensionWords, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
 import morph_fin.rulings.verbs.{GenerateConjugatedWords, LoadAndParseVerbRules}
-import morph_fin.rulings.{FilePrint, GradationHandler, Morphemes}
+import morph_fin.rulings.{FilePrint, GradationHandler, Morphemes, NomineMorphemes}
 import morph_fin.utils.{FilesLocation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
 import java.nio.charset.StandardCharsets
+
+enum TargetFile:
+  case Verb, Noun, Compound, Indeclinable, Pronoun, Ignore
 
 object GenerateInflectedWords {
   val nomineBendings = LoadAndParseNomineRules.rules
@@ -19,75 +22,94 @@ object GenerateInflectedWords {
   val compound = FilesLocation.result_path + s"/bendings/compounds.txt"
   val pronoun = FilesLocation.result_path + s"/bendings/pronoun.txt"
   val indeclinable = FilesLocation.result_path + s"/bendings/indeclinables.txt"
+  val error = FilesLocation.result_path + s"/bendings/error.txt"
 
-  enum TargetFile:
-    case Verb, Noun, Compound, Indeclinable, Pronoun, Ignore
+  def apply(filter: TargetFile): Unit =
+    val words: Seq[UpdatedWord] = LoadUpdatedKotus.apply().filter(a => getTarget(a) == filter)
+    val writer = getWriter(filter)
+    val generated = words.foreach(word => {
+      val result = tryGenerate(word)
+      result.foreach(a => writer.write(a))
+      writer.flush()
+    })
+    writer.close()
 
-  def apply: Unit =
-    val words: Seq[UpdatedWord] = LoadUpdatedKotus.apply()
-    val generated = words.map(tryGenerate(_))
-    generated.groupBy(_._2)
-      .toSeq
-      .map(tuple => tuple._1 -> tuple._2.flatMap(_._1))
-      .map(tuple => writeAll(tuple._1, tuple._2))
 
-  def writeAll(targetFile: TargetFile, words: Seq[String]): Unit =
+  def getTarget(updatedWord: UpdatedWord): TargetFile =
+    import UpdatedWord._
+    updatedWord match {
+      case a: Compound => TargetFile.Compound
+      case a: Compound2 => TargetFile.Compound
+      case StandardBending(_, bending) if bending.rule < 50 => TargetFile.Noun
+      case StandardBending(_, bending) if bending.rule > 51 && bending.rule < 79 => TargetFile.Verb
+      case a: Pronoun => TargetFile.Pronoun
+      case a: NoBending => TargetFile.Indeclinable
+      case a: Error => TargetFile.Indeclinable
+      case _ => TargetFile.Ignore
+    }
+
+  def getWriter(targetFile: TargetFile): OutputStreamWriter =
     import TargetFile._
-    val file: Option[String] = targetFile match {
-      case Verb => Some(verb)
-      case Noun => Some(noun)
-      case TargetFile.Compound => Some(compound)
-      case Indeclinable => Some(indeclinable)
-      case Pronoun => Some(pronoun)
-      case Ignore => None
+    val str: String = targetFile match {
+      case Verb => verb
+      case Noun => noun
+      case TargetFile.Compound => compound
+      case Indeclinable => indeclinable
+      case Pronoun => pronoun
+      case _    => error
     }
-    file match {
-      case Some(str) =>
-        val writer = new OutputStreamWriter(new FileOutputStream(str), StandardCharsets.UTF_8)
-        words.foreach(writer.write(_))
-        writer.close()
-      case None =>
-    }
+    new OutputStreamWriter(new FileOutputStream(str), StandardCharsets.UTF_8)
 
 
-  def tryGenerate(updatedWord: UpdatedWord): (Seq[String], TargetFile) =
+  def tryGenerate(updatedWord: UpdatedWord): Seq[String] =
     try generate(updatedWord) catch
       case e: Exception =>
         println("Exception raised: " + updatedWord.toString)
         e.printStackTrace()
-        Nil -> TargetFile.Ignore
+        Nil
 
-  def generate(updatedWord: UpdatedWord): (Seq[String], TargetFile) =
+  def generate(updatedWord: UpdatedWord): Seq[String] =
     import UpdatedWord._
     updatedWord match {
       case Compound(word, prefix, suffixWord) =>
-        val bendings = getBendings(suffixWord.value, suffixWord.bending)
-        bendings.map(result => {
-          val resultWord = addHyphenIfNeeded(prefix, result.word.toString)
-          print(resultWord, result.morphemes, word)
-        }) -> TargetFile.Compound
+        val resulWords = getBendingsWithoutSuffix(suffixWord.value, suffixWord.bending)
+        resulWords.flatMap(resultWord => {
+          val gradationOpt = suffixWord.bending.gradationLetter.map(GradationHandler.getGradationByLetter(_))
+          if resultWord.morphemes.isInstanceOf[NomineMorphemes] then
+            addPossessiveSuffixes(word, prefix, resultWord, gradationOpt)
+          else {
+            val result = addHyphenIfNeeded(prefix, resultWord.word.toString, word)
+            Seq(print(result, resultWord.morphemes, word))
+          }
+        })
       case Compound2(word, prefixWord, suffixWord) =>
-        val prefixBendings = getBendings(prefixWord.value, prefixWord.bending)
-        val suffixBendings = getBendings(suffixWord.value, suffixWord.bending)
+        val prefixBendings = getBendingsWithoutSuffix(prefixWord.value, prefixWord.bending)
+        val suffixBendings = getBendingsWithoutSuffix(suffixWord.value, suffixWord.bending)
         val morphemes = prefixBendings.map(_.morphemes).distinct
-        morphemes.map(morphemes => {
+        morphemes.flatMap(morphemes => {
           val prefixBending = prefixBendings.find(_.morphemes == morphemes).get
           val suffixBending = suffixBendings.find(_.morphemes == morphemes).get
-          val resultWord = addHyphenIfNeeded(prefixBending.word.toString, suffixBending.word.toString)
-          print(resultWord, morphemes, word)
-        })-> TargetFile.Compound
+          val gradationOpt = suffixWord.bending.gradationLetter.map(GradationHandler.getGradationByLetter(_))
+          addPossessiveSuffixes(word, prefixBending.word.toString, suffixBending, gradationOpt)
+        })
       case StandardBending(word, bending) =>
-        val bendings = getBendings(word, bending)
-        val target = if(bending.rule < 50) TargetFile.Noun else TargetFile.Verb
-        bendings.map(result => print(result.word.toString, result.morphemes, result.lemma)) -> target
-      case Pronoun(value) => Seq(value + "\n") -> TargetFile.Pronoun
-      case NoBending(value) => Seq(value+ "\n") -> TargetFile.Indeclinable
-      case Error(value, _, _) => Seq(value+ "\n") -> TargetFile.Indeclinable
-      case _ => Nil -> TargetFile.Ignore
+        val bendings = getBendingsWithSuffix(word, bending)
+        bendings.map(result => print(result.word.toString, result.morphemes, result.lemma))
+      case Pronoun(value) => Seq(value + "\n")
+      case NoBending(value) => Seq(value+ "\n")
+      case Error(value, _, _) => Seq(value+ "\n")
+      case _ => Nil
     }
 
-  def addHyphenIfNeeded(prefix: String, suffix: String): String =
-    if(prefix.length == 1) prefix + "-" + suffix
+  def addPossessiveSuffixes(word: String, prefix: String, suffix: ResultWord, gradationOpt: Option[Gradation]): Seq[String] =
+    val suffixInflectionsWithPosSuffixes = PossessiveSuffixGeneration.addSuffixes(suffix, gradationOpt)
+    suffixInflectionsWithPosSuffixes.map(suffix => {
+      val resultWord = addHyphenIfNeeded(prefix, suffix.word.toString, word)
+      print(resultWord, suffix.morphemes, word)
+    })
+
+  def addHyphenIfNeeded(prefix: String, suffix: String, lemma: String): String =
+    if(prefix.length == 1 || lemma.contains('-')) prefix + "-" + suffix
     else if(Letters.isVowel(prefix.last) && prefix.last == suffix.head) prefix + "-" + suffix
     else prefix + suffix
 
@@ -99,7 +121,13 @@ object GenerateInflectedWords {
     if(num > 0) word + " "*num
     else word
 
-  def getBendings(lemma: String, bending: Bending) =
+  def getBendingsWithSuffix(lemma: String, bending: Bending) =
+    val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
+    if(bending.rule < 50) GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineBendings, word)
+    else if(bending.rule > 51 && bending.rule < 79) GenerateConjugatedWords(verbBendings, word)
+    else throw new Exception()
+
+  def getBendingsWithoutSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
     if(bending.rule < 50) GenerateDeclensionWords(nomineBendings, word)
     else if(bending.rule > 51 && bending.rule < 79) GenerateConjugatedWords(verbBendings, word)

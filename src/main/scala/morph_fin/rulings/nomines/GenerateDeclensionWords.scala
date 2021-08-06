@@ -2,7 +2,7 @@ package morph_fin.rulings.nomines
 
 import morph_fin.*
 import morph_fin.kotus_format.Entry
-import morph_fin.rulings.nomines.{Declension, Gradation, DeclensionRules}
+import morph_fin.rulings.nomines.{Declension, DeclensionRules, Gradation}
 import morph_fin.rulings.*
 
 import java.nio.charset.StandardCharsets
@@ -15,6 +15,7 @@ case class StructuredWord(root: String, gradation: String, ending: String) {
 case class Word(lemma: String, ruleNumber: Int, gradation: Option[Gradation])
 case class ResultWord(word: StructuredWord, morphemes: Morphemes, lemma: String)
 
+case class PSuffix(info: PossessiveSuffix, ending: String)
 
 enum Vocalization:
   case FrontVowel // a, o, u
@@ -22,6 +23,15 @@ enum Vocalization:
 
 
 object GenerateDeclensionWords {
+
+  import PossessiveSuffix._
+  val suffixes = Seq(
+    PSuffix(SingularFirst, "ni"),
+    PSuffix(SingularSecond, "si"),
+    PSuffix(PluralFirst, "mme"),
+    PSuffix(PluralSecond, "nne"),
+    PSuffix(Third, "nsa")
+  )
 
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
@@ -34,6 +44,12 @@ object GenerateDeclensionWords {
     val pluralEnding = rule.findCase(NomineMorphemes(Case.Nominative, GNumber.Plural))
     val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
     if isPluralLemma then word.lemma.dropRight(pluralEnding.ending.length) else word.lemma.dropRight(rule.drop)
+
+
+  def generateWithPossessiveSuffixes(rules: Seq[DeclensionRules], word: Word): Seq[ResultWord] =
+    val withoutSuffixes = apply(rules, word)
+    withoutSuffixes.flatMap(a => PossessiveSuffixGeneration.addSuffixes(a, word.gradation))
+  
 
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
@@ -98,7 +114,20 @@ object GenerateDeclensionWords {
       tpe == GradationType.Weak then Some(root.dropRight(1) + "j")
     else None
 
-
+  def updateVocalization(ending: String, vocalization: Vocalization): String =
+    if vocalization == Vocalization.BackVowel
+    then ending.map( _ match {
+      case a if a == 'a' => 'ä'
+      case a if a == 'o' => 'ö'
+      case a if a == 'u' => 'y'
+      case a             => a
+    })
+    else ending.map( _ match {
+      case a if a == 'ä' => 'a'
+      case a if a == 'ö' => 'o'
+      case a if a == 'y' => 'u'
+      case a             => a
+    })
   /**
    * Example words:
    * tie -> tiessä  (a -> ä in ending)
@@ -106,20 +135,7 @@ object GenerateDeclensionWords {
    * ies -> ikeen (-än as ending (ikeän))
    */
   def updateEnding(ending: Declension, vocalization: Vocalization, lastVowel: Option[Char], rootEnding: String, isGradation: Boolean): String =
-    val updatedEnding =
-      if vocalization == Vocalization.BackVowel
-      then ending.ending.map( _ match {
-        case a if a == 'a' => 'ä'
-        case a if a == 'o' => 'ö'
-        case a if a == 'u' => 'y'
-        case a             => a
-      })
-      else ending.ending.map( _ match {
-        case a if a == 'ä' => 'a'
-        case a if a == 'ö' => 'o'
-        case a if a == 'y' => 'u'
-        case a             => a
-      })
+    val updatedEnding = updateVocalization(ending.ending, vocalization)
 
     val updateCondition =
       updatedEnding.length > 1 &&

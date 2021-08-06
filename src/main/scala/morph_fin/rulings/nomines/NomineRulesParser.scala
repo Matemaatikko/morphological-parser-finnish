@@ -85,7 +85,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     NomineExampleDeclensions(number, lemma._1, gradation, wordList)
 
   inline def isLemma(moprhemes: NomineMorphemes): Boolean =
-    moprhemes.cse == Nominative && moprhemes.form == Singular
+    moprhemes.cse == Nominative && moprhemes.number == Singular
 
   inline def parseGradation: Option[Gradation] =
     if peek == ':' then

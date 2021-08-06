@@ -2,7 +2,7 @@ import morph_fin.*
 import morph_fin.inflection.GenerateInflectedWords
 import morph_fin.kotus_format.*
 import morph_fin.rulings.{Print, *}
-import morph_fin.rulings.nomines.{GenerateDeclensionWords, GenerateDeclensionRules, Gradation, LoadAndParseNomineRules, NomineRulesParser, Word}
+import morph_fin.rulings.nomines.{GenerateDeclensionRules, GenerateDeclensionWords, Gradation, LoadAndParseNomineRules, NomineRulesParser, ResultWord, Word}
 import morph_fin.rulings.verbs.{GenerateConjugatedWords, GenerateConjugationRules, LoadAndParseVerbRules, VerbRulesParser}
 import morph_fin.utils.{FilesLocation, Hyphenation}
 
@@ -12,6 +12,9 @@ import scala.io.{Codec, Source}
 
 val nomineRulings = LoadAndParseNomineRules.rules
 val verbRulings = LoadAndParseVerbRules.rules
+
+def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
+  EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
 
 def nprint(word: String, number: Int, gradationLetter: Option[Char]) =
   val word1 = EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
@@ -33,12 +36,15 @@ def printNomine(word: Word) =
   println("============================")
 end printNomine
 
-
 def printVerb(word: Word) =
   val cases = GenerateConjugatedWords(verbRulings, word)
   println(cases.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 end printVerb
+
+def printA(words: Seq[ResultWord]) =
+  println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
+  println("============================")
 
 def timed[A](fun: => A): A = {
   val start = System.currentTimeMillis()
@@ -48,12 +54,17 @@ def timed[A](fun: => A): A = {
   result
 }
 
+//val kotusUpdated = LoadUpdatedKotus.apply()
+
+
 //vprint("abstraktistua", 52, None)
 
 //timed(ReformatKotus.reformat)
 
 //timed(LoadUpdatedKotus.apply())
-timed(GenerateInflectedWords.apply)
+
+import morph_fin.inflection.TargetFile
+timed(GenerateInflectedWords.apply(TargetFile.Compound))
 
 //
 //val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
@@ -105,6 +116,9 @@ for(a <- objects) {
   .mkString("\n")
 print(results)*/
 
+
+//val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("järjestys", 39))
+//printA(results)
 
 //vin("keriytyä", 52, Some('F'))
 //vin("juosta", 70, None)
