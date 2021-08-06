@@ -17,12 +17,12 @@ object GenerateInflectedWords {
   val nomineBendings = LoadAndParseNomineRules.rules
   val verbBendings = LoadAndParseVerbRules.rules
 
-  val verb = FilesLocation.result_path + s"/bendings/verbs.txt"
-  val noun = FilesLocation.result_path + s"/bendings/nouns.txt"
-  val compound = FilesLocation.result_path + s"/bendings/compounds.txt"
-  val pronoun = FilesLocation.result_path + s"/bendings/pronoun.txt"
-  val indeclinable = FilesLocation.result_path + s"/bendings/indeclinables.txt"
-  val error = FilesLocation.result_path + s"/bendings/error.txt"
+  val verb = FilesLocation.result_path + s"/inflections/verbs.txt"
+  val noun = FilesLocation.result_path + s"/inflections/nouns.txt"
+  val compound = FilesLocation.result_path + s"/inflections/compounds.txt"
+  val pronoun = FilesLocation.result_path + s"/inflections/pronoun.txt"
+  val indeclinable = FilesLocation.result_path + s"/inflections/indeclinables.txt"
+  val error = FilesLocation.result_path + s"/inflections/error.txt"
 
   def apply(filter: TargetFile): Unit =
     val words: Seq[UpdatedWord] = LoadUpdatedKotus.apply().filter(a => getTarget(a) == filter)
