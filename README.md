@@ -74,7 +74,7 @@ S:lemma:inflection                               suffix
 2:lemma:P:prefix:inflection:S:suffix:inflection  compound word with prefix having inflection in cases
 ````
 
-Bending - wordlist
+Generated inflections
 -----------------------
 Based on kotus - wordlist we generate list that maps words to lemma and bending information. 
 [Documents](https://github.com/Matemaatikko/morphological-parser-finnish/blob/master/src/main/files/result/).
@@ -117,7 +117,7 @@ Consonant gradation
 -------------------
 
 
-Incorrect bending (To be fixed)
+Incorrect inflection (To be fixed)
 =============================
 - The following words have incorrect inflection:
   - hapan

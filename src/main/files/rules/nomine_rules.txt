@@ -1108,7 +1108,7 @@ S|Tra: naiseksi
 S|Abe: naisetta
 
 P|Nom: naiset
-P|Gen: naisten naisin
+P|Gen: naisten naisien
 P|Par: naisia
 P|Ine: naisissa
 P|Ela: naisista
@@ -1413,7 +1413,7 @@ P|Abe: hameitta
 P|Kom: hameine
 
 <49>
-S|Nom: askel
+S|Nom: askel askele
 S|Gen: askelen askeleen
 S|Par: askelta askeletta
 S|Ine: askelessa askeleessa

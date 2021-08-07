@@ -1,4 +1,13 @@
 - TODO bending_mapping
 
+- TODO address "puolisataa"
 
+ -Vn suffix is missing if inflection has two same vowels before it.
 
+- laaka -> laa'an (Usage of apostrophe)
+- askele - askeleeeni: askeleeen:S:Gen:askele
+- (askel = askele) former dont have long inflections
+- Class (5) consonant ending words.
+- "kaunis" wrong inflection
+- Check G-gradation: does it contain "k:-" cases.
+- Infinitives have possessive suffixes.
