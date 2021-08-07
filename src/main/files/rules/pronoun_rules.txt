@@ -1,0 +1,165 @@
+#S = Singular
+#P = Plural
+#-O = Omistusliite
+#Nom = Nominative (valo)
+#Gen = Genetive (valon)
+#Akk = Akkusative (valon, valo)
+#Par = Partitive (valoa)
+#Ine = Inessive (valossa)
+#Ela = Elative (valosta)
+#Ill = Illative (valoon)
+#Ade = Adessive (valolla)
+#Abl = Ablative (valolta)
+#All = Allative (valolle)
+#Ess = Essive (valona)
+#Tra = Translative (valoksi)
+#Ins = Instructive (valoin)
+#Abe = Abessive (valotta)
+#Kom = Komitative (valoine-O)
+#G = Gradation
+#S = Strong
+#W = Weak
+
+<he>
+Nom: he
+Gen: heidän
+Par: heitä
+Ine: heissä
+Ela: heistä
+Ill: heihin
+Ade: heillä
+Abl: heiltä
+All: heille
+Ess: heinä
+Tra: heiksi
+Abe: heittä
+
+<hän>
+Nom: hän
+Gen: hänen
+Par: häntä
+Ine: hänessä
+Ela: hänestä
+Ill: häneen
+Ade: hänellä
+Abl: häneltä
+All: hänelle
+Ess: hänenä
+Tra: häneksi
+Abe: hänettä
+
+<joka>
+NoInf
+
+<jokin>
+S|Nom: jokin
+S|Gen: jonkin
+S|Par: jotakin jotain
+S|Ine: jossakin jossain
+S|Ela: jostakin jostain
+S|Ill: johonkin
+S|Ade: jollakin jollain
+S|Abl: joltakin joltain
+S|All: jollekin
+S|Ess: jonakin jonain
+S|Tra: joksikin
+S|Abe: jottakin
+
+P|Nom: jotkin
+P|Gen: joittenkin joidenkin
+P|Par: joitakin joitain
+P|Ine: joissakin joissain
+P|Ela: joistakin joistain
+P|Ill: joihinkin
+P|Ade: joillakin joillain
+P|Abl: joiltakin joiltain
+P|All: joillekin
+P|Ess: joinakin joinain
+P|Tra: joiksikin
+P|Ins: joittakin
+P|Abe: joinkin
+
+<joku>
+S|Nom: joku
+S|Gen: jonkun
+S|Par: jotakuta
+S|Ine: jossakussa
+S|Ela: jostakusta
+S|Ill: johonkuhun
+S|Ade: jollakulla
+S|Abl: joltakulta
+S|All: jollekulle
+S|Ess: jonakuna
+S|Tra: joksikuksi
+
+P|Nom: jotkut
+P|Gen: joidenkuiden joittenkuitten
+P|Par: joitakuita
+P|Ine: joissakuissa
+P|Ela: joissakuista
+P|Ill: joihinkuihin
+P|Ade: joillakuilla
+P|Abl: joiltakuilta
+P|All: joillekuille
+P|Ess: joinakuina
+P|Tra: joiksikuiksi
+P|Abe: joinkuin
+P|Kom: joinekuine
+
+<ken>
+S|Nom: ken
+S|Gen: kenen
+S|Par: ketä
+S|Ine: kenessä
+S|Ela: kenestä
+S|Ill: keneen kehen
+S|Ade: kenellä kellä
+S|Abl: valolta
+S|All: valolle
+S|Ess: valona
+S|Tra: valoksi
+S|Abe: valotta
+
+P|Nom: valot
+P|Gen: valojen
+P|Par: valoja
+P|Ine: valoissa
+P|Ela: valoista
+P|Ill: valoihin
+P|Ade: valoilla
+P|Abl: valoilta
+P|All: valoille
+P|Ess: valoina
+P|Tra: valoiksi
+P|Ins: valoin
+P|Abe: valoitta
+P|Kom: valoine
+
+
+
+
+kenkään
+kuka
+kukaan
+kukin
+me
+mikin
+mikä
+mikään
+minä
+missä
+missäkin
+missään
+muuan
+mä
+ne
+nuo
+nämä
+se
+sinä
+sä
+te
+toi
+tuo
+tämä
+tää
