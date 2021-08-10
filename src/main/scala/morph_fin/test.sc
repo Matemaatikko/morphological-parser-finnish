@@ -117,7 +117,7 @@ for(a <- objects) {
 print(results)*/
 
 
-val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("askele", 49))
+val results = GenerateDeclensionWords.apply(nomineRulings, getWord("pick-up", 5))
 printA(results)
 
 

@@ -46,7 +46,7 @@ C       tt : t
 D       k : –
 E       p : v
 F       t : d
-G       nk : ng [ k :  ]
+G       nk : ng
 H       mp : mm
 I       lt : ll
 J       nt : nn

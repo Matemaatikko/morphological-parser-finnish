@@ -6,6 +6,6 @@ object Letters {
   val consonants = Seq('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z')
 
   inline def isVowel(letter: Char): Boolean = vowels.contains(letter)
-  inline def isConsonant(letter: Char): Boolean = consonants.contains(letter)
+  inline def isConsonant(letter: Char): Boolean = !isVowel(letter)// consonants.contains(letter)
 
 }

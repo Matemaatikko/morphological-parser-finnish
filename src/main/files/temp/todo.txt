@@ -3,10 +3,8 @@
 - TODO address "puolisataa"
 
 
-- askele - askeleeeni: askeleeen:S:Gen:askele
-- (askel = askele) former dont have long inflections
 
-- Class (5) consonant ending words.
+
 - "kaunis" wrong inflection
 
 

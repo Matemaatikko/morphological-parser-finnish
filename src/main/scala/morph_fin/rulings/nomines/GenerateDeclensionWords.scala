@@ -4,6 +4,7 @@ import morph_fin.*
 import morph_fin.kotus_format.Entry
 import morph_fin.rulings.nomines.{Declension, DeclensionRules, Gradation}
 import morph_fin.rulings.*
+import morph_fin.utils.Letters
 
 import java.nio.charset.StandardCharsets
 
@@ -61,6 +62,7 @@ object GenerateDeclensionWords {
     }
 
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word))
+      .map(resultWord => updateRule5(resultWord, word.ruleNumber))
   end apply
 
   def checkPlurality(rule: DeclensionRules, word: Word): (String, String) =
@@ -70,13 +72,26 @@ object GenerateDeclensionWords {
     val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
     val lemmaFromPlural = word.lemma.dropRight(pluralEnding.ending.length) + singularEnding.ending //Might have wrong gradation.
     val rootFromPlural = lemmaFromPlural.dropRight(rule.drop)
-    val root = if isPluralLemma then rootFromPlural else word.lemma.dropRight(rule.drop)
+    val root = if isPluralLemma then rootFromPlural else checkRule5(word, rule)
     val lemma = if isPluralLemma then lemmaFromPlural else word.lemma
     (root, lemma)
 
   //Example: askele -> askel
   def checkRule49(root: String): String =
     if(root.endsWith("e")) then root.dropRight(1) else root
+
+  //Example: pick-up (has same inflection as risti, ristejä)
+  def checkRule5(word: Word, rule: DeclensionRules): String =
+    if(word.ruleNumber == 5 && Letters.isConsonant(word.lemma.last)) word.lemma.dropRight(rule.drop - 1)
+    else word.lemma.dropRight(rule.drop)
+
+  //Under rule 5 removes wrong 'i' from Nom:S if needed. Example: pick-upi -> pick-up
+  def updateRule5(resultWord: ResultWord, ruleNumber: Int): ResultWord =
+    if(ruleNumber == 5 && resultWord.morphemes == NomineMorphemes(Case.Nominative, GNumber.Singular) && resultWord.lemma.last != 'i')
+    then
+      val updatedWord = resultWord.word.copy(ending = "")
+      resultWord.copy(word = updatedWord)
+    else resultWord
 
   def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word): ResultWord =
     val vocalization = resolveVocalization(lemma)
