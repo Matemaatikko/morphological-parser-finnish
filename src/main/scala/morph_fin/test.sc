@@ -117,7 +117,7 @@ for(a <- objects) {
 print(results)*/
 
 
-val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("aapa", 9, Some('E')))
+val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("laaka", 9, Some('D')))
 printA(results)
 
 //vin("keriytyä", 52, Some('F'))

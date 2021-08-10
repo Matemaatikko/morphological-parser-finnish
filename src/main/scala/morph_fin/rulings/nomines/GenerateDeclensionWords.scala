@@ -85,7 +85,12 @@ object GenerateDeclensionWords {
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
       case None            => ""
     }
-    val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradation, root._2 + updatedEnding)
+    val gradationWithApostropheIfNeeded = //Example: laaka -> laa'an
+      if gradation.isEmpty && (root._1.last == (root._2 + updatedEnding).head)
+      then "\'"
+      else gradation
+
+    val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradationWithApostropheIfNeeded, root._2 + updatedEnding)
     ResultWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
 
