@@ -117,59 +117,7 @@ for(a <- objects) {
 print(results)*/
 
 
-val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("laaka", 9, Some('D')))
+val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("askele", 49))
 printA(results)
-
-//vin("keriytyä", 52, Some('F'))
-//vin("juosta", 70, None)
-
-//vin("vastata", 73, None)
-//vin("hypätä", 73, Some('B'))
-//vprint("hypähtää", 53, Some('F'))
-//vprint("aateloida", 62, None)
-//vprint("juoda", 64, None)
-//vprint("ahdata", 73, Some('F'))
-//vprint("kadota", 74, Some('F'))
-//vprint("ahertaa", 54, Some('K'))
-//vprint("aientaa", 54, Some('J'))
-//vprint("viedä", 64, None)
-
-//prin("ies", 41, Some('D'))
-//prin("ahdas", 41, Some('F'))
-//prin("aaprotti", 5, Some('C'))
-//
-//prin("hapan", 33, Some('B'))
-//prin("kiittimet", 33, Some('C'))
-//prin("morsian", 33, None)
-
-//prin("nukke", 8, Some('A'))
-//prin("jeppe", 8, Some('B'))
-
-//prin("hapsi", 7, None)
-//prin("säde", 48, Some('F'))
-//prin("työ", 19, None)
-//
-//prin("kettu", 1, Some('C'))
-//prin("ien", 32, Some('D'))
-//prin("aie", 48, Some('D'))
-//prin("aika", 9, Some('D'))
-//prin("taika", 9, Some('D'))
-//prin("tuote", 48, Some('C'))
-
-//prin("raffinoitunut", 47, None)
-//prin("rahkeet", 48, Some('L'))
-//prin("rattaat", 41, Some('C'))
-//prin("reivit", 5, None)
-//prin("riekkujaiset", 38, None)
-//
-//prin("valta", 9, Some('I'))
-//prin("pitkä", 10, None)
-//prin("iso", 1, None)
-//prin("aivot", 1, None)
-//
-//prin("särkynyt", 47, None)
-//
-//prin("kahdeksa", 10, None)
-//prin("vemmel", 49, Some('H'))
 
 

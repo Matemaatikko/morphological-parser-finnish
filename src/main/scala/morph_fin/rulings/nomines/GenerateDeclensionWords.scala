@@ -49,24 +49,34 @@ object GenerateDeclensionWords {
    */
   def apply(rules: Seq[DeclensionRules], word: Word): Seq[ResultWord] =
     val rule = rules.find(_.number == word.ruleNumber).getOrElse(throw new Exception(s"No nomine rule found for: ${word.ruleNumber}"))
+
+    //Resolve root
+    val (root, lemma) = checkPlurality(rule, word)
+    val updatedRoot = checkRule49(root)
+
+    //Resolve gradation
+    val rootDividedByGradation = word.gradation match {
+      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(updatedRoot, gradation)
+      case _                                    => (updatedRoot, "")
+    }
+
+    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word))
+  end apply
+
+  def checkPlurality(rule: DeclensionRules, word: Word): (String, String) =
     val pluralEnding = rule.findCase(NomineMorphemes(Case.Nominative, GNumber.Plural))
     val singularEnding = rule.findCase(NomineMorphemes(Case.Nominative, GNumber.Singular))
 
-    //Resolve root
     val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
     val lemmaFromPlural = word.lemma.dropRight(pluralEnding.ending.length) + singularEnding.ending //Might have wrong gradation.
     val rootFromPlural = lemmaFromPlural.dropRight(rule.drop)
     val root = if isPluralLemma then rootFromPlural else word.lemma.dropRight(rule.drop)
     val lemma = if isPluralLemma then lemmaFromPlural else word.lemma
+    (root, lemma)
 
-    //Resolve gradation
-    val rootDividedByGradation = word.gradation match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation)
-      case _                                    => (root, "")
-    }
-
-    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word))
-  end apply
+  //Example: askele -> askel
+  def checkRule49(root: String): String =
+    if(root.endsWith("e")) then root.dropRight(1) else root
 
   def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word): ResultWord =
     val vocalization = resolveVocalization(lemma)
@@ -86,7 +96,7 @@ object GenerateDeclensionWords {
       case None            => ""
     }
     val gradationWithApostropheIfNeeded = //Example: laaka -> laa'an
-      if gradation.isEmpty && (root._1.last == (root._2 + updatedEnding).head)
+      if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption)
       then "\'"
       else gradation
 

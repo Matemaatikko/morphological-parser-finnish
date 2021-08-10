@@ -2,7 +2,6 @@
 
 - TODO address "puolisataa"
 
-- laaka -> laa'an (Usage of apostrophe)
 
 - askele - askeleeeni: askeleeen:S:Gen:askele
 - (askel = askele) former dont have long inflections
