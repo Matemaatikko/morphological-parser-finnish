@@ -24,6 +24,7 @@
 S|Nom: valo
 S|Gen: valon
 S|Par: valoa
+S|Akk: valo valon
 S|Ine: valossa
 S|Ela: valosta
 S|Ill: valoon
@@ -37,6 +38,7 @@ S|Abe: valotta
 P|Nom: valot
 P|Gen: valojen
 P|Par: valoja
+P|Akk: valot
 P|Ine: valoissa
 P|Ela: valoista
 P|Ill: valoihin

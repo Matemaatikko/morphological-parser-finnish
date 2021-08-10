@@ -1,4 +1,4 @@
-- TODO bending_mapping
+
 
 - TODO address "puolisataa"
 
@@ -11,3 +11,6 @@
 - "kaunis" wrong inflection
 - Check G-gradation: does it contain "k:-" cases.
 - Infinitives have possessive suffixes.
+
+
+- TODO Add accusative

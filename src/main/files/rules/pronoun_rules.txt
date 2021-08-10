@@ -2,8 +2,8 @@
 #P = Plural
 #-O = Omistusliite
 #Nom = Nominative (valo)
-#Gen = Genetive (valon)
-#Akk = Akkusative (valon, valo)
+#Gen = Genitive (valon)
+#Akk = Accusative (valon, valo)
 #Par = Partitive (valoa)
 #Ine = Inessive (valossa)
 #Ela = Elative (valosta)
@@ -15,7 +15,7 @@
 #Tra = Translative (valoksi)
 #Ins = Instructive (valoin)
 #Abe = Abessive (valotta)
-#Kom = Komitative (valoine-O)
+#Kom = Comitative (valoine-O)
 #G = Gradation
 #S = Strong
 #W = Weak
@@ -24,6 +24,7 @@
 P|Nom: he
 P|Gen: heidän
 P|Par: heitä
+P|Akk: heidät
 P|Ine: heissä
 P|Ela: heistä
 P|Ill: heihin
@@ -38,6 +39,7 @@ P|Abe: heittä
 S|Nom: hän
 S|Gen: hänen
 S|Par: häntä
+S|Akk: hänet
 S|Ine: hänessä
 S|Ela: hänestä
 S|Ill: häneen
@@ -52,6 +54,7 @@ S|Abe: hänettä
 S|Nom: joka
 S|Gen: jonka
 S|Par: jota
+S|Akk: joka jonka
 S|Ine: jossa
 S|Ela: josta
 S|Ill: johon
@@ -65,6 +68,7 @@ S|Abe: (jotta)
 P|Nom: jotka
 P|Gen: joiden joitten
 P|Par: joita
+P|Akk: jotka
 P|Ine: joissa
 P|Ela: joista
 P|Ill: joihin
@@ -81,6 +85,7 @@ P|Kom: (joine)
 S|Nom: jokin
 S|Gen: jonkin
 S|Par: jotakin jotain
+S|Akk: jokin jonkin
 S|Ine: jossakin jossain
 S|Ela: jostakin jostain
 S|Ill: johonkin
@@ -94,6 +99,7 @@ S|Abe: jottakin
 P|Nom: jotkin
 P|Gen: joittenkin joidenkin
 P|Par: joitakin joitain
+P|Akk: jotkin
 P|Ine: joissakin joissain
 P|Ela: joistakin joistain
 P|Ill: joihinkin
@@ -109,6 +115,7 @@ P|Abe: joinkin
 S|Nom: joku
 S|Gen: jonkun
 S|Par: jotakuta
+S|Akk: joku jonkun
 S|Ine: jossakussa
 S|Ela: jostakusta
 S|Ill: johonkuhun
@@ -121,6 +128,7 @@ S|Tra: joksikuksi
 P|Nom: jotkut
 P|Gen: joidenkuiden joittenkuitten
 P|Par: joitakuita
+P|Akk: jotkut
 P|Ine: joissakuissa
 P|Ela: joissakuista
 P|Ill: joihinkuihin
@@ -136,6 +144,7 @@ P|Kom: joinekuine
 S|Nom: kuka (ken)
 S|Gen: kenen (kunka)
 S|Par: ketä (kuta)
+S|Akk: kenet (kuka) (kunka)
 S|Ine: kenessä (kussa)
 S|Ela: kenestä (kusta)
 S|Ill: keneen kehen (kuhun)
@@ -148,6 +157,7 @@ S|Tra: keneksi (kuksi)
 P|Nom: ketkä (kutka)
 P|Gen: keiden keitten (kuiden) (kuitten)
 P|Par: keitä (kuita)
+P|Akk: ketkä (kutka)
 P|Ine: keissä (kuissa)
 P|Ela: keistä (kuista)
 P|Ill: keihin (kuihin)
@@ -186,6 +196,7 @@ P|Tra: keiksikään (kuiksikaan)
 S|Nom: kukin
 S|Gen: kunkin
 S|Par: kutakin
+S|Akk: kukin kunkin
 S|Ine: kussakin
 S|Ela: kustakin
 S|Ill: kuhunkin
@@ -199,6 +210,7 @@ S|Abe: (kuttakin)
 P|Nom: kutkin
 P|Gen: kuidenkin kuittenkin
 P|Par: kuitakin
+P|Akk: kutkin
 P|Ine: kuissakin
 P|Ela: kuistakin
 P|Ill: kuihinkin
@@ -215,6 +227,7 @@ P|Abe: (kuittakin)
 P|Nom: me
 P|Gen: meidän
 P|Par: meitä
+P|Akk: meidät
 P|Ine: meissä
 P|Ela: meistä
 P|Ill: meihin
@@ -229,6 +242,7 @@ P|Abe: (meittä)
 S|Nom: mikä
 S|Gen: minkä
 S|Par: mitä
+S|Akk: mikä minkä
 S|Ine: missä
 S|Ela: mistä
 S|Ill: mihin (mihinkä)
@@ -241,6 +255,7 @@ S|Tra: miksi (miksikä)
 P|Nom: mitkä
 P|Gen: minkä
 P|Par: mitä
+P|Akk: mitkä
 P|Ine: missä
 P|Ela: mistä
 P|Ill: mihin (mihinkä)
@@ -251,23 +266,229 @@ P|Ess: minä
 P|Tra: miksi (miksikä)
 
 <mikään>
+S|Nom: mikään
+S|Gen: minkään
+S|Par: mitään mitäkään
+S|Ine: missään missäkään
+S|Ela: mistään mistäkään
+S|Ill: mihinkään
+S|Ade: millään milläkään
+S|Abl: miltään miltäkään
+S|All: millekään
+S|Ess: minään minäkään
+S|Tra: miksikään
 
-mikään
-minä
-missä
-missäkin
-missään
-muuan
-mä
-ne
-nuo
-nämä
-se
-sinä
-sä
-te
-toi
-tuo
-tämä
-tää
-mikin
+P|Nom: mitkään
+P|Gen: minkään
+P|Par: mitään mitäkään
+P|Ine: missään missäkään
+P|Ela: mistään mistäkään
+P|Ill: mihinkään
+P|Ade: millään milläkään
+P|Abl: miltään miltäkään
+P|All: millekään
+P|Ess: minään minäkään
+P|Tra: miksikään
+
+<minä>
+S|Nom: minä
+S|Gen: minun
+S|Par: minun
+S|Akk: minut
+S|Ine: minussa
+S|Ela: minusta
+S|Ill: minuun
+S|Ade: minulla
+S|Abl: minulta
+S|All: minulle
+S|Ess: minuna
+S|Tra: minuksi
+S|Abe: (minutta)
+
+<mikin:NoInf>
+<missä:NoInf>
+<missäkin:NoInf>
+
+<muuan>
+S|Nom: muuan
+S|Gen: muutaman
+S|Par: muuatta muutamaa
+S|Akk: muuan muutaman
+S|Ine: muutamassa
+S|Ela: muutamasta
+S|Ill: muutamaan
+S|Ade: muutamalla
+S|Abl: muutamalta
+S|All: muutamalle
+S|Ess: muutamana (muuanna)
+S|Tra: muutamaksi
+S|Abe: muutamatta
+
+P|Nom: muutamat
+P|Gen: muutamien muutamain
+P|Par: muutamia
+P|Akk: muutamat
+P|Ine: muutamissa
+P|Ela: muutamista
+P|Ill: muutamiin
+P|Ade: muutamilla
+P|Abl: muutamilta
+P|All: muutamille
+P|Ess: muutamina
+P|Tra: muutamiksi
+P|Ins: muutamin
+P|Abe: muutamitta
+P|Kom: muutamine
+
+
+<mä>
+S|Nom: mä
+S|Gen: mun
+S|Par: mua
+S|Akk: mut
+S|Ine: mussa
+S|Ela: musta
+S|Ill: muhun
+S|Ade: mulla
+S|Abl: multa
+S|All: mulle
+S|Ess: muna
+S|Tra: muksi
+
+<ne>
+P|Nom: ne
+P|Gen: niiden niitten
+P|Par: niitä
+P|Akk: ne
+P|Ine: niissä
+P|Ela: niistä
+P|Ill: niihin
+P|Ade: niillä
+P|Abl: niiltä
+P|All: niille
+P|Ess: niinä
+P|Tra: niiksi
+P|Ins: niin
+P|Abe: (niittä)
+P|Kom: niine
+
+<nuo>
+P|Nom: nuo
+P|Gen: noiden noitten
+P|Par: noita
+P|Akk: nuo
+P|Ine: noissa
+P|Ela: noista
+P|Ill: noihin
+P|Ade: noilla
+P|Abl: noilta
+P|All: noille
+P|Ess: noina
+P|Tra: noiksi
+P|Ins: noin
+P|Abe: (noitta)
+P|Kom: noine
+
+<nämä>
+P|Nom: nämä
+P|Gen: näiden näitten
+P|Par: näitä
+P|Akk: nämä
+P|Ine: näissä
+P|Ela: näistä
+P|Ill: näihin
+P|Ade: näillä
+P|Abl: näiltä
+P|All: näille
+P|Ess: näinä
+P|Tra: näiksi
+P|Ins: näin
+P|Abe: (näittä)
+P|Kom: näine
+
+<se>
+S|Nom: se
+S|Gen: sen
+S|Par: sitä
+S|Akk: se sen
+S|Ine: siinä
+S|Ela: siitä
+S|Ill: siihen
+S|Ade: sillä
+S|Abl: siltä
+S|All: sille
+S|Ess: sinä
+S|Tra: siksi
+
+<sinä>
+S|Nom: sinä
+S|Gen: sinun
+S|Par: sinua
+S|Akk: sinut
+S|Ine: sinussa
+S|Ela: sinusta
+S|Ill: sinuun
+S|Ade: sinulla
+S|Abl: sinulta
+S|All: sinulle
+S|Ess: sinuna
+S|Tra: sinuksi
+S|Abe: (sinutta)
+
+<sä>
+S|Nom: sä
+S|Gen: sun
+S|Par: sua
+S|Akk: sut
+S|Ine: sussa
+S|Ela: susta
+S|Ill: suhun
+S|Ade: sulla
+S|Abl: sulta
+S|All: sulle
+S|Ess: suna
+S|Tra: suksi
+
+<te>
+P|Nom: te
+P|Gen: teidän
+P|Par: teitä
+P|Akk: teidät
+P|Ine: teissä
+P|Ela: teistä
+P|Ill: teihin
+P|Ade: teillä
+P|Abl: teiltä
+P|All: teille
+P|Ess: teinä
+P|Tra: teiksi
+P|Abe: (teittä)
+
+<tuo>
+S|Nom: tuo
+S|Gen: tuon
+S|Par: tuota
+S|Akk: tuo tuon
+S|Ine: tuossa
+S|Ela: tuosta
+S|Ill: tuohon
+S|Ade: tuolla
+S|Abl: tuolta
+S|All: tuolle
+S|Ess: tuona
+S|Tra: tuoksi
+S|Abe: (tuotta)
+
+<tämä>
+S|Nom: tämä tää
+S|Gen: tämän
+S|Par: tätä
+S|Akk: tämä tämän
+S|Ine: tässä
+S|Ela: tästä
+S|Ill: tähän
+S|Ade: tällä
+S|Abl: tältä
+S|All: tälle
+S|Ess: tänä
+S|Tra: täksi
