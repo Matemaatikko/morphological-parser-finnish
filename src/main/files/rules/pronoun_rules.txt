@@ -21,35 +21,61 @@
 #W = Weak
 
 <he>
-Nom: he
-Gen: heidän
-Par: heitä
-Ine: heissä
-Ela: heistä
-Ill: heihin
-Ade: heillä
-Abl: heiltä
-All: heille
-Ess: heinä
-Tra: heiksi
-Abe: heittä
+P|Nom: he
+P|Gen: heidän
+P|Par: heitä
+P|Ine: heissä
+P|Ela: heistä
+P|Ill: heihin
+P|Ade: heillä
+P|Abl: heiltä
+P|All: heille
+P|Ess: heinä
+P|Tra: heiksi
+P|Abe: heittä
 
 <hän>
-Nom: hän
-Gen: hänen
-Par: häntä
-Ine: hänessä
-Ela: hänestä
-Ill: häneen
-Ade: hänellä
-Abl: häneltä
-All: hänelle
-Ess: hänenä
-Tra: häneksi
-Abe: hänettä
+S|Nom: hän
+S|Gen: hänen
+S|Par: häntä
+S|Ine: hänessä
+S|Ela: hänestä
+S|Ill: häneen
+S|Ade: hänellä
+S|Abl: häneltä
+S|All: hänelle
+S|Ess: hänenä
+S|Tra: häneksi
+S|Abe: hänettä
 
 <joka>
-NoInf
+S|Nom: joka
+S|Gen: jonka
+S|Par: jota
+S|Ine: jossa
+S|Ela: josta
+S|Ill: johon
+S|Ade: jolla
+S|Abl: jolta
+S|All: jolle
+S|Ess: jona
+S|Tra: joksi
+S|Abe: (jotta)
+
+P|Nom: jotka
+P|Gen: joiden joitten
+P|Par: joita
+P|Ine: joissa
+P|Ela: joista
+P|Ill: joihin
+P|Ade: joilla
+P|Abl: joilta
+P|All: joille
+P|Ess: joina
+P|Tra: joiksi
+P|Ins: (join)
+P|Abe: (joitta)
+P|Kom: (joine)
 
 <jokin>
 S|Nom: jokin
@@ -106,45 +132,126 @@ P|Tra: joiksikuiksi
 P|Abe: joinkuin
 P|Kom: joinekuine
 
-<ken>
-S|Nom: ken
-S|Gen: kenen
-S|Par: ketä
-S|Ine: kenessä
-S|Ela: kenestä
-S|Ill: keneen kehen
-S|Ade: kenellä kellä
-S|Abl: valolta
-S|All: valolle
-S|Ess: valona
-S|Tra: valoksi
-S|Abe: valotta
+<kuka>
+S|Nom: kuka (ken)
+S|Gen: kenen (kunka)
+S|Par: ketä (kuta)
+S|Ine: kenessä (kussa)
+S|Ela: kenestä (kusta)
+S|Ill: keneen kehen (kuhun)
+S|Ade: kenellä kellä (kulla)
+S|Abl: keneltä keltä (kulta)
+S|All: kenelle kelle (kulle)
+S|Ess: kenenä (kuna)
+S|Tra: keneksi (kuksi)
 
-P|Nom: valot
-P|Gen: valojen
-P|Par: valoja
-P|Ine: valoissa
-P|Ela: valoista
-P|Ill: valoihin
-P|Ade: valoilla
-P|Abl: valoilta
-P|All: valoille
-P|Ess: valoina
-P|Tra: valoiksi
-P|Ins: valoin
-P|Abe: valoitta
-P|Kom: valoine
+P|Nom: ketkä (kutka)
+P|Gen: keiden keitten (kuiden) (kuitten)
+P|Par: keitä (kuita)
+P|Ine: keissä (kuissa)
+P|Ela: keistä (kuista)
+P|Ill: keihin (kuihin)
+P|Ade: keillä (kuilla)
+P|Abl: keiltä (kuilta)
+P|All: keille (kuille)
+P|Ess: keinä (kuina)
+P|Tra: keiksi (kuiksi)
+
+<kukaan>
+S|Nom: kukaan (kenkään)
+S|Gen: kenenkään (kunkaan)
+S|Par: ketään (kutakaan)
+S|Ine: kenessäkään (kussakaan)
+S|Ela: kenestäkään (kustakaan)
+S|Ill: keneenkään kehenkään (kuhunkaan)
+S|Ade: kenelläkään kelläkään kellään (kullakaan)
+S|Abl: keneltäkään keltäkään keltään (kultakaan)
+S|All: kenellekään kellekään (kullekaan)
+S|Ess: kenenäkään (kunakaan)
+S|Tra: keneksikään (kuksikaan)
+
+P|Nom: ketkään (kutkaan)
+P|Gen: keidenkään keittenkään (kuidenkaan) (kuittenkaan)
+P|Par: keitäkään (kuitakaan)
+P|Ine: keissäkään (kuissakaan)
+P|Ela: keistäkään (kuistakaan)
+P|Ill: keihinkään (kuihinkaan)
+P|Ade: keilläkään keillään (kuillakaan)
+P|Abl: keiltäkään (kuiltakaan)
+P|All: keillekään (kuillekaan)
+P|Ess: keinäkään (kuinakaan)
+P|Tra: keiksikään (kuiksikaan)
+
+<kukin>
+S|Nom: kukin
+S|Gen: kunkin
+S|Par: kutakin
+S|Ine: kussakin
+S|Ela: kustakin
+S|Ill: kuhunkin
+S|Ade: kullakin
+S|Abl: kultakin
+S|All: kullekin
+S|Ess: kunakin
+S|Tra: kuksikin
+S|Abe: (kuttakin)
+
+P|Nom: kutkin
+P|Gen: kuidenkin kuittenkin
+P|Par: kuitakin
+P|Ine: kuissakin
+P|Ela: kuistakin
+P|Ill: kuihinkin
+P|Ade: kuillakin
+P|Abl: kuiltakin
+P|All: kuillekin
+P|Ess: kuinakin
+P|Tra: kuiksikin
+P|Ins: kuinkin
+P|Abe: (kuittakin)
 
 
+<me>
+P|Nom: me
+P|Gen: meidän
+P|Par: meitä
+P|Ine: meissä
+P|Ela: meistä
+P|Ill: meihin
+P|Ade: meillä
+P|Abl: meiltä
+P|All: meille
+P|Ess: meinä
+P|Tra: meiksi
+P|Abe: (meittä)
 
+<mikä>
+S|Nom: mikä
+S|Gen: minkä
+S|Par: mitä
+S|Ine: missä
+S|Ela: mistä
+S|Ill: mihin (mihinkä)
+S|Ade: millä
+S|Abl: miltä
+S|All: mille (millekä)
+S|Ess: minä
+S|Tra: miksi (miksikä)
 
-kenkään
-kuka
-kukaan
-kukin
-me
-mikin
-mikä
+P|Nom: mitkä
+P|Gen: minkä
+P|Par: mitä
+P|Ine: missä
+P|Ela: mistä
+P|Ill: mihin (mihinkä)
+P|Ade: millä
+P|Abl: miltä
+P|All: mille (millekä)
+P|Ess: minä
+P|Tra: miksi (miksikä)
+
+<mikään>
+
 mikään
 minä
 missä
@@ -163,3 +270,4 @@ toi
 tuo
 tämä
 tää
+mikin
