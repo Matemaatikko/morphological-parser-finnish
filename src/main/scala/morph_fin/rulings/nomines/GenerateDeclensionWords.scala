@@ -5,7 +5,7 @@ import morph_fin.kotus_format.Entry
 import morph_fin.rulings.nomines.{Declension, DeclensionRules, Gradation}
 import morph_fin.rulings.*
 import morph_fin.utils.Letters
-
+import MorphemesUtils._
 import java.nio.charset.StandardCharsets
 
 
@@ -61,13 +61,13 @@ object GenerateDeclensionWords {
       case _                                    => (updatedRoot, "")
     }
 
-    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word))
+    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word, rule))
       .map(resultWord => updateRule5(resultWord, word.ruleNumber))
   end apply
 
   def checkPlurality(rule: DeclensionRules, word: Word): (String, String) =
-    val pluralEnding = rule.findCase(NomineMorphemes(Case.Nominative, GNumber.Plural))
-    val singularEnding = rule.findCase(NomineMorphemes(Case.Nominative, GNumber.Singular))
+    val pluralEnding = rule.findCase(Nom::P)
+    val singularEnding = rule.findCase(Nom::S)
 
     val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
     val lemmaFromPlural = word.lemma.dropRight(pluralEnding.ending.length) + singularEnding.ending //Might have wrong gradation.
@@ -82,21 +82,19 @@ object GenerateDeclensionWords {
 
   //Example: pick-up (has same inflection as risti, ristejä)
   def checkRule5(word: Word, rule: DeclensionRules): String =
-    if(word.ruleNumber == 5 && Letters.isConsonant(word.lemma.last)) word.lemma.dropRight(rule.drop - 1)
+    if(word.ruleNumber == 5 && Letters.isConsonant(word.lemma.last)) word.lemma
     else word.lemma.dropRight(rule.drop)
 
   //Under rule 5 removes wrong 'i' from Nom:S if needed. Example: pick-upi -> pick-up
   def updateRule5(resultWord: ResultWord, ruleNumber: Int): ResultWord =
-    if(ruleNumber == 5 && resultWord.morphemes == NomineMorphemes(Case.Nominative, GNumber.Singular) && resultWord.lemma.last != 'i')
+    if(ruleNumber == 5 && resultWord.morphemes == Nom::S && resultWord.lemma.last != 'i')
     then
       val updatedWord = resultWord.word.copy(ending = "")
       resultWord.copy(word = updatedWord)
     else resultWord
 
-  def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word): ResultWord =
-    val vocalization = resolveVocalization(lemma)
-    val lastVowel = if(listOfSomeVowels.contains(lemma.last) && word.ruleNumber != 19) Some(lemma.last) else None
-    val updatedEnding = updateEnding(ending, vocalization, lastVowel, root._2, word.gradation.nonEmpty)
+  def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word, rule: DeclensionRules): ResultWord =
+    val updatedEnding = updateEnding(ending, lemma, rule)
     var exceptionalBeginning: Option[String] = None
     val gradation = word.gradation match {
       case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
@@ -111,7 +109,7 @@ object GenerateDeclensionWords {
       case None            => ""
     }
     val gradationWithApostropheIfNeeded = //Example: laaka -> laa'an
-      if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption)
+      if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption) && word.gradation.nonEmpty
       then "\'"
       else gradation
 
@@ -151,43 +149,19 @@ object GenerateDeclensionWords {
       case a if a == 'y' => 'u'
       case a             => a
     })
-  /**
-   * Example words:
-   * tie -> tiessä  (a -> ä in ending)
-   * valo -> valoon (a -> o in inessive case)
-   * ies -> ikeen (-än as ending (ikeän))
-   */
-  def updateEnding(ending: Declension, vocalization: Vocalization, lastVowel: Option[Char], rootEnding: String, isGradation: Boolean): String =
-    val updatedEnding = updateVocalization(ending.ending, vocalization)
 
-    val updateCondition =
-      updatedEnding.length > 1 &&
-        listOfSomeVowels.contains(updatedEnding.head) &&
-        lastVowel.nonEmpty && ( ending.morphemes == NomineMorphemes(Case.Nominative, GNumber.Singular)) &&
-        !isGradation
 
-    val updateCondition2 =
-      updatedEnding.length > 1 &&
-      listOfSomeVowels.contains(updatedEnding.head) &&
-      rootEnding.length == 1 &&
-      isGradation
+  def updateEnding(ending: Declension, lemma: String, rule: DeclensionRules): String =
+    val replacementVowels = lemma.takeRight(rule.drop).takeWhile(Letters.isVowel(_))
+    assert(rule.replacementVowels.length == replacementVowels.length)
+    val replacementMap = (0 until replacementVowels.length).map(i => rule.replacementVowels(i) -> replacementVowels(i)).toMap
 
-    val vowelUpdated = if updateCondition then
-      lastVowel.get.toString + updatedEnding.drop(1)
-    else if updateCondition2 then rootEnding + updatedEnding.drop(1)
-    else updatedEnding
+    val result = ending.ending.map(_ match {
+      case RepChar.Rep(c) => replacementMap(c).toString
+      case RepChar.Ch(c)  => c.toString
+    }).mkString("")
 
-    val illativeCondition =
-      ending.morphemes == NomineMorphemes(Case.Illative, GNumber.Singular) && lastVowel.nonEmpty
-    if illativeCondition
-    then vowelUpdated.map(c => if listOfSomeVowels.contains(c) then lastVowel.get else c)
-    else vowelUpdated
-
+    updateVocalization(result, resolveVocalization(lemma))
   end updateEnding
-
-
-
-
-
 
 }

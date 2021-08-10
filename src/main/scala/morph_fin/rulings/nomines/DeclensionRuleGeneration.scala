@@ -1,12 +1,29 @@
 package morph_fin.rulings.nomines
 
 import morph_fin.rulings.*
+import morph_fin.utils.Letters
 
 enum NomineGradationType:
   case Strong, Weak, Nothing
 
-case class Declension(morphemes: NomineMorphemes, ending: String, tpe: NomineGradationType)
-case class DeclensionRules(number: Int, drop: Int, isGradation: Boolean, cases: Seq[Declension])
+
+enum RepChar:
+  case Ch(c: Char)
+  case Rep(key: Char)
+
+import RepChar._
+
+
+
+
+case class Declension(morphemes: NomineMorphemes, ending: Seq[RepChar], tpe: NomineGradationType)
+case class DeclensionRules(
+                            number: Int,
+                            drop: Int,
+                            isGradation: Boolean,
+                            replacementVowels: Seq[Char],
+                            cases: Seq[Declension]
+                          )
 
 extension (bending: DeclensionRules)
   def findCase(morphemes: NomineMorphemes): Declension =
@@ -62,7 +79,7 @@ object GenerateDeclensionRules {
 
     //Resolve cases
     val cases = exampleDeclensions.cases.map(resolveCase(_, root, gradation))
-    DeclensionRules(exampleDeclensions.number, drop, true, cases)
+    DeclensionRules(exampleDeclensions.number, drop, true, Nil, cases)
 
   /**
    *  Removes root and gradation from cased word to resolve ending.
@@ -75,15 +92,34 @@ object GenerateDeclensionRules {
     val endingWithGradation = triple._2.drop(root.length)
     val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> NomineGradationType.Strong
       else endingWithGradation.drop(gradation.weak.length) -> NomineGradationType.Weak
-    Declension(triple._1, ending, tpe)
+    Declension(triple._1, ending.map(Ch(_)), tpe)
 
+  import MorphemesUtils._
 
   def resolveNonGradation(exampleDeclensions: NomineExampleDeclensions): DeclensionRules =
     val casedWords = exampleDeclensions.cases.map(_._2)
-    val root = LongestStartingSubstring(casedWords)
+    val rootSuggestion = LongestStartingSubstring(casedWords)
+    val root = if(Letters.isConsonant(exampleDeclensions.lemma.last) && exampleDeclensions.lemma.length - rootSuggestion.length == 1)
+      then rootSuggestion.dropRight(1) else rootSuggestion
     val drop = exampleDeclensions.lemma.length - root.length
-    val cases = exampleDeclensions.cases.map(a => Declension(a._1, a._2.drop(root.length), NomineGradationType.Nothing))
-    DeclensionRules(exampleDeclensions.number, drop, false, cases)
+
+    val nominative = exampleDeclensions.cases.find(_._1 == Nom::S).get
+    val replacementVowels = nominative._2.drop(root.length).takeWhile(Letters.isVowel(_))
+    val cases = exampleDeclensions.cases.map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
+    DeclensionRules(exampleDeclensions.number, drop, false, replacementVowels, cases)
+
+  def resolveNonGradationCase(morphemes: NomineMorphemes, word: String, root: String, replacementVowels: Seq[Char]): Declension =
+    val ending = word.drop(root.length)
+    val (start, end) = if morphemes != (Ill::S) then splitByFirstConsonant(ending) else (ending, "")
+    val resultEnding = start.map(c => if(replacementVowels.contains(c)) then Rep(c) else Ch(c)) ++ end.map(Ch(_))
+    Declension(morphemes, resultEnding, NomineGradationType.Nothing)
+
+
+  def splitByFirstConsonant(str: String): (String, String) =
+    val index = str.indexWhere(Letters.isConsonant(_))
+    if(index == -1) then (str, "")
+    else str.splitAt(index)
+
 }
 
 /***

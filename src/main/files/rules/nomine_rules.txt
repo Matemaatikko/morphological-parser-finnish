@@ -904,7 +904,7 @@ S|Abl: kahdelta
 S|All: kahdelle
 S|Ess: kahtena
 S|Tra: kahdeksi
-S|Abe: lapsetta
+S|Abe: kahdetta
 
 P|Nom: kahdet
 P|Gen: kaksien

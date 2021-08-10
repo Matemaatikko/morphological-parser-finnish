@@ -98,13 +98,13 @@ object GradationHandler {
     import GNumber._
     import WordGradationType._
     (tpe, morphemes) match {
-      case (Straight, NomineMorphemes(Illative, Singular | Plural)) =>
+      case (Straight, NomineMorphemes(Illative, Singular | Plural, _)) =>
         Some(GradationType.Strong)
-      case (Straight, NomineMorphemes(Genitive, Plural)) if ending.endsWith("in")   =>
+      case (Straight, NomineMorphemes(Genitive, Plural, _)) if ending.endsWith("in")   =>
         Some(GradationType.Strong)
-      case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular)) =>
+      case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular, _)) =>
         Some(GradationType.Weak)
-      case (Inverted, NomineMorphemes(Genitive, Plural)) if ending.endsWith("ten") =>
+      case (Inverted, NomineMorphemes(Genitive, Plural, _)) if ending.endsWith("ten") =>
         Some(GradationType.Weak)
       case (Inverted, _)  =>
         Some(GradationType.Strong)
@@ -144,6 +144,7 @@ object GradationHandler {
    * @param root - root of all nomine bendings.
    * Example:
    * splitByGradationLocation("tanko", nk-ng) = (ta, o)
+   * splitByGradationLocation("ies", k-_) = (i, es)
    */
   def splitByGradationLocation(root: String, gradation: Gradation): (String, String) =
     def trySplit(amount: Int): Option[(String, String)] =
@@ -164,8 +165,8 @@ object GradationHandler {
     def resolveEmptyWeakCase: (String, String) =
       if root.dropRight(0).endsWith(gradation.strong) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
       else if root.dropRight(1).endsWith(gradation.strong) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
-      else if !Letters.isVowel(root.last) then  (root.dropRight(2), root.takeRight(2))
-      else (root.dropRight(1), root.takeRight(1))
+      else if !Letters.isVowel(root.last) then  (root.dropRight(1), root.takeRight(1))
+      else (root.dropRight(0), root.takeRight(0))
 
     if gradation.weak.isEmpty then resolveEmptyWeakCase
     else recursion(0)
