@@ -25,13 +25,6 @@ enum Vocalization:
 object GenerateDeclensionWords {
 
   import PossessiveSuffix._
-  val suffixes = Seq(
-    PSuffix(SingularFirst, "ni"),
-    PSuffix(SingularSecond, "si"),
-    PSuffix(PluralFirst, "mme"),
-    PSuffix(PluralSecond, "nne"),
-    PSuffix(Third, "nsa")
-  )
 
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')

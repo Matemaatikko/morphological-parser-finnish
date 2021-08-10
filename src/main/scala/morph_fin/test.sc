@@ -63,8 +63,8 @@ def timed[A](fun: => A): A = {
 
 //timed(LoadUpdatedKotus.apply())
 
-import morph_fin.inflection.TargetFile
-timed(GenerateInflectedWords.apply(TargetFile.Compound))
+//import morph_fin.inflection.TargetFile
+//timed(GenerateInflectedWords.apply(TargetFile.Compound))
 
 //
 //val lines: Seq[Entry] = (for(line: String <- Source.fromFile(fileName)(Codec.UTF8).getLines)
@@ -117,8 +117,8 @@ for(a <- objects) {
 print(results)*/
 
 
-//val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("järjestys", 39))
-//printA(results)
+val results = GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineRulings, getWord("aapa", 9, Some('E')))
+printA(results)
 
 //vin("keriytyä", 52, Some('F'))
 //vin("juosta", 70, None)

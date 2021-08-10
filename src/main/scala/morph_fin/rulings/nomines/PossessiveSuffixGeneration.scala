@@ -1,9 +1,19 @@
 package morph_fin.rulings.nomines
 
+import morph_fin.rulings.PossessiveSuffix.{PluralFirst, PluralSecond, SingularFirst, SingularSecond, Third}
 import morph_fin.rulings.{Case, GNumber, NomineMorphemes, PossessiveSuffix}
-import morph_fin.rulings.nomines.GenerateDeclensionWords.{resolveVocalization, suffixes, updateVocalization}
+import morph_fin.rulings.nomines.GenerateDeclensionWords.{resolveVocalization, updateVocalization}
+import morph_fin.utils.Letters
 
 object PossessiveSuffixGeneration {
+
+  val suffixes = Seq(
+    PSuffix(SingularFirst, "ni"),
+    PSuffix(SingularSecond, "si"),
+    PSuffix(PluralFirst, "mme"),
+    PSuffix(PluralSecond, "nne"),
+    PSuffix(Third, "nsa")
+  )
 
   /**
    * Note: Case.Nominative, GNumber.Singular is skipped due to its similarity to Case.Genitive, GNumber.Singular.
@@ -28,12 +38,16 @@ object PossessiveSuffixGeneration {
   end addSuffixes
 
 
+  /**
+   * If word ends with two same vowels, then skipped. Example: aapa, aapaa'an
+   */
   inline def resolveSecondUsageOfThirdPerson(morphemes: NomineMorphemes, resultWord: ResultWord)
                                      (root: String, gradation: String, ending: String): Seq[ResultWord] =
     val additionCondition = resultWord.morphemes match {
       case NomineMorphemes(Case.Nominative, _, _) => false
       case NomineMorphemes(Case.Genitive, _, _) => false
       case NomineMorphemes(Case.Illative, _, _) => false
+      case _ if Letters.isVowel(ending.last) && ending.last == (root + gradation + ending).dropRight(1).last => false
       case _ => true
     }
     if additionCondition
