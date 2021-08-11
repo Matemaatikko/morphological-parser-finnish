@@ -32,4 +32,55 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
     val result1 = resolveNomineException("tuote", "elle", WordGradationType.Inverted, NomineMorphemes(Case.Allative, GNumber.Singular))
     assert(result1 == Some(GradationType.Strong))
   }
+
+
+  "splitByGradationLocation - method" should "work ies" in {
+    val gradation = Gradation("k", "")
+    val result = splitByGradationLocation("ies", gradation)
+    assert(result == ("i", "es"))
+  }
+
+  it should "work i-es" in {
+    val gradation = Gradation("k", "")
+    val result = splitByGradationLocation("i", gradation)
+    assert(result == ("i", ""))
+  }
+
+  it should "work ike-en" in {
+    val gradation = Gradation("k", "")
+    val result = splitByGradationLocation("ike", gradation)
+    assert(result == ("i", "e"))
+  }
+
+  it should "work lakka" in {
+    val gradation = Gradation("kk", "k")
+    val result = splitByGradationLocation("lakka", gradation)
+    assert(result == ("la", "a"))
+  }
+
+  it should "work laka-n" in {
+    val gradation = Gradation("kk", "k")
+    val result = splitByGradationLocation("laka", gradation)
+    assert(result == ("la", "a"))
+  }
+
+  it should "work tuote" in {
+    val gradation = Gradation("tt", "t")
+    val result = splitByGradationLocation("tuote", gradation)
+    assert(result == ("tuo", "e"))
+  }
+
+  it should "work tuotteen" in {
+    val gradation = Gradation("tt", "t")
+    val result = splitByGradationLocation("tuotteen", gradation)
+    assert(result == ("tuo", "een"))
+  }
+
+  it should "work " in {
+    val gradation = Gradation("tt", "t")
+    val result = splitByGradationLocation("tuotetta", gradation)
+    assert(result == ("tuo", "etta"))
+  }
+
+
 }

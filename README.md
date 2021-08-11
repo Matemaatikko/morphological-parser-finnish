@@ -122,7 +122,6 @@ Incorrect inflection (To be fixed)
 - The following words have incorrect inflection:
   - hapan
   - jälsi
-  - viedä
 - Some numerals have incorrect inflection. Example: 'kahdeksan'
 
 Missing properties (Upcoming)

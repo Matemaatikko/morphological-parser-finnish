@@ -18,7 +18,7 @@ import RepChar._
 
 case class Declension(morphemes: NomineMorphemes, ending: Seq[RepChar], tpe: NomineGradationType)
 case class DeclensionRules(
-                            number: Int,
+                            ruleNumber: Int,
                             drop: Int,
                             isGradation: Boolean,
                             replacementVowels: Seq[Char],

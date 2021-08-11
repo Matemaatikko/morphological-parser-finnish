@@ -1,13 +1,15 @@
 package morph_fin.rulings.verbs
 
 import morph_fin.rulings.NomineMorphemes
-import morph_fin.rulings.nomines._
-import morph_fin.rulings._
+import morph_fin.rulings.nomines.*
+import morph_fin.rulings.*
 import morph_fin.rulings.GradationHandler
+import morph_fin.utils.Letters
+import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalization}
 
-object GenerateConjugatedWords {
+object ConjugationUtils {
 
-  def apply(rules: Seq[ConjugationRules], word: Word): Seq[ResultWord] =
+  def addConjugations(rules: Seq[ConjugationRules], word: Word): Seq[ResultWord] =
     val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No verb rule found for: ${word.ruleNumber}"))
     //Resolve root
     val root = word.lemma.dropRight(rule.drop)
@@ -16,12 +18,11 @@ object GenerateConjugatedWords {
       case Some(gradation)  => GradationHandler.splitByGradationLocation(root, gradation)
       case _                => (root, "")
     }
-    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word))
-  end apply
+    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word, rule))
+  end addConjugations
 
-  def resolveWord(ending: Conjugation, root: (String, String), word: Word): ResultWord =
-    val vocalization = resolveVocalization(word.lemma)
-    val updatedEnding = updateEnding(ending, vocalization)
+  def resolveWord(ending: Conjugation, root: (String, String), word: Word, rule: ConjugationRules): ResultWord =
+    val updatedEnding = updateEnding(ending, word.lemma, rule)
     val gradation = word.gradation match {
       case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
       case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
@@ -38,8 +39,7 @@ object GenerateConjugatedWords {
     val resultWord = handleSpecialCase(structuredWord, word.ruleNumber, ending.morphemes)
     ResultWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
-
-
+  
   val IndPreS3 = VerbMophemes.Standard(Modus.Indicative, Tempus.Present, Persona.Active(GNumber.Singular, Person.Third), Mode.Positive)
 
   def handleSpecialCase(word: StructuredWord, ruleNumber: Int, morphemes: Morphemes): StructuredWord =
@@ -49,27 +49,17 @@ object GenerateConjugatedWords {
       word.copy(ending = dropped + char)
     else word
 
-  def resolveVocalization(lemma: String): Vocalization =
-    if lemma.forall(char => char != 'a' && char != 'o' && char != 'u')
-    then Vocalization.BackVowel
-    else Vocalization.FrontVowel
 
+  def updateEnding(ending: Conjugation, lemma: String, rule: ConjugationRules): String =
+    val replacementVowels = lemma.takeRight(rule.drop).takeWhile(Letters.isVowel(_))
+    assert(rule.replacementVowels.length == replacementVowels.length)
+    val replacementMap = (0 until replacementVowels.length).map(i => rule.replacementVowels(i) -> replacementVowels(i)).toMap
 
-  def updateEnding(ending: Conjugation, vocalization: Vocalization): String =
-    if vocalization == Vocalization.BackVowel
-    then ending.ending.map( _ match {
-      case a if a == 'a' => 'ä'
-      case a if a == 'o' => 'ö'
-      case a if a == 'u' => 'y'
-      case a             => a
-    })
-    else ending.ending.map( _ match {
-      case a if a == 'ä' => 'a'
-      case a if a == 'ö' => 'o'
-      case a if a == 'y' => 'u'
-      case a             => a
-    })
+    val result = ending.ending.map(_ match {
+      case RepChar.Rep(c) => replacementMap(c).toString
+      case RepChar.Ch(c)  => c.toString
+    }).mkString("")
+
+    updateVocalization(result, resolveVocalization(lemma))
   end updateEnding
-
-  
 }

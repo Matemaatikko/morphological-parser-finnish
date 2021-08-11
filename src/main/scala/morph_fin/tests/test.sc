@@ -2,8 +2,8 @@ import morph_fin.*
 import morph_fin.inflection.GenerateInflectedWords
 import morph_fin.kotus_format.*
 import morph_fin.rulings.{Print, *}
-import morph_fin.rulings.nomines.{GenerateDeclensionRules, GenerateDeclensionWords, Gradation, LoadAndParseNomineRules, NomineRulesParser, ResultWord, Word}
-import morph_fin.rulings.verbs.{GenerateConjugatedWords, GenerateConjugationRules, LoadAndParseVerbRules, VerbRulesParser}
+import morph_fin.rulings.nomines.{GenerateDeclensionRules, DeclensionUtils, Gradation, LoadAndParseNomineRules, NomineRulesParser, ResultWord, Word}
+import morph_fin.rulings.verbs.{ConjugationUtils, GenerateConjugationRules, LoadAndParseVerbRules, VerbRulesParser}
 import morph_fin.utils.{FilesLocation, Hyphenation}
 
 import java.io.File
@@ -21,7 +21,7 @@ def printA(words: Seq[ResultWord]) =
   println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 
-def declesions(word: Word) = GenerateDeclensionWords.apply(nomineRulings, word)
+def declesions(word: Word) = DeclensionUtils.apply(nomineRulings, word)
 
 val results = declesions(getWord("valtio", 3))
 printA(results)

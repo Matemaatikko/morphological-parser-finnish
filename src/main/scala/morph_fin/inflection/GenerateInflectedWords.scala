@@ -2,8 +2,8 @@ package morph_fin.inflection
 
 import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
 import morph_fin.kotus_format.{Bending, LoadUpdatedKotus, UpdatedWord}
-import morph_fin.rulings.nomines.{GenerateDeclensionWords, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
-import morph_fin.rulings.verbs.{GenerateConjugatedWords, LoadAndParseVerbRules}
+import morph_fin.rulings.nomines.{DeclensionUtils, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
+import morph_fin.rulings.verbs.{ConjugationUtils, LoadAndParseVerbRules}
 import morph_fin.rulings.{FilePrint, GradationHandler, Morphemes, NomineMorphemes}
 import morph_fin.utils.{FilesLocation, Letters}
 
@@ -123,14 +123,14 @@ object GenerateInflectedWords {
 
   def getBendingsWithSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-    if(bending.rule < 50) GenerateDeclensionWords.generateWithPossessiveSuffixes(nomineBendings, word)
-    else if(bending.rule > 51 && bending.rule < 79) GenerateConjugatedWords(verbBendings, word)
+    if(bending.rule < 50) DeclensionUtils.addDeclesionsWithPossessiveSuffixes(nomineBendings, word)
+    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.addConjugations(verbBendings, word)
     else throw new Exception()
 
   def getBendingsWithoutSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-    if(bending.rule < 50) GenerateDeclensionWords(nomineBendings, word)
-    else if(bending.rule > 51 && bending.rule < 79) GenerateConjugatedWords(verbBendings, word)
+    if(bending.rule < 50) DeclensionUtils.addDeclesions(nomineBendings, word)
+    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.addConjugations(verbBendings, word)
     else throw new Exception()
 
 }

@@ -2,8 +2,8 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
-import morph_fin.rulings.nomines.{GenerateDeclensionWords, Gradation, LoadAndParseNomineRules, DeclensionRules, Word}
-import morph_fin.rulings.verbs.{GenerateConjugatedWords, LoadAndParseVerbRules}
+import morph_fin.rulings.nomines.{DeclensionUtils, Gradation, LoadAndParseNomineRules, DeclensionRules, Word}
+import morph_fin.rulings.verbs.{ConjugationUtils, LoadAndParseVerbRules}
 import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
@@ -115,7 +115,7 @@ object ReformatKotus {
         entry.word.noPrefix)
 
     val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        GenerateDeclensionWords.apply(rulings, EntryToWord(entry).get)
+        DeclensionUtils.addDeclesions(rulings, EntryToWord(entry).get)
           .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, GNumber.Plural))
           .map(casing => casing.word.toString -> entry)
     )
@@ -123,7 +123,7 @@ object ReformatKotus {
     //===================================
 
     val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        GenerateDeclensionWords.apply(rulings, EntryToWord(entry).get)
+        DeclensionUtils.addDeclesions(rulings, EntryToWord(entry).get)
           .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, GNumber.Plural))
           .map(casing => casing.word.toString -> entry)
     ).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))

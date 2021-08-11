@@ -165,7 +165,7 @@ object GradationHandler {
     def resolveEmptyWeakCase: (String, String) =
       if root.dropRight(0).endsWith(gradation.strong) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
       else if root.dropRight(1).endsWith(gradation.strong) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
-      else if !Letters.isVowel(root.last) then  (root.dropRight(1), root.takeRight(1))
+      else if Letters.isConsonant(root.last) then (root.dropRight(2), root.takeRight(2))
       else (root.dropRight(0), root.takeRight(0))
 
     if gradation.weak.isEmpty then resolveEmptyWeakCase

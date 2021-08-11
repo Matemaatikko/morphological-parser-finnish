@@ -2,7 +2,6 @@ package morph_fin.rulings.nomines
 
 import morph_fin.rulings.PossessiveSuffix.{PluralFirst, PluralSecond, SingularFirst, SingularSecond, Third}
 import morph_fin.rulings.{Case, GNumber, NomineMorphemes, PossessiveSuffix}
-import morph_fin.rulings.nomines.GenerateDeclensionWords.{resolveVocalization, updateVocalization}
 import morph_fin.utils.Letters
 
 object PossessiveSuffixGeneration {
@@ -15,49 +14,62 @@ object PossessiveSuffixGeneration {
     PSuffix(Third, "nsa")
   )
 
+  import morph_fin.rulings.MorphemesUtils._
+
   /**
    * Note: Case.Nominative, GNumber.Singular is skipped due to its similarity to Case.Genitive, GNumber.Singular.
    */
   def addSuffixes(resultWord: ResultWord, gradation: Option[Gradation]): Seq[ResultWord] =
+    import resultWord._
+    val root = getRootForNonVnSuffixes(resultWord, gradation)
+    val VnSuffix = addVnSuffix(root, gradation)
+
+    if(morphemes == NomS) Seq(resultWord)
+    else {
+      Seq(resultWord) ++ suffixes.map(suffix =>
+        val finalEnding = updateCorrectVowelsToEnding(root.word.ending + suffix.ending, resultWord.lemma.toString)
+        val strWord = root.word.copy(ending = finalEnding)
+        ResultWord(strWord, morphemes ++ suffix.info, root.lemma)
+      ) ++ VnSuffix
+    }
+  end addSuffixes
+
+  inline def getRootForNonVnSuffixes(resultWord: ResultWord, gradation: Option[Gradation]): ResultWord =
     val root = resultWord.word.root
     val morphemes = resultWord.morphemes.asInstanceOf[NomineMorphemes]
     val updatedGradation = updateGradation(resultWord.word.gradation, morphemes, gradation)
     val updatedEnding = remove_t_and_n_fromEnding(resultWord.word.ending)
-    val additional = resolveSecondUsageOfThirdPerson(morphemes, resultWord)(root, updatedGradation, updatedEnding)
+    resultWord.copy(word = StructuredWord(root, updatedGradation, updatedEnding))
 
-    if(morphemes == NomineMorphemes(Case.Nominative, GNumber.Singular)) Seq(resultWord)
-    else {
-      Seq(resultWord)
-        ++ suffixes.map(suffix =>
-        val finalEnding = updateCorrectVowelsToEnding(updatedEnding + suffix.ending, resultWord.lemma.toString)
-        resultWord.copy(
-          word = StructuredWord(root, updatedGradation, finalEnding),
-          morphemes = morphemes.copy(suffixOpt = Some(suffix.info))
-        )) ++ additional
-    }
-  end addSuffixes
+  /**
+   * If addition is illegal, then returns Nil.
+   */
+  inline def addVnSuffix(resultWord: ResultWord, gradation: Option[Gradation]): Seq[ResultWord] =
+    val root = getRootForNonVnSuffixes(resultWord, gradation)
+    resolveSecondUsageOfThirdPerson(root)
 
+  //========================================================================
 
   /**
    * If word ends with two same vowels, then skipped. Example: aapa, aapaa'an
    */
-  inline def resolveSecondUsageOfThirdPerson(morphemes: NomineMorphemes, resultWord: ResultWord)
-                                     (root: String, gradation: String, ending: String): Seq[ResultWord] =
-    val additionCondition = resultWord.morphemes match {
+  private inline def resolveSecondUsageOfThirdPerson(resultWord: ResultWord): Seq[ResultWord] =
+    import resultWord._
+    val additionCondition = morphemes match {
       case NomineMorphemes(Case.Nominative, _, _) => false
       case NomineMorphemes(Case.Genitive, _, _) => false
       case NomineMorphemes(Case.Illative, _, _) => false
-      case _ if Letters.isVowel(ending.last) && ending.last == (root + gradation + ending).dropRight(1).last => false
+      case _ if Letters.isVowel(word.ending.last) && word.ending.last == (word.toString).dropRight(1).last => false
       case _ => true
     }
     if additionCondition
     then Seq(resultWord.copy(
-        word = StructuredWord(root, gradation, ending + ending.last + "n"),
-        morphemes = morphemes.copy(suffixOpt = Some(PossessiveSuffix.Third))
+        word = word.copy(ending = word.ending + word.ending.last + "n"),
+        morphemes = morphemes ++ PossessiveSuffix.Third
       ))
     else Nil
 
-  inline def updateGradation(default: String, morphemes: NomineMorphemes, gradationOpt: Option[Gradation]): String =
+  private inline def updateGradation(default: String, morphemes: NomineMorphemes, gradationOpt: Option[Gradation]): String =
     //Gradation
     val strongGradationCondition =
       morphemes match {
@@ -70,12 +82,13 @@ object PossessiveSuffixGeneration {
       case   _ => default
     }
 
-  inline def remove_t_and_n_fromEnding(ending: String): String =
+  private inline def remove_t_and_n_fromEnding(ending: String): String =
     if ending.lastOption == Some('t') || ending.lastOption == Some('n')
     then ending.dropRight(1) else ending
 
+  import morph_fin.utils.VocalizationUtils._
 
-  inline def updateCorrectVowelsToEnding(ending: String, word: String): String =
-    val vocalization = GenerateDeclensionWords.resolveVocalization(word)
-    GenerateDeclensionWords.updateVocalization(ending, vocalization)
+  private inline def updateCorrectVowelsToEnding(ending: String, word: String): String =
+    val vocalization = resolveVocalization(word)
+    updateVocalization(ending, vocalization)
 }

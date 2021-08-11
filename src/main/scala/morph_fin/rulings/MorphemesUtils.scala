@@ -30,4 +30,13 @@ object MorphemesUtils {
 
   extension (value: Case2)
     def ::(number: GNumber2): NomineMorphemes = NomineMorphemes(value.cse, number.number)
+
+  val NomS = Nom :: S
+  val Inf1 = VerbMophemes.InfinitiveI(Type.Short)
+
+  //TODO remake to take account other morpheme cases.
+  extension (morphemes: Morphemes)
+    def ++(suffix: PossessiveSuffix): NomineMorphemes =
+      val a = morphemes.asInstanceOf[NomineMorphemes]
+      a.copy(suffixOpt = Some(suffix))
 }

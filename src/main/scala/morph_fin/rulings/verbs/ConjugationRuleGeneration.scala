@@ -1,14 +1,23 @@
 package morph_fin.rulings.verbs
 
-import morph_fin.rulings._
-import morph_fin.rulings.nomines.{Gradation, LongestStartingSubstring, DeclensionRules, Declension, NomineExampleDeclensions}
-
+import morph_fin.rulings.*
+import morph_fin.rulings.MorphemesUtils.S
+import morph_fin.rulings.nomines.GenerateDeclensionRules.splitByFirstConsonant
+import morph_fin.rulings.nomines.RepChar.{Ch, Rep}
+import morph_fin.rulings.nomines.{Declension, DeclensionRules, Gradation, LongestStartingSubstring, NomineExampleDeclensions, NomineGradationType, RepChar}
+import morph_fin.utils.Letters
+import MorphemesUtils._
 
 enum VerbGradationType:
   case Strong, Weak, Nothing, Missing
 
-case class Conjugation(morphemes: VerbMophemes, ending: String, tpe: VerbGradationType)
-case class ConjugationRules(ruleNumber: Int, drop: Int, isGradation: Boolean, cases: Seq[Conjugation])
+case class Conjugation(morphemes: VerbMophemes, ending: Seq[RepChar], tpe: VerbGradationType)
+case class ConjugationRules(
+                             ruleNumber: Int,
+                             drop: Int,
+                             isGradation: Boolean,
+                             replacementVowels: Seq[Char],
+                             cases: Seq[Conjugation])
 
 extension (rules: ConjugationRules)
   def findCase(morphemes: VerbMophemes): Conjugation =
@@ -39,8 +48,10 @@ object GenerateConjugationRules {
 
       //Resolve cases
       val endings = exampleConjugations.cases.map(resolveEnding(_, root, gradation))
-      ConjugationRules(exampleConjugations.number, dropForBending, true, endings)
+      ConjugationRules(exampleConjugations.number, dropForBending, true, Nil, endings)
 
+
+    import RepChar._
     /**
      *  Removes root and gradation from cased word to resolve ending.
      *  Example: soudamme -> sou | d | amme -> -amme
@@ -53,12 +64,22 @@ object GenerateConjugationRules {
       val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
       else if endingWithGradation.startsWith(gradation.weak) then endingWithGradation.drop(gradation.weak.length) -> VerbGradationType.Weak
       else endingWithGradation ->  VerbGradationType.Missing
-      Conjugation(tuple._1, ending, tpe)
 
-    def resolveNonGradation(ruling: VerbExampleConjugations): ConjugationRules =
-      val words = ruling.cases.map(_._2)
+      Conjugation(tuple._1, ending.map(Ch(_)), tpe)
+
+    def resolveNonGradation(exampleConjugations: VerbExampleConjugations): ConjugationRules =
+      val words = exampleConjugations.cases.map(_._2)
       val root = LongestStartingSubstring(words)
-      val drop = ruling.lemma.length - root.length
-      val cases = ruling.cases.map(a => Conjugation(a._1, a._2.drop(root.length), VerbGradationType.Nothing))
-      ConjugationRules(ruling.number, drop, false, cases)
+      val drop = exampleConjugations.lemma.length - root.length
+
+      val infinitive = exampleConjugations.cases.find(_._1 == Inf1).get
+      val replacementVowels = infinitive._2.drop(root.length).takeWhile(Letters.isVowel(_))
+      val cases = exampleConjugations.cases.map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
+      ConjugationRules(exampleConjugations.number, drop, false, replacementVowels, cases)
+
+    def resolveNonGradationCase(morphemes: VerbMophemes, word: String, root: String, replacementVowels: Seq[Char]): Conjugation =
+      val ending = word.drop(root.length)
+      val (start, end) = splitByFirstConsonant(ending)
+      val resultEnding = start.map(c => if(replacementVowels.contains(c)) then Rep(c) else Ch(c)) ++ end.map(Ch(_))
+      Conjugation(morphemes, resultEnding, VerbGradationType.Nothing)
 }
