@@ -102,7 +102,7 @@ case class Data(
 
 object ReformatKotus {
 
-
+  import MorphemesUtils._
 
   def apply(rulings: Seq[DeclensionRules]): Seq[UpdatedWord] =
     val list: Seq[Entry] = ParseKotus().filterNot(a => remove.contains(a.word.value)) ++ additions
@@ -116,7 +116,7 @@ object ReformatKotus {
 
     val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
         DeclensionUtils.addDeclesions(rulings, EntryToWord(entry).get)
-          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, GNumber.Plural))
+          .find(elem => elem.morphemes == Nom :: P)
           .map(casing => casing.word.toString -> entry)
     )
 
@@ -124,7 +124,7 @@ object ReformatKotus {
 
     val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
         DeclensionUtils.addDeclesions(rulings, EntryToWord(entry).get)
-          .find(elem => elem.morphemes == NomineMorphemes(Case.Nominative, GNumber.Plural))
+          .find(elem => elem.morphemes == Nom :: P)
           .map(casing => casing.word.toString -> entry)
     ).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))
 

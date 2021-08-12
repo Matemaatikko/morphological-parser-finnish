@@ -1,7 +1,6 @@
 package morph_fin.rulings.verbs
 
 import morph_fin.rulings.*
-import morph_fin.rulings.Case.*
 import morph_fin.rulings.nomines.Gradation
 import morph_fin.utils.FilesLocation
 
@@ -129,8 +128,8 @@ class VerbRulesParser(stream: Iterator[Char]) {
     val modus = parseModus
     val tempus = parseTempus
     val persona = voice match {
-      case Voice.Active  => parsePersona
-      case Voice.Passive => Persona.Passive
+      case Active  => parsePersona
+      case Passive => Persona.Passive
     }
     val mode = parseMode
     VerbMophemes.Standard(modus, tempus, persona, mode)
@@ -138,46 +137,46 @@ class VerbRulesParser(stream: Iterator[Char]) {
   inline def parsePersona: Persona.Active =
     val form = parseForm
     val persona = peek match {
-      case '1' => consume; Person.First
-      case '2' => consume; Person.Second
-      case '3' => consume; Person.Third
+      case '1' => consume; First
+      case '2' => consume; Second
+      case '3' => consume; Third
     }
     skip(':')
     Persona.Active(form, persona)
 
   inline def parseForm = peek match {
-    case 'P' => consume; GNumber.Plural
-    case 'S' => consume; GNumber.Singular
+    case 'P' => consume; Plural
+    case 'S' => consume; Singular
   }
 
   inline def parseVoice = peek match {
-    case 'P' => skipAll("Pas:"); Voice.Passive
-    case 'A' => skipAll("Akt:"); Voice.Active
+    case 'P' => skipAll("Pas:"); Passive
+    case 'A' => skipAll("Akt:"); Active
   }
 
   inline def parseModus =  peek match {
     case 'I' => consume; peek match {
-      case 'n' => skipAll("nd:"); Modus.Indicative
-      case 'm' => skipAll("mp:"); Modus.Imperative
+      case 'n' => skipAll("nd:"); Indicative
+      case 'm' => skipAll("mp:"); Imperative
     }
-    case 'C' => skipAll("Con:"); Modus.Conditional
-    case 'P' => skipAll("Pot:"); Modus.Potential
+    case 'C' => skipAll("Con:"); Conditional
+    case 'P' => skipAll("Pot:"); Potential
   }
 
   inline def parseTempus: Tempus =
     peek match {
       case 'P' => consume; peek match {
-        case 'r' => skipAll("re:"); Tempus.Present
-        case 'e' => skipAll("er:"); Tempus.Perfect
-        case 'l' => skipAll("lp:"); Tempus.Pluperfect
+        case 'r' => skipAll("re:"); Present
+        case 'e' => skipAll("er:"); Perfect
+        case 'l' => skipAll("lp:"); Pluperfect
       }
-      case 'I' => skipAll("Imp:"); Tempus.Imperfect
+      case 'I' => skipAll("Imp:"); Imperfect
     }
 
   inline def parseMode: Mode =
     peek match {
-      case 'N' => skipAll("Neg:"); Mode.Negative
-      case _  =>  Mode.Positive
+      case 'N' => skipAll("Neg:"); Negative
+      case _  =>  Positive
     }
 
   //=========================================
@@ -204,8 +203,8 @@ class VerbRulesParser(stream: Iterator[Char]) {
     skipAll("2:")
     val cse = parseCase
     val voice = peek match {
-      case 'A' => skipAll("Akt:");  Voice.Active
-      case 'P' => skipAll("Pas:"); Voice.Passive
+      case 'A' => skipAll("Akt:");  Active
+      case 'P' => skipAll("Pas:"); Passive
     }
     VerbMophemes.InfinitiveII(cse, voice)
 

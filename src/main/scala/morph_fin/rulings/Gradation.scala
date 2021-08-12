@@ -1,7 +1,5 @@
 package morph_fin.rulings
 
-import morph_fin.rulings.Case.Illative
-import morph_fin.rulings.GNumber.Singular
 import morph_fin.rulings.nomines.Gradation
 import morph_fin.utils.{Hyphenation, Letters}
 
@@ -94,17 +92,15 @@ object GradationHandler {
    * Implementation for inverted exceptions does not follow this logic, but will give the same output.
    */
   def resolveNomineException(lemma: String, ending: String, tpe: WordGradationType, morphemes: NomineMorphemes): Option[GradationType] =
-    import Case._
-    import GNumber._
     import WordGradationType._
     (tpe, morphemes) match {
-      case (Straight, NomineMorphemes(Illative, Singular | Plural, _)) =>
+      case (Straight, NomineMorphemes(Illative, Singular | Plural)) =>
         Some(GradationType.Strong)
-      case (Straight, NomineMorphemes(Genitive, Plural, _)) if ending.endsWith("in")   =>
+      case (Straight, NomineMorphemes(Genitive, Plural)) if ending.endsWith("in")   =>
         Some(GradationType.Strong)
-      case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular, _)) =>
+      case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular)) =>
         Some(GradationType.Weak)
-      case (Inverted, NomineMorphemes(Genitive, Plural, _)) if ending.endsWith("ten") =>
+      case (Inverted, NomineMorphemes(Genitive, Plural)) if ending.endsWith("ten") =>
         Some(GradationType.Weak)
       case (Inverted, _)  =>
         Some(GradationType.Strong)
@@ -116,11 +112,10 @@ object GradationHandler {
    */
   def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: VerbMophemes): Option[GradationType] =
     import WordGradationType._
-    import Voice._, Modus._, Tempus._,  Mode._
     (tpe, morphemes) match {
       case (Straight, VerbMophemes.Standard(Indicative, Present, Persona.Passive, Positive)) =>
         Some(GradationType.Weak)
-      case (Straight, VerbMophemes.Standard(Imperative, Present, Persona.Active(Singular, Person.Second), _)) =>
+      case (Straight, VerbMophemes.Standard(Imperative, Present, Persona.Active(Singular, Second), _)) =>
         Some(GradationType.Weak)
       case (Straight, VerbMophemes.Standard(Indicative, Present, _, Negative)) =>
         Some(GradationType.Weak)
@@ -132,7 +127,7 @@ object GradationHandler {
         Some(GradationType.Weak)
       case (Inverted, VerbMophemes.InfinitiveI(_)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.InfinitiveII(_, Voice.Active)) if endsWith_tA(lemma)  =>
+      case (Inverted, VerbMophemes.InfinitiveII(_, Active)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
       case _ => None
     }
@@ -154,7 +149,7 @@ object GradationHandler {
       else None
 
     def recursion(amount: Int): (String, String) =
-      if(amount >= 3) (root, "")
+      if(amount >= 10) (root, "")
       else
         val trying = trySplit(amount)
         trying match {

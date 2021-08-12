@@ -38,7 +38,7 @@ object DeclensionUtils {
 
     //Resolve root
     val (root, lemma) = checkPlurality(rule, word)
-    val updatedRoot = checkRule49(root)
+    val updatedRoot = checkRule49(root, rule)
 
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
@@ -54,19 +54,22 @@ object DeclensionUtils {
   //=========================================================
 
   private inline def checkPlurality(rule: DeclensionRules, word: Word): (String, String) =
-    val pluralEnding = rule.findCase(Nom::P)
-    val singularEnding = rule.findCase(Nom::S)
+    val singularEnding = rule.findCase(Nom::S).ending
+    val pluralEnding = rule.findCase(Nom::P).ending
 
-    val isPluralLemma = word.lemma.endsWith(pluralEnding.ending)
-    val lemmaFromPlural = word.lemma.dropRight(pluralEnding.ending.length) + singularEnding.ending //Might have wrong gradation.
-    val rootFromPlural = lemmaFromPlural.dropRight(rule.drop)
-    val root = if isPluralLemma then rootFromPlural else checkRule5(word, rule)
-    val lemma = if isPluralLemma then lemmaFromPlural else word.lemma
-    (root, lemma)
+    if word.lemma.hasEnding(pluralEnding) then
+      val vowelMap = Replacement.resolveMap(word.lemma, pluralEnding)
+
+      val lemmaFromPlural = word.lemma.dropRight(pluralEnding.length) + singularEnding.create(vowelMap) //Might have wrong gradation, but it should not matter
+      val rootFromPlural = lemmaFromPlural.dropRight(rule.drop)
+      rootFromPlural -> lemmaFromPlural
+    else
+      checkRule5(word, rule) -> word.lemma
+
 
   //Example: askele -> askel
-  private inline def checkRule49(root: String): String =
-    if(root.endsWith("e")) then root.dropRight(1) else root
+  private inline def checkRule49(root: String, rule: DeclensionRules): String =
+    if(root.endsWith("e") && rule.ruleNumber == 49) then root.dropRight(1) else root
 
   //Example: pick-up (has same inflection as risti, ristejä)
   private inline def checkRule5(word: Word, rule: DeclensionRules): String =
@@ -122,16 +125,28 @@ object DeclensionUtils {
 
 
   private inline def updateEnding(ending: Declension, lemma: String, rule: DeclensionRules): String =
-    val replacementVowels = lemma.takeRight(rule.drop).takeWhile(Letters.isVowel(_))
-    assert(rule.replacementVowels.length == replacementVowels.length)
-    val replacementMap = (0 until replacementVowels.length).map(i => rule.replacementVowels(i) -> replacementVowels(i)).toMap
+    val NomSEnding = rule.cases.find(_.morphemes == Nom::S).get.ending
+    val alteredLemma = rule.ruleNumber match {
+      case 5 if Letters.isConsonant(lemma.last) => lemma + 'i'
+      case _ => lemma
+    }
+    val replacementMap = Replacement.resolveMap(alteredLemma, NomSEnding)
+    var changed = false
 
-    val result = ending.ending.map(_ match {
-      case RepChar.Rep(c) => replacementMap(c).toString
+    val result: String = ending.ending.map(_ match {
+      case RepChar.Rep(c) => changed = true; replacementMap(c).toString
       case RepChar.Ch(c)  => c.toString
     }).mkString("")
 
-    updateVocalization(result, resolveVocalization(lemma))
+    val illativeUpdated = if(
+      Letters.isVowel(lemma.last) &&
+        ending.morphemes == Ill::S &&
+        !changed && listOfSomeVowels.contains(result.dropRight(1).last)
+      )
+      then result.dropRight(2) + lemma.last + result.last
+      else result
+
+    updateVocalization(illativeUpdated, resolveVocalization(lemma))
   end updateEnding
 
 }

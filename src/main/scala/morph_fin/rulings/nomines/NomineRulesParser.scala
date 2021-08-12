@@ -24,10 +24,7 @@ case class Gradation(strong: String, weak: String)
 case class NomineExampleDeclensions(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String, Boolean)])
 
 class NomineRulesParser(stream: Iterator[Char]) {
-
-  import Case.*
-  import GNumber.*
-
+  
   var currentCharacter: Option[Char] = Some(' ')
 
   inline def peek: Char =

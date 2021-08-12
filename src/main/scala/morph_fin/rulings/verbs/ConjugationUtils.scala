@@ -40,7 +40,7 @@ object ConjugationUtils {
     ResultWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
   
-  val IndPreS3 = VerbMophemes.Standard(Modus.Indicative, Tempus.Present, Persona.Active(GNumber.Singular, Person.Third), Mode.Positive)
+  val IndPreS3 = VerbMophemes.Standard(Indicative, Present, Persona.Active(Singular, Third), Positive)
 
   def handleSpecialCase(word: StructuredWord, ruleNumber: Int, morphemes: Morphemes): StructuredWord =
     if morphemes == IndPreS3 && word.ending.nonEmpty && ruleNumber != 64 then

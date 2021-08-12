@@ -2,7 +2,7 @@
 - TODO Add possessive suffixes for some infinitives .
 - TODO Add Nomine inflections for participles
 - TODO Add accusative
-- TODO Make testing more easier (Some kind of intelligent filter system)
+- TODO Make testing easier (Some kind of intelligent filter system)
 - TODO add automatic tests for inflections
     - TODO What are most important morphemes to test against? (Pick some 5-7)
 - TODO collect Adjectives

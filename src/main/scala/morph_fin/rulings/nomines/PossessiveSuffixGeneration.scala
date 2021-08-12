@@ -1,7 +1,7 @@
 package morph_fin.rulings.nomines
 
-import morph_fin.rulings.PossessiveSuffix.{PluralFirst, PluralSecond, SingularFirst, SingularSecond, Third}
-import morph_fin.rulings.{Case, GNumber, NomineMorphemes, PossessiveSuffix}
+import morph_fin.rulings.PossessiveSuffix._
+import morph_fin.rulings._
 import morph_fin.utils.Letters
 
 object PossessiveSuffixGeneration {
@@ -11,7 +11,7 @@ object PossessiveSuffixGeneration {
     PSuffix(SingularSecond, "si"),
     PSuffix(PluralFirst, "mme"),
     PSuffix(PluralSecond, "nne"),
-    PSuffix(Third, "nsa")
+    PSuffix(ThirdPos, "nsa")
   )
 
   import morph_fin.rulings.MorphemesUtils._
@@ -56,16 +56,16 @@ object PossessiveSuffixGeneration {
   private inline def resolveSecondUsageOfThirdPerson(resultWord: ResultWord): Seq[ResultWord] =
     import resultWord._
     val additionCondition = morphemes match {
-      case NomineMorphemes(Case.Nominative, _, _) => false
-      case NomineMorphemes(Case.Genitive, _, _) => false
-      case NomineMorphemes(Case.Illative, _, _) => false
+      case NomineMorphemes(Nominative, _) => false
+      case NomineMorphemes(Genitive, _) => false
+      case NomineMorphemes(Illative, _) => false
       case _ if Letters.isVowel(word.ending.last) && word.ending.last == (word.toString).dropRight(1).last => false
       case _ => true
     }
     if additionCondition
     then Seq(resultWord.copy(
         word = word.copy(ending = word.ending + word.ending.last + "n"),
-        morphemes = morphemes ++ PossessiveSuffix.Third
+        morphemes = morphemes ++ PossessiveSuffix.ThirdPos
       ))
     else Nil
 
@@ -73,8 +73,8 @@ object PossessiveSuffixGeneration {
     //Gradation
     val strongGradationCondition =
       morphemes match {
-        case NomineMorphemes(Case.Nominative, _, _) => true
-        case NomineMorphemes(Case.Genitive, GNumber.Singular, _) => true
+        case NomineMorphemes(Nominative, _) => true
+        case NomineMorphemes(Genitive, Singular) => true
         case _ => false
       }
     gradationOpt match {

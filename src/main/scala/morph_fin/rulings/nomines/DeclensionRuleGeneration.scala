@@ -13,7 +13,29 @@ enum RepChar:
 
 import RepChar._
 
+object Replacement {
 
+  def resolveMap(word: String, ending: Seq[RepChar]): Map[Char, Char] =
+    assert(word.length >= ending.length)
+    (0 until ending.length).flatMap(i => ending(i) match {
+      case RepChar.Ch(c) => None
+      case RepChar.Rep(c) => Some(c -> word(word.length - ending.length + i))
+    }).toMap
+}
+
+extension (str: String)
+  def hasEnding(ending: Seq[RepChar]): Boolean =
+    (0 until ending.length).forall(i => ending(i) match {
+      case RepChar.Ch(c) => c == str(str.length - ending.length + i)
+      case RepChar.Rep(c) => Letters.isVowel(str(str.length - ending.length + i))
+    })
+
+extension(ending: Seq[RepChar])
+  def create(map: Map[Char, Char]): String =
+    ending.map(_ match {
+      case RepChar.Ch(c) => c
+      case RepChar.Rep(c) => map(c)
+    }).mkString("")
 
 
 case class Declension(morphemes: NomineMorphemes, ending: Seq[RepChar], tpe: NomineGradationType)
