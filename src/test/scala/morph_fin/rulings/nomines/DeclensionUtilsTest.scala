@@ -373,4 +373,146 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Com:: P, "mataline")
   }
 
+  "addDeclensions" should "handle case: rule: 11, word: papana" in {
+    val word = Word("papana", 11, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "papana")
+    declensions.matches(Gen:: S, "papanan")
+    declensions.matches(Par:: S, "papanaa")
+
+    declensions.matches(Ill:: S, "papanaan")
+
+    declensions.matches(Ade:: S, "papanalla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "papanat")
+    declensions.matches(Gen:: P, "papanien", "papanoiden", "papanoitten", "papanojen", "papanain")
+    declensions.matches(Par:: P, "papania", "papanoita", "papanoja")
+
+    declensions.matches(Ill:: P, "papanoihin", "papaniin")
+
+    declensions.matches(Ade:: P, "papanilla", "papanoilla")
+
+    declensions.matches(Ins:: P, "papanin", "papanoin")
+    declensions.matches(Com:: P, "papanine")
+  }
+
+  "addDeclensions" should "handle case: rule: 12, word: passiivat = velat (plural)" in {
+    val word = Word("passiivat", 12, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "passiiva")
+    declensions.matches(Gen:: S, "passiivan")
+    declensions.matches(Par:: S, "passiivaa")
+
+    declensions.matches(Ill:: S, "passiivaan")
+
+    declensions.matches(Ade:: S, "passiivalla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "passiivat")
+    declensions.matches(Gen:: P, "passiivoiden", "passiivoitten", "passiivain")
+    declensions.matches(Par:: P, "passiivoita")
+
+    declensions.matches(Ill:: P, "passiivoihin")
+
+    declensions.matches(Ade:: P, "passiivoilla")
+
+    declensions.matches(Ins:: P, "passiivoin")
+    declensions.matches(Com:: P, "passiivoine")
+  }
+
+  "addDeclensions" should "handle case: rule: 12, word: pasteija (Singular)" in {
+    val word = Word("pasteija", 12, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "pasteija")
+    declensions.matches(Gen:: S, "pasteijan")
+    declensions.matches(Par:: S, "pasteijaa")
+
+    declensions.matches(Ill:: S, "pasteijaan")
+
+    declensions.matches(Ade:: S, "pasteijalla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "pasteijat")
+    declensions.matches(Gen:: P, "pasteijoiden", "pasteijoitten", "pasteijain")
+    declensions.matches(Par:: P, "pasteijoita")
+
+    declensions.matches(Ill:: P, "pasteijoihin")
+
+    declensions.matches(Ade:: P, "pasteijoilla")
+
+    declensions.matches(Ins:: P, "pasteijoin")
+    declensions.matches(Com:: P, "pasteijoine")
+  }
+
+  "addDeclensions" should "handle case: rule: 13, word: perusta" in {
+    val word = Word("perusta", 13, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "perusta")
+    declensions.matches(Gen:: S, "perustan")
+    declensions.matches(Par:: S, "perustaa")
+
+    declensions.matches(Ill:: S, "perustaan")
+
+    declensions.matches(Ade:: S, "perustalla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "perustat")
+    declensions.matches(Gen:: P, "perustojen", "perustoiden", "perustoitten", "perustain")
+    declensions.matches(Par:: P, "perustoja", "perustoita")
+
+    declensions.matches(Ill:: P, "perustoihin")
+
+    declensions.matches(Ade:: P, "perustoilla")
+
+    declensions.matches(Ins:: P, "perustoin")
+    declensions.matches(Com:: P, "perustoine")
+  }
+
+  "addDeclensions" should "handle case: rule: 14, word: pohatta" in {
+    val word = Word("pohatta", 14, Gradation("tt", "t").opt)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "pohatta")
+    declensions.matches(Gen:: S, "pohatan")
+    declensions.matches(Par:: S, "pohattaa")
+
+    declensions.matches(Ill:: S, "pohattaan")
+
+    declensions.matches(Ade:: S, "pohatalla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "pohatat")
+    declensions.matches(Gen:: P, "pohattojen", "pohatoiden", "pohatoitten", "pohattain")
+    declensions.matches(Par:: P, "pohattoja", "pohatoita")
+
+    declensions.matches(Ill:: P, "pohattoihin", "pohatoihin")
+
+    declensions.matches(Ade:: P, "pohatoilla")
+
+    declensions.matches(Ess:: P, "pohatoina", "pohattoina")
+
+    declensions.matches(Ins:: P, "pohatoin")
+    declensions.matches(Com:: P, "pohatoine", "pohattoine")
+  }
+
 }

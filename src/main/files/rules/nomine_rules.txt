@@ -316,6 +316,7 @@ P|Kom: koirine
 S|Nom: omena
 S|Gen: omenan
 S|Par: omenaa
+S|Akk: omena omenan
 S|Ine: omenassa
 S|Ela: omenasta
 S|Ill: omenaan
@@ -329,16 +330,17 @@ S|Abe: omenatta
 P|Nom: omenat
 P|Gen: omenien omenoiden omenoitten (omenojen) (omenain)
 P|Par: omenia omenoita (omenoja)
-P|Ine: omenissa
-P|Ela: omenista
+P|Akk: omenat
+P|Ine: omenissa omenoissa
+P|Ela: omenista omenoista
 P|Ill: omeniin omenoihin
-P|Ade: omenilla
-P|Abl: omenilta
-P|All: omenille
-P|Ess: omenina
-P|Tra: omeniksi
-P|Ins: omenin
-P|Abe: omenitta
+P|Ade: omenilla omenoilla
+P|Abl: omenilta omenoilta
+P|All: omenille omenoille
+P|Ess: omenina omenoina
+P|Tra: omeniksi omenoiksi
+P|Ins: omenin omenoin
+P|Abe: omenitta omenoitta
 P|Kom: omenine
 
 <12>
@@ -422,11 +424,11 @@ P|Ill: solakkoihin solakoihin
 P|Ade: solakoilla
 P|Abl: solakoilta
 P|All: solakoille
-P|Ess: solakoina
+P|Ess: solakoina solakkoina
 P|Tra: solakoiksi
 P|Ins: solakoin
 P|Abe: solakoitta
-P|Kom: solakoine
+P|Kom: solakoine solakkoine
 
 <15>
 S|Nom: korkea
