@@ -17,7 +17,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   extension(list: Seq[ResultWord])
     def matches(morphemes: Morphemes, words: String*) =
-      assert(list.filter(_.morphemes == morphemes).map(_.word.toString).toSet == words.toSet)
+      assert(list.filter(_.morphemes == morphemes).map(_.word.toString).toSet == words.toSet, morphemes)
 
   "addDeclensions" should "handle case: rule: 1, word: järkky" in {
     val word = Word("järkky", 1, Gradation("kk", "k").opt)
@@ -514,5 +514,216 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Ins:: P, "pohatoin")
     declensions.matches(Com:: P, "pohatoine", "pohattoine")
   }
+
+  "addDeclensions" should "handle case: rule: 15, word: hilpeä" in {
+    val word = Word("hilpeä", 15, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "hilpeä")
+    declensions.matches(Gen:: S, "hilpeän")
+    declensions.matches(Par:: S, "hilpeää")
+
+    declensions.matches(Ill:: S, "hilpeään")
+
+    declensions.matches(Ade:: S, "hilpeällä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "hilpeät")
+    declensions.matches(Gen:: P, "hilpeiden", "hilpeitten", "hilpeäin")
+    declensions.matches(Par:: P, "hilpeitä")
+
+    declensions.matches(Ill:: P, "hilpeihin", "hilpeisiin")
+
+    declensions.matches(Ade:: P, "hilpeillä")
+
+    declensions.matches(Ess:: P, "hilpeinä")
+
+    declensions.matches(Ins:: P, "hilpein")
+    declensions.matches(Com:: P, "hilpeine")
+  }
+
+  "addDeclensions" should "handle case: rule: 16, word: likempi" in {
+    val word = Word("likempi", 16, Gradation("mp", "mm").opt)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "likempi")
+    declensions.matches(Gen:: S, "likemmän")
+    declensions.matches(Par:: S, "likempää")
+
+    declensions.matches(Ill:: S, "likempään")
+
+    declensions.matches(Ade:: S, "likemmällä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "likemmät")
+    declensions.matches(Gen:: P, "likempien", "likempäin")
+    declensions.matches(Par:: P, "likempiä")
+
+    declensions.matches(Ill:: P, "likempiin")
+
+    declensions.matches(Ade:: P, "likemmillä")
+
+    declensions.matches(Ess:: P, "likempinä")
+
+    declensions.matches(Ins:: P, "likemmin")
+    declensions.matches(Com:: P, "likempine")
+  }
+
+  "addDeclensions" should "handle case: rule: 17, word: palttoo" in {
+    val word = Word("palttoo", 17, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "palttoo")
+    declensions.matches(Gen:: S, "palttoon")
+    declensions.matches(Par:: S, "palttoota")
+
+    declensions.matches(Ill:: S, "palttooseen")
+
+    declensions.matches(Ade:: S, "palttoolla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "palttoot")
+    declensions.matches(Gen:: P, "palttoiden", "palttoitten")
+    declensions.matches(Par:: P, "palttoita")
+
+    declensions.matches(Ill:: P, "palttoisiin", "palttoihin")
+
+    declensions.matches(Ade:: P, "palttoilla")
+
+    declensions.matches(Ess:: P, "palttoina")
+
+    declensions.matches(Ins:: P, "palttoin")
+    declensions.matches(Com:: P, "palttoine")
+  }
+
+  "addDeclensions" should "handle case: rule: 18, word: perjantai" in {
+    val word = Word("perjantai", 18, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "perjantai")
+    declensions.matches(Gen:: S, "perjantain")
+    declensions.matches(Par:: S, "perjantaita")
+
+    declensions.matches(Ill:: S, "perjantaihin")
+
+    declensions.matches(Ade:: S, "perjantailla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "perjantait")
+    declensions.matches(Gen:: P, "perjantaiden", "perjantaitten")
+    declensions.matches(Par:: P, "perjantaita")
+
+    declensions.matches(Ill:: P, "perjantaihin")
+
+    declensions.matches(Ade:: P, "perjantailla")
+
+    declensions.matches(Ess:: P, "perjantaina")
+
+    declensions.matches(Ins:: P, "perjantain")
+    declensions.matches(Com:: P, "perjantaine")
+  }
+
+  "addDeclensions" should "handle case: rule: 19, word: tie" in {
+    val word = Word("tie", 19, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "tie")
+    declensions.matches(Gen:: S, "tien")
+    declensions.matches(Par:: S, "tietä")
+
+    declensions.matches(Ill:: S, "tiehen")
+
+    declensions.matches(Ade:: S, "tiellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "tiet")
+    declensions.matches(Gen:: P, "teiden", "teitten")
+    declensions.matches(Par:: P, "teitä")
+
+    declensions.matches(Ill:: P, "teihin")
+
+    declensions.matches(Ade:: P, "teillä")
+
+    declensions.matches(Ess:: P, "teinä")
+
+    declensions.matches(Ins:: P, "tein")
+    declensions.matches(Com:: P, "teine")
+  }
+
+  "addDeclensions" should "handle case: rule: 21, word: coupé" in {
+    val word = Word("coupé", 21, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "coupé")
+    declensions.matches(Gen:: S, "coupén")
+    declensions.matches(Par:: S, "coupéta")
+
+    declensions.matches(Ill:: S, "coupéhen")
+
+    declensions.matches(Ade:: S, "coupélla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "coupét")
+    declensions.matches(Gen:: P, "coupéiden", "coupéitten")
+    declensions.matches(Par:: P, "coupéita")
+
+    declensions.matches(Ill:: P, "coupéihin")
+
+    declensions.matches(Ade:: P, "coupéilla")
+
+    declensions.matches(Ess:: P, "coupéina")
+
+    declensions.matches(Ins:: P, "coupéin")
+    declensions.matches(Com:: P, "coupéine")
+  }
+
+  "addDeclensions" should "handle case: rule: 22, word: nougat" in {
+    val word = Word("nougat", 22, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "nougat")
+    declensions.matches(Gen:: S, "nougat'n")
+    declensions.matches(Par:: S, "nougat'ta")
+
+    declensions.matches(Ill:: S, "nougat'hen")
+
+    declensions.matches(Ade:: S, "nougat'lla")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "nougat't")
+    declensions.matches(Gen:: P, "nougat'iden", "nougat'itten")
+    declensions.matches(Par:: P, "nougat'ita")
+
+    declensions.matches(Ill:: P, "nougat'ihin")
+
+    declensions.matches(Ade:: P, "nougat'illa")
+
+    declensions.matches(Ess:: P, "nougat'ina")
+
+    declensions.matches(Ins:: P, "nougat'in")
+    declensions.matches(Com:: P, "nougat'ine")
+  }
+
 
 }

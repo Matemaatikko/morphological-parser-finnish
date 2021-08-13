@@ -138,13 +138,16 @@ object DeclensionUtils {
       case RepChar.Ch(c)  => c.toString
     }).mkString("")
 
-    val illativeUpdated = if(
-      Letters.isVowel(lemma.last) &&
-        ending.morphemes == Ill::S &&
-        !changed && listOfSomeVowels.contains(result.dropRight(1).last)
-      )
+    val illativeCondition = Letters.isVowel(lemma.last)
+      && ending.morphemes == Ill::S
+      && !changed
+      && listOfSomeVowels.contains(result.dropRight(1).last)
+
+    val illativeUpdated = if(illativeCondition && result.dropRight(2).isEmpty)
       then result.dropRight(2) + lemma.last + result.last
-      else result
+    else if illativeCondition && result.dropRight(2).nonEmpty
+      then result.dropRight(2) + result.dropRight(2).last + result.last
+    else result
 
     updateVocalization(illativeUpdated, resolveVocalization(lemma))
   end updateEnding

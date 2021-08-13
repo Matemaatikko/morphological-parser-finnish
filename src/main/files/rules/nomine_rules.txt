@@ -688,7 +688,7 @@ S|Abe: parfait'tta
 
 P|Nom: parfait't
 P|Gen: parfait'iden parfait'itten
-P|Par: parfait'ta
+P|Par: parfait'ita
 P|Akk: parfait't
 P|Ine: parfait'issa
 P|Ela: parfait'ista

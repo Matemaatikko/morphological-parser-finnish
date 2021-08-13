@@ -132,10 +132,9 @@ object GenerateDeclensionRules {
 
   def resolveNonGradationCase(morphemes: NomineMorphemes, word: String, root: String, replacementVowels: Seq[Char]): Declension =
     val ending = word.drop(root.length)
-    val (start, end) = if morphemes != (Ill::S) then splitByFirstConsonant(ending) else (ending, "")
+    val (start, end) = if morphemes != (Ill::S) || ending.endsWith("seen") then splitByFirstConsonant(ending) else (ending, "")
     val resultEnding = start.map(c => if(replacementVowels.contains(c)) then Rep(c) else Ch(c)) ++ end.map(Ch(_))
     Declension(morphemes, resultEnding, NomineGradationType.Nothing)
-
 
   def splitByFirstConsonant(str: String): (String, String) =
     val index = str.indexWhere(Letters.isConsonant(_))
