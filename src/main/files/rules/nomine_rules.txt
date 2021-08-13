@@ -55,6 +55,7 @@ P|Kom: valoine
 S|Nom: palvelu
 S|Gen: palvelun
 S|Par: palvelua
+S|Akk: palvelu palvelun
 S|Ine: palvelussa
 S|Ela: palvelusta
 S|Ill: palveluun
@@ -68,6 +69,7 @@ S|Abe: palvelutta
 P|Nom: palvelut
 P|Gen: palvelujen palveluiden palveluitten
 P|Par: palveluja palveluita
+P|Akk: palvelut
 P|Ine: palveluissa
 P|Ela: palveluista
 P|Ill: palveluihin
@@ -84,6 +86,7 @@ P|Kom: palveluine
 S|Nom: valtio
 S|Gen: valtion
 S|Par: valtiota
+S|Akk: valtio valtion
 S|Ine: valtiossa
 S|Ela: valtiosta
 S|Ill: valtioon
@@ -97,6 +100,7 @@ S|Abe: valtiotta
 P|Nom: valtiot
 P|Gen: valtioiden valtioitten
 P|Par: valtioita
+P|Akk: valtiot
 P|Ine: valtioissa
 P|Ela: valtioista
 P|Ill: valtioihin
@@ -113,6 +117,7 @@ P|Kom: valtioine
 S|Nom: laatikko
 S|Gen: laatikon
 S|Par: laatikkoa
+S|Akk: laatikko laatikon
 S|Ine: laatikossa
 S|Ela: laatikosta
 S|Ill: laatikkoon
@@ -126,6 +131,7 @@ S|Abe: laatikotta
 P|Nom: laatikot
 P|Gen: laatikkojen laatikoiden laatikoitten
 P|Par: laatikkoja laatikoita
+P|Akk: laatikot
 P|Ine: laatikoissa
 P|Ela: laatikoista
 P|Ill: laatikkoihin laatikoihin
@@ -142,6 +148,7 @@ P|Kom: laatikoine
 S|Nom: risti
 S|Gen: ristin
 S|Par: ristiä
+S|Akk: risti ristin
 S|Ine: ristissä
 S|Ela: rististä
 S|Ill: ristiin
@@ -155,6 +162,7 @@ S|Abe: ristittä
 P|Nom: ristit
 P|Gen: ristien
 P|Par: ristejä
+P|Akk: ristit
 P|Ine: risteissä
 P|Ela: risteistä
 P|Ill: risteihin
@@ -171,6 +179,7 @@ P|Kom: risteine
 S|Nom: paperi
 S|Gen: paperin
 S|Par: paperia
+S|Akk: paperi paperit
 S|Ine: paperissa
 S|Ela: paperista
 S|Ill: paperiin
@@ -184,6 +193,7 @@ S|Abe: paperitta
 P|Nom: paperit
 P|Gen: paperien papereiden papereitten
 P|Par: papereja papereita
+P|Akk: paperit
 P|Ine: papereissa
 P|Ela: papereista
 P|Ill: papereihin
@@ -200,6 +210,7 @@ P|Kom: papereine
 S|Nom: ovi
 S|Gen: oven
 S|Par: ovea
+S|Akk: ovi oven
 S|Ine: ovessa
 S|Ela: ovesta
 S|Ill: oveen
@@ -213,6 +224,7 @@ S|Abe: ovetta
 P|Nom: ovet
 P|Gen: ovien
 P|Par: ovia
+P|Akk: ovet
 P|Ine: ovissa
 P|Ela: ovista
 P|Ill: oviin
@@ -229,6 +241,7 @@ P|Kom: ovine
 S|Nom: nalle
 S|Gen: nallen
 S|Par: nallea
+S|Akk: nalle nallen
 S|Ine: nallessa
 S|Ela: nallesta
 S|Ill: nalleen
@@ -242,6 +255,7 @@ S|Abe: nalletta
 P|Nom: nallet
 P|Gen: nallejen (nallein)
 P|Par: nalleja
+P|Akk: nallet
 P|Ine: nalleissa
 P|Ela: nalleista
 P|Ill: nalleihin
@@ -258,6 +272,7 @@ P|Kom: nalleine
 S|Nom: kala
 S|Gen: kalan
 S|Par: kalaa
+S|Akk: kala kalan
 S|Ine: kalassa
 S|Ela: kalasta
 S|Ill: kalaan
@@ -271,6 +286,7 @@ S|Abe: kalatta
 P|Nom: kalat
 P|Gen: kalojen (kalain)
 P|Par: kaloja
+P|Akk: kalat
 P|Ine: kaloissa
 P|Ela: kaloista
 P|Ill: kaloihin
@@ -287,6 +303,7 @@ P|Kom: kaloine
 S|Nom: koira
 S|Gen: koiran
 S|Par: koiraa
+S|Akk: koira koiran
 S|Ine: koirassa
 S|Ela: koirasta
 S|Ill: koiraan
@@ -300,6 +317,7 @@ S|Abe: koiratta
 P|Nom: koirat
 P|Gen: koirien (koirain)
 P|Par: koiria
+P|Akk: koirat
 P|Ine: koirissa
 P|Ela: koirista
 P|Ill: koiriin
@@ -347,6 +365,7 @@ P|Kom: omenine
 S|Nom: kulkija
 S|Gen: kulkijan
 S|Par: kulkijaa
+S|Akk: kulkija kulkijan
 S|Ine: kulkijassa
 S|Ela: kulkijasta
 S|Ill: kulkijaan
@@ -360,6 +379,7 @@ S|Abe: kulkijatta
 P|Nom: kulkijat
 P|Gen: kulkijoiden kulkijoitten (kulkijain)
 P|Par: kulkijoita
+P|Akk: kulkijat
 P|Ine: kulkijoissa
 P|Ela: kulkijoista
 P|Ill: kulkijoihin
@@ -376,6 +396,7 @@ P|Kom: kulkijoine
 S|Nom: katiska
 S|Gen: katiskan
 S|Par: katiskaa
+S|Akk: katiska katiskan
 S|Ine: katiskassa
 S|Ela: katiskasta
 S|Ill: katiskaan
@@ -389,6 +410,7 @@ S|Abe: katiskatta
 P|Nom: katiskat
 P|Gen: katiskoiden katiskoitten katiskojen (katiskain)
 P|Par: katiskoita katiskoja
+P|Akk: katiskat
 P|Ine: katiskoissa
 P|Ela: katiskoista
 P|Ill: katiskoihin
@@ -405,6 +427,7 @@ P|Kom: katiskoine
 S|Nom: solakka
 S|Gen: solakan
 S|Par: solakkaa
+S|Akk: solakka solakan
 S|Ine: solakassa
 S|Ela: solakasta
 S|Ill: solakkaan
@@ -418,6 +441,7 @@ S|Abe: solakatta
 P|Nom: solakat
 P|Gen: solakoiden solakoitten solakkojen (solakkain)
 P|Par: solakoita solakkoja
+P|Akk: solakat
 P|Ine: solakoissa
 P|Ela: solakoista
 P|Ill: solakkoihin solakoihin
@@ -434,6 +458,7 @@ P|Kom: solakoine solakkoine
 S|Nom: korkea
 S|Gen: korkean
 S|Par: korkeaa
+S|Akk: korkea korkean
 S|Ine: korkeassa
 S|Ela: korkeasta
 S|Ill: korkeaan
@@ -447,6 +472,7 @@ S|Abe: korkeatta
 P|Nom: korkeat
 P|Gen: korkeiden korkeitten (korkeain)
 P|Par: korkeita
+P|Akk: korkeat
 P|Ine: korkeissa
 P|Ela: korkeista
 P|Ill: korkeisiin korkeihin
@@ -463,6 +489,7 @@ P|Kom: korkeine
 S|Nom: vanhempi
 S|Gen: vanhemman
 S|Par: vanhempaa
+S|Akk: vanhempi vanhemman
 S|Ine: vanhemmassa
 S|Ela: vanhemmasta
 S|Ill: vanhempaan
@@ -476,6 +503,7 @@ S|Abe: vanhemmatta
 P|Nom: vanhemmat
 P|Gen: vanhempien (vanhempain)
 P|Par: vanhempia
+P|Akk: vanhemmat
 P|Ine: vanhemmissa
 P|Ela: vanhemmista
 P|Ill: vanhempiin
@@ -492,6 +520,7 @@ P|Kom: vanhempine
 S|Nom: vapaa
 S|Gen: vapaan
 S|Par: vapaata
+S|Akk: vapaa vapaan
 S|Ine: vapaassa
 S|Ela: vapaasta
 S|Ill: vapaaseen
@@ -505,6 +534,7 @@ S|Abe: vapaatta
 P|Nom: vapaat
 P|Gen: vapaiden vapaitten
 P|Par: vapaita
+P|Akk: vapaat
 P|Ine: vapaissa
 P|Ela: vapaista
 P|Ill: vapaisiin (vapaihin)
@@ -521,6 +551,7 @@ P|Kom: vapaine
 S|Nom: maa
 S|Gen: maan
 S|Par: maata
+S|Akk: maa maan
 S|Ine: maassa
 S|Ela: maasta
 S|Ill: maahan
@@ -534,6 +565,7 @@ S|Abe: maatta
 P|Nom: maat
 P|Gen: maiden maitten
 P|Par: maita
+P|Akk: maat
 P|Ine: maissa
 P|Ela: maista
 P|Ill: maihin
@@ -550,6 +582,7 @@ P|Kom: maine
 S|Nom: suo
 S|Gen: suon
 S|Par: suota
+S|Akk: suo suon
 S|Ine: suossa
 S|Ela: suosta
 S|Ill: suohon
@@ -563,6 +596,7 @@ S|Abe: suotta
 P|Nom: suot
 P|Gen: soiden soitten
 P|Par: soita
+P|Akk: suot
 P|Ine: soissa
 P|Ela: soista
 P|Ill: soihin
@@ -579,6 +613,7 @@ P|Kom: soine
 S|Nom: filee
 S|Gen: fileen
 S|Par: fileetä
+S|Akk: filee fileen
 S|Ine: fileessä
 S|Ela: fileestä
 S|Ill: fileehen fileeseen
@@ -592,6 +627,7 @@ S|Abe: fileettä
 P|Nom: fileet
 P|Gen: fileiden fileitten
 P|Par: fileitä
+P|Akk: fileet
 P|Ine: fileissä
 P|Ela: fileistä
 P|Ill: fileihin fileisiin
@@ -608,6 +644,7 @@ P|Kom: fileine
 S|Nom: rosé
 S|Gen: rosén
 S|Par: roséta
+S|Akk: rosé rosén
 S|Ine: roséssa
 S|Ela: rosésta
 S|Ill: roséhen
@@ -619,8 +656,9 @@ S|Tra: roséksi
 S|Abe: rosétta
 
 P|Nom: rosét
-P|Gen: roséiden
+P|Gen: roséiden roséitten
 P|Par: roséita
+P|Akk: rosét
 P|Ine: roséissa
 P|Ela: roséista
 P|Ill: roséihin
@@ -637,6 +675,7 @@ P|Kom: roséine
 S|Nom: parfait
 S|Gen: parfait'n
 S|Par: parfait'ta
+S|Akk: parfait parfait'n
 S|Ine: parfait'ssa
 S|Ela: parfait'sta
 S|Ill: parfait'hen
@@ -648,8 +687,9 @@ S|Tra: parfait'ksi
 S|Abe: parfait'tta
 
 P|Nom: parfait't
-P|Gen: parfait'iden
+P|Gen: parfait'iden parfait'itten
 P|Par: parfait'ta
+P|Akk: parfait't
 P|Ine: parfait'issa
 P|Ela: parfait'ista
 P|Ill: parfait'ihin
@@ -666,6 +706,7 @@ P|Kom: parfait'ine
 S|Nom: tiili
 S|Gen: tiilen
 S|Par: tiiltä
+S|Akk: tiili tiilen
 S|Ine: tiilessä
 S|Ela: tiilestä
 S|Ill: tiileen
@@ -679,6 +720,7 @@ S|Abe: tiilettä
 P|Nom: tiilet
 P|Gen: tiilien
 P|Par: tiiliä
+P|Akk: tiilet
 P|Ine: tiilissä
 P|Ela: tiilistä
 P|Ill: tiiliin
@@ -695,19 +737,21 @@ P|Kom: tiiline
 S|Nom: uni
 S|Gen: unen
 S|Par: unta
+S|Akk: uni unen
 S|Ine: unessa
 S|Ela: unesta
 S|Ill: uneen
 S|Ade: unella
 S|Abl: unelta
 S|All: unelle
-S|Ess: unena
+S|Ess: unena (unna)
 S|Tra: uneksi
 S|Abe: unetta
 
 P|Nom: unet
 P|Gen: unien unten
 P|Par: unia
+P|Akk: unet
 P|Ine: unissa
 P|Ela: unista
 P|Ill: uniin
@@ -724,6 +768,7 @@ P|Kom: unine
 S|Nom: toimi
 S|Gen: toimen
 S|Par: tointa toimea
+S|Akk: toimi toimen
 S|Ine: toimessa
 S|Ela: toimesta
 S|Ill: toimeen
@@ -737,6 +782,7 @@ S|Abe: toimetta
 P|Nom: toimet
 P|Gen: toimien tointen
 P|Par: toimia
+P|Akk: toimet
 P|Ine: toimissa
 P|Ela: toimista
 P|Ill: toimiin
@@ -753,19 +799,21 @@ P|Kom: toimine
 S|Nom: pieni
 S|Gen: pienen
 S|Par: pientä
+S|Akk: pieni pienen
 S|Ine: pienessä
 S|Ela: pienestä
 S|Ill: pieneen
 S|Ade: pienellä
 S|Abl: pieneltä
 S|All: pienelle
-S|Ess: pienenä
+S|Ess: pienenä (piennä)
 S|Tra: pieneksi
 S|Abe: pienettä
 
 P|Nom: pienet
 P|Gen: pienten pienien
 P|Par: pieniä
+P|Akk: pienet
 P|Ine: pienissä
 P|Ela: pienistä
 P|Ill: pieniin
@@ -782,6 +830,7 @@ P|Kom: pienine
 S|Nom: käsi
 S|Gen: käden
 S|Par: kättä
+S|Akk: käsi käden
 S|Ine: kädessä
 S|Ela: kädestä
 S|Ill: käteen
@@ -795,6 +844,7 @@ S|Abe: kädettä
 P|Nom: kädet
 P|Gen: käsien (kätten)
 P|Par: käsiä
+P|Akk: kädet
 P|Ine: käsissä
 P|Ela: käsistä
 P|Ill: käsiin
@@ -811,6 +861,7 @@ P|Kom: käsine
 S|Nom: kynsi
 S|Gen: kynnen
 S|Par: kynttä
+S|Akk: kynsi kynnen
 S|Ine: kynnessä
 S|Ela: kynnestä
 S|Ill: kynteen
@@ -824,6 +875,7 @@ S|Abe: kynnettä
 P|Nom: kynnet
 P|Gen: kynsien (kyntten)
 P|Par: kynsiä
+P|Akk: kynnet
 P|Ine: kynsissä
 P|Ela: kynsistä
 P|Ill: kynsiin
@@ -840,6 +892,7 @@ P|Kom: kynsine
 S|Nom: lapsi
 S|Gen: lapsen
 S|Par: lasta
+S|Akk: lapsi lapsen
 S|Ine: lapsessa
 S|Ela: lapsesta
 S|Ill: lapseen
@@ -853,6 +906,7 @@ S|Abe: lapsetta
 P|Nom: lapset
 P|Gen: lasten lapsien
 P|Par: lapsia
+P|Akk: lapset
 P|Ine: lapsissa
 P|Ela: lapsista
 P|Ill: lapsiin
@@ -869,6 +923,7 @@ P|Kom: lapsine
 S|Nom: veitsi
 S|Gen: veitsen
 S|Par: veistä
+S|Akk: veitsi veitsen
 S|Ine: veitsessä
 S|Ela: veitsestä
 S|Ill: veitseen
@@ -882,6 +937,7 @@ S|Abe: veitsettä
 P|Nom: veitset
 P|Gen: veitsien (veisten)
 P|Par: veitsiä
+P|Akk: veitset
 P|Ine: veitsissä
 P|Ela: veitsistä
 P|Ill: veitsiin
@@ -898,6 +954,7 @@ P|Kom: veitsinä
 S|Nom: kaksi
 S|Gen: kahden
 S|Par: kahta
+S|Akk: kaksi kahden
 S|Ine: kahdessa
 S|Ela: kahdesta
 S|Ill: kahteen
@@ -911,6 +968,7 @@ S|Abe: kahdetta
 P|Nom: kahdet
 P|Gen: kaksien
 P|Par: kaksia
+P|Akk: kahdet
 P|Ine: kaksissa
 P|Ela: kaksista
 P|Ill: kaksiin
@@ -927,19 +985,21 @@ P|Kom: kaksine
 S|Nom: sisar
 S|Gen: sisaren
 S|Par: sisarta
+S|Akk: sisar sisaren
 S|Ine: sisaressa
 S|Ela: sisaresta
 S|Ill: sisareen
 S|Ade: sisarella
 S|Abl: sisarelta
 S|All: sisarelle
-S|Ess: sisarena
+S|Ess: sisarena (sisarna)
 S|Tra: sisareksi
 S|Abe: sisaretta
 
 P|Nom: sisaret
 P|Gen: sisarien sisarten
 P|Par: sisaria
+P|Akk: sisaret
 P|Ine: sisarissa
 P|Ela: sisarista
 P|Ill: sisariin
@@ -956,19 +1016,21 @@ P|Kom: sisarine
 S|Nom: kytkin
 S|Gen: kytkimen
 S|Par: kytkintä
+S|Akk: kytkin kytkimen
 S|Ine: kytkimessä
 S|Ela: kytkimestä
 S|Ill: kytkimeen
 S|Ade: kytkimellä
 S|Abl: kytkimeltä
 S|All: kytkimelle
-S|Ess: kytkimenä
+S|Ess: kytkimenä (kytkinnä)
 S|Tra: kytkimeksi
 S|Abe: kytkimettä
 
 P|Nom: kytkimet
 P|Gen: kytkimien kytkinten
 P|Par: kytkimiä
+P|Akk: kytkimet
 P|Ine: kytkimissä
 P|Ela: kytkimistä
 P|Ill: kytkimiin
@@ -985,19 +1047,21 @@ P|Kom: kytkimine
 S|Nom: onneton
 S|Gen: onnettoman
 S|Par: onnetonta
+S|Akk: onneton onnettoman
 S|Ine: onnettomassa
 S|Ela: onnettomasta
 S|Ill: onnettomaan
 S|Ade: onnettomalla
 S|Abl: onnettomalta
 S|All: onnettomalle
-S|Ess: onnettomana
+S|Ess: onnettomana (onnetonna)
 S|Tra: onnettomaksi
 S|Abe: onnettomatta
 
 P|Nom: onnettomat
 P|Gen: onnettomien (onnetonten)
 P|Par: onnettomia
+P|Akk: onnettomat
 P|Ine: onnettomissa
 P|Ela: onnettomista
 P|Ill: onnettomiin
@@ -1014,6 +1078,7 @@ P|Kom: onnettomine
 S|Nom: lämmin
 S|Gen: lämpimän
 S|Par: lämmintä
+S|Akk: lämmin lämpimän
 S|Ine: lämpimässä
 S|Ela: lämpimästä
 S|Ill: lämpimään
@@ -1027,6 +1092,7 @@ S|Abe: lämpimättä
 P|Nom: lämpimät
 P|Gen: lämpimien (lämpimäin)
 P|Par: lämpimiä
+P|Akk: lämpimät
 P|Ine: lämpimissä
 P|Ela: lämpimistä
 P|Ill: lämpimiin
@@ -1043,19 +1109,21 @@ P|Kom: lämpimine
 S|Nom: sisin
 S|Gen: sisimmän
 S|Par: sisintä
+S|Akk: sisin sisimmän
 S|Ine: sisimmässä
 S|Ela: sisimmästä
 S|Ill: sisimpään
 S|Ade: sisimmällä
 S|Abl: sisimmältä
 S|All: sisimmälle
-S|Ess: sisimpänä
+S|Ess: sisimpänä (sisinnä)
 S|Tra: sisimmäksi
 S|Abe: sisimmättä
 
 P|Nom: sisimmät
 P|Gen: sisimpien sisinten (sisimpäin)
 P|Par: sisimpiä
+P|Akk: sisimmät
 P|Ine: sisimmissä
 P|Ela: sisimmistä
 P|Ill: sisimpiin
@@ -1072,6 +1140,7 @@ P|Kom: sisimpine
 S|Nom: vasen
 S|Gen: vasemman
 S|Par: vasenta (vasempaa)
+S|Akk: vasen vasemman
 S|Ine: vasemmassa
 S|Ela: vasemmasta
 S|Ill: vasempaan
@@ -1085,6 +1154,7 @@ S|Abe: vasemmatta
 P|Nom: vasemmat
 P|Gen: vasempien vasenten (vasempain)
 P|Par: vasempia
+P|Akk: vasemmat
 P|Ine: vasemmissa
 P|Ela: vasemmista
 P|Ill: vasempiin
@@ -1101,19 +1171,21 @@ P|Kom: vasempine
 S|Nom: nainen
 S|Gen: naisen
 S|Par: naista
+S|Akk: nainen naisen
 S|Ine: naisessa
 S|Ela: naisesta
 S|Ill: naiseen
 S|Ade: naisella
 S|Abl: naiselta
 S|All: naiselle
-S|Ess: naisena
+S|Ess: naisena (naisna)
 S|Tra: naiseksi
 S|Abe: naisetta
 
 P|Nom: naiset
 P|Gen: naisten naisien
 P|Par: naisia
+P|Akk: naiset
 P|Ine: naisissa
 P|Ela: naisista
 P|Ill: naisiin
@@ -1130,6 +1202,7 @@ P|Kom: naisine
 S|Nom: vastaus
 S|Gen: vastauksen
 S|Par: vastausta
+S|Akk: vastaus vastauksen
 S|Ine: vastauksessa
 S|Ela: vastauksesta
 S|Ill: vastaukseen
@@ -1143,6 +1216,7 @@ S|Abe: vastauksetta
 P|Nom: vastaukset
 P|Gen: vastausten vastauksien
 P|Par: vastauksia
+P|Akk: vastaukset
 P|Ine: vastauksissa
 P|Ela: vastauksista
 P|Ill: vastauksiin
@@ -1159,6 +1233,7 @@ P|Kom: vastauksine
 S|Nom: kalleus
 S|Gen: kalleuden
 S|Par: kalleutta
+S|Akk: kalleus kalleuden
 S|Ine: kalleudessa
 S|Ela: kalleudesta
 S|Ill: kalleuteen
@@ -1172,6 +1247,7 @@ S|Abe: kalleutta
 P|Nom: kalleudet
 P|Gen: kalleuksien
 P|Par: kalleuksia
+P|Akk: kalleudet
 P|Ine: kalleuksissa
 P|Ela: kalleuksista
 P|Ill: kalleuksiin
@@ -1188,6 +1264,7 @@ P|Kom: kalleuksine
 S|Nom: vieras
 S|Gen: vieraan
 S|Par: vierasta
+S|Akk: vieras vieraan
 S|Ine: vieraassa
 S|Ela: vieraasta
 S|Ill: vieraaseen
@@ -1201,9 +1278,10 @@ S|Abe: vieraatta
 P|Nom: vieraat
 P|Gen: vieraiden vieraitten
 P|Par: vieraita
+P|Akk: vieraat
 P|Ine: vieraissa
 P|Ela: vieraista
-P|Ill: vieraisiin
+P|Ill: vieraisiin (vieraihin)
 P|Ade: vierailla
 P|Abl: vierailta
 P|All: vieraille
@@ -1217,6 +1295,7 @@ P|Kom: vieraine
 S|Nom: mies
 S|Gen: miehen
 S|Par: miestä
+S|Akk: mies miehen
 S|Ine: miehessä
 S|Ela: miehestä
 S|Ill: mieheen
@@ -1230,6 +1309,7 @@ S|Abe: miehettä
 P|Nom: miehet
 P|Gen: miesten miehien
 P|Par: miehiä
+P|Akk: miehet
 P|Ine: miehissä
 P|Ela: miehistä
 P|Ill: miehiin
@@ -1246,6 +1326,7 @@ P|Kom: miehine
 S|Nom: ohut
 S|Gen: ohuen
 S|Par: ohutta
+S|Akk: ohut ohuen
 S|Ine: ohuessa
 S|Ela: ohuesta
 S|Ill: ohueen
@@ -1259,6 +1340,7 @@ S|Abe: ohutta
 P|Nom: ohuet
 P|Gen: ohuiden ohuitten
 P|Par: ohuita
+P|Akk: ohuet
 P|Ine: ohuissa
 P|Ela: ohuista
 P|Ill: ohuisiin ohuihin
@@ -1275,6 +1357,7 @@ P|Kom: ohuine
 S|Nom: kevät
 S|Gen: kevään
 S|Par: kevättä
+S|Akk: kevät kevään
 S|Ine: keväässä
 S|Ela: keväästä
 S|Ill: kevääseen
@@ -1288,9 +1371,10 @@ S|Abe: keväättä
 P|Nom: keväät
 P|Gen: keväiden keväitten
 P|Par: keväitä
+P|Akk: keväät
 P|Ine: keväissä
 P|Ela: keväistä
-P|Ill: keväisiin
+P|Ill: keväisiin (keväihin)
 P|Ade: keväillä
 P|Abl: keväiltä
 P|All: keväille
@@ -1304,6 +1388,7 @@ P|Kom: keväine
 S|Nom: kahdeksas
 S|Gen: kahdeksannen
 S|Par: kahdeksatta
+S|Akk: kahdeksas kahdeksannen
 S|Ine: kahdeksannessa
 S|Ela: kahdeksannesta
 S|Ill: kahdeksanteen
@@ -1317,6 +1402,7 @@ S|Abe: kahdeksannetta
 P|Nom: kahdeksannet
 P|Gen: kahdeksansien
 P|Par: kahdeksansia
+P|Akk: kahdeksannet
 P|Ine: kahdeksansissa
 P|Ela: kahdeksansista
 P|Ill: kahdeksansiin
@@ -1333,6 +1419,7 @@ P|Kom: kahdeksansine
 S|Nom: tuhat
 S|Gen: tuhannen
 S|Par: tuhanta
+S|Akk: tuhat tuhannen
 S|Ine: tuhannessa
 S|Ela: tuhannesta
 S|Ill: tuhanteen
@@ -1346,6 +1433,7 @@ S|Abe: tuhannetta
 P|Nom: tuhannet
 P|Gen: tuhansien (tuhanten)
 P|Par: tuhansia
+P|Akk: tuhannet
 P|Ine: tuhansissa
 P|Ela: tuhansissta
 P|Ill: tuhansiin
@@ -1362,6 +1450,7 @@ P|Kom: tuhansine
 S|Nom: kuollut
 S|Gen: kuolleen
 S|Par: kuollutta
+S|Akk: kuollut kuolleen
 S|Ine: kuolleessa
 S|Ela: kuolleesta
 S|Ill: kuolleeseen
@@ -1375,6 +1464,7 @@ S|Abe: kuolleetta
 P|Nom: kuolleet
 P|Gen: kuolleiden kuolleitten
 P|Par: kuolleita
+P|Akk: kuolleet
 P|Ine: kuolleissa
 P|Ela: kuolleista
 P|Ill: kuolleisiin kuolleihin
@@ -1391,6 +1481,7 @@ P|Kom: kuolleine
 S|Nom: hame
 S|Gen: hameen
 S|Par: hametta
+S|Akk: hame hameen
 S|Ine: hameessa
 S|Ela: hameesta
 S|Ill: hameeseen
@@ -1404,6 +1495,7 @@ S|Abe: hameetta
 P|Nom: hameet
 P|Gen: hameiden hameitten
 P|Par: hameita
+P|Akk: hameet
 P|Ine: hameissa
 P|Ela: hameista
 P|Ill: hameisiin hameihin
@@ -1420,6 +1512,7 @@ P|Kom: hameine
 S|Nom: askel askele
 S|Gen: askelen askeleen
 S|Par: askelta askeletta
+S|Akk: askel askele askelen askeleen
 S|Ine: askelessa askeleessa
 S|Ela: askelesta askeleesta
 S|Ill: askeleen askeleeseen
@@ -1433,6 +1526,7 @@ S|Abe: askeletta askeleetta
 P|Nom: askelet askeleet
 P|Gen: askelten askelien askeleiden askeleitten
 P|Par: askelia askeleita
+P|Akk: askelet askeleet
 P|Ine: askelissa askeleissa
 P|Ela: askelista askeleista
 P|Ill: askeliin askeleisiin askeleihin
