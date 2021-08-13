@@ -725,5 +725,274 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Com:: P, "nougat'ine")
   }
 
+  "addDeclensions" should "handle case: rule: 23, word: tuli" in {
+    val word = Word("tuli", 23, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "tuli")
+    declensions.matches(Gen:: S, "tulen")
+    declensions.matches(Par:: S, "tulta")
+
+    declensions.matches(Ill:: S, "tuleen")
+
+    declensions.matches(Ade:: S, "tulella")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "tulet")
+    declensions.matches(Gen:: P, "tulien")
+    declensions.matches(Par:: P, "tulia")
+
+    declensions.matches(Ill:: P, "tuliin")
+
+    declensions.matches(Ade:: P, "tulilla")
+
+    declensions.matches(Ess:: P, "tulina")
+
+    declensions.matches(Ins:: P, "tulin")
+    declensions.matches(Com:: P, "tuline")
+  }
+
+  "addDeclensions" should "handle case: rule: 24, word: hiili" in {
+    val word = Word("hiili", 24, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "hiili")
+    declensions.matches(Gen:: S, "hiilen")
+    declensions.matches(Par:: S, "hiiltä")
+
+    declensions.matches(Ill:: S, "hiileen")
+
+    declensions.matches(Ade:: S, "hiilellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "hiilet")
+    declensions.matches(Gen:: P, "hiilien", "hiilten")
+    declensions.matches(Par:: P, "hiiliä")
+
+    declensions.matches(Ill:: P, "hiiliin")
+
+    declensions.matches(Ade:: P, "hiilillä")
+
+    declensions.matches(Ess:: P, "hiilinä")
+
+    declensions.matches(Ins:: P, "hiilin")
+    declensions.matches(Com:: P, "hiiline")
+  }
+
+  "addDeclensions" should "handle case: rule: 25, word: lumi" in {
+    val word = Word("lumi", 25, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "lumi")
+    declensions.matches(Gen:: S, "lumen")
+    declensions.matches(Par:: S, "lunta", "lumea")
+
+    declensions.matches(Ill:: S, "lumeen")
+
+    declensions.matches(Ade:: S, "lumella")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "lumet")
+    declensions.matches(Gen:: P, "lumien", "lunten")
+    declensions.matches(Par:: P, "lumia")
+
+    declensions.matches(Ill:: P, "lumiin")
+
+    declensions.matches(Ade:: P, "lumilla")
+
+    declensions.matches(Ess:: P, "lumina")
+
+    declensions.matches(Ins:: P, "lumin")
+    declensions.matches(Com:: P, "lumine")
+  }
+
+  "addDeclensions" should "handle case: rule: 26, word: mieli" in {
+    val word = Word("mieli", 26, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "mieli")
+    declensions.matches(Gen:: S, "mielen")
+    declensions.matches(Par:: S, "mieltä")
+
+    declensions.matches(Ill:: S, "mieleen")
+
+    declensions.matches(Ade:: S, "mielellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "mielet")
+    declensions.matches(Gen:: P, "mielten", "mielien")
+    declensions.matches(Par:: P, "mieliä")
+
+    declensions.matches(Ill:: P, "mieliin")
+
+    declensions.matches(Ade:: P, "mielillä")
+
+    declensions.matches(Ess:: P, "mielinä")
+
+    declensions.matches(Ins:: P, "mielin")
+    declensions.matches(Com:: P, "mieline")
+  }
+
+  "addDeclensions" should "handle case: rule: 27, word: reisi" in {
+    val word = Word("reisi", 27, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "reisi")
+    declensions.matches(Gen:: S, "reiden")
+    declensions.matches(Par:: S, "reittä")
+
+    declensions.matches(Ill:: S, "reiteen")
+
+    declensions.matches(Ade:: S, "reidellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "reidet")
+    declensions.matches(Gen:: P, "reisien", "reitten")
+    declensions.matches(Par:: P, "reisiä")
+
+    declensions.matches(Ill:: P, "reisiin")
+
+    declensions.matches(Ade:: P, "reisillä")
+
+    declensions.matches(Ess:: P, "reisinä")
+
+    declensions.matches(Ins:: P, "reisin")
+    declensions.matches(Com:: P, "reisine")
+  }
+
+  "addDeclensions" should "handle case: rule: 28, word: virsi" in {
+    val word = Word("virsi", 28, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "virsi")
+    declensions.matches(Gen:: S, "virren")
+    declensions.matches(Par:: S, "virttä")
+
+    declensions.matches(Ill:: S, "virteen")
+
+    declensions.matches(Ade:: S, "virrellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "virret")
+    declensions.matches(Gen:: P, "virsien", "virtten")
+    declensions.matches(Par:: P, "virsiä")
+
+    declensions.matches(Ill:: P, "virsiin")
+
+    declensions.matches(Ade:: P, "virsillä")
+
+    declensions.matches(Ess:: P, "virsinä")
+
+    declensions.matches(Ins:: P, "virsin")
+    declensions.matches(Com:: P, "virsine")
+  }
+
+  "addDeclensions" should "handle case: rule: 29, word: lapsi" in {
+    val word = Word("lapsi", 29, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "lapsi")
+    declensions.matches(Gen:: S, "lapsen")
+    declensions.matches(Par:: S, "lasta")
+
+    declensions.matches(Ill:: S, "lapseen")
+
+    declensions.matches(Ade:: S, "lapsella")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "lapset")
+    declensions.matches(Gen:: P, "lapsien", "lasten")
+    declensions.matches(Par:: P, "lapsia")
+
+    declensions.matches(Ill:: P, "lapsiin")
+
+    declensions.matches(Ade:: P, "lapsilla")
+
+    declensions.matches(Ess:: P, "lapsina")
+
+    declensions.matches(Ins:: P, "lapsin")
+    declensions.matches(Com:: P, "lapsine")
+  }
+
+  "addDeclensions" should "handle case: rule: 30, word: peitsi" in {
+    val word = Word("peitsi", 30, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "peitsi")
+    declensions.matches(Gen:: S, "peitsen")
+    declensions.matches(Par:: S, "peistä")
+
+    declensions.matches(Ill:: S, "peitseen")
+
+    declensions.matches(Ade:: S, "peitsellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "peitset")
+    declensions.matches(Gen:: P, "peitsien", "peisten")
+    declensions.matches(Par:: P, "peitsiä")
+
+    declensions.matches(Ill:: P, "peitsiin")
+
+    declensions.matches(Ade:: P, "peitsillä")
+
+    declensions.matches(Ess:: P, "peitsinä")
+
+    declensions.matches(Ins:: P, "peitsin")
+    declensions.matches(Com:: P, "peitsine")
+  }
+
+  "addDeclensions" should "handle case: rule: 31, word: yksi" in {
+    val word = Word("yksi", 31, None)
+    val declensions = addDeclesions(rules, word)
+
+    //Singular
+
+    declensions.matches(Nom:: S, "yksi")
+    declensions.matches(Gen:: S, "yhden")
+    declensions.matches(Par:: S, "yhtä")
+
+    declensions.matches(Ill:: S, "yhteen")
+
+    declensions.matches(Ade:: S, "yhdellä")
+
+    //Plural
+
+    declensions.matches(Nom:: P, "yhdet")
+    declensions.matches(Gen:: P, "yksien")
+    declensions.matches(Par:: P, "yksiä")
+
+    declensions.matches(Ill:: P, "yksiin")
+
+    declensions.matches(Ade:: P, "yksillä")
+
+    declensions.matches(Ess:: P, "yksinä")
+
+    declensions.matches(Ins:: P, "yksin")
+    declensions.matches(Com:: P, "yksine")
+  }
 
 }

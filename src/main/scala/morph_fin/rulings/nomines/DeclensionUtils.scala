@@ -42,7 +42,7 @@ object DeclensionUtils {
 
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(updatedRoot, gradation)
+      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(updatedRoot, gradation, rule.ruleNumber)
       case _                                    => (updatedRoot, "")
     }
 
@@ -149,7 +149,12 @@ object DeclensionUtils {
       then result.dropRight(2) + result.dropRight(2).last + result.last
     else result
 
-    updateVocalization(illativeUpdated, resolveVocalization(lemma))
+    val vocalizationUpdated = updateVocalization(illativeUpdated, resolveVocalization(lemma))
+    updateEndingCase28(vocalizationUpdated, lemma, rule)
   end updateEnding
 
+
+  def updateEndingCase28(ending: String, lemma: String, rule: DeclensionRules): String =
+    if(rule.ruleNumber == 28 && ending.startsWith("n")) then lemma.dropRight(2).last + ending.drop(1)
+    else ending
 }

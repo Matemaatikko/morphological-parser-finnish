@@ -853,7 +853,7 @@ P|Abl: käsiltä
 P|All: käsille
 P|Ess: käsinä
 P|Tra: käsiksi
-P|Ins: käsiin
+P|Ins: käsin
 P|Abe: käsittä
 P|Kom: käsine
 
@@ -948,7 +948,7 @@ P|Ess: veitsinä
 P|Tra: veitsiksi
 P|Ins: veitsin
 P|Abe: veitsittä
-P|Kom: veitsinä
+P|Kom: veitsine
 
 <31>
 S|Nom: kaksi

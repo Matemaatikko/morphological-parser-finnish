@@ -15,7 +15,7 @@ object ConjugationUtils {
     val root = word.lemma.dropRight(rule.drop)
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
-      case Some(gradation)  => GradationHandler.splitByGradationLocation(root, gradation)
+      case Some(gradation)  => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber)
       case _                => (root, "")
     }
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word, rule))

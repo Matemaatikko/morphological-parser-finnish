@@ -141,7 +141,7 @@ object GradationHandler {
    * splitByGradationLocation("tanko", nk-ng) = (ta, o)
    * splitByGradationLocation("ies", k-_) = (i, es)
    */
-  def splitByGradationLocation(root: String, gradation: Gradation): (String, String) =
+  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1): (String, String) =
     def trySplit(amount: Int): Option[(String, String)] =
       val droppedRoot = root.dropRight(amount)
       if droppedRoot.endsWith(gradation.strong) then Some(droppedRoot.dropRight(gradation.strong.length) , root.takeRight(amount))
@@ -163,7 +163,8 @@ object GradationHandler {
       else if Letters.isConsonant(root.last) then (root.dropRight(2), root.takeRight(2))
       else (root.dropRight(0), root.takeRight(0))
 
-    if gradation.weak.isEmpty then resolveEmptyWeakCase
+    if ruleNumber == 28 then (root.dropRight(1), "")
+    else if gradation.weak.isEmpty then resolveEmptyWeakCase
     else recursion(0)
 
 }
