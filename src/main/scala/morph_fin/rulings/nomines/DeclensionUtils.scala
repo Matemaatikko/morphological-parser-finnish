@@ -30,11 +30,17 @@ object DeclensionUtils {
     val withoutSuffixes = addDeclesions(rules, word)
     withoutSuffixes.flatMap(a => PossessiveSuffixGeneration.addSuffixes(a, word.gradation))
 
+  def findRule(rules: Seq[DeclensionRules], lemma: String, number: Int): DeclensionRules =
+    val resultOpt = if(number == 49 && lemma.endsWith("e")) rules.find(_.ruleNumber == 492)
+    else if (number == 49) rules.find(_.ruleNumber == 491)
+    else rules.find(_.ruleNumber == number)
+    resultOpt.getOrElse(throw new Exception(s"No nomine rule found for: ${number}"))
+
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
    */
   def addDeclesions(rules: Seq[DeclensionRules], word: Word): Seq[ResultWord] =
-    val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No nomine rule found for: ${word.ruleNumber}"))
+    val rule = findRule(rules, word.lemma, word.ruleNumber)
 
     //Resolve root
     val (root, lemma) = checkPlurality(rule, word)
@@ -42,7 +48,7 @@ object DeclensionUtils {
 
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(updatedRoot, gradation, rule.ruleNumber)
+      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(updatedRoot, gradation, rule.ruleNumber, rule.drop)
       case _                                    => (updatedRoot, "")
     }
 

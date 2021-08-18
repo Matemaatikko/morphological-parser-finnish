@@ -17,7 +17,7 @@ object GradationHandler {
     'A' -> 0, 'B' -> 1, 'C' -> 2, 'D' -> 3,
     'E' -> 4, 'F' -> 5, 'G' -> 6, 'H' -> 7,
     'I' -> 8, 'J' -> 9, 'K' -> 10, 'L' -> 11,
-    'M' -> 12, 'N' -> 13
+    'M' -> 12
   )
 
   private val gradationMap = Seq(
@@ -100,7 +100,7 @@ object GradationHandler {
         Some(GradationType.Strong)
       case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular)) =>
         Some(GradationType.Weak)
-      case (Inverted, NomineMorphemes(Genitive, Plural)) if ending.endsWith("ten") =>
+      case (Inverted, NomineMorphemes(Genitive, Plural)) if ending.endsWith("ten") &&  !ending.endsWith("tten") =>
         Some(GradationType.Weak)
       case (Inverted, _)  =>
         Some(GradationType.Strong)
@@ -141,7 +141,7 @@ object GradationHandler {
    * splitByGradationLocation("tanko", nk-ng) = (ta, o)
    * splitByGradationLocation("ies", k-_) = (i, es)
    */
-  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1): (String, String) =
+  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1, drop: Int = 0): (String, String) =
     def trySplit(amount: Int): Option[(String, String)] =
       val droppedRoot = root.dropRight(amount)
       if droppedRoot.endsWith(gradation.strong) then Some(droppedRoot.dropRight(gradation.strong.length) , root.takeRight(amount))
@@ -160,6 +160,7 @@ object GradationHandler {
     def resolveEmptyWeakCase: (String, String) =
       if root.dropRight(0).endsWith(gradation.strong) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
       else if root.dropRight(1).endsWith(gradation.strong) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
+      else if drop > 0 then (root.dropRight(0), root.takeRight(0))
       else if Letters.isConsonant(root.last) then (root.dropRight(2), root.takeRight(2))
       else (root.dropRight(0), root.takeRight(0))
 

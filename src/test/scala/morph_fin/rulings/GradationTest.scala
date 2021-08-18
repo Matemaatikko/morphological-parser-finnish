@@ -34,43 +34,43 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
 
   "splitByGradationLocation - method" should "work ies" in {
     val gradation = Gradation("k", "")
-    val result = splitByGradationLocation("ies", gradation)
+    val result = splitByGradationLocation("ies", gradation, -1, 0)
     assert(result == ("i", "es"))
   }
 
   it should "work i-es" in {
     val gradation = Gradation("k", "")
-    val result = splitByGradationLocation("i", gradation)
+    val result = splitByGradationLocation("i", gradation, -1, 2)
     assert(result == ("i", ""))
   }
 
   it should "work ike-en" in {
     val gradation = Gradation("k", "")
-    val result = splitByGradationLocation("ike", gradation)
+    val result = splitByGradationLocation("ike", gradation, -1, 0)
     assert(result == ("i", "e"))
   }
 
   it should "work lakka" in {
     val gradation = Gradation("kk", "k")
-    val result = splitByGradationLocation("lakka", gradation)
+    val result = splitByGradationLocation("lakka", gradation, -1, 0)
     assert(result == ("la", "a"))
   }
 
   it should "work laka-n" in {
     val gradation = Gradation("kk", "k")
-    val result = splitByGradationLocation("laka", gradation)
+    val result = splitByGradationLocation("laka", gradation, -1, 0)
     assert(result == ("la", "a"))
   }
 
   it should "work tuote" in {
     val gradation = Gradation("tt", "t")
-    val result = splitByGradationLocation("tuote", gradation)
+    val result = splitByGradationLocation("tuote", gradation, -1, 0)
     assert(result == ("tuo", "e"))
   }
 
   it should "work tuotteen" in {
     val gradation = Gradation("tt", "t")
-    val result = splitByGradationLocation("tuotteen", gradation)
+    val result = splitByGradationLocation("tuotteen", gradation, -1, 0)
     assert(result == ("tuo", "een"))
   }
 

@@ -1418,7 +1418,7 @@ P|Kom: kahdeksansine
 <46>
 S|Nom: tuhat
 S|Gen: tuhannen
-S|Par: tuhanta
+S|Par: tuhatta
 S|Akk: tuhat tuhannen
 S|Ine: tuhannessa
 S|Ela: tuhannesta
@@ -1508,33 +1508,64 @@ P|Ins: hamein
 P|Abe: hameitta
 P|Kom: hameine
 
-<49>
-S|Nom: askel askele
-S|Gen: askelen askeleen
-S|Par: askelta askeletta
-S|Akk: askel askele askelen askeleen
-S|Ine: askelessa askeleessa
-S|Ela: askelesta askeleesta
-S|Ill: askeleen askeleeseen
-S|Ade: askelella askeleella
-S|Abl: askelelta askeleelta
-S|All: askelelle askeleelle
-S|Ess: askelena askeleena
-S|Tra: askeleksi askeleeksi
-S|Abe: askeletta askeleetta
+<491>
+S|Nom: askel
+S|Gen: askelen
+S|Par: askelta
+S|Akk: askel askelen
+S|Ine: askelessa
+S|Ela: askelesta
+S|Ill: askeleen
+S|Ade: askelella
+S|Abl: askelelta
+S|All: askelelle
+S|Ess: askelena
+S|Tra: askeleksi
+S|Abe: askeletta
 
-P|Nom: askelet askeleet
-P|Gen: askelten askelien askeleiden askeleitten
-P|Par: askelia askeleita
-P|Akk: askelet askeleet
-P|Ine: askelissa askeleissa
-P|Ela: askelista askeleista
-P|Ill: askeliin askeleisiin askeleihin
-P|Ade: askelilla askeleilla
-P|Abl: askelilta askeleilta
-P|All: askelille askeleille
-P|Ess: askelina askeleina
-P|Tra: askeliksi askeleiksi
-P|Ins: askelin askelein
-P|Abe: askelitta askeleitta
+P|Nom: askelet
+P|Gen: askelten askelien
+P|Par: askelia
+P|Akk: askelet
+P|Ine: askelissa
+P|Ela: askelista
+P|Ill: askeliin
+P|Ade: askelilla
+P|Abl: askelilta
+P|All: askelille
+P|Ess: askelina
+P|Tra: askeliksi
+P|Ins: askelin
+P|Abe: askelitta
+P|Kom: askeline
+
+<492>
+S|Nom: askele
+S|Gen: askeleen
+S|Par: askeletta
+S|Akk: askele askeleen
+S|Ine: askeleessa
+S|Ela: askeleesta
+S|Ill: askeleeseen
+S|Ade: askeleella
+S|Abl: askeleelta
+S|All: askeleelle
+S|Ess: askeleena
+S|Tra: askeleeksi
+S|Abe: askeleetta
+
+P|Nom: askeleet
+P|Gen: askeleiden askeleitten
+P|Par: askeleita
+P|Akk: askeleet
+P|Ine: askeleissa
+P|Ela: askeleista
+P|Ill: askeleisiin askeleihin
+P|Ade: askeleilla
+P|Abl: askeleilta
+P|All: askeleille
+P|Ess: askeleina
+P|Tra: askeleiksi
+P|Ins: askelein
+P|Abe: askeleitta
 P|Kom: askeleine

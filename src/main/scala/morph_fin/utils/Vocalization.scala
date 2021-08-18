@@ -1,15 +1,24 @@
 package morph_fin.utils
 
+import scala.annotation.tailrec
+
 enum Vocalization:
   case FrontVowel // a, o, u
   case BackVowel //ä, ö, y, i, e
 
 object VocalizationUtils {
 
+  val frontVowels = Seq('a', 'o', 'u')
+  val backVowels = Seq('ä', 'ö', 'y')
+
   def resolveVocalization(lemma: String): Vocalization =
-    if lemma.forall(char => char != 'a' && char != 'o' && char != 'u')
-    then Vocalization.BackVowel
-    else Vocalization.FrontVowel
+    @tailrec
+    def iter(value: String): Vocalization =
+      if value.isEmpty then Vocalization.BackVowel
+      else if frontVowels.contains(value.last) then Vocalization.FrontVowel
+      else if backVowels.contains(value.last) then Vocalization.BackVowel
+      else iter(value.dropRight(1))
+    iter(lemma)
 
   def updateVocalization(ending: String, vocalization: Vocalization): String =
     if vocalization == Vocalization.BackVowel
