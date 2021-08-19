@@ -68,6 +68,7 @@ enum Type:
 
 
 enum PossessiveSuffix:
+  case Body
   case SingularFirst, SingularSecond
   case PluralFirst, PluralSecond
   case ThirdPos

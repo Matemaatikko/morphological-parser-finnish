@@ -74,4 +74,10 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
     assert(result == ("tuo", "een"))
   }
 
+  "splitByGradationLocation - method" should "work aie" in {
+    val gradation = Gradation("k", "")
+    val result = splitByGradationLocation("aie", gradation, -1, 0)
+    assert(result == ("ai", "e"))
+  }
+
 }

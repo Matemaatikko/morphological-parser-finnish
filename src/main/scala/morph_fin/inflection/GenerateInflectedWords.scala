@@ -123,7 +123,7 @@ object GenerateInflectedWords {
 
   def getBendingsWithSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-    if(bending.rule < 50) DeclensionUtils.generateDeclensionsWithPossessiveSuffixes(nomineBendings, word)
+    if(bending.rule < 50) genDeclensionsWithSuffixes(word)
     else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(verbBendings, word)
     else throw new Exception()
 
@@ -133,4 +133,20 @@ object GenerateInflectedWords {
     else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(verbBendings, word)
     else throw new Exception()
 
+
+  def genDeclensionsWithSuffixes(word: Word) =
+    DeclensionUtils.generateDeclensions(nomineBendings, word)
+      .flatMap(a => handle(a, word.gradation))
+
+  import morph_fin.rulings.MorphemesUtils._
+  import morph_fin.rulings.PossessiveSuffix
+
+  def handle(resultWord: ResultWord, gradationOpt: Option[Gradation]): Seq[ResultWord] =
+    if PossessiveSuffixGeneration.isSuitableForSuffix(resultWord.morphemes) then
+      val nonVnBody =  PossessiveSuffixGeneration.getRootForNonVnSuffixes(resultWord, gradationOpt)
+      val vn = PossessiveSuffixGeneration.addVnSuffix(nonVnBody, gradationOpt)
+
+      val nonVn = ResultWord(nonVnBody.word.append("-O"), nonVnBody.morphemes ++ PossessiveSuffix.Body, nonVnBody.lemma)
+      Seq(resultWord, nonVn) ++ vn
+    else Seq(resultWord)
 }

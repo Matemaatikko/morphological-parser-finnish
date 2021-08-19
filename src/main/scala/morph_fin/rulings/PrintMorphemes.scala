@@ -1,11 +1,13 @@
 package morph_fin.rulings
 
-import morph_fin.rulings.PossessiveSuffix._
+import morph_fin.rulings.FilePrint.printSuffix
+import morph_fin.rulings.PossessiveSuffix.*
 
 object Print {
   import VerbMophemes._
   def apply(morphemes: Morphemes): String = morphemes match {
     case NomineMorphemes(cse, form) => cse.toString + " " + form.toString
+    case MorphemesWithPosSuffix(morphemes_, suffix) => apply(morphemes_) + printSuffix(Some(suffix))
     case Standard(modus, tempus, Persona.Passive, mode) =>
       modus.toString + " " + tempus.toString + " Passive" + (if mode == Negative then " Negative" else "")
     case Standard(modus, tempus, Persona.Active(form, number), mode) =>
@@ -31,6 +33,7 @@ object Print {
   def printSuffix(suffixOpt: Option[PossessiveSuffix]): String =
     import PossessiveSuffix._
     suffixOpt match {
+      case Some(Body) => " , Possessive suffix body"
       case Some(SingularFirst) => " , Possessive suffix: 1. Singular"
       case Some(SingularSecond) => " , Possessive suffix: 2. Singular"
       case Some(PluralFirst) => " , Possessive suffix: 1. Plural"
@@ -50,6 +53,7 @@ object FilePrint {
   import VerbMophemes._
   def apply(morphemes: Morphemes): String = morphemes match {
     case NomineMorphemes(cse, form) => printGrammaticalNumber(form) + ":" + printCase(cse)
+    case MorphemesWithPosSuffix(morphemes_, suffix) => apply(morphemes_) + printSuffix(Some(suffix))
     case Standard(modus, tempus, persona, mode) =>
       printModus(modus) + ":" + printTempus(tempus) + ":" + printPersona(persona) + printMode(mode)
     case InfinitiveI(Type.Short) =>
@@ -72,6 +76,7 @@ object FilePrint {
 
   def printSuffix(suffixOpt: Option[PossessiveSuffix]): String =
     suffixOpt match {
+      case Some(Body) => ":Pos:Body"
       case Some(SingularFirst) => ":Pos:S1"
       case Some(SingularSecond) => ":Pos:S2"
       case Some(PluralFirst) => ":Pos:P1"

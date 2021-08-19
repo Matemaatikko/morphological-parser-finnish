@@ -1,6 +1,6 @@
 import morph_fin.kotus_format.{Bending, Entry, EntryToWord, KotusWord}
 import morph_fin.rulings.Print
-import morph_fin.rulings.nomines.{DeclensionUtils, LoadAndParseNomineRules, ResultWord, Word}
+import morph_fin.rulings.nomines.{DeclensionUtils, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
 import morph_fin.rulings.verbs.LoadAndParseVerbRules
 
 val nomineRulings = LoadAndParseNomineRules.rules
@@ -30,3 +30,9 @@ printB("kanki", 7, Some('G'))
 printB("manne", 8, None)
 printB("likempi", 16, Some('H'))
 printB("varas", 41, Some('D'))
+printB("aakkosto", 2, None)
+printB("aallokas", 41, Some('A'))
+printB("aie", 48, Some('D'))
+printB("ajos", 39, None)
+printB("liittoutuneet", 47, None)
+

@@ -12,6 +12,8 @@ import java.nio.charset.StandardCharsets
 
 case class StructuredWord(root: String, gradation: String, ending: String) {
   override def toString: String = root + gradation + ending
+  def append(str: String) = StructuredWord(root, gradation, ending + str)
+  def last: Char = (root + gradation + ending).last
 }
 
 case class Word(lemma: String, ruleNumber: Int, gradation: Option[Gradation])
@@ -26,9 +28,9 @@ object DeclensionUtils {
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
 
-  def generateDeclensionsWithPossessiveSuffixes(rules: Seq[DeclensionRule], word: Word): Seq[ResultWord] =
-    val withoutSuffixes = generateDeclensions(rules, word)
-    withoutSuffixes.flatMap(a => PossessiveSuffixGeneration.addSuffixes(a, word.gradation))
+//  def generateDeclensionsWithPossessiveSuffixes(rules: Seq[DeclensionRule], word: Word): Seq[ResultWord] =
+//    val withoutSuffixes = generateDeclensions(rules, word)
+//    withoutSuffixes.flatMap(a => PossessiveSuffixGeneration.addSuffixes(a, word.gradation))
 
   def findRule(rules: Seq[DeclensionRule], lemma: String, number: Int): DeclensionRule =
     val resultOpt = if(number == 49 && lemma.endsWith("e")) rules.find(_.ruleNumber == 492)

@@ -24,17 +24,18 @@ object Replacement {
 }
 
 extension (str: String)
-  def hasEnding(ending: Seq[RepChar]): Boolean =
+  def hasEnding(ending: Seq[RepChar]): Boolean = str.length >= ending.length &&
     (0 until ending.length).forall(i => ending(i) match {
       case RepChar.Ch(c) => c == str(str.length - ending.length + i)
       case RepChar.Rep(c) => Letters.isVowel(str(str.length - ending.length + i))
     })
 
+
 extension(ending: Seq[RepChar])
   def create(map: Map[Char, Char]): String =
     ending.map(_ match {
       case RepChar.Ch(c) => c
-      case RepChar.Rep(c) => map(c)
+      case RepChar.Rep(c) => map.get(c).getOrElse(c)
     }).mkString("")
 
 

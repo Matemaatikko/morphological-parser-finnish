@@ -7,7 +7,10 @@ def timed[A](fun: => A): A = {
   result
 }
 
+
+
 import morph_fin.inflection.{GenerateInflectedWords, TargetFile}
-timed(GenerateInflectedWords.apply(TargetFile.Compound))
+
+timed(GenerateInflectedWords.apply(TargetFile.Noun))
 
 //timed(ReformatKotus.reformat)
