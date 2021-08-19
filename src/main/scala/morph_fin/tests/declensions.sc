@@ -12,7 +12,7 @@ def printA(words: Seq[ResultWord]) =
   println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 
-def declesions(word: Word) = DeclensionUtils.addDeclesions(nomineRulings, word)
+def declesions(word: Word) = DeclensionUtils.generateDeclensions(nomineRulings, word)
 
 def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   val results = declesions(getWord(word, rule, gradationLetterOpt))

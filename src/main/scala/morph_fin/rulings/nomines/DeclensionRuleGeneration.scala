@@ -39,7 +39,7 @@ extension(ending: Seq[RepChar])
 
 
 case class Declension(morphemes: NomineMorphemes, ending: Seq[RepChar], tpe: NomineGradationType)
-case class DeclensionRules(
+case class DeclensionRule(
                             ruleNumber: Int,
                             drop: Int,
                             isGradation: Boolean,
@@ -47,7 +47,7 @@ case class DeclensionRules(
                             cases: Seq[Declension]
                           )
 
-extension (bending: DeclensionRules)
+extension (bending: DeclensionRule)
   def findCase(morphemes: NomineMorphemes): Declension =
     bending.cases.find(ending => ending.morphemes == morphemes).getOrElse(throw new Error("Non-comprehensive matching in rules"))
 
@@ -86,7 +86,7 @@ extension (bending: DeclensionRules)
  */
 object GenerateDeclensionRules {
 
-  def apply(exampleDeclensions: NomineExampleDeclensions): DeclensionRules =
+  def apply(exampleDeclensions: NomineExampleDeclensions): DeclensionRule =
     exampleDeclensions.gradation match {
       case Some(gradation) => resolveGradation(exampleDeclensions, gradation)
       case None            => resolveNonGradation(exampleDeclensions)
@@ -94,14 +94,14 @@ object GenerateDeclensionRules {
 
   import Declension.*
 
-  def resolveGradation(exampleDeclensions: NomineExampleDeclensions, gradation: Gradation): DeclensionRules =
+  def resolveGradation(exampleDeclensions: NomineExampleDeclensions, gradation: Gradation): DeclensionRule =
     //Resolve root. Resolvation is based on nomine_rules.txt file analysation
     val drop = if exampleDeclensions.number == 35 then 4 else 3
     val root = exampleDeclensions.lemma.dropRight(drop)
 
     //Resolve cases
     val cases = exampleDeclensions.cases.map(resolveCase(_, root, gradation))
-    DeclensionRules(exampleDeclensions.number, drop, true, Nil, cases)
+    DeclensionRule(exampleDeclensions.number, drop, true, Nil, cases)
 
   /**
    *  Removes root and gradation from cased word to resolve ending.
@@ -118,7 +118,7 @@ object GenerateDeclensionRules {
 
   import MorphemesUtils._
 
-  def resolveNonGradation(exampleDeclensions: NomineExampleDeclensions): DeclensionRules =
+  def resolveNonGradation(exampleDeclensions: NomineExampleDeclensions): DeclensionRule =
     val casedWords = exampleDeclensions.cases.map(_._2)
     val rootSuggestion = LongestStartingSubstring(casedWords)
     val root = if(Letters.isConsonant(exampleDeclensions.lemma.last) && exampleDeclensions.lemma.length - rootSuggestion.length == 1)
@@ -128,7 +128,7 @@ object GenerateDeclensionRules {
     val nominative = exampleDeclensions.cases.find(_._1 == Nom::S).get
     val replacementVowels = nominative._2.drop(root.length).takeWhile(Letters.isVowel(_))
     val cases = exampleDeclensions.cases.map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
-    DeclensionRules(exampleDeclensions.number, drop, false, replacementVowels, cases)
+    DeclensionRule(exampleDeclensions.number, drop, false, replacementVowels, cases)
 
   def resolveNonGradationCase(morphemes: NomineMorphemes, word: String, root: String, replacementVowels: Seq[Char]): Declension =
     val ending = word.drop(root.length)

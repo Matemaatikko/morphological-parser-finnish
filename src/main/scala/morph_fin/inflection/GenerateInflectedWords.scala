@@ -123,14 +123,14 @@ object GenerateInflectedWords {
 
   def getBendingsWithSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-    if(bending.rule < 50) DeclensionUtils.addDeclesionsWithPossessiveSuffixes(nomineBendings, word)
-    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.addConjugations(verbBendings, word)
+    if(bending.rule < 50) DeclensionUtils.generateDeclensionsWithPossessiveSuffixes(nomineBendings, word)
+    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(verbBendings, word)
     else throw new Exception()
 
   def getBendingsWithoutSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-    if(bending.rule < 50) DeclensionUtils.addDeclesions(nomineBendings, word)
-    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.addConjugations(verbBendings, word)
+    if(bending.rule < 50) DeclensionUtils.generateDeclensions(nomineBendings, word)
+    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(verbBendings, word)
     else throw new Exception()
 
 }

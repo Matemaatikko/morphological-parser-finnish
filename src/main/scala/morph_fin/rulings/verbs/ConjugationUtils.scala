@@ -9,7 +9,22 @@ import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalizatio
 
 object ConjugationUtils {
 
-  def addConjugations(rules: Seq[ConjugationRules], word: Word): Seq[ResultWord] =
+  def generateConjugationsWithNomineEndings(rules: Seq[ConjugationRule], word: Word): Seq[ResultWord] =
+    val words = generateConjugations(rules, word)
+
+    //Infinitives receiving possessive suffixes
+    val Inf1Long = words.find(_.morphemes == VerbMophemes.InfinitiveI(Type.Long)).get
+    val Inf2IneAkt = words.find(_.morphemes == VerbMophemes.InfinitiveII(Inessive, Active)).get
+    val Inf5 = words.find(_.morphemes == VerbMophemes.InfinitiveV).get
+
+    //Infinitive IV -> Create nominal form
+    val Inf4 = words.find(_.morphemes == VerbMophemes.InfinitiveIV(Nominative)).get
+
+    //Participles
+
+    ???
+
+  def generateConjugations(rules: Seq[ConjugationRule], word: Word): Seq[ResultWord] =
     val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No verb rule found for: ${word.ruleNumber}"))
     //Resolve root
     val root = word.lemma.dropRight(rule.drop)
@@ -19,9 +34,9 @@ object ConjugationUtils {
       case _                => (root, "")
     }
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word, rule))
-  end addConjugations
+  end generateConjugations
 
-  def resolveWord(ending: Conjugation, root: (String, String), word: Word, rule: ConjugationRules): ResultWord =
+  def resolveWord(ending: Conjugation, root: (String, String), word: Word, rule: ConjugationRule): ResultWord =
     val updatedEnding = updateEnding(ending, word.lemma, rule)
     val gradation = word.gradation match {
       case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
@@ -50,7 +65,7 @@ object ConjugationUtils {
     else word
 
 
-  def updateEnding(ending: Conjugation, lemma: String, rule: ConjugationRules): String =
+  def updateEnding(ending: Conjugation, lemma: String, rule: ConjugationRule): String =
     val replacementVowels = lemma.takeRight(rule.drop).takeWhile(Letters.isVowel(_))
     assert(rule.replacementVowels.length == replacementVowels.length)
     val replacementMap = (0 until replacementVowels.length).map(i => rule.replacementVowels(i) -> replacementVowels(i)).toMap

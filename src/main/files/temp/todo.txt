@@ -2,10 +2,10 @@
 - TODO Add possessive suffixes for some infinitives .
 - TODO Add Nomine inflections for participles
 - TODO Make testing easier (Some kind of intelligent filter system)
-- TODO add automatic tests for inflections
-    - TODO What are most important morphemes to test against? (Pick some 5-7)
 - TODO collect Adjectives
-- TODO test gradation split-method
 - TODO address nunmerals
 - TODO pronoun parsing
+
+- TODO Inf4 -> names of the actions
+
 - TODO replace possessive suffixes with suitable roots + O,  ikenen -> ikene-O, exeption: ikenelle-en (-Vn)

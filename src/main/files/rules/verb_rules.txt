@@ -113,7 +113,7 @@ Pas:Imp:Pre:       sanottako
 #Infinitive
 
 Inf1:      sanoa
-Inf1:L:    sanoakseen
+Inf1:L:    sanoakse
 
 Inf2:Ine:Akt: sanoessa
 Inf2:Ine:Pas: sanottaessa
@@ -130,7 +130,7 @@ Inf3:Ins:Pas: sanottaman
 Inf4:Nom: sanominen
 Inf4:Par: sanomista
 
-Inf5: sanomaisillaan
+Inf5: sanomaisilla
 
 #Participle
 
@@ -231,7 +231,7 @@ Pas:Imp:Pre:       muistettako
 #Infinitive
 
 Inf1:      muistaa
-Inf1:L:    muistaakseen
+Inf1:L:    muistaakse
 
 Inf2:Ine:Akt: muistaessa
 Inf2:Ine:Pas: muistettaessa
@@ -248,7 +248,7 @@ Inf3:Ins:Pas: muistettaman
 Inf4:Nom: muistaminen
 Inf4:Par: muistamista
 
-Inf5: muistamaisillaan
+Inf5: muistamaisilla
 
 #Participle
 
@@ -349,7 +349,7 @@ Pas:Imp:Pre:       huudettako
 #Infinitive
 
 Inf1:      huutaa
-Inf1:L:    huutaakseen
+Inf1:L:    huutaakse
 
 Inf2:Ine:Akt: huutaessa
 Inf2:Ine:Pas: huudettaessa
@@ -366,7 +366,7 @@ Inf3:Ins:Pas: huudettaman
 Inf4:Nom: huutaminen
 Inf4:Par: huutamista
 
-Inf5: huutamaisillaan
+Inf5: huutamaisilla
 
 #Participle
 
@@ -467,7 +467,7 @@ Pas:Imp:Pre:       soudettako
 #Infinitive
 
 Inf1:      soutaa
-Inf1:L:    soutaakseen
+Inf1:L:    soutaakse
 
 Inf2:Ine:Akt: soutaessa
 Inf2:Ine:Pas: soudettaessa
@@ -484,7 +484,7 @@ Inf3:Ins:Pas: soudettaman
 Inf4:Nom: soutaminen
 Inf4:Par: soutamista
 
-Inf5: soutamaisillaan
+Inf5: soutamaisilla
 
 #Participle
 
@@ -584,7 +584,7 @@ Pas:Imp:Pre:       kaivettako
 #Infinitive
 
 Inf1:      kaivaa
-Inf1:L:    kaivaakseen
+Inf1:L:    kaivaakse
 
 Inf2:Ine:Akt: kaivaessa
 Inf2:Ine:Pas: kaivettaessa
@@ -601,7 +601,7 @@ Inf3:Ins:Pas: kaivettaman
 Inf4:Nom: kaivaminen
 Inf4:Par: kaivamista
 
-Inf5: kaivamaisillaan
+Inf5: kaivamaisilla
 
 #Participle
 
@@ -702,7 +702,7 @@ Pas:Imp:Pre:       saarrettako
 #Infinitive
 
 Inf1:      saartaa
-Inf1:L:    saartaakseen
+Inf1:L:    saartaakse
 
 Inf2:Ine:Akt: saartaessa
 Inf2:Ine:Pas: saarrettaessa
@@ -719,7 +719,7 @@ Inf3:Ins:Pas: saarrettaman
 Inf4:Nom: saartaminen
 Inf4:Par: saartamista
 
-Inf5: saartamaisillaan
+Inf5: saartamaisilla
 
 #Participle
 
@@ -820,7 +820,7 @@ Pas:Imp:Pre:       laskettako
 #Infinitive
 
 Inf1:      laskea
-Inf1:L:    laskeakseen
+Inf1:L:    laskeakse
 
 Inf2:Ine:Akt: laskiessa
 Inf2:Ine:Pas: laskettaessa
@@ -837,7 +837,7 @@ Inf3:Ins:Pas: laskettaman
 Inf4:Nom: laskeminen
 Inf4:Par: laskemista
 
-Inf5: laskemaisillaan
+Inf5: laskemaisilla
 
 #Participle
 
@@ -938,7 +938,7 @@ Pas:Imp:Pre:       tunnettako
 #Infinitive
 
 Inf1:      tuntea
-Inf1:L:    tunteakseen
+Inf1:L:    tunteakse
 
 Inf2:Ine:Akt: tuntiessa
 Inf2:Ine:Pas: tunnettaessa
@@ -955,7 +955,7 @@ Inf3:Ins:Pas: tunnettaman
 Inf4:Nom: tunteminen
 Inf4:Par: tuntemista
 
-Inf5: tuntemaisillaan
+Inf5: tuntemaisilla
 
 #Participle
 
@@ -1056,7 +1056,7 @@ Pas:Imp:Pre:       lähdettäkö
 #Infinitive
 
 Inf1:      lähteä
-Inf1:L:    lähteäkseen
+Inf1:L:    lähteäkse
 
 Inf2:Ine:Akt: lähtiessä
 Inf2:Ine:Pas: lähdettäessä
@@ -1174,7 +1174,7 @@ Pas:Imp:Pre:       sallittako
 #Infinitive
 
 Inf1:      sallia
-Inf1:L:    salliakseen
+Inf1:L:    salliakse
 
 Inf2:Ine:Akt: salliesssa
 Inf2:Ine:Pas: sallittaessa
@@ -1191,7 +1191,7 @@ Inf3:Ins:Pas: sallittaman
 Inf4:Nom: salliminen
 Inf4:Par: sallimista
 
-Inf5: sallimaisillaan
+Inf5: sallimaisilla
 
 #Participle
 
@@ -1293,7 +1293,7 @@ Pas:Imp:Pre:       voitako
 #Infinitive
 
 Inf1:      voida
-Inf1:L:    voidakseen
+Inf1:L:    voidakse
 
 Inf2:Ine:Akt: voidessa
 Inf2:Ine:Pas: voitaessa
@@ -1310,7 +1310,7 @@ Inf3:Ins:Pas: voitaman
 Inf4:Nom: voiminen
 Inf4:Par: voimista
 
-Inf5: voimaisillaan
+Inf5: voimaisilla
 
 #Participle
 
@@ -1411,7 +1411,7 @@ Pas:Imp:Pre:       saatako
 #Infinitive
 
 Inf1:      saada
-Inf1:L:    saadakseen
+Inf1:L:    saadakse
 
 Inf2:Ine:Akt: saadessa
 Inf2:Ine:Pas: saataessa
@@ -1428,7 +1428,7 @@ Inf3:Ins:Pas: saataman
 Inf4:Nom: saaminen
 Inf4:Par: saamista
 
-Inf5: saamaisillaan
+Inf5: saamaisilla
 
 #Participle
 
@@ -1529,7 +1529,7 @@ Pas:Imp:Pre:       juotako
 #Infinitive
 
 Inf1:      juoda
-Inf1:L:    juodakseen
+Inf1:L:    juodakse
 
 Inf2:Ine:Akt: juodessa
 Inf2:Ine:Pas: juotaessa
@@ -1546,7 +1546,7 @@ Inf3:Ins:Pas: juotaman
 Inf4:Nom: juominen
 Inf4:Par: juomista
 
-Inf5: juomaisillaan
+Inf5: juomaisilla
 
 #Participle
 
@@ -1647,7 +1647,7 @@ Pas:Imp:Pre:       käytäkö
 #Infinitive
 
 Inf1:      käydä
-Inf1:L:    käydäkseen
+Inf1:L:    käydäkse
 
 Inf2:Ine:Akt: käydessä
 Inf2:Ine:Pas: käytäessä
@@ -1766,7 +1766,7 @@ Pas:Imp:Pre:       rohkaistako
 #Infinitive
 
 Inf1:      rohkaista
-Inf1:L:    rohkaistakseen
+Inf1:L:    rohkaistakse
 
 Inf2:Ine:Akt: rohkaistessa
 Inf2:Ine:Pas: rohkaistaessa
@@ -1783,7 +1783,7 @@ Inf3:Ins:Pas: rohkaistaman
 Inf4:Nom: rohkaiseminen
 Inf4:Par: rohkaisemista
 
-Inf5: rohkaisemaisillaan
+Inf5: rohkaisemaisilla
 
 #Participle
 
@@ -1884,7 +1884,7 @@ Pas:Imp:Pre:       tultako
 #Infinitive
 
 Inf1:      tulla
-Inf1:L:    tullakseen
+Inf1:L:    tullakse
 
 Inf2:Ine:Akt: tullessa
 Inf2:Ine:Pas: tultaessa
@@ -1901,7 +1901,7 @@ Inf3:Ins:Pas: tultaman
 Inf4:Nom: tuleminen
 Inf4:Par: tulemista
 
-Inf5: tulemaisillaan
+Inf5: tulemaisilla
 
 #Participle
 
@@ -2002,7 +2002,7 @@ Pas:Imp:Pre:       tupakoitako
 #Infinitive
 
 Inf1:      tupakoida
-Inf1:L:    tupakoidakseen
+Inf1:L:    tupakoidakse
 
 Inf2:Ine:Akt: tupakoidessa
 Inf2:Ine:Pas: tupakoitaessa
@@ -2019,7 +2019,7 @@ Inf3:Ins:Pas: tupakoitaman
 Inf4:Nom: tupakoiminen (tupakoitseminen)
 Inf4:Par: tupakoimista (tupakoitsemista)
 
-Inf5: tupakoimaisillaan (tupakoitsemaisillaan)
+Inf5: tupakoimaisilla (tupakoitsemaisilla)
 
 #Participle
 
@@ -2120,7 +2120,7 @@ Pas:Imp:Pre:       valittako
 #Infinitive
 
 Inf1:      valita
-Inf1:L:    valitakseen
+Inf1:L:    valitakse
 
 Inf2:Ine:Akt: valitessa
 Inf2:Ine:Pas: valittaessa
@@ -2137,7 +2137,7 @@ Inf3:Ins:Pas: valittaman
 Inf4:Nom: valitseminen
 Inf4:Par: valitsemista
 
-Inf5: valitsemaisillaan
+Inf5: valitsemaisilla
 
 #Participle
 
@@ -2238,7 +2238,7 @@ Pas:Imp:Pre:       juostako
 #Infinitive
 
 Inf1:      juosta
-Inf1:L:    juostakseen
+Inf1:L:    juostakse
 
 Inf2:Ine:Akt: juostessa
 Inf2:Ine:Pas: juostaessa
@@ -2255,7 +2255,7 @@ Inf3:Ins:Pas: juostaman
 Inf4:Nom: juokseminen
 Inf4:Par: juoksemista
 
-Inf5: juoksemaisillaan
+Inf5: juoksemaisilla
 
 #Participle
 
@@ -2357,7 +2357,7 @@ Pas:Imp:Pre:       nähtäkö
 #Infinitive
 
 Inf1:      nähdä
-Inf1:L:    nähdäkseen
+Inf1:L:    nähdäkse
 
 Inf2:Ine:Akt: nähdessä
 Inf2:Ine:Pas: nähtäessä
@@ -2476,7 +2476,7 @@ Pas:Imp:Pre:       vanhettako
 #Infinitive
 
 Inf1:      vanheta
-Inf1:L:    vanhetakseen
+Inf1:L:    vanhetakse
 
 Inf2:Ine:Akt: vanhetessa
 Inf2:Ine:Pas: vanhettaessa
@@ -2493,7 +2493,7 @@ Inf3:Ins:Pas: vanhettaman
 Inf4:Nom: vanheneminen
 Inf4:Par: vanhenemista
 
-Inf5: vanhenemaisillaan
+Inf5: vanhenemaisilla
 
 #Participle
 
@@ -2595,7 +2595,7 @@ Pas:Imp:Pre:       salattako
 #Infinitive
 
 Inf1:      salata
-Inf1:L:    salatakseen
+Inf1:L:    salatakse
 
 Inf2:Ine:Akt: salatessa
 Inf2:Ine:Pas: salattaessa
@@ -2612,7 +2612,7 @@ Inf3:Ins:Pas: salattaman
 Inf4:Nom: salaaminen
 Inf4:Par: salaamista
 
-Inf5: salaamaisillaan
+Inf5: salaamaisilla
 
 #Participle
 
@@ -2714,7 +2714,7 @@ Pas:Imp:Pre:       katkettako
 #Infinitive
 
 Inf1:      katketa
-Inf1:L:    katketakseen
+Inf1:L:    katketakse
 
 Inf2:Ine:Akt: katketessa
 Inf2:Ine:Pas: katkettaessa
@@ -2731,7 +2731,7 @@ Inf3:Ins:Pas: katkettaman
 Inf4:Nom: katkeaminen
 Inf4:Par: katkeamista
 
-Inf5: katkeamaisillaan
+Inf5: katkeamaisilla
 
 #Participle
 
@@ -2833,7 +2833,7 @@ Pas:Imp:Pre:       selvittäkö
 #Infinitive
 
 Inf1:      selvitä
-Inf1:L:    selvitäkseen
+Inf1:L:    selvitäkse
 
 Inf2:Ine:Akt: selvitessä
 Inf2:Ine:Pas: selvittäessä
@@ -2952,7 +2952,7 @@ Pas:Imp:Pre:       taittako (taidettako)
 #Infinitive
 
 Inf1:      taitaa
-Inf1:L:    taitaakseen
+Inf1:L:    taitaakse
 
 Inf2:Ine:Akt: taitaessa
 Inf2:Ine:Pas: taidettaessa
@@ -2969,7 +2969,7 @@ Inf3:Ins:Pas: taidettaman
 Inf4:Nom: taitaminen
 Inf4:Par: taitamista
 
-Inf5: taitamaisillaan
+Inf5: taitamaisilla
 
 #Participle
 

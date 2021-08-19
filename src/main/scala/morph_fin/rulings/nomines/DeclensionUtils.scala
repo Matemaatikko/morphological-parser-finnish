@@ -2,7 +2,7 @@ package morph_fin.rulings.nomines
 
 import morph_fin.*
 import morph_fin.kotus_format.Entry
-import morph_fin.rulings.nomines.{Declension, DeclensionRules, Gradation}
+import morph_fin.rulings.nomines.{Declension, DeclensionRule, Gradation}
 import morph_fin.rulings.*
 import morph_fin.utils.{Letters, Vocalization}
 import MorphemesUtils.*
@@ -26,11 +26,11 @@ object DeclensionUtils {
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
 
-  def addDeclesionsWithPossessiveSuffixes(rules: Seq[DeclensionRules], word: Word): Seq[ResultWord] =
-    val withoutSuffixes = addDeclesions(rules, word)
+  def generateDeclensionsWithPossessiveSuffixes(rules: Seq[DeclensionRule], word: Word): Seq[ResultWord] =
+    val withoutSuffixes = generateDeclensions(rules, word)
     withoutSuffixes.flatMap(a => PossessiveSuffixGeneration.addSuffixes(a, word.gradation))
 
-  def findRule(rules: Seq[DeclensionRules], lemma: String, number: Int): DeclensionRules =
+  def findRule(rules: Seq[DeclensionRule], lemma: String, number: Int): DeclensionRule =
     val resultOpt = if(number == 49 && lemma.endsWith("e")) rules.find(_.ruleNumber == 492)
     else if (number == 49) rules.find(_.ruleNumber == 491)
     else rules.find(_.ruleNumber == number)
@@ -39,7 +39,7 @@ object DeclensionUtils {
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
    */
-  def addDeclesions(rules: Seq[DeclensionRules], word: Word): Seq[ResultWord] =
+  def generateDeclensions(rules: Seq[DeclensionRule], word: Word): Seq[ResultWord] =
     val rule = findRule(rules, word.lemma, word.ruleNumber)
 
     //Resolve root
@@ -54,12 +54,12 @@ object DeclensionUtils {
 
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word, rule))
       .map(resultWord => updateRule5(resultWord, word.ruleNumber))
-  end addDeclesions
+  end generateDeclensions
 
 
   //=========================================================
 
-  private inline def checkPlurality(rule: DeclensionRules, word: Word): (String, String) =
+  private inline def checkPlurality(rule: DeclensionRule, word: Word): (String, String) =
     val singularEnding = rule.findCase(Nom::S).ending
     val pluralEnding = rule.findCase(Nom::P).ending
 
@@ -74,11 +74,11 @@ object DeclensionUtils {
 
 
   //Example: askele -> askel
-  private inline def checkRule49(root: String, rule: DeclensionRules): String =
+  private inline def checkRule49(root: String, rule: DeclensionRule): String =
     if(root.endsWith("e") && rule.ruleNumber == 49) then root.dropRight(1) else root
 
   //Example: pick-up (has same inflection as risti, ristejä)
-  private inline def checkRule5(word: Word, rule: DeclensionRules): String =
+  private inline def checkRule5(word: Word, rule: DeclensionRule): String =
     if(word.ruleNumber == 5 && Letters.isConsonant(word.lemma.last)) word.lemma
     else word.lemma.dropRight(rule.drop)
 
@@ -90,7 +90,7 @@ object DeclensionUtils {
       resultWord.copy(word = updatedWord)
     else resultWord
 
-  private inline def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word, rule: DeclensionRules): ResultWord =
+  private inline def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word, rule: DeclensionRule): ResultWord =
     val updatedEnding = updateEnding(ending, lemma, rule)
     var exceptionalBeginning: Option[String] = None
     val gradation = word.gradation match {
@@ -130,7 +130,7 @@ object DeclensionUtils {
   import morph_fin.utils.VocalizationUtils._
 
 
-  private inline def updateEnding(ending: Declension, lemma: String, rule: DeclensionRules): String =
+  private inline def updateEnding(ending: Declension, lemma: String, rule: DeclensionRule): String =
     val NomSEnding = rule.cases.find(_.morphemes == Nom::S).get.ending
     val alteredLemma = rule.ruleNumber match {
       case 5 if Letters.isConsonant(lemma.last) => lemma + 'i'
@@ -160,7 +160,7 @@ object DeclensionUtils {
   end updateEnding
 
 
-  def updateEndingCase28(ending: String, lemma: String, rule: DeclensionRules): String =
+  def updateEndingCase28(ending: String, lemma: String, rule: DeclensionRule): String =
     if(rule.ruleNumber == 28 && ending.startsWith("n")) then lemma.dropRight(2).last + ending.drop(1)
     else ending
 }

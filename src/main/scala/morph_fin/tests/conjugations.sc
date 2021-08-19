@@ -13,7 +13,7 @@ def printA(words: Seq[ResultWord]) =
   println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 
-def conjugations(word: Word) = ConjugationUtils.addConjugations(rules, word)
+def conjugations(word: Word) = ConjugationUtils.generateConjugations(rules, word)
 
 def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   val results = conjugations(getWord(word, rule, gradationLetterOpt))

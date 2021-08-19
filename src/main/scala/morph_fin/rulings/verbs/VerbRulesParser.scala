@@ -17,7 +17,7 @@ object LoadAndParseVerbRules {
     new VerbRulesParser(content.mkString("\n").iterator).parse
   }
 
-  def rules: Seq[ConjugationRules] = {
+  def rules: Seq[ConjugationRule] = {
     apply().map(GenerateConjugationRules(_))
   }
 }

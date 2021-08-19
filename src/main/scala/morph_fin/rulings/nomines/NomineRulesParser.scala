@@ -15,7 +15,7 @@ object LoadAndParseNomineRules {
     new NomineRulesParser(content.mkString("\n").iterator).parse
   }
 
-  def rules: Seq[DeclensionRules] = {
+  def rules: Seq[DeclensionRule] = {
     apply().map(GenerateDeclensionRules(_))
   }
 }
