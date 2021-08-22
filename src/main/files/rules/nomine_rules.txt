@@ -1,9 +1,12 @@
+# Abbreviations:
+# ====================
 #S = Singular
 #P = Plural
-#-O = Omistusliite
+#-P = Only with possessive suffix
+#-------------------------
 #Nom = Nominative (valo)
 #Gen = Genetive (valon)
-#Akk = Akkusative (valon, valo)
+#Acc = Akkusative (valon, valo)
 #Par = Partitive (valoa)
 #Ine = Inessive (valossa)
 #Ela = Elative (valosta)
@@ -15,1557 +18,1559 @@
 #Tra = Translative (valoksi)
 #Ins = Instructive (valoin)
 #Abe = Abessive (valotta)
-#Kom = Komitative (valoine-O)
+#Com = Komitative (valoine-P)
+#----------------------------
 #G = Gradation
 #S = Strong
 #W = Weak
+#---------------------
 
 <1>
-S|Nom: valo
-S|Gen: valon
-S|Par: valoa
-S|Akk: valo valon
-S|Ine: valossa
-S|Ela: valosta
-S|Ill: valoon
-S|Ade: valolla
-S|Abl: valolta
-S|All: valolle
-S|Ess: valona
-S|Tra: valoksi
-S|Abe: valotta
+S:Nom: valo
+S:Gen: valon
+S:Par: valoa
+S:Acc: valo valon
+S:Ine: valossa
+S:Ela: valosta
+S:Ill: valoon
+S:Ade: valolla
+S:Abl: valolta
+S:All: valolle
+S:Ess: valona
+S:Tra: valoksi
+S:Abe: valotta
 
-P|Nom: valot
-P|Gen: valojen
-P|Par: valoja
-P|Akk: valot
-P|Ine: valoissa
-P|Ela: valoista
-P|Ill: valoihin
-P|Ade: valoilla
-P|Abl: valoilta
-P|All: valoille
-P|Ess: valoina
-P|Tra: valoiksi
-P|Ins: valoin
-P|Abe: valoitta
-P|Kom: valoine
+P:Nom: valot
+P:Gen: valojen
+P:Par: valoja
+P:Acc: valot
+P:Ine: valoissa
+P:Ela: valoista
+P:Ill: valoihin
+P:Ade: valoilla
+P:Abl: valoilta
+P:All: valoille
+P:Ess: valoina
+P:Tra: valoiksi
+P:Ins: valoin
+P:Abe: valoitta
+P:Kom: valoine-P
 
 <2>
-S|Nom: palvelu
-S|Gen: palvelun
-S|Par: palvelua
-S|Akk: palvelu palvelun
-S|Ine: palvelussa
-S|Ela: palvelusta
-S|Ill: palveluun
-S|Ade: palvelulla
-S|Abl: palvelulta
-S|All: palvelulle
-S|Ess: palveluna
-S|Tra: palveluksi
-S|Abe: palvelutta
+S:Nom: palvelu
+S:Gen: palvelun
+S:Par: palvelua
+S:Acc: palvelu palvelun
+S:Ine: palvelussa
+S:Ela: palvelusta
+S:Ill: palveluun
+S:Ade: palvelulla
+S:Abl: palvelulta
+S:All: palvelulle
+S:Ess: palveluna
+S:Tra: palveluksi
+S:Abe: palvelutta
 
-P|Nom: palvelut
-P|Gen: palvelujen palveluiden palveluitten
-P|Par: palveluja palveluita
-P|Akk: palvelut
-P|Ine: palveluissa
-P|Ela: palveluista
-P|Ill: palveluihin
-P|Ade: palveluilla
-P|Abl: palveluilta
-P|All: palveluille
-P|Ess: palveluina
-P|Tra: palveluiksi
-P|Ins: palveluin
-P|Abe: palveluitta
-P|Kom: palveluine
+P:Nom: palvelut
+P:Gen: palvelujen palveluiden palveluitten
+P:Par: palveluja palveluita
+P:Acc: palvelut
+P:Ine: palveluissa
+P:Ela: palveluista
+P:Ill: palveluihin
+P:Ade: palveluilla
+P:Abl: palveluilta
+P:All: palveluille
+P:Ess: palveluina
+P:Tra: palveluiksi
+P:Ins: palveluin
+P:Abe: palveluitta
+P:Com: palveluine-P
 
 <3>
-S|Nom: valtio
-S|Gen: valtion
-S|Par: valtiota
-S|Akk: valtio valtion
-S|Ine: valtiossa
-S|Ela: valtiosta
-S|Ill: valtioon
-S|Ade: valtiolla
-S|Abl: valtiolta
-S|All: valtiolle
-S|Ess: valtiona
-S|Tra: valtioksi
-S|Abe: valtiotta
+S:Nom: valtio
+S:Gen: valtion
+S:Par: valtiota
+S:Acc: valtio valtion
+S:Ine: valtiossa
+S:Ela: valtiosta
+S:Ill: valtioon
+S:Ade: valtiolla
+S:Abl: valtiolta
+S:All: valtiolle
+S:Ess: valtiona
+S:Tra: valtioksi
+S:Abe: valtiotta
 
-P|Nom: valtiot
-P|Gen: valtioiden valtioitten
-P|Par: valtioita
-P|Akk: valtiot
-P|Ine: valtioissa
-P|Ela: valtioista
-P|Ill: valtioihin
-P|Ade: valtioilla
-P|Abl: valtioilta
-P|All: valtioille
-P|Ess: valtioina
-P|Tra: valtioiksi
-P|Ins: valtioin
-P|Abe: valtioitta
-P|Kom: valtioine
+P:Nom: valtiot
+P:Gen: valtioiden valtioitten
+P:Par: valtioita
+P:Acc: valtiot
+P:Ine: valtioissa
+P:Ela: valtioista
+P:Ill: valtioihin
+P:Ade: valtioilla
+P:Abl: valtioilta
+P:All: valtioille
+P:Ess: valtioina
+P:Tra: valtioiksi
+P:Ins: valtioin
+P:Abe: valtioitta
+P:Com: valtioine-P
 
 <4:G:S:kk-k>
-S|Nom: laatikko
-S|Gen: laatikon
-S|Par: laatikkoa
-S|Akk: laatikko laatikon
-S|Ine: laatikossa
-S|Ela: laatikosta
-S|Ill: laatikkoon
-S|Ade: laatikolla
-S|Abl: laatikolta
-S|All: laatikolle
-S|Ess: laatikkona
-S|Tra: laatikoksi
-S|Abe: laatikotta
+S:Nom: laatikko
+S:Gen: laatikon
+S:Par: laatikkoa
+S:Acc: laatikko laatikon
+S:Ine: laatikossa
+S:Ela: laatikosta
+S:Ill: laatikkoon
+S:Ade: laatikolla
+S:Abl: laatikolta
+S:All: laatikolle
+S:Ess: laatikkona
+S:Tra: laatikoksi
+S:Abe: laatikotta
 
-P|Nom: laatikot
-P|Gen: laatikkojen laatikoiden laatikoitten
-P|Par: laatikkoja laatikoita
-P|Akk: laatikot
-P|Ine: laatikoissa
-P|Ela: laatikoista
-P|Ill: laatikkoihin laatikoihin
-P|Ade: laatikoilla
-P|Abl: laatikoilta
-P|All: laatikoille
-P|Ess: laatikkoina
-P|Tra: laatikoiksi
-P|Ins: laatikoin
-P|Abe: laatikoitta
-P|Kom: laatikoine
+P:Nom: laatikot
+P:Gen: laatikkojen laatikoiden laatikoitten
+P:Par: laatikkoja laatikoita
+P:Acc: laatikot
+P:Ine: laatikoissa
+P:Ela: laatikoista
+P:Ill: laatikkoihin laatikoihin
+P:Ade: laatikoilla
+P:Abl: laatikoilta
+P:All: laatikoille
+P:Ess: laatikkoina
+P:Tra: laatikoiksi
+P:Ins: laatikoin
+P:Abe: laatikoitta
+P:Com: laatikoine-P
 
 <5>
-S|Nom: risti
-S|Gen: ristin
-S|Par: ristiä
-S|Akk: risti ristin
-S|Ine: ristissä
-S|Ela: rististä
-S|Ill: ristiin
-S|Ade: ristillä
-S|Abl: ristiltä
-S|All: ristille
-S|Ess: ristinä
-S|Tra: ristiksi
-S|Abe: ristittä
+S:Nom: risti
+S:Gen: ristin
+S:Par: ristiä
+S:Acc: risti ristin
+S:Ine: ristissä
+S:Ela: rististä
+S:Ill: ristiin
+S:Ade: ristillä
+S:Abl: ristiltä
+S:All: ristille
+S:Ess: ristinä
+S:Tra: ristiksi
+S:Abe: ristittä
 
-P|Nom: ristit
-P|Gen: ristien
-P|Par: ristejä
-P|Akk: ristit
-P|Ine: risteissä
-P|Ela: risteistä
-P|Ill: risteihin
-P|Ade: risteillä
-P|Abl: risteiltä
-P|All: risteille
-P|Ess: risteinä
-P|Tra: risteiksi
-P|Ins: ristein
-P|Abe: risteittä
-P|Kom: risteine
+P:Nom: ristit
+P:Gen: ristien
+P:Par: ristejä
+P:Acc: ristit
+P:Ine: risteissä
+P:Ela: risteistä
+P:Ill: risteihin
+P:Ade: risteillä
+P:Abl: risteiltä
+P:All: risteille
+P:Ess: risteinä
+P:Tra: risteiksi
+P:Ins: ristein
+P:Abe: risteittä
+P:Com: risteine-P
 
 <6>
-S|Nom: paperi
-S|Gen: paperin
-S|Par: paperia
-S|Akk: paperi paperit
-S|Ine: paperissa
-S|Ela: paperista
-S|Ill: paperiin
-S|Ade: paperilla
-S|Abl: paperilta
-S|All: paperille
-S|Ess: paperina
-S|Tra: paperiksi
-S|Abe: paperitta
+S:Nom: paperi
+S:Gen: paperin
+S:Par: paperia
+S:Acc: paperi paperit
+S:Ine: paperissa
+S:Ela: paperista
+S:Ill: paperiin
+S:Ade: paperilla
+S:Abl: paperilta
+S:All: paperille
+S:Ess: paperina
+S:Tra: paperiksi
+S:Abe: paperitta
 
-P|Nom: paperit
-P|Gen: paperien papereiden papereitten
-P|Par: papereja papereita
-P|Akk: paperit
-P|Ine: papereissa
-P|Ela: papereista
-P|Ill: papereihin
-P|Ade: papereilla
-P|Abl: papereilta
-P|All: papereille
-P|Ess: papereina
-P|Tra: papereiksi
-P|Ins: paperein
-P|Abe: papereitta
-P|Kom: papereine
+P:Nom: paperit
+P:Gen: paperien papereiden papereitten
+P:Par: papereja papereita
+P:Acc: paperit
+P:Ine: papereissa
+P:Ela: papereista
+P:Ill: papereihin
+P:Ade: papereilla
+P:Abl: papereilta
+P:All: papereille
+P:Ess: papereina
+P:Tra: papereiksi
+P:Ins: paperein
+P:Abe: papereitta
+P:Com: papereine-P
 
 <7>
-S|Nom: ovi
-S|Gen: oven
-S|Par: ovea
-S|Akk: ovi oven
-S|Ine: ovessa
-S|Ela: ovesta
-S|Ill: oveen
-S|Ade: ovella
-S|Abl: ovelta
-S|All: ovelle
-S|Ess: ovena
-S|Tra: oveksi
-S|Abe: ovetta
+S:Nom: ovi
+S:Gen: oven
+S:Par: ovea
+S:Acc: ovi oven
+S:Ine: ovessa
+S:Ela: ovesta
+S:Ill: oveen
+S:Ade: ovella
+S:Abl: ovelta
+S:All: ovelle
+S:Ess: ovena
+S:Tra: oveksi
+S:Abe: ovetta
 
-P|Nom: ovet
-P|Gen: ovien
-P|Par: ovia
-P|Akk: ovet
-P|Ine: ovissa
-P|Ela: ovista
-P|Ill: oviin
-P|Ade: ovilla
-P|Abl: ovilta
-P|All: oville
-P|Ess: ovina
-P|Tra: oviksi
-P|Ins: ovin
-P|Abe: ovitta
-P|Kom: ovine
+P:Nom: ovet
+P:Gen: ovien
+P:Par: ovia
+P:Acc: ovet
+P:Ine: ovissa
+P:Ela: ovista
+P:Ill: oviin
+P:Ade: ovilla
+P:Abl: ovilta
+P:All: oville
+P:Ess: ovina
+P:Tra: oviksi
+P:Ins: ovin
+P:Abe: ovitta
+P:Com: ovine-P
 
 <8>
-S|Nom: nalle
-S|Gen: nallen
-S|Par: nallea
-S|Akk: nalle nallen
-S|Ine: nallessa
-S|Ela: nallesta
-S|Ill: nalleen
-S|Ade: nallella
-S|Abl: nallelta
-S|All: nallelle
-S|Ess: nallena
-S|Tra: nalleksi
-S|Abe: nalletta
+S:Nom: nalle
+S:Gen: nallen
+S:Par: nallea
+S:Acc: nalle nallen
+S:Ine: nallessa
+S:Ela: nallesta
+S:Ill: nalleen
+S:Ade: nallella
+S:Abl: nallelta
+S:All: nallelle
+S:Ess: nallena
+S:Tra: nalleksi
+S:Abe: nalletta
 
-P|Nom: nallet
-P|Gen: nallejen (nallein)
-P|Par: nalleja
-P|Akk: nallet
-P|Ine: nalleissa
-P|Ela: nalleista
-P|Ill: nalleihin
-P|Ade: nalleilla
-P|Abl: nalleilta
-P|All: nalleille
-P|Ess: nalleina
-P|Tra: nalleiksi
-P|Ins: nallein
-P|Abe: nalleitta
-P|Kom: nalleine
+P:Nom: nallet
+P:Gen: nallejen (nallein)
+P:Par: nalleja
+P:Acc: nallet
+P:Ine: nalleissa
+P:Ela: nalleista
+P:Ill: nalleihin
+P:Ade: nalleilla
+P:Abl: nalleilta
+P:All: nalleille
+P:Ess: nalleina
+P:Tra: nalleiksi
+P:Ins: nallein
+P:Abe: nalleitta
+P:Com: nalleine-P
 
 <9>
-S|Nom: kala
-S|Gen: kalan
-S|Par: kalaa
-S|Akk: kala kalan
-S|Ine: kalassa
-S|Ela: kalasta
-S|Ill: kalaan
-S|Ade: kalalla
-S|Abl: kalalta
-S|All: kalalle
-S|Ess: kalana
-S|Tra: kalaksi
-S|Abe: kalatta
+S:Nom: kala
+S:Gen: kalan
+S:Par: kalaa
+S:Acc: kala kalan
+S:Ine: kalassa
+S:Ela: kalasta
+S:Ill: kalaan
+S:Ade: kalalla
+S:Abl: kalalta
+S:All: kalalle
+S:Ess: kalana
+S:Tra: kalaksi
+S:Abe: kalatta
 
-P|Nom: kalat
-P|Gen: kalojen (kalain)
-P|Par: kaloja
-P|Akk: kalat
-P|Ine: kaloissa
-P|Ela: kaloista
-P|Ill: kaloihin
-P|Ade: kaloilla
-P|Abl: kaloilta
-P|All: kaloille
-P|Ess: kaloina
-P|Tra: kaloiksi
-P|Ins: kaloin
-P|Abe: kaloitta
-P|Kom: kaloine
+P:Nom: kalat
+P:Gen: kalojen (kalain)
+P:Par: kaloja
+P:Acc: kalat
+P:Ine: kaloissa
+P:Ela: kaloista
+P:Ill: kaloihin
+P:Ade: kaloilla
+P:Abl: kaloilta
+P:All: kaloille
+P:Ess: kaloina
+P:Tra: kaloiksi
+P:Ins: kaloin
+P:Abe: kaloitta
+P:Com: kaloine-P
 
 <10>
-S|Nom: koira
-S|Gen: koiran
-S|Par: koiraa
-S|Akk: koira koiran
-S|Ine: koirassa
-S|Ela: koirasta
-S|Ill: koiraan
-S|Ade: koiralla
-S|Abl: koiralta
-S|All: koiralle
-S|Ess: koirana
-S|Tra: koiraksi
-S|Abe: koiratta
+S:Nom: koira
+S:Gen: koiran
+S:Par: koiraa
+S:Acc: koira koiran
+S:Ine: koirassa
+S:Ela: koirasta
+S:Ill: koiraan
+S:Ade: koiralla
+S:Abl: koiralta
+S:All: koiralle
+S:Ess: koirana
+S:Tra: koiraksi
+S:Abe: koiratta
 
-P|Nom: koirat
-P|Gen: koirien (koirain)
-P|Par: koiria
-P|Akk: koirat
-P|Ine: koirissa
-P|Ela: koirista
-P|Ill: koiriin
-P|Ade: koirilla
-P|Abl: koirilta
-P|All: koirille
-P|Ess: koirina
-P|Tra: koiriksi
-P|Ins: koirin
-P|Abe: koiritta
-P|Kom: koirine
+P:Nom: koirat
+P:Gen: koirien (koirain)
+P:Par: koiria
+P:Acc: koirat
+P:Ine: koirissa
+P:Ela: koirista
+P:Ill: koiriin
+P:Ade: koirilla
+P:Abl: koirilta
+P:All: koirille
+P:Ess: koirina
+P:Tra: koiriksi
+P:Ins: koirin
+P:Abe: koiritta
+P:Com: koirine-P
 
 <11>
-S|Nom: omena
-S|Gen: omenan
-S|Par: omenaa
-S|Akk: omena omenan
-S|Ine: omenassa
-S|Ela: omenasta
-S|Ill: omenaan
-S|Ade: omenalla
-S|Abl: omenalta
-S|All: omenalle
-S|Ess: omenana
-S|Tra: omenaksi
-S|Abe: omenatta
+S:Nom: omena
+S:Gen: omenan
+S:Par: omenaa
+S:Acc: omena omenan
+S:Ine: omenassa
+S:Ela: omenasta
+S:Ill: omenaan
+S:Ade: omenalla
+S:Abl: omenalta
+S:All: omenalle
+S:Ess: omenana
+S:Tra: omenaksi
+S:Abe: omenatta
 
-P|Nom: omenat
-P|Gen: omenien omenoiden omenoitten (omenojen) (omenain)
-P|Par: omenia omenoita (omenoja)
-P|Akk: omenat
-P|Ine: omenissa omenoissa
-P|Ela: omenista omenoista
-P|Ill: omeniin omenoihin
-P|Ade: omenilla omenoilla
-P|Abl: omenilta omenoilta
-P|All: omenille omenoille
-P|Ess: omenina omenoina
-P|Tra: omeniksi omenoiksi
-P|Ins: omenin omenoin
-P|Abe: omenitta omenoitta
-P|Kom: omenine
+P:Nom: omenat
+P:Gen: omenien omenoiden omenoitten (omenojen) (omenain)
+P:Par: omenia omenoita (omenoja)
+P:Acc: omenat
+P:Ine: omenissa omenoissa
+P:Ela: omenista omenoista
+P:Ill: omeniin omenoihin
+P:Ade: omenilla omenoilla
+P:Abl: omenilta omenoilta
+P:All: omenille omenoille
+P:Ess: omenina omenoina
+P:Tra: omeniksi omenoiksi
+P:Ins: omenin omenoin
+P:Abe: omenitta omenoitta
+P:Com: omenine-P
 
 <12>
-S|Nom: kulkija
-S|Gen: kulkijan
-S|Par: kulkijaa
-S|Akk: kulkija kulkijan
-S|Ine: kulkijassa
-S|Ela: kulkijasta
-S|Ill: kulkijaan
-S|Ade: kulkijalla
-S|Abl: kulkijalta
-S|All: kulkijalle
-S|Ess: kulkijana
-S|Tra: kulkijaksi
-S|Abe: kulkijatta
+S:Nom: kulkija
+S:Gen: kulkijan
+S:Par: kulkijaa
+S:Acc: kulkija kulkijan
+S:Ine: kulkijassa
+S:Ela: kulkijasta
+S:Ill: kulkijaan
+S:Ade: kulkijalla
+S:Abl: kulkijalta
+S:All: kulkijalle
+S:Ess: kulkijana
+S:Tra: kulkijaksi
+S:Abe: kulkijatta
 
-P|Nom: kulkijat
-P|Gen: kulkijoiden kulkijoitten (kulkijain)
-P|Par: kulkijoita
-P|Akk: kulkijat
-P|Ine: kulkijoissa
-P|Ela: kulkijoista
-P|Ill: kulkijoihin
-P|Ade: kulkijoilla
-P|Abl: kulkijoilta
-P|All: kulkijoille
-P|Ess: kulkijoina
-P|Tra: kulkijoiksi
-P|Ins: kulkijoin
-P|Abe: kulkijoitta
-P|Kom: kulkijoine
+P:Nom: kulkijat
+P:Gen: kulkijoiden kulkijoitten (kulkijain)
+P:Par: kulkijoita
+P:Acc: kulkijat
+P:Ine: kulkijoissa
+P:Ela: kulkijoista
+P:Ill: kulkijoihin
+P:Ade: kulkijoilla
+P:Abl: kulkijoilta
+P:All: kulkijoille
+P:Ess: kulkijoina
+P:Tra: kulkijoiksi
+P:Ins: kulkijoin
+P:Abe: kulkijoitta
+P:Com: kulkijoine-P
 
 <13>
-S|Nom: katiska
-S|Gen: katiskan
-S|Par: katiskaa
-S|Akk: katiska katiskan
-S|Ine: katiskassa
-S|Ela: katiskasta
-S|Ill: katiskaan
-S|Ade: katiskalla
-S|Abl: katiskalta
-S|All: katiskalle
-S|Ess: katiskana
-S|Tra: katiskaksi
-S|Abe: katiskatta
+S:Nom: katiska
+S:Gen: katiskan
+S:Par: katiskaa
+S:Acc: katiska katiskan
+S:Ine: katiskassa
+S:Ela: katiskasta
+S:Ill: katiskaan
+S:Ade: katiskalla
+S:Abl: katiskalta
+S:All: katiskalle
+S:Ess: katiskana
+S:Tra: katiskaksi
+S:Abe: katiskatta
 
-P|Nom: katiskat
-P|Gen: katiskoiden katiskoitten katiskojen (katiskain)
-P|Par: katiskoita katiskoja
-P|Akk: katiskat
-P|Ine: katiskoissa
-P|Ela: katiskoista
-P|Ill: katiskoihin
-P|Ade: katiskoilla
-P|Abl: katiskoilta
-P|All: katiskoille
-P|Ess: katiskoina
-P|Tra: katiskoiksi
-P|Ins: katiskoin
-P|Abe: katiskoitta
-P|Kom: katiskoine
+P:Nom: katiskat
+P:Gen: katiskoiden katiskoitten katiskojen (katiskain)
+P:Par: katiskoita katiskoja
+P:Acc: katiskat
+P:Ine: katiskoissa
+P:Ela: katiskoista
+P:Ill: katiskoihin
+P:Ade: katiskoilla
+P:Abl: katiskoilta
+P:All: katiskoille
+P:Ess: katiskoina
+P:Tra: katiskoiksi
+P:Ins: katiskoin
+P:Abe: katiskoitta
+P:Com: katiskoine-P
 
 <14:G:S:kk-k>
-S|Nom: solakka
-S|Gen: solakan
-S|Par: solakkaa
-S|Akk: solakka solakan
-S|Ine: solakassa
-S|Ela: solakasta
-S|Ill: solakkaan
-S|Ade: solakalla
-S|Abl: solakalta
-S|All: solakalle
-S|Ess: solakkana
-S|Tra: solakaksi
-S|Abe: solakatta
+S:Nom: solakka
+S:Gen: solakan
+S:Par: solakkaa
+S:Acc: solakka solakan
+S:Ine: solakassa
+S:Ela: solakasta
+S:Ill: solakkaan
+S:Ade: solakalla
+S:Abl: solakalta
+S:All: solakalle
+S:Ess: solakkana
+S:Tra: solakaksi
+S:Abe: solakatta
 
-P|Nom: solakat
-P|Gen: solakoiden solakoitten solakkojen (solakkain)
-P|Par: solakoita solakkoja
-P|Akk: solakat
-P|Ine: solakoissa
-P|Ela: solakoista
-P|Ill: solakkoihin solakoihin
-P|Ade: solakoilla
-P|Abl: solakoilta
-P|All: solakoille
-P|Ess: solakoina solakkoina
-P|Tra: solakoiksi
-P|Ins: solakoin
-P|Abe: solakoitta
-P|Kom: solakoine solakkoine
+P:Nom: solakat
+P:Gen: solakoiden solakoitten solakkojen (solakkain)
+P:Par: solakoita solakkoja
+P:Acc: solakat
+P:Ine: solakoissa
+P:Ela: solakoista
+P:Ill: solakkoihin solakoihin
+P:Ade: solakoilla
+P:Abl: solakoilta
+P:All: solakoille
+P:Ess: solakoina solakkoina
+P:Tra: solakoiksi
+P:Ins: solakoin
+P:Abe: solakoitta
+P:Com: solakoine-P solakkoine-P
 
 <15>
-S|Nom: korkea
-S|Gen: korkean
-S|Par: korkeaa
-S|Akk: korkea korkean
-S|Ine: korkeassa
-S|Ela: korkeasta
-S|Ill: korkeaan
-S|Ade: korkealla
-S|Abl: korkealta
-S|All: korkealle
-S|Ess: korkeana
-S|Tra: korkeaksi
-S|Abe: korkeatta
+S:Nom: korkea
+S:Gen: korkean
+S:Par: korkeaa
+S:Acc: korkea korkean
+S:Ine: korkeassa
+S:Ela: korkeasta
+S:Ill: korkeaan
+S:Ade: korkealla
+S:Abl: korkealta
+S:All: korkealle
+S:Ess: korkeana
+S:Tra: korkeaksi
+S:Abe: korkeatta
 
-P|Nom: korkeat
-P|Gen: korkeiden korkeitten (korkeain)
-P|Par: korkeita
-P|Akk: korkeat
-P|Ine: korkeissa
-P|Ela: korkeista
-P|Ill: korkeisiin korkeihin
-P|Ade: korkeilla
-P|Abl: korkeilta
-P|All: korkeille
-P|Ess: korkeina
-P|Tra: korkeiksi
-P|Ins: korkein
-P|Abe: korkeitta
-P|Kom: korkeine
+P:Nom: korkeat
+P:Gen: korkeiden korkeitten (korkeain)
+P:Par: korkeita
+P:Acc: korkeat
+P:Ine: korkeissa
+P:Ela: korkeista
+P:Ill: korkeisiin korkeihin
+P:Ade: korkeilla
+P:Abl: korkeilta
+P:All: korkeille
+P:Ess: korkeina
+P:Tra: korkeiksi
+P:Ins: korkein
+P:Abe: korkeitta
+P:Com: korkeine-P
 
 <16:G:S:mp-mm>
-S|Nom: vanhempi
-S|Gen: vanhemman
-S|Par: vanhempaa
-S|Akk: vanhempi vanhemman
-S|Ine: vanhemmassa
-S|Ela: vanhemmasta
-S|Ill: vanhempaan
-S|Ade: vanhemmalla
-S|Abl: vanhemmalta
-S|All: vanhemmalle
-S|Ess: vanhempana
-S|Tra: vanhemmaksi
-S|Abe: vanhemmatta
+S:Nom: vanhempi
+S:Gen: vanhemman
+S:Par: vanhempaa
+S:Acc: vanhempi vanhemman
+S:Ine: vanhemmassa
+S:Ela: vanhemmasta
+S:Ill: vanhempaan
+S:Ade: vanhemmalla
+S:Abl: vanhemmalta
+S:All: vanhemmalle
+S:Ess: vanhempana
+S:Tra: vanhemmaksi
+S:Abe: vanhemmatta
 
-P|Nom: vanhemmat
-P|Gen: vanhempien (vanhempain)
-P|Par: vanhempia
-P|Akk: vanhemmat
-P|Ine: vanhemmissa
-P|Ela: vanhemmista
-P|Ill: vanhempiin
-P|Ade: vanhemmilla
-P|Abl: vanhemmilta
-P|All: vanhemmille
-P|Ess: vanhempina
-P|Tra: vanhemmiksi
-P|Ins: vanhemmin
-P|Abe: vanhemmitta
-P|Kom: vanhempine
+P:Nom: vanhemmat
+P:Gen: vanhempien (vanhempain)
+P:Par: vanhempia
+P:Acc: vanhemmat
+P:Ine: vanhemmissa
+P:Ela: vanhemmista
+P:Ill: vanhempiin
+P:Ade: vanhemmilla
+P:Abl: vanhemmilta
+P:All: vanhemmille
+P:Ess: vanhempina
+P:Tra: vanhemmiksi
+P:Ins: vanhemmin
+P:Abe: vanhemmitta
+P:Com: vanhempine-P
 
 <17>
-S|Nom: vapaa
-S|Gen: vapaan
-S|Par: vapaata
-S|Akk: vapaa vapaan
-S|Ine: vapaassa
-S|Ela: vapaasta
-S|Ill: vapaaseen
-S|Ade: vapaalla
-S|Abl: vapaalta
-S|All: vapaalle
-S|Ess: vapaana
-S|Tra: vapaaksi
-S|Abe: vapaatta
+S:Nom: vapaa
+S:Gen: vapaan
+S:Par: vapaata
+S:Acc: vapaa vapaan
+S:Ine: vapaassa
+S:Ela: vapaasta
+S:Ill: vapaaseen
+S:Ade: vapaalla
+S:Abl: vapaalta
+S:All: vapaalle
+S:Ess: vapaana
+S:Tra: vapaaksi
+S:Abe: vapaatta
 
-P|Nom: vapaat
-P|Gen: vapaiden vapaitten
-P|Par: vapaita
-P|Akk: vapaat
-P|Ine: vapaissa
-P|Ela: vapaista
-P|Ill: vapaisiin (vapaihin)
-P|Ade: vapailla
-P|Abl: vapailta
-P|All: vapaille
-P|Ess: vapaina
-P|Tra: vapaiksi
-P|Ins: vapain
-P|Abe: vapaitta
-P|Kom: vapaine
+P:Nom: vapaat
+P:Gen: vapaiden vapaitten
+P:Par: vapaita
+P:Acc: vapaat
+P:Ine: vapaissa
+P:Ela: vapaista
+P:Ill: vapaisiin (vapaihin)
+P:Ade: vapailla
+P:Abl: vapailta
+P:All: vapaille
+P:Ess: vapaina
+P:Tra: vapaiksi
+P:Ins: vapain
+P:Abe: vapaitta
+P:Com: vapaine-P
 
 <18>
-S|Nom: maa
-S|Gen: maan
-S|Par: maata
-S|Akk: maa maan
-S|Ine: maassa
-S|Ela: maasta
-S|Ill: maahan
-S|Ade: maalla
-S|Abl: maalta
-S|All: maalle
-S|Ess: maana
-S|Tra: maaksi
-S|Abe: maatta
+S:Nom: maa
+S:Gen: maan
+S:Par: maata
+S:Acc: maa maan
+S:Ine: maassa
+S:Ela: maasta
+S:Ill: maahan
+S:Ade: maalla
+S:Abl: maalta
+S:All: maalle
+S:Ess: maana
+S:Tra: maaksi
+S:Abe: maatta
 
-P|Nom: maat
-P|Gen: maiden maitten
-P|Par: maita
-P|Akk: maat
-P|Ine: maissa
-P|Ela: maista
-P|Ill: maihin
-P|Ade: mailla
-P|Abl: mailta
-P|All: maille
-P|Ess: maina
-P|Tra: maiksi
-P|Ins: main
-P|Abe: maitta
-P|Kom: maine
+P:Nom: maat
+P:Gen: maiden maitten
+P:Par: maita
+P:Acc: maat
+P:Ine: maissa
+P:Ela: maista
+P:Ill: maihin
+P:Ade: mailla
+P:Abl: mailta
+P:All: maille
+P:Ess: maina
+P:Tra: maiksi
+P:Ins: main
+P:Abe: maitta
+P:Com: maine-P
 
 <19>
-S|Nom: suo
-S|Gen: suon
-S|Par: suota
-S|Akk: suo suon
-S|Ine: suossa
-S|Ela: suosta
-S|Ill: suohon
-S|Ade: suolla
-S|Abl: suolta
-S|All: suolle
-S|Ess: suona
-S|Tra: suoksi
-S|Abe: suotta
+S:Nom: suo
+S:Gen: suon
+S:Par: suota
+S:Acc: suo suon
+S:Ine: suossa
+S:Ela: suosta
+S:Ill: suohon
+S:Ade: suolla
+S:Abl: suolta
+S:All: suolle
+S:Ess: suona
+S:Tra: suoksi
+S:Abe: suotta
 
-P|Nom: suot
-P|Gen: soiden soitten
-P|Par: soita
-P|Akk: suot
-P|Ine: soissa
-P|Ela: soista
-P|Ill: soihin
-P|Ade: soilla
-P|Abl: soilta
-P|All: soille
-P|Ess: soina
-P|Tra: soiksi
-P|Ins: soin
-P|Abe: soitta
-P|Kom: soine
+P:Nom: suot
+P:Gen: soiden soitten
+P:Par: soita
+P:Acc: suot
+P:Ine: soissa
+P:Ela: soista
+P:Ill: soihin
+P:Ade: soilla
+P:Abl: soilta
+P:All: soille
+P:Ess: soina
+P:Tra: soiksi
+P:Ins: soin
+P:Abe: soitta
+P:Com: soine-P
 
 <20>
-S|Nom: filee
-S|Gen: fileen
-S|Par: fileetä
-S|Akk: filee fileen
-S|Ine: fileessä
-S|Ela: fileestä
-S|Ill: fileehen fileeseen
-S|Ade: fileellä
-S|Abl: fileeltä
-S|All: fileelle
-S|Ess: fileenä
-S|Tra: fileeksi
-S|Abe: fileettä
+S:Nom: filee
+S:Gen: fileen
+S:Par: fileetä
+S:Acc: filee fileen
+S:Ine: fileessä
+S:Ela: fileestä
+S:Ill: fileehen fileeseen
+S:Ade: fileellä
+S:Abl: fileeltä
+S:All: fileelle
+S:Ess: fileenä
+S:Tra: fileeksi
+S:Abe: fileettä
 
-P|Nom: fileet
-P|Gen: fileiden fileitten
-P|Par: fileitä
-P|Akk: fileet
-P|Ine: fileissä
-P|Ela: fileistä
-P|Ill: fileihin fileisiin
-P|Ade: fileillä
-P|Abl: fileiltä
-P|All: fileille
-P|Ess: fileinä
-P|Tra: fileiksi
-P|Ins: filein
-P|Abe: fileittä
-P|Kom: fileine
+P:Nom: fileet
+P:Gen: fileiden fileitten
+P:Par: fileitä
+P:Acc: fileet
+P:Ine: fileissä
+P:Ela: fileistä
+P:Ill: fileihin fileisiin
+P:Ade: fileillä
+P:Abl: fileiltä
+P:All: fileille
+P:Ess: fileinä
+P:Tra: fileiksi
+P:Ins: filein
+P:Abe: fileittä
+P:Com: fileine-P
 
 <21>
-S|Nom: rosé
-S|Gen: rosén
-S|Par: roséta
-S|Akk: rosé rosén
-S|Ine: roséssa
-S|Ela: rosésta
-S|Ill: roséhen
-S|Ade: rosélla
-S|Abl: rosélta
-S|All: rosélle
-S|Ess: roséna
-S|Tra: roséksi
-S|Abe: rosétta
+S:Nom: rosé
+S:Gen: rosén
+S:Par: roséta
+S:Acc: rosé rosén
+S:Ine: roséssa
+S:Ela: rosésta
+S:Ill: roséhen
+S:Ade: rosélla
+S:Abl: rosélta
+S:All: rosélle
+S:Ess: roséna
+S:Tra: roséksi
+S:Abe: rosétta
 
-P|Nom: rosét
-P|Gen: roséiden roséitten
-P|Par: roséita
-P|Akk: rosét
-P|Ine: roséissa
-P|Ela: roséista
-P|Ill: roséihin
-P|Ade: roséilla
-P|Abl: roséilta
-P|All: roséille
-P|Ess: roséina
-P|Tra: roséiksi
-P|Ins: roséin
-P|Abe: roséitta
-P|Kom: roséine
+P:Nom: rosét
+P:Gen: roséiden roséitten
+P:Par: roséita
+P:Acc: rosét
+P:Ine: roséissa
+P:Ela: roséista
+P:Ill: roséihin
+P:Ade: roséilla
+P:Abl: roséilta
+P:All: roséille
+P:Ess: roséina
+P:Tra: roséiksi
+P:Ins: roséin
+P:Abe: roséitta
+P:Com: roséine-P
 
 <22>
-S|Nom: parfait
-S|Gen: parfait'n
-S|Par: parfait'ta
-S|Akk: parfait parfait'n
-S|Ine: parfait'ssa
-S|Ela: parfait'sta
-S|Ill: parfait'hen
-S|Ade: parfait'lla
-S|Abl: parfait'lta
-S|All: parfait'lle
-S|Ess: parfait'na
-S|Tra: parfait'ksi
-S|Abe: parfait'tta
+S:Nom: parfait
+S:Gen: parfait'n
+S:Par: parfait'ta
+S:Acc: parfait parfait'n
+S:Ine: parfait'ssa
+S:Ela: parfait'sta
+S:Ill: parfait'hen
+S:Ade: parfait'lla
+S:Abl: parfait'lta
+S:All: parfait'lle
+S:Ess: parfait'na
+S:Tra: parfait'ksi
+S:Abe: parfait'tta
 
-P|Nom: parfait't
-P|Gen: parfait'iden parfait'itten
-P|Par: parfait'ita
-P|Akk: parfait't
-P|Ine: parfait'issa
-P|Ela: parfait'ista
-P|Ill: parfait'ihin
-P|Ade: parfait'illa
-P|Abl: parfait'ilta
-P|All: parfait'ille
-P|Ess: parfait'ina
-P|Tra: parfait'iksi
-P|Ins: parfait'in
-P|Abe: parfait'itta
-P|Kom: parfait'ine
+P:Nom: parfait't
+P:Gen: parfait'iden parfait'itten
+P:Par: parfait'ita
+P:Acc: parfait't
+P:Ine: parfait'issa
+P:Ela: parfait'ista
+P:Ill: parfait'ihin
+P:Ade: parfait'illa
+P:Abl: parfait'ilta
+P:All: parfait'ille
+P:Ess: parfait'ina
+P:Tra: parfait'iksi
+P:Ins: parfait'in
+P:Abe: parfait'itta
+P:Com: parfait'ine-P
 
 <23>
-S|Nom: tiili
-S|Gen: tiilen
-S|Par: tiiltä
-S|Akk: tiili tiilen
-S|Ine: tiilessä
-S|Ela: tiilestä
-S|Ill: tiileen
-S|Ade: tiilellä
-S|Abl: tiileltä
-S|All: tiilelle
-S|Ess: tiilenä
-S|Tra: tiileksi
-S|Abe: tiilettä
+S:Nom: tiili
+S:Gen: tiilen
+S:Par: tiiltä
+S:Acc: tiili tiilen
+S:Ine: tiilessä
+S:Ela: tiilestä
+S:Ill: tiileen
+S:Ade: tiilellä
+S:Abl: tiileltä
+S:All: tiilelle
+S:Ess: tiilenä
+S:Tra: tiileksi
+S:Abe: tiilettä
 
-P|Nom: tiilet
-P|Gen: tiilien
-P|Par: tiiliä
-P|Akk: tiilet
-P|Ine: tiilissä
-P|Ela: tiilistä
-P|Ill: tiiliin
-P|Ade: tiilillä
-P|Abl: tiililtä
-P|All: tiilille
-P|Ess: tiilinä
-P|Tra: tiiliksi
-P|Ins: tiilin
-P|Abe: tiilittä
-P|Kom: tiiline
+P:Nom: tiilet
+P:Gen: tiilien
+P:Par: tiiliä
+P:Acc: tiilet
+P:Ine: tiilissä
+P:Ela: tiilistä
+P:Ill: tiiliin
+P:Ade: tiilillä
+P:Abl: tiililtä
+P:All: tiilille
+P:Ess: tiilinä
+P:Tra: tiiliksi
+P:Ins: tiilin
+P:Abe: tiilittä
+P:Com: tiiline-P
 
 <24>
-S|Nom: uni
-S|Gen: unen
-S|Par: unta
-S|Akk: uni unen
-S|Ine: unessa
-S|Ela: unesta
-S|Ill: uneen
-S|Ade: unella
-S|Abl: unelta
-S|All: unelle
-S|Ess: unena (unna)
-S|Tra: uneksi
-S|Abe: unetta
+S:Nom: uni
+S:Gen: unen
+S:Par: unta
+S:Acc: uni unen
+S:Ine: unessa
+S:Ela: unesta
+S:Ill: uneen
+S:Ade: unella
+S:Abl: unelta
+S:All: unelle
+S:Ess: unena (unna)
+S:Tra: uneksi
+S:Abe: unetta
 
-P|Nom: unet
-P|Gen: unien unten
-P|Par: unia
-P|Akk: unet
-P|Ine: unissa
-P|Ela: unista
-P|Ill: uniin
-P|Ade: unilla
-P|Abl: unilta
-P|All: unille
-P|Ess: unina
-P|Tra: uniksi
-P|Ins: unin
-P|Abe: unitta
-P|Kom: unine
+P:Nom: unet
+P:Gen: unien unten
+P:Par: unia
+P:Acc: unet
+P:Ine: unissa
+P:Ela: unista
+P:Ill: uniin
+P:Ade: unilla
+P:Abl: unilta
+P:All: unille
+P:Ess: unina
+P:Tra: uniksi
+P:Ins: unin
+P:Abe: unitta
+P:Com: unine-P
 
 <25>
-S|Nom: toimi
-S|Gen: toimen
-S|Par: tointa toimea
-S|Akk: toimi toimen
-S|Ine: toimessa
-S|Ela: toimesta
-S|Ill: toimeen
-S|Ade: toimella
-S|Abl: toimelta
-S|All: toimelle
-S|Ess: toimena
-S|Tra: toimeksi
-S|Abe: toimetta
+S:Nom: toimi
+S:Gen: toimen
+S:Par: tointa toimea
+S:Acc: toimi toimen
+S:Ine: toimessa
+S:Ela: toimesta
+S:Ill: toimeen
+S:Ade: toimella
+S:Abl: toimelta
+S:All: toimelle
+S:Ess: toimena
+S:Tra: toimeksi
+S:Abe: toimetta
 
-P|Nom: toimet
-P|Gen: toimien tointen
-P|Par: toimia
-P|Akk: toimet
-P|Ine: toimissa
-P|Ela: toimista
-P|Ill: toimiin
-P|Ade: toimilla
-P|Abl: toimilta
-P|All: toimille
-P|Ess: toimina
-P|Tra: toimiksi
-P|Ins: toimin
-P|Abe: toimitta
-P|Kom: toimine
+P:Nom: toimet
+P:Gen: toimien tointen
+P:Par: toimia
+P:Acc: toimet
+P:Ine: toimissa
+P:Ela: toimista
+P:Ill: toimiin
+P:Ade: toimilla
+P:Abl: toimilta
+P:All: toimille
+P:Ess: toimina
+P:Tra: toimiksi
+P:Ins: toimin
+P:Abe: toimitta
+P:Com: toimine-P
 
 <26>
-S|Nom: pieni
-S|Gen: pienen
-S|Par: pientä
-S|Akk: pieni pienen
-S|Ine: pienessä
-S|Ela: pienestä
-S|Ill: pieneen
-S|Ade: pienellä
-S|Abl: pieneltä
-S|All: pienelle
-S|Ess: pienenä (piennä)
-S|Tra: pieneksi
-S|Abe: pienettä
+S:Nom: pieni
+S:Gen: pienen
+S:Par: pientä
+S:Acc: pieni pienen
+S:Ine: pienessä
+S:Ela: pienestä
+S:Ill: pieneen
+S:Ade: pienellä
+S:Abl: pieneltä
+S:All: pienelle
+S:Ess: pienenä (piennä)
+S:Tra: pieneksi
+S:Abe: pienettä
 
-P|Nom: pienet
-P|Gen: pienten pienien
-P|Par: pieniä
-P|Akk: pienet
-P|Ine: pienissä
-P|Ela: pienistä
-P|Ill: pieniin
-P|Ade: pienillä
-P|Abl: pieniltä
-P|All: pienille
-P|Ess: pieninä
-P|Tra: pieniksi
-P|Ins: pienin
-P|Abe: pienittä
-P|Kom: pienine
+P:Nom: pienet
+P:Gen: pienten pienien
+P:Par: pieniä
+P:Acc: pienet
+P:Ine: pienissä
+P:Ela: pienistä
+P:Ill: pieniin
+P:Ade: pienillä
+P:Abl: pieniltä
+P:All: pienille
+P:Ess: pieninä
+P:Tra: pieniksi
+P:Ins: pienin
+P:Abe: pienittä
+P:Com: pienine-P
 
 <27>
-S|Nom: käsi
-S|Gen: käden
-S|Par: kättä
-S|Akk: käsi käden
-S|Ine: kädessä
-S|Ela: kädestä
-S|Ill: käteen
-S|Ade: kädellä
-S|Abl: kädeltä
-S|All: kädelle
-S|Ess: kätenä
-S|Tra: kädeksi
-S|Abe: kädettä
+S:Nom: käsi
+S:Gen: käden
+S:Par: kättä
+S:Acc: käsi käden
+S:Ine: kädessä
+S:Ela: kädestä
+S:Ill: käteen
+S:Ade: kädellä
+S:Abl: kädeltä
+S:All: kädelle
+S:Ess: kätenä
+S:Tra: kädeksi
+S:Abe: kädettä
 
-P|Nom: kädet
-P|Gen: käsien (kätten)
-P|Par: käsiä
-P|Akk: kädet
-P|Ine: käsissä
-P|Ela: käsistä
-P|Ill: käsiin
-P|Ade: käsillä
-P|Abl: käsiltä
-P|All: käsille
-P|Ess: käsinä
-P|Tra: käsiksi
-P|Ins: käsin
-P|Abe: käsittä
-P|Kom: käsine
+P:Nom: kädet
+P:Gen: käsien (kätten)
+P:Par: käsiä
+P:Acc: kädet
+P:Ine: käsissä
+P:Ela: käsistä
+P:Ill: käsiin
+P:Ade: käsillä
+P:Abl: käsiltä
+P:All: käsille
+P:Ess: käsinä
+P:Tra: käsiksi
+P:Ins: käsin
+P:Abe: käsittä
+P:Com: käsine-P
 
 <28>
-S|Nom: kynsi
-S|Gen: kynnen
-S|Par: kynttä
-S|Akk: kynsi kynnen
-S|Ine: kynnessä
-S|Ela: kynnestä
-S|Ill: kynteen
-S|Ade: kynnellä
-S|Abl: kynneltä
-S|All: kynnelle
-S|Ess: kyntenä
-S|Tra: kynneksi
-S|Abe: kynnettä
+S:Nom: kynsi
+S:Gen: kynnen
+S:Par: kynttä
+S:Acc: kynsi kynnen
+S:Ine: kynnessä
+S:Ela: kynnestä
+S:Ill: kynteen
+S:Ade: kynnellä
+S:Abl: kynneltä
+S:All: kynnelle
+S:Ess: kyntenä
+S:Tra: kynneksi
+S:Abe: kynnettä
 
-P|Nom: kynnet
-P|Gen: kynsien (kyntten)
-P|Par: kynsiä
-P|Akk: kynnet
-P|Ine: kynsissä
-P|Ela: kynsistä
-P|Ill: kynsiin
-P|Ade: kynsillä
-P|Abl: kynsiltä
-P|All: kynsille
-P|Ess: kynsinä
-P|Tra: kynsiksi
-P|Ins: kynsin
-P|Abe: kynsittä
-P|Kom: kynsine
+P:Nom: kynnet
+P:Gen: kynsien (kyntten)
+P:Par: kynsiä
+P:Acc: kynnet
+P:Ine: kynsissä
+P:Ela: kynsistä
+P:Ill: kynsiin
+P:Ade: kynsillä
+P:Abl: kynsiltä
+P:All: kynsille
+P:Ess: kynsinä
+P:Tra: kynsiksi
+P:Ins: kynsin
+P:Abe: kynsittä
+P:Com: kynsine-P
 
 <29>
-S|Nom: lapsi
-S|Gen: lapsen
-S|Par: lasta
-S|Akk: lapsi lapsen
-S|Ine: lapsessa
-S|Ela: lapsesta
-S|Ill: lapseen
-S|Ade: lapsella
-S|Abl: lapselta
-S|All: lapselle
-S|Ess: lapsena
-S|Tra: lapseksi
-S|Abe: lapsetta
+S:Nom: lapsi
+S:Gen: lapsen
+S:Par: lasta
+S:Acc: lapsi lapsen
+S:Ine: lapsessa
+S:Ela: lapsesta
+S:Ill: lapseen
+S:Ade: lapsella
+S:Abl: lapselta
+S:All: lapselle
+S:Ess: lapsena
+S:Tra: lapseksi
+S:Abe: lapsetta
 
-P|Nom: lapset
-P|Gen: lasten lapsien
-P|Par: lapsia
-P|Akk: lapset
-P|Ine: lapsissa
-P|Ela: lapsista
-P|Ill: lapsiin
-P|Ade: lapsilla
-P|Abl: lapsilta
-P|All: lapsille
-P|Ess: lapsina
-P|Tra: lapsiksi
-P|Ins: lapsin
-P|Abe: lapsitta
-P|Kom: lapsine
+P:Nom: lapset
+P:Gen: lasten lapsien
+P:Par: lapsia
+P:Acc: lapset
+P:Ine: lapsissa
+P:Ela: lapsista
+P:Ill: lapsiin
+P:Ade: lapsilla
+P:Abl: lapsilta
+P:All: lapsille
+P:Ess: lapsina
+P:Tra: lapsiksi
+P:Ins: lapsin
+P:Abe: lapsitta
+P:Com: lapsine-P
 
 <30>
-S|Nom: veitsi
-S|Gen: veitsen
-S|Par: veistä
-S|Akk: veitsi veitsen
-S|Ine: veitsessä
-S|Ela: veitsestä
-S|Ill: veitseen
-S|Ade: veitsellä
-S|Abl: veitseltä
-S|All: veitselle
-S|Ess: veitsenä
-S|Tra: veitseksi
-S|Abe: veitsettä
+S:Nom: veitsi
+S:Gen: veitsen
+S:Par: veistä
+S:Acc: veitsi veitsen
+S:Ine: veitsessä
+S:Ela: veitsestä
+S:Ill: veitseen
+S:Ade: veitsellä
+S:Abl: veitseltä
+S:All: veitselle
+S:Ess: veitsenä
+S:Tra: veitseksi
+S:Abe: veitsettä
 
-P|Nom: veitset
-P|Gen: veitsien (veisten)
-P|Par: veitsiä
-P|Akk: veitset
-P|Ine: veitsissä
-P|Ela: veitsistä
-P|Ill: veitsiin
-P|Ade: veitsillä
-P|Abl: veitsiltä
-P|All: veitsille
-P|Ess: veitsinä
-P|Tra: veitsiksi
-P|Ins: veitsin
-P|Abe: veitsittä
-P|Kom: veitsine
+P:Nom: veitset
+P:Gen: veitsien (veisten)
+P:Par: veitsiä
+P:Acc: veitset
+P:Ine: veitsissä
+P:Ela: veitsistä
+P:Ill: veitsiin
+P:Ade: veitsillä
+P:Abl: veitsiltä
+P:All: veitsille
+P:Ess: veitsinä
+P:Tra: veitsiksi
+P:Ins: veitsin
+P:Abe: veitsittä
+P:Com: veitsine-P
 
 <31>
-S|Nom: kaksi
-S|Gen: kahden
-S|Par: kahta
-S|Akk: kaksi kahden
-S|Ine: kahdessa
-S|Ela: kahdesta
-S|Ill: kahteen
-S|Ade: kahdella
-S|Abl: kahdelta
-S|All: kahdelle
-S|Ess: kahtena
-S|Tra: kahdeksi
-S|Abe: kahdetta
+S:Nom: kaksi
+S:Gen: kahden
+S:Par: kahta
+S:Acc: kaksi kahden
+S:Ine: kahdessa
+S:Ela: kahdesta
+S:Ill: kahteen
+S:Ade: kahdella
+S:Abl: kahdelta
+S:All: kahdelle
+S:Ess: kahtena
+S:Tra: kahdeksi
+S:Abe: kahdetta
 
-P|Nom: kahdet
-P|Gen: kaksien
-P|Par: kaksia
-P|Akk: kahdet
-P|Ine: kaksissa
-P|Ela: kaksista
-P|Ill: kaksiin
-P|Ade: kaksilla
-P|Abl: kaksilta
-P|All: kaksille
-P|Ess: kaksina
-P|Tra: kaksiksi
-P|Ins: kaksin
-P|Abe: kaksitta
-P|Kom: kaksine
+P:Nom: kahdet
+P:Gen: kaksien
+P:Par: kaksia
+P:Acc: kahdet
+P:Ine: kaksissa
+P:Ela: kaksista
+P:Ill: kaksiin
+P:Ade: kaksilla
+P:Abl: kaksilta
+P:All: kaksille
+P:Ess: kaksina
+P:Tra: kaksiksi
+P:Ins: kaksin
+P:Abe: kaksitta
+P:Com: kaksine-P
 
 <32>
-S|Nom: sisar
-S|Gen: sisaren
-S|Par: sisarta
-S|Akk: sisar sisaren
-S|Ine: sisaressa
-S|Ela: sisaresta
-S|Ill: sisareen
-S|Ade: sisarella
-S|Abl: sisarelta
-S|All: sisarelle
-S|Ess: sisarena (sisarna)
-S|Tra: sisareksi
-S|Abe: sisaretta
+S:Nom: sisar
+S:Gen: sisaren
+S:Par: sisarta
+S:Acc: sisar sisaren
+S:Ine: sisaressa
+S:Ela: sisaresta
+S:Ill: sisareen
+S:Ade: sisarella
+S:Abl: sisarelta
+S:All: sisarelle
+S:Ess: sisarena (sisarna)
+S:Tra: sisareksi
+S:Abe: sisaretta
 
-P|Nom: sisaret
-P|Gen: sisarien sisarten
-P|Par: sisaria
-P|Akk: sisaret
-P|Ine: sisarissa
-P|Ela: sisarista
-P|Ill: sisariin
-P|Ade: sisarilla
-P|Abl: sisarilta
-P|All: sisarille
-P|Ess: sisarina
-P|Tra: sisariksi
-P|Ins: sisarin
-P|Abe: sisaritta
-P|Kom: sisarine
+P:Nom: sisaret
+P:Gen: sisarien sisarten
+P:Par: sisaria
+P:Acc: sisaret
+P:Ine: sisarissa
+P:Ela: sisarista
+P:Ill: sisariin
+P:Ade: sisarilla
+P:Abl: sisarilta
+P:All: sisarille
+P:Ess: sisarina
+P:Tra: sisariksi
+P:Ins: sisarin
+P:Abe: sisaritta
+P:Com: sisarine-P
 
 <33>
-S|Nom: kytkin
-S|Gen: kytkimen
-S|Par: kytkintä
-S|Akk: kytkin kytkimen
-S|Ine: kytkimessä
-S|Ela: kytkimestä
-S|Ill: kytkimeen
-S|Ade: kytkimellä
-S|Abl: kytkimeltä
-S|All: kytkimelle
-S|Ess: kytkimenä (kytkinnä)
-S|Tra: kytkimeksi
-S|Abe: kytkimettä
+S:Nom: kytkin
+S:Gen: kytkimen
+S:Par: kytkintä
+S:Acc: kytkin kytkimen
+S:Ine: kytkimessä
+S:Ela: kytkimestä
+S:Ill: kytkimeen
+S:Ade: kytkimellä
+S:Abl: kytkimeltä
+S:All: kytkimelle
+S:Ess: kytkimenä (kytkinnä)
+S:Tra: kytkimeksi
+S:Abe: kytkimettä
 
-P|Nom: kytkimet
-P|Gen: kytkimien kytkinten
-P|Par: kytkimiä
-P|Akk: kytkimet
-P|Ine: kytkimissä
-P|Ela: kytkimistä
-P|Ill: kytkimiin
-P|Ade: kytkimillä
-P|Abl: kytkimiltä
-P|All: kytkimille
-P|Ess: kytkiminä
-P|Tra: kytkimiksi
-P|Ins: kytkimin
-P|Abe: kytkimittä
-P|Kom: kytkimine
+P:Nom: kytkimet
+P:Gen: kytkimien kytkinten
+P:Par: kytkimiä
+P:Acc: kytkimet
+P:Ine: kytkimissä
+P:Ela: kytkimistä
+P:Ill: kytkimiin
+P:Ade: kytkimillä
+P:Abl: kytkimiltä
+P:All: kytkimille
+P:Ess: kytkiminä
+P:Tra: kytkimiksi
+P:Ins: kytkimin
+P:Abe: kytkimittä
+P:Com: kytkimine-P
 
 <34:G:W:tt-t>
-S|Nom: onneton
-S|Gen: onnettoman
-S|Par: onnetonta
-S|Akk: onneton onnettoman
-S|Ine: onnettomassa
-S|Ela: onnettomasta
-S|Ill: onnettomaan
-S|Ade: onnettomalla
-S|Abl: onnettomalta
-S|All: onnettomalle
-S|Ess: onnettomana (onnetonna)
-S|Tra: onnettomaksi
-S|Abe: onnettomatta
+S:Nom: onneton
+S:Gen: onnettoman
+S:Par: onnetonta
+S:Acc: onneton onnettoman
+S:Ine: onnettomassa
+S:Ela: onnettomasta
+S:Ill: onnettomaan
+S:Ade: onnettomalla
+S:Abl: onnettomalta
+S:All: onnettomalle
+S:Ess: onnettomana (onnetonna)
+S:Tra: onnettomaksi
+S:Abe: onnettomatta
 
-P|Nom: onnettomat
-P|Gen: onnettomien (onnetonten)
-P|Par: onnettomia
-P|Akk: onnettomat
-P|Ine: onnettomissa
-P|Ela: onnettomista
-P|Ill: onnettomiin
-P|Ade: onnettomilla
-P|Abl: onnettomilta
-P|All: onnettomille
-P|Ess: onnettomina
-P|Tra: onnettomiksi
-P|Ins: onnettomin
-P|Abe: onnettomitta
-P|Kom: onnettomine
+P:Nom: onnettomat
+P:Gen: onnettomien (onnetonten)
+P:Par: onnettomia
+P:Acc: onnettomat
+P:Ine: onnettomissa
+P:Ela: onnettomista
+P:Ill: onnettomiin
+P:Ade: onnettomilla
+P:Abl: onnettomilta
+P:All: onnettomille
+P:Ess: onnettomina
+P:Tra: onnettomiksi
+P:Ins: onnettomin
+P:Abe: onnettomitta
+P:Com: onnettomine-P
 
 <35:G:W:mp-mm>
-S|Nom: lämmin
-S|Gen: lämpimän
-S|Par: lämmintä
-S|Akk: lämmin lämpimän
-S|Ine: lämpimässä
-S|Ela: lämpimästä
-S|Ill: lämpimään
-S|Ade: lämpimällä
-S|Abl: lämpimältä
-S|All: lämpimälle
-S|Ess: lämpimänä
-S|Tra: lämpimäksi
-S|Abe: lämpimättä
+S:Nom: lämmin
+S:Gen: lämpimän
+S:Par: lämmintä
+S:Acc: lämmin lämpimän
+S:Ine: lämpimässä
+S:Ela: lämpimästä
+S:Ill: lämpimään
+S:Ade: lämpimällä
+S:Abl: lämpimältä
+S:All: lämpimälle
+S:Ess: lämpimänä
+S:Tra: lämpimäksi
+S:Abe: lämpimättä
 
-P|Nom: lämpimät
-P|Gen: lämpimien (lämpimäin)
-P|Par: lämpimiä
-P|Akk: lämpimät
-P|Ine: lämpimissä
-P|Ela: lämpimistä
-P|Ill: lämpimiin
-P|Ade: lämpimillä
-P|Abl: lämpimiltä
-P|All: lämpimille
-P|Ess: lämpiminä
-P|Tra: lämpimiksi
-P|Ins: lämpimin
-P|Abe: lämpimittä
-P|Kom: lämpimine
+P:Nom: lämpimät
+P:Gen: lämpimien (lämpimäin)
+P:Par: lämpimiä
+P:Acc: lämpimät
+P:Ine: lämpimissä
+P:Ela: lämpimistä
+P:Ill: lämpimiin
+P:Ade: lämpimillä
+P:Abl: lämpimiltä
+P:All: lämpimille
+P:Ess: lämpiminä
+P:Tra: lämpimiksi
+P:Ins: lämpimin
+P:Abe: lämpimittä
+P:Com: lämpimine-P
 
 <36>
-S|Nom: sisin
-S|Gen: sisimmän
-S|Par: sisintä
-S|Akk: sisin sisimmän
-S|Ine: sisimmässä
-S|Ela: sisimmästä
-S|Ill: sisimpään
-S|Ade: sisimmällä
-S|Abl: sisimmältä
-S|All: sisimmälle
-S|Ess: sisimpänä (sisinnä)
-S|Tra: sisimmäksi
-S|Abe: sisimmättä
+S:Nom: sisin
+S:Gen: sisimmän
+S:Par: sisintä
+S:Acc: sisin sisimmän
+S:Ine: sisimmässä
+S:Ela: sisimmästä
+S:Ill: sisimpään
+S:Ade: sisimmällä
+S:Abl: sisimmältä
+S:All: sisimmälle
+S:Ess: sisimpänä (sisinnä)
+S:Tra: sisimmäksi
+S:Abe: sisimmättä
 
-P|Nom: sisimmät
-P|Gen: sisimpien sisinten (sisimpäin)
-P|Par: sisimpiä
-P|Akk: sisimmät
-P|Ine: sisimmissä
-P|Ela: sisimmistä
-P|Ill: sisimpiin
-P|Ade: sisimmillä
-P|Abl: sisimmiltä
-P|All: sisimmille
-P|Ess: sisimpinä
-P|Tra: sisimmiksi
-P|Ins: sisimmin
-P|Abe: sisimmittä
-P|Kom: sisimpine
+P:Nom: sisimmät
+P:Gen: sisimpien sisinten (sisimpäin)
+P:Par: sisimpiä
+P:Acc: sisimmät
+P:Ine: sisimmissä
+P:Ela: sisimmistä
+P:Ill: sisimpiin
+P:Ade: sisimmillä
+P:Abl: sisimmiltä
+P:All: sisimmille
+P:Ess: sisimpinä
+P:Tra: sisimmiksi
+P:Ins: sisimmin
+P:Abe: sisimmittä
+P:Com: sisimpine-P
 
 <37>
-S|Nom: vasen
-S|Gen: vasemman
-S|Par: vasenta (vasempaa)
-S|Akk: vasen vasemman
-S|Ine: vasemmassa
-S|Ela: vasemmasta
-S|Ill: vasempaan
-S|Ade: vasemmalla
-S|Abl: vasemmalta
-S|All: vasemmalle
-S|Ess: vasempana
-S|Tra: vasemmaksi
-S|Abe: vasemmatta
+S:Nom: vasen
+S:Gen: vasemman
+S:Par: vasenta (vasempaa)
+S:Acc: vasen vasemman
+S:Ine: vasemmassa
+S:Ela: vasemmasta
+S:Ill: vasempaan
+S:Ade: vasemmalla
+S:Abl: vasemmalta
+S:All: vasemmalle
+S:Ess: vasempana
+S:Tra: vasemmaksi
+S:Abe: vasemmatta
 
-P|Nom: vasemmat
-P|Gen: vasempien vasenten (vasempain)
-P|Par: vasempia
-P|Akk: vasemmat
-P|Ine: vasemmissa
-P|Ela: vasemmista
-P|Ill: vasempiin
-P|Ade: vasemmilla
-P|Abl: vasemmilta
-P|All: vasemmille
-P|Ess: vasempina
-P|Tra: vasemmiksi
-P|Ins: vasemmin
-P|Abe: vasemmitta
-P|Kom: vasempine
+P:Nom: vasemmat
+P:Gen: vasempien vasenten (vasempain)
+P:Par: vasempia
+P:Acc: vasemmat
+P:Ine: vasemmissa
+P:Ela: vasemmista
+P:Ill: vasempiin
+P:Ade: vasemmilla
+P:Abl: vasemmilta
+P:All: vasemmille
+P:Ess: vasempina
+P:Tra: vasemmiksi
+P:Ins: vasemmin
+P:Abe: vasemmitta
+P:Com: vasempine-P
 
 <38>
-S|Nom: nainen
-S|Gen: naisen
-S|Par: naista
-S|Akk: nainen naisen
-S|Ine: naisessa
-S|Ela: naisesta
-S|Ill: naiseen
-S|Ade: naisella
-S|Abl: naiselta
-S|All: naiselle
-S|Ess: naisena (naisna)
-S|Tra: naiseksi
-S|Abe: naisetta
+S:Nom: nainen
+S:Gen: naisen
+S:Par: naista
+S:Acc: nainen naisen
+S:Ine: naisessa
+S:Ela: naisesta
+S:Ill: naiseen
+S:Ade: naisella
+S:Abl: naiselta
+S:All: naiselle
+S:Ess: naisena (naisna)
+S:Tra: naiseksi
+S:Abe: naisetta
 
-P|Nom: naiset
-P|Gen: naisten naisien
-P|Par: naisia
-P|Akk: naiset
-P|Ine: naisissa
-P|Ela: naisista
-P|Ill: naisiin
-P|Ade: naisilla
-P|Abl: naisilta
-P|All: naisille
-P|Ess: naisina
-P|Tra: naisiksi
-P|Ins: naisin
-P|Abe: naisitta
-P|Kom: naisine
+P:Nom: naiset
+P:Gen: naisten naisien
+P:Par: naisia
+P:Acc: naiset
+P:Ine: naisissa
+P:Ela: naisista
+P:Ill: naisiin
+P:Ade: naisilla
+P:Abl: naisilta
+P:All: naisille
+P:Ess: naisina
+P:Tra: naisiksi
+P:Ins: naisin
+P:Abe: naisitta
+P:Com: naisine-P
 
 <39>
-S|Nom: vastaus
-S|Gen: vastauksen
-S|Par: vastausta
-S|Akk: vastaus vastauksen
-S|Ine: vastauksessa
-S|Ela: vastauksesta
-S|Ill: vastaukseen
-S|Ade: vastauksella
-S|Abl: vastaukselta
-S|All: vastaukselle
-S|Ess: vastauksena
-S|Tra: vastaukseksi
-S|Abe: vastauksetta
+S:Nom: vastaus
+S:Gen: vastauksen
+S:Par: vastausta
+S:Acc: vastaus vastauksen
+S:Ine: vastauksessa
+S:Ela: vastauksesta
+S:Ill: vastaukseen
+S:Ade: vastauksella
+S:Abl: vastaukselta
+S:All: vastaukselle
+S:Ess: vastauksena
+S:Tra: vastaukseksi
+S:Abe: vastauksetta
 
-P|Nom: vastaukset
-P|Gen: vastausten vastauksien
-P|Par: vastauksia
-P|Akk: vastaukset
-P|Ine: vastauksissa
-P|Ela: vastauksista
-P|Ill: vastauksiin
-P|Ade: vastauksilla
-P|Abl: vastauksilta
-P|All: vastauksille
-P|Ess: vastauksina
-P|Tra: vastauksiksi
-P|Ins: vastauksin
-P|Abe: vastauksitta
-P|Kom: vastauksine
+P:Nom: vastaukset
+P:Gen: vastausten vastauksien
+P:Par: vastauksia
+P:Acc: vastaukset
+P:Ine: vastauksissa
+P:Ela: vastauksista
+P:Ill: vastauksiin
+P:Ade: vastauksilla
+P:Abl: vastauksilta
+P:All: vastauksille
+P:Ess: vastauksina
+P:Tra: vastauksiksi
+P:Ins: vastauksin
+P:Abe: vastauksitta
+P:Com: vastauksine-P
 
 <40>
-S|Nom: kalleus
-S|Gen: kalleuden
-S|Par: kalleutta
-S|Akk: kalleus kalleuden
-S|Ine: kalleudessa
-S|Ela: kalleudesta
-S|Ill: kalleuteen
-S|Ade: kalleudella
-S|Abl: kalleudelta
-S|All: kalleudelle
-S|Ess: kalleutena
-S|Tra: kalleudeksi
-S|Abe: kalleutta
+S:Nom: kalleus
+S:Gen: kalleuden
+S:Par: kalleutta
+S:Acc: kalleus kalleuden
+S:Ine: kalleudessa
+S:Ela: kalleudesta
+S:Ill: kalleuteen
+S:Ade: kalleudella
+S:Abl: kalleudelta
+S:All: kalleudelle
+S:Ess: kalleutena
+S:Tra: kalleudeksi
+S:Abe: kalleutta
 
-P|Nom: kalleudet
-P|Gen: kalleuksien
-P|Par: kalleuksia
-P|Akk: kalleudet
-P|Ine: kalleuksissa
-P|Ela: kalleuksista
-P|Ill: kalleuksiin
-P|Ade: kalleuksilla
-P|Abl: kalleuksilta
-P|All: kalleuksille
-P|Ess: kalleuksina
-P|Tra: kalleuksiksi
-P|Ins: kalleuksin
-P|Abe: kalleuksitta
-P|Kom: kalleuksine
+P:Nom: kalleudet
+P:Gen: kalleuksien
+P:Par: kalleuksia
+P:Acc: kalleudet
+P:Ine: kalleuksissa
+P:Ela: kalleuksista
+P:Ill: kalleuksiin
+P:Ade: kalleuksilla
+P:Abl: kalleuksilta
+P:All: kalleuksille
+P:Ess: kalleuksina
+P:Tra: kalleuksiksi
+P:Ins: kalleuksin
+P:Abe: kalleuksitta
+P:Com: kalleuksine-P
 
 <41>
-S|Nom: vieras
-S|Gen: vieraan
-S|Par: vierasta
-S|Akk: vieras vieraan
-S|Ine: vieraassa
-S|Ela: vieraasta
-S|Ill: vieraaseen
-S|Ade: vieraalla
-S|Abl: vieraalta
-S|All: vieraalle
-S|Ess: vieraana
-S|Tra: vieraaksi
-S|Abe: vieraatta
+S:Nom: vieras
+S:Gen: vieraan
+S:Par: vierasta
+S:Acc: vieras vieraan
+S:Ine: vieraassa
+S:Ela: vieraasta
+S:Ill: vieraaseen
+S:Ade: vieraalla
+S:Abl: vieraalta
+S:All: vieraalle
+S:Ess: vieraana
+S:Tra: vieraaksi
+S:Abe: vieraatta
 
-P|Nom: vieraat
-P|Gen: vieraiden vieraitten
-P|Par: vieraita
-P|Akk: vieraat
-P|Ine: vieraissa
-P|Ela: vieraista
-P|Ill: vieraisiin (vieraihin)
-P|Ade: vierailla
-P|Abl: vierailta
-P|All: vieraille
-P|Ess: vieraina
-P|Tra: vieraiksi
-P|Ins: vierain
-P|Abe: vieraitta
-P|Kom: vieraine
+P:Nom: vieraat
+P:Gen: vieraiden vieraitten
+P:Par: vieraita
+P:Acc: vieraat
+P:Ine: vieraissa
+P:Ela: vieraista
+P:Ill: vieraisiin (vieraihin)
+P:Ade: vierailla
+P:Abl: vierailta
+P:All: vieraille
+P:Ess: vieraina
+P:Tra: vieraiksi
+P:Ins: vierain
+P:Abe: vieraitta
+P:Com: vieraine-P
 
 <42>
-S|Nom: mies
-S|Gen: miehen
-S|Par: miestä
-S|Akk: mies miehen
-S|Ine: miehessä
-S|Ela: miehestä
-S|Ill: mieheen
-S|Ade: miehellä
-S|Abl: mieheltä
-S|All: miehelle
-S|Ess: miehenä
-S|Tra: mieheksi
-S|Abe: miehettä
+S:Nom: mies
+S:Gen: miehen
+S:Par: miestä
+S:Acc: mies miehen
+S:Ine: miehessä
+S:Ela: miehestä
+S:Ill: mieheen
+S:Ade: miehellä
+S:Abl: mieheltä
+S:All: miehelle
+S:Ess: miehenä
+S:Tra: mieheksi
+S:Abe: miehettä
 
-P|Nom: miehet
-P|Gen: miesten miehien
-P|Par: miehiä
-P|Akk: miehet
-P|Ine: miehissä
-P|Ela: miehistä
-P|Ill: miehiin
-P|Ade: miehillä
-P|Abl: miehiltä
-P|All: miehille
-P|Ess: miehinä
-P|Tra: miehiksi
-P|Ins: miehin
-P|Abe: miehittä
-P|Kom: miehine
+P:Nom: miehet
+P:Gen: miesten miehien
+P:Par: miehiä
+P:Acc: miehet
+P:Ine: miehissä
+P:Ela: miehistä
+P:Ill: miehiin
+P:Ade: miehillä
+P:Abl: miehiltä
+P:All: miehille
+P:Ess: miehinä
+P:Tra: miehiksi
+P:Ins: miehin
+P:Abe: miehittä
+P:Com: miehine-P
 
 <43>
-S|Nom: ohut
-S|Gen: ohuen
-S|Par: ohutta
-S|Akk: ohut ohuen
-S|Ine: ohuessa
-S|Ela: ohuesta
-S|Ill: ohueen
-S|Ade: ohuella
-S|Abl: ohuelta
-S|All: ohuelle
-S|Ess: ohuena
-S|Tra: ohueksi
-S|Abe: ohutta
+S:Nom: ohut
+S:Gen: ohuen
+S:Par: ohutta
+S:Acc: ohut ohuen
+S:Ine: ohuessa
+S:Ela: ohuesta
+S:Ill: ohueen
+S:Ade: ohuella
+S:Abl: ohuelta
+S:All: ohuelle
+S:Ess: ohuena
+S:Tra: ohueksi
+S:Abe: ohutta
 
-P|Nom: ohuet
-P|Gen: ohuiden ohuitten
-P|Par: ohuita
-P|Akk: ohuet
-P|Ine: ohuissa
-P|Ela: ohuista
-P|Ill: ohuisiin ohuihin
-P|Ade: ohuilla
-P|Abl: ohuilta
-P|All: ohuille
-P|Ess: ohuina
-P|Tra: ohuiksi
-P|Ins: ohuin
-P|Abe: ohuitta
-P|Kom: ohuine
+P:Nom: ohuet
+P:Gen: ohuiden ohuitten
+P:Par: ohuita
+P:Acc: ohuet
+P:Ine: ohuissa
+P:Ela: ohuista
+P:Ill: ohuisiin ohuihin
+P:Ade: ohuilla
+P:Abl: ohuilta
+P:All: ohuille
+P:Ess: ohuina
+P:Tra: ohuiksi
+P:Ins: ohuin
+P:Abe: ohuitta
+P:Com: ohuine-P
 
 <44>
-S|Nom: kevät
-S|Gen: kevään
-S|Par: kevättä
-S|Akk: kevät kevään
-S|Ine: keväässä
-S|Ela: keväästä
-S|Ill: kevääseen
-S|Ade: keväällä
-S|Abl: keväältä
-S|All: keväälle
-S|Ess: keväänä
-S|Tra: kevääksi
-S|Abe: keväättä
+S:Nom: kevät
+S:Gen: kevään
+S:Par: kevättä
+S:Acc: kevät kevään
+S:Ine: keväässä
+S:Ela: keväästä
+S:Ill: kevääseen
+S:Ade: keväällä
+S:Abl: keväältä
+S:All: keväälle
+S:Ess: keväänä
+S:Tra: kevääksi
+S:Abe: keväättä
 
-P|Nom: keväät
-P|Gen: keväiden keväitten
-P|Par: keväitä
-P|Akk: keväät
-P|Ine: keväissä
-P|Ela: keväistä
-P|Ill: keväisiin (keväihin)
-P|Ade: keväillä
-P|Abl: keväiltä
-P|All: keväille
-P|Ess: keväinä
-P|Tra: keväiksi
-P|Ins: keväin
-P|Abe: keväittä
-P|Kom: keväine
+P:Nom: keväät
+P:Gen: keväiden keväitten
+P:Par: keväitä
+P:Acc: keväät
+P:Ine: keväissä
+P:Ela: keväistä
+P:Ill: keväisiin (keväihin)
+P:Ade: keväillä
+P:Abl: keväiltä
+P:All: keväille
+P:Ess: keväinä
+P:Tra: keväiksi
+P:Ins: keväin
+P:Abe: keväittä
+P:Com: keväine-P
 
 <45>
-S|Nom: kahdeksas
-S|Gen: kahdeksannen
-S|Par: kahdeksatta
-S|Akk: kahdeksas kahdeksannen
-S|Ine: kahdeksannessa
-S|Ela: kahdeksannesta
-S|Ill: kahdeksanteen
-S|Ade: kahdeksannella
-S|Abl: kahdeksannelta
-S|All: kahdeksannelle
-S|Ess: kahdeksantena
-S|Tra: kahdeksanneksi
-S|Abe: kahdeksannetta
+S:Nom: kahdeksas
+S:Gen: kahdeksannen
+S:Par: kahdeksatta
+S:Acc: kahdeksas kahdeksannen
+S:Ine: kahdeksannessa
+S:Ela: kahdeksannesta
+S:Ill: kahdeksanteen
+S:Ade: kahdeksannella
+S:Abl: kahdeksannelta
+S:All: kahdeksannelle
+S:Ess: kahdeksantena
+S:Tra: kahdeksanneksi
+S:Abe: kahdeksannetta
 
-P|Nom: kahdeksannet
-P|Gen: kahdeksansien
-P|Par: kahdeksansia
-P|Akk: kahdeksannet
-P|Ine: kahdeksansissa
-P|Ela: kahdeksansista
-P|Ill: kahdeksansiin
-P|Ade: kahdeksansilla
-P|Abl: kahdeksansilta
-P|All: kahdeksansille
-P|Ess: kahdeksansina
-P|Tra: kahdeksansiksi
-P|Ins: kahdeksansin
-P|Abe: kahdeksansitta
-P|Kom: kahdeksansine
+P:Nom: kahdeksannet
+P:Gen: kahdeksansien
+P:Par: kahdeksansia
+P:Acc: kahdeksannet
+P:Ine: kahdeksansissa
+P:Ela: kahdeksansista
+P:Ill: kahdeksansiin
+P:Ade: kahdeksansilla
+P:Abl: kahdeksansilta
+P:All: kahdeksansille
+P:Ess: kahdeksansina
+P:Tra: kahdeksansiksi
+P:Ins: kahdeksansin
+P:Abe: kahdeksansitta
+P:Com: kahdeksansine-P
 
 <46>
-S|Nom: tuhat
-S|Gen: tuhannen
-S|Par: tuhatta
-S|Akk: tuhat tuhannen
-S|Ine: tuhannessa
-S|Ela: tuhannesta
-S|Ill: tuhanteen
-S|Ade: tuhannella
-S|Abl: tuhannelta
-S|All: tuhannelle
-S|Ess: tuhantena
-S|Tra: tuhanneksi
-S|Abe: tuhannetta
+S:Nom: tuhat
+S:Gen: tuhannen
+S:Par: tuhatta
+S:Acc: tuhat tuhannen
+S:Ine: tuhannessa
+S:Ela: tuhannesta
+S:Ill: tuhanteen
+S:Ade: tuhannella
+S:Abl: tuhannelta
+S:All: tuhannelle
+S:Ess: tuhantena
+S:Tra: tuhanneksi
+S:Abe: tuhannetta
 
-P|Nom: tuhannet
-P|Gen: tuhansien (tuhanten)
-P|Par: tuhansia
-P|Akk: tuhannet
-P|Ine: tuhansissa
-P|Ela: tuhansissta
-P|Ill: tuhansiin
-P|Ade: tuhansilla
-P|Abl: tuhansilta
-P|All: tuhansille
-P|Ess: tuhansina
-P|Tra: tuhansiksi
-P|Ins: tuhansin
-P|Abe: tuhansitta
-P|Kom: tuhansine
+P:Nom: tuhannet
+P:Gen: tuhansien (tuhanten)
+P:Par: tuhansia
+P:Acc: tuhannet
+P:Ine: tuhansissa
+P:Ela: tuhansissta
+P:Ill: tuhansiin
+P:Ade: tuhansilla
+P:Abl: tuhansilta
+P:All: tuhansille
+P:Ess: tuhansina
+P:Tra: tuhansiksi
+P:Ins: tuhansin
+P:Abe: tuhansitta
+P:Com: tuhansine-P
 
 <47>
-S|Nom: kuollut
-S|Gen: kuolleen
-S|Par: kuollutta
-S|Akk: kuollut kuolleen
-S|Ine: kuolleessa
-S|Ela: kuolleesta
-S|Ill: kuolleeseen
-S|Ade: kuolleella
-S|Abl: kuolleelta
-S|All: kuolleelle
-S|Ess: kuolleena
-S|Tra: kuolleeksi
-S|Abe: kuolleetta
+S:Nom: kuollut
+S:Gen: kuolleen
+S:Par: kuollutta
+S:Acc: kuollut kuolleen
+S:Ine: kuolleessa
+S:Ela: kuolleesta
+S:Ill: kuolleeseen
+S:Ade: kuolleella
+S:Abl: kuolleelta
+S:All: kuolleelle
+S:Ess: kuolleena
+S:Tra: kuolleeksi
+S:Abe: kuolleetta
 
-P|Nom: kuolleet
-P|Gen: kuolleiden kuolleitten
-P|Par: kuolleita
-P|Akk: kuolleet
-P|Ine: kuolleissa
-P|Ela: kuolleista
-P|Ill: kuolleisiin kuolleihin
-P|Ade: kuolleilla
-P|Abl: kuolleilta
-P|All: kuolleille
-P|Ess: kuolleina
-P|Tra: kuolleiksi
-P|Ins: kuollein
-P|Abe: kuolleitta
-P|Kom: kuolleine
+P:Nom: kuolleet
+P:Gen: kuolleiden kuolleitten
+P:Par: kuolleita
+P:Acc: kuolleet
+P:Ine: kuolleissa
+P:Ela: kuolleista
+P:Ill: kuolleisiin kuolleihin
+P:Ade: kuolleilla
+P:Abl: kuolleilta
+P:All: kuolleille
+P:Ess: kuolleina
+P:Tra: kuolleiksi
+P:Ins: kuollein
+P:Abe: kuolleitta
+P:Com: kuolleine-P
 
 <48>
-S|Nom: hame
-S|Gen: hameen
-S|Par: hametta
-S|Akk: hame hameen
-S|Ine: hameessa
-S|Ela: hameesta
-S|Ill: hameeseen
-S|Ade: hameella
-S|Abl: hameelta
-S|All: hameelle
-S|Ess: hameena
-S|Tra: hameeksi
-S|Abe: hameetta
+S:Nom: hame
+S:Gen: hameen
+S:Par: hametta
+S:Acc: hame hameen
+S:Ine: hameessa
+S:Ela: hameesta
+S:Ill: hameeseen
+S:Ade: hameella
+S:Abl: hameelta
+S:All: hameelle
+S:Ess: hameena
+S:Tra: hameeksi
+S:Abe: hameetta
 
-P|Nom: hameet
-P|Gen: hameiden hameitten
-P|Par: hameita
-P|Akk: hameet
-P|Ine: hameissa
-P|Ela: hameista
-P|Ill: hameisiin hameihin
-P|Ade: hameilla
-P|Abl: hameilta
-P|All: hameille
-P|Ess: hameina
-P|Tra: hameiksi
-P|Ins: hamein
-P|Abe: hameitta
-P|Kom: hameine
+P:Nom: hameet
+P:Gen: hameiden hameitten
+P:Par: hameita
+P:Acc: hameet
+P:Ine: hameissa
+P:Ela: hameista
+P:Ill: hameisiin hameihin
+P:Ade: hameilla
+P:Abl: hameilta
+P:All: hameille
+P:Ess: hameina
+P:Tra: hameiksi
+P:Ins: hamein
+P:Abe: hameitta
+P:Com: hameine-P
 
 <491>
-S|Nom: askel
-S|Gen: askelen
-S|Par: askelta
-S|Akk: askel askelen
-S|Ine: askelessa
-S|Ela: askelesta
-S|Ill: askeleen
-S|Ade: askelella
-S|Abl: askelelta
-S|All: askelelle
-S|Ess: askelena
-S|Tra: askeleksi
-S|Abe: askeletta
+S:Nom: askel
+S:Gen: askelen
+S:Par: askelta
+S:Acc: askel askelen
+S:Ine: askelessa
+S:Ela: askelesta
+S:Ill: askeleen
+S:Ade: askelella
+S:Abl: askelelta
+S:All: askelelle
+S:Ess: askelena
+S:Tra: askeleksi
+S:Abe: askeletta
 
-P|Nom: askelet
-P|Gen: askelten askelien
-P|Par: askelia
-P|Akk: askelet
-P|Ine: askelissa
-P|Ela: askelista
-P|Ill: askeliin
-P|Ade: askelilla
-P|Abl: askelilta
-P|All: askelille
-P|Ess: askelina
-P|Tra: askeliksi
-P|Ins: askelin
-P|Abe: askelitta
-P|Kom: askeline
+P:Nom: askelet
+P:Gen: askelten askelien
+P:Par: askelia
+P:Acc: askelet
+P:Ine: askelissa
+P:Ela: askelista
+P:Ill: askeliin
+P:Ade: askelilla
+P:Abl: askelilta
+P:All: askelille
+P:Ess: askelina
+P:Tra: askeliksi
+P:Ins: askelin
+P:Abe: askelitta
+P:Com: askeline-P
 
 <492>
-S|Nom: askele
-S|Gen: askeleen
-S|Par: askeletta
-S|Akk: askele askeleen
-S|Ine: askeleessa
-S|Ela: askeleesta
-S|Ill: askeleeseen
-S|Ade: askeleella
-S|Abl: askeleelta
-S|All: askeleelle
-S|Ess: askeleena
-S|Tra: askeleeksi
-S|Abe: askeleetta
+S:Nom: askele
+S:Gen: askeleen
+S:Par: askeletta
+S:Acc: askele askeleen
+S:Ine: askeleessa
+S:Ela: askeleesta
+S:Ill: askeleeseen
+S:Ade: askeleella
+S:Abl: askeleelta
+S:All: askeleelle
+S:Ess: askeleena
+S:Tra: askeleeksi
+S:Abe: askeleetta
 
-P|Nom: askeleet
-P|Gen: askeleiden askeleitten
-P|Par: askeleita
-P|Akk: askeleet
-P|Ine: askeleissa
-P|Ela: askeleista
-P|Ill: askeleisiin askeleihin
-P|Ade: askeleilla
-P|Abl: askeleilta
-P|All: askeleille
-P|Ess: askeleina
-P|Tra: askeleiksi
-P|Ins: askelein
-P|Abe: askeleitta
-P|Kom: askeleine
+P:Nom: askeleet
+P:Gen: askeleiden askeleitten
+P:Par: askeleita
+P:Acc: askeleet
+P:Ine: askeleissa
+P:Ela: askeleista
+P:Ill: askeleisiin askeleihin
+P:Ade: askeleilla
+P:Abl: askeleilta
+P:All: askeleille
+P:Ess: askeleina
+P:Tra: askeleiksi
+P:Ins: askelein
+P:Abe: askeleitta
+P:Com: askeleine-P

@@ -71,7 +71,8 @@ val remove = Seq(
   "ikenet",
   "nuoripari",
 
-  "korkeakoulu", "jalokivi", "viileäkaappi", "raaka-aine"
+  "korkeakoulu", "jalokivi", "viileäkaappi", "raaka-aine",
+  "missä", "mikin", "missäkin"
 )
 
 val additions = Seq(
@@ -86,6 +87,10 @@ val additions = Seq(
   Entry(KotusWord.Word("jalokivi"), Some(Bending(7, None))),
   Entry(KotusWord.Word("viileäkaappi"), Some(Bending(5, Some('B')))),
   Entry(KotusWord.Word("raaka-aine"), Some(Bending(48, None))),
+  //No inflection pronouns
+  Entry(KotusWord.Word("missä"), Some(Bending(99, None))),
+  Entry(KotusWord.Word("mikin"), Some(Bending(99, None))),
+  Entry(KotusWord.Word("missäkin"), Some(Bending(99, None))),
 )
 
 val corrections = Seq(

@@ -109,20 +109,29 @@ class NomineRulesParser(stream: Iterator[Char]) {
       case 'P' => Plural
     }
     consume
-    skip('|')
+    skip(':')
     val caseString: String = consume.toString + consume.toString + consume.toString
     val cse = resolveCase(caseString)
     skip(':')
     skipWhiteSpaces
     val words = collectUntil(currentCharacter.isEmpty || currentCharacter.contains('\n')).split(' ')
-    val paranthesesRemoved = words.map(word => if word.contains("(") then word.replace("(", "").replace(")", "") -> true else word -> false )
+    val paranthesesRemoved = words.map(removePsuffix(_)).map(removeParanthesis(_))
     skipWhiteSpaces
     (NomineMorphemes(cse, form), paranthesesRemoved)
+
+  inline def removePsuffix(word: String): String =
+    if word.trim.endsWith("-P") then word.trim.dropRight(2)
+    else word.trim
+
+  inline def removeParanthesis(word: String): (String, Boolean) =
+    if word.contains("(")
+    then word.replace("(", "").replace(")", "") -> true
+    else word -> false
 
   inline def resolveCase(str: String): Case = str.toLowerCase match {
     case a: String if a == "nom" => Nominative
     case a: String if a == "gen" => Genitive
-    case a: String if a == "akk" => Accusative
+    case a: String if a == "acc" => Accusative
     case a: String if a == "par" => Partitive
     case a: String if a == "ine" => Inessive
     case a: String if a == "ela" => Elative
@@ -134,7 +143,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     case a: String if a == "tra" => Translative
     case a: String if a == "ins" => Instructive
     case a: String if a == "abe" => Abessive
-    case a: String if a == "kom" => Comitative
+    case a: String if a == "com" => Comitative
   }
 
 

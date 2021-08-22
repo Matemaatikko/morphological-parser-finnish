@@ -146,7 +146,7 @@ object GenerateInflectedWords {
       val nonVnBody =  PossessiveSuffixGeneration.getRootForNonVnSuffixes(resultWord, gradationOpt)
       val vn = PossessiveSuffixGeneration.addVnSuffix(nonVnBody, gradationOpt)
 
-      val nonVn = ResultWord(nonVnBody.word.append("-O"), nonVnBody.morphemes ++ PossessiveSuffix.Body, nonVnBody.lemma)
+      val nonVn = ResultWord(nonVnBody.word.append("-P"), nonVnBody.morphemes ++ PossessiveSuffix.Body, nonVnBody.lemma)
       Seq(resultWord, nonVn) ++ vn
     else Seq(resultWord)
 }

@@ -1,11 +1,15 @@
-- TODO address "puolisataa"
-- TODO Add possessive suffixes for some infinitives .
-- TODO Add Nomine inflections for participles
-- TODO Make testing easier (Some kind of intelligent filter system)
+
+- TODO refactor nomine rule parsing. (| -> :, -P endings)
+- TODO refactor verb conjugation formation.
+
+- TODO collect adverbs
 - TODO collect Adjectives
+- TODO add declensions for adjectives
+
 - TODO address nunmerals
 - TODO pronoun parsing
 
-- TODO Inf4 -> names of the actions
+- TODO address "puolisataa"
 
-- TODO replace possessive suffixes with suitable roots + O,  ikenen -> ikene-O, exeption: ikenelle-en (-Vn)
+- TODO Add possessive suffixes for some infinitives .
+- TODO Add Nomine inflections for participles
