@@ -110,8 +110,42 @@ Verbs
 
   - Infinitive, Participle
 
-Language specifications
+Language summary
 =======================
+Our aim is to write morphological analyser for finnish, 
+meaning that we want to divide finnish words to morphological classes based solely on the syntax. 
+For that reason, our morphological classification of finnish words differs in some places 
+from traditional finnish grammars. For example, we don't count <b>accusative</b> as grammatical case on nouns. 
+(We still count it on pronouns as it differs from genitive and nominative.) Next, we will provide language specification
+used to write the morphological analyser.
+
+Adjectives
+----------
+We do not make separation between adjectives and other nouns. There is no syntaxical rules that can be used to determine
+when noun is adjective and when it is not. For that reason, we left that job for sentence analysis. 
+Our analyser recognises comparation forms from all nouns.
+
+###Comparative
+Ending -mpi is added genitive body, where ending -n is removed (kaunis: kauniin -> kauniimpi).
+
+<b>Exception</b>: If word has only two syllables, and it ends with -An , then 'a' is replaced with 'e'. 
+Example: halpa: halvan -> halvempi
+
+<b>Exception words</b>: 
+````
+"kiva" => "kivempi", "kivampi" 
+"liila" => "liilempi", "liilampi"
+"metka" => "metkempi", "metkampi"
+"risa" => "risempi", "risampi"
+````
+
+
+###Superlative
+
+Adverbs
+-------
+Adverb classification is similarly left for sentence analysis. Our analyser recognises -sti ending words from all nouns.
+
 
 Consonant gradation
 -------------------

@@ -2,7 +2,7 @@ package morph_fin.rulings.verbs
 
 import morph_fin.rulings.*
 import morph_fin.rulings.nomines.Gradation
-import morph_fin.utils.FilesLocation
+import morph_fin.utils.{FilesLocation, Parser}
 
 import java.io.File
 import scala.annotation.tailrec
@@ -24,55 +24,18 @@ object LoadAndParseVerbRules {
 
 case class VerbExampleConjugations(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(VerbMophemes, String)])
 
-class VerbRulesParser(stream: Iterator[Char]) {
+class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
 
-  var currentCharacter: Option[Char] = Some(' ')
-
-  inline def peek: Char =
-    currentCharacter.getOrElse(throw new Exception("Failed to retreive a character from empty stream!"))
-
-  inline def consume: Char =
-    val last = peek
-    if (stream.hasNext) currentCharacter = Some(stream.next)
-    else currentCharacter = None
-    last
-
-  inline def skip(value: Char, error: String = ""): Char =
-    if peek != value then throw new Exception(error + peek)
-    consume
-
-  inline def skipAll(value: String, error: String = ""): Unit =
-      value.foreach(c => skip(c))
-
-  inline def skipWhiteSpaces =
-    while (currentCharacter.exists(_.isWhitespace)) consume
-
-  inline def skipWhiteSpacesUnlessLineBreak =
-    while (currentCharacter.exists(a => a.isWhitespace && a != '\n'))  consume
-
-  def collectUntil(condition: => Boolean): String =
-    @tailrec
-    def iter(result: String): String =
-      if(!condition) iter(result + consume)
-      else result
-    iter("")
-
-  def doUntil[A](fun: => A, condition: => Boolean): Seq[A] =
-    @tailrec
-    def iter(result: Seq[A]): Seq[A] =
-      if(!condition) iter(result :+ fun)
-      else result
-    iter(Nil)
 
   def parse: Seq[VerbExampleConjugations] =
     skipWhiteSpaces
     skipComments
-    doUntil(parseNextEntry, !currentCharacter.contains('<'))
+    doUntil(parseNextEntry, peek == '<')
 
   def skipComments: Unit =
-    if(currentCharacter == Some('#')) doUntil(consume, peek == '\n')
+    if(peek == '#') doUntil(consume, peek == '\n')
     skipWhiteSpaces
-    if(currentCharacter == Some('#')) skipComments
+    if(peek == '#') skipComments
 
   inline def parseNextEntry: VerbExampleConjugations =
     skipComments
@@ -80,15 +43,15 @@ class VerbRulesParser(stream: Iterator[Char]) {
     val number = collectUntil( !peek.isDigit).toInt
     val gradation = parseGradation
     skip('>')
-    val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
+    val lines = doUntil(parseLine, peek == '<').toSeq
     val lemma = lines.find(tuple => isLemma(tuple._1)).get._2.head
     val wordList = lines.flatMap(a => a._2.map(b => (a._1, b)))
     VerbExampleConjugations(number, lemma, gradation, wordList)
 
   inline def isLemma(moprhemes: VerbMophemes): Boolean =
     moprhemes match {
-      case VerbMophemes.InfinitiveI(Type.Short) => true
-      case _                                    => false
+      case AInfinitive(false) => true
+      case _                  => false
     }
 
   inline def parseGradation: Option[Gradation] =
@@ -116,14 +79,14 @@ class VerbRulesParser(stream: Iterator[Char]) {
       case 'C'       => parseParticiple
     }
     skipWhiteSpaces
-    val words = collectUntil(currentCharacter.isEmpty || currentCharacter.contains('\n')).split(' ')
+    val words = collectUntil( peek == '\n').split(' ')
     val paranthesesRemoved = words.map(_.replace("(", "").replace(")", ""))
     skipWhiteSpaces
     (morphemes, paranthesesRemoved)
 
   //=========================================
 
-  inline def parseNormal: VerbMophemes.Standard =
+  inline def parseNormal: Standard =
     val voice = parseVoice
     val modus = parseModus
     val tempus = parseTempus
@@ -132,7 +95,7 @@ class VerbRulesParser(stream: Iterator[Char]) {
       case Passive => Persona.Passive
     }
     val mode = parseMode
-    VerbMophemes.Standard(modus, tempus, persona, mode)
+    Standard(modus, tempus, persona, mode)
 
   inline def parsePersona: Persona.Active =
     val form = parseForm
@@ -164,13 +127,11 @@ class VerbRulesParser(stream: Iterator[Char]) {
   }
 
   inline def parseTempus: Tempus =
-    peek match {
-      case 'P' => consume; peek match {
-        case 'r' => skipAll("re:"); Present
-        case 'e' => skipAll("er:"); Perfect
-        case 'l' => skipAll("lp:"); Pluperfect
-      }
-      case 'I' => skipAll("Imp:"); Imperfect
+    peek3 match {
+      case ('P', 'r', 'e') => skipAll("Pre:"); Present
+      case ('P', 'e', 'r') => skipAll("Per:"); Perfect
+      case ('I', 'm', 'p') => skipAll("Imp:"); Imperfect
+      case ('P', 'l', 'p') => skipAll("Plp:"); Pluperfect
     }
 
   inline def parseMode: Mode =
@@ -191,37 +152,36 @@ class VerbRulesParser(stream: Iterator[Char]) {
       case '5' => parseInfinitive5
     }
 
-  inline def parseInfinitive1: VerbMophemes.InfinitiveI =
+  inline def parseInfinitive1: AInfinitive =
     skipAll("1:")
     val tpe = peek match {
-      case 'L' => skipAll("L:"); Type.Long
-      case _ => Type.Short
+      case 'L' => skipAll("L:"); true
+      case _ => false
     }
-    VerbMophemes.InfinitiveI(tpe)
+    AInfinitive(tpe)
 
-  inline def parseInfinitive2: VerbMophemes.InfinitiveII =
+  inline def parseInfinitive2: EInfinitive =
     skipAll("2:")
     val cse = parseCase
     val voice = peek match {
       case 'A' => skipAll("Akt:");  Active
       case 'P' => skipAll("Pas:"); Passive
     }
-    VerbMophemes.InfinitiveII(cse, voice)
+    EInfinitive(cse, voice)
 
-  inline def parseInfinitive3: VerbMophemes.InfinitiveIII =
+  inline def parseInfinitive3: MAInfinitive =
     skipAll("3:")
     val cse = parseCase
     val voice = parseVoice
-    VerbMophemes.InfinitiveIII(cse, voice)
+    MAInfinitive(cse, voice)
 
-  inline def parseInfinitive4: VerbMophemes.InfinitiveIV =
+  inline def parseInfinitive4: VerbMophemes =
     skipAll("4:")
-    val cse = parseCase
-    VerbMophemes.InfinitiveIV(cse)
+    InfinitiveIV
 
   inline def parseInfinitive5: VerbMophemes =
     skipAll("5:")
-    VerbMophemes.InfinitiveV
+    InfinitiveV
 
   inline def parseCase: Case =
     val caseString: String = consume.toString + consume.toString + consume.toString
@@ -248,19 +208,15 @@ class VerbRulesParser(stream: Iterator[Char]) {
 
   //=========================================
 
-  inline def parseParticiple: VerbMophemes =
-    skipAll("Cip:")
+  inline def parseParticiple: Participle =
+    skipAll("Par")
     peek match {
-      case 'A' => skipAll("Age:"); parseParticipleAgent
-      case _   => parseParticipleNormal
+      case '1' => skipAll("1:"); vAParticiple(Active)
+      case '2' => skipAll("2:"); vAParticiple(Passive)
+      case '3' => skipAll("3:"); nUtParticiple
+      case '4' => skipAll("4:"); tUParticiple
+      case '5' => skipAll("5:"); AgentParticiple
+      case '6' => skipAll("6:"); NegativeParticiple
     }
 
-  inline def parseParticipleNormal: VerbMophemes.Participle =
-    val tempus = parseTempus
-    val voice = parseVoice
-    VerbMophemes.Participle(tempus, voice)
-
-  inline def parseParticipleAgent: VerbMophemes.ParticipleAgent =
-    val mode = parseMode
-    VerbMophemes.ParticipleAgent(mode)
 }

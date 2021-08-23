@@ -2,8 +2,8 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
-import morph_fin.rulings.nomines.{DeclensionUtils, Gradation, LoadAndParseNomineRules, DeclensionRule, Word}
-import morph_fin.rulings.verbs.{ConjugationUtils, LoadAndParseVerbRules}
+import morph_fin.rulings.nomines.{DeclensionRule, DeclensionUtils, Gradation, LoadAndParseNomineRules, Word}
+import morph_fin.rulings.verbs.{ConjugationRule, ConjugationUtils, LoadAndParseVerbRules}
 import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
@@ -107,6 +107,8 @@ case class Data(
 
 object ReformatKotus {
 
+  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+
   import MorphemesUtils._
 
   def apply(rulings: Seq[DeclensionRule]): Seq[UpdatedWord] =
@@ -120,7 +122,7 @@ object ReformatKotus {
         entry.word.noPrefix)
 
     val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        DeclensionUtils.generateDeclensions(rulings, EntryToWord(entry).get)
+        DeclensionUtils.generateDeclensions(EntryToWord(entry).get)
           .find(elem => elem.morphemes == Nom :: P)
           .map(casing => casing.word.toString -> entry)
     )
@@ -128,7 +130,7 @@ object ReformatKotus {
     //===================================
 
     val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
-        DeclensionUtils.generateDeclensions(rulings, EntryToWord(entry).get)
+        DeclensionUtils.generateDeclensions(EntryToWord(entry).get)
           .find(elem => elem.morphemes == Nom :: P)
           .map(casing => casing.word.toString -> entry)
     ).groupBy(_._1).map(a => a._1 -> a._2.map(_._2))

@@ -9,22 +9,22 @@ import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalizatio
 
 object ConjugationUtils {
 
-  def generateConjugationsWithNomineEndings(rules: Seq[ConjugationRule], word: Word): Seq[ResultWord] =
-    val words = generateConjugations(rules, word)
+  def generateConjugationsWithNomineEndings(word: Word)(using rules: Seq[ConjugationRule]): Seq[ResultWord] =
+    val words = generateConjugations(word)
 
     //Infinitives receiving possessive suffixes
-    val Inf1Long = words.find(_.morphemes == VerbMophemes.InfinitiveI(Type.Long)).get
-    val Inf2IneAkt = words.find(_.morphemes == VerbMophemes.InfinitiveII(Inessive, Active)).get
-    val Inf5 = words.find(_.morphemes == VerbMophemes.InfinitiveV).get
+    val Inf1Long = words.find(_.morphemes == AInfinitive(true)).get
+    val Inf2IneAkt = words.find(_.morphemes == EInfinitive(Inessive, Active)).get
+    val Inf5 = words.find(_.morphemes == InfinitiveV).get
 
     //Infinitive IV -> Create nominal form
-    val Inf4 = words.find(_.morphemes == VerbMophemes.InfinitiveIV(Nominative)).get
+    val Inf4 = words.find(_.morphemes == InfinitiveIV).get
 
     //Participles
 
     ???
 
-  def generateConjugations(rules: Seq[ConjugationRule], word: Word): Seq[ResultWord] =
+  def generateConjugations(word: Word)(using rules: Seq[ConjugationRule]): Seq[ResultWord] =
     val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No verb rule found for: ${word.ruleNumber}"))
     //Resolve root
     val root = word.lemma.dropRight(rule.drop)
@@ -55,7 +55,7 @@ object ConjugationUtils {
     ResultWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
   
-  val IndPreS3 = VerbMophemes.Standard(Indicative, Present, Persona.Active(Singular, Third), Positive)
+  val IndPreS3 = Standard(Indicative, Present, Persona.Active(Singular, Third), Positive)
 
   def handleSpecialCase(word: StructuredWord, ruleNumber: Int, morphemes: Morphemes): StructuredWord =
     if morphemes == IndPreS3 && word.ending.nonEmpty && ruleNumber != 64 then

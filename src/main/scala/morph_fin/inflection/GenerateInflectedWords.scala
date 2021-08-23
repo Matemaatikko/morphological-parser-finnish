@@ -2,8 +2,8 @@ package morph_fin.inflection
 
 import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
 import morph_fin.kotus_format.{Bending, LoadUpdatedKotus, UpdatedWord}
-import morph_fin.rulings.nomines.{DeclensionUtils, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
-import morph_fin.rulings.verbs.{ConjugationUtils, LoadAndParseVerbRules}
+import morph_fin.rulings.nomines.{DeclensionRule, DeclensionUtils, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
+import morph_fin.rulings.verbs.{ConjugationRule, ConjugationUtils, LoadAndParseVerbRules}
 import morph_fin.rulings.{FilePrint, GradationHandler, Morphemes, NomineMorphemes}
 import morph_fin.utils.{FilesLocation, Letters}
 
@@ -14,8 +14,8 @@ enum TargetFile:
   case Verb, Noun, Compound, Indeclinable, Pronoun, Ignore
 
 object GenerateInflectedWords {
-  val nomineBendings = LoadAndParseNomineRules.rules
-  val verbBendings = LoadAndParseVerbRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[ConjugationRule] = LoadAndParseVerbRules.rules
 
   val verb = FilesLocation.result_path + s"/inflections/verbs.txt"
   val noun = FilesLocation.result_path + s"/inflections/nouns.txt"
@@ -124,18 +124,18 @@ object GenerateInflectedWords {
   def getBendingsWithSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
     if(bending.rule < 50) genDeclensionsWithSuffixes(word)
-    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(verbBendings, word)
+    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(word)
     else throw new Exception()
 
   def getBendingsWithoutSuffix(lemma: String, bending: Bending) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
-    if(bending.rule < 50) DeclensionUtils.generateDeclensions(nomineBendings, word)
-    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(verbBendings, word)
+    if(bending.rule < 50) DeclensionUtils.generateDeclensions(word)
+    else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(word)
     else throw new Exception()
 
 
   def genDeclensionsWithSuffixes(word: Word) =
-    DeclensionUtils.generateDeclensions(nomineBendings, word)
+    DeclensionUtils.generateDeclensions(word)
       .flatMap(a => handle(a, word.gradation))
 
   import morph_fin.rulings.MorphemesUtils._

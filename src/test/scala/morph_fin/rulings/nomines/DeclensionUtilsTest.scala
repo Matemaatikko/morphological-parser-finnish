@@ -13,7 +13,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
   import morph_fin.rulings.MorphemesUtils._
 
   import DeclensionUtils._
-  val rules = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
 
   extension(list: Seq[ResultWord])
     def matches(morphemes: Morphemes, words: String*) =
@@ -21,7 +21,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 1, word: järkky" in {
     val word = Word("järkky", 1, Gradation("kk", "k").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -66,7 +66,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 2, word: jäämistö" in {
     val word = Word("jäämistö", 2, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -95,7 +95,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 3, word: kaavio" in {
     val word = Word("kaavio", 3, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -123,7 +123,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 4, word: kaislikko" in {
     val word = Word("kaislikko", 4, Gradation("kk", "k").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -151,7 +151,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 5, word: kalium" in {
     val word = Word("kalium", 5, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -179,7 +179,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 5, word: kalkki" in {
     val word = Word("kalkki", 5, Gradation("kk", "k").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -207,7 +207,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 6, word: kalori" in {
     val word = Word("kalori", 6, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -235,7 +235,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 6, word: kalterit (plural parsing)" in {
     val word = Word("kalterit", 6, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -263,7 +263,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 7, word: kanki" in {
     val word = Word("kanki", 7, Gradation("nk", "ng").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -291,7 +291,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 8, word: manne" in {
     val word = Word("manne", 8, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -319,7 +319,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 9, word: marja-aika" in {
     val word = Word("marja-aika", 9, Gradation("k", "").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -347,7 +347,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 10, word: matala" in {
     val word = Word("matala", 10, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -375,7 +375,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 11, word: papana" in {
     val word = Word("papana", 11, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -403,7 +403,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 12, word: passiivat = velat (plural)" in {
     val word = Word("passiivat", 12, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -431,7 +431,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 12, word: pasteija (Singular)" in {
     val word = Word("pasteija", 12, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -459,7 +459,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 13, word: perusta" in {
     val word = Word("perusta", 13, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -487,7 +487,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 14, word: pohatta" in {
     val word = Word("pohatta", 14, Gradation("tt", "t").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -517,7 +517,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 15, word: hilpeä" in {
     val word = Word("hilpeä", 15, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -547,7 +547,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 16, word: likempi" in {
     val word = Word("likempi", 16, Gradation("mp", "mm").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -577,7 +577,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 17, word: palttoo" in {
     val word = Word("palttoo", 17, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -607,7 +607,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 18, word: perjantai" in {
     val word = Word("perjantai", 18, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -637,7 +637,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 19, word: tie" in {
     val word = Word("tie", 19, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -667,7 +667,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 21, word: coupé" in {
     val word = Word("coupé", 21, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -697,7 +697,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 22, word: nougat" in {
     val word = Word("nougat", 22, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -727,7 +727,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 23, word: tuli" in {
     val word = Word("tuli", 23, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -757,7 +757,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 24, word: hiili" in {
     val word = Word("hiili", 24, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -787,7 +787,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 25, word: lumi" in {
     val word = Word("lumi", 25, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -817,7 +817,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 26, word: mieli" in {
     val word = Word("mieli", 26, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -847,7 +847,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 27, word: reisi" in {
     val word = Word("reisi", 27, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -877,7 +877,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 28, word: virsi" in {
     val word = Word("virsi", 28, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -907,7 +907,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 29, word: lapsi" in {
     val word = Word("lapsi", 29, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -937,7 +937,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 30, word: peitsi" in {
     val word = Word("peitsi", 30, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -967,7 +967,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 31, word: yksi" in {
     val word = Word("yksi", 31, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -997,7 +997,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 32, word: aamen" in {
     val word = Word("aamen", 32, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1027,7 +1027,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 33, word: ahdin" in {
     val word = Word("ahdin", 33, Gradation("t", "d").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1057,7 +1057,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 34, word: aineeton" in {
     val word = Word("aineeton", 34, Gradation("tt", "t").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1087,7 +1087,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 35, word: lämmin" in {
     val word = Word("lämmin", 35, Gradation("mp", "mm").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1117,7 +1117,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 36, word: parhain" in {
     val word = Word("parhain", 36, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1147,7 +1147,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 37, word: vasen" in {
     val word = Word("vasen", 37, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1177,7 +1177,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 38, word: vastuullinen" in {
     val word = Word("vastuullinen", 38, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1207,7 +1207,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 39, word: vavahdus" in {
     val word = Word("vavahdus", 39, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1237,7 +1237,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 40, word: velkaisuus" in {
     val word = Word("velkaisuus", 40, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1267,7 +1267,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 41, word: viekas" in {
     val word = Word("viekas", 41, Gradation("kk", "k").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1297,7 +1297,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 42, word: mies" in {
     val word = Word("mies", 42, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1327,7 +1327,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 43, word: kevyt" in {
     val word = Word("kevyt", 43, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1357,7 +1357,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 44, word: kevät" in {
     val word = Word("kevät", 44, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1387,7 +1387,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 45, word: kuudes" in {
     val word = Word("kuudes", 45, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1417,7 +1417,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 46, word: tuhat" in {
     val word = Word("tuhat", 46, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1447,7 +1447,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 47, word: uudestisyntynyt" in {
     val word = Word("uudestisyntynyt", 47, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1478,7 +1478,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 48, word: vaate" in {
     val word = Word("vaate", 48, Gradation("tt", "t").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1508,7 +1508,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 49, word: kannel" in {
     val word = Word("kannel", 49, Gradation("nt", "nn").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1538,7 +1538,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: rule: 49, word: kantele" in {
     val word = Word("kantele", 49, None)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1571,7 +1571,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle case: vaaka, word: vaaka" in {
     val word = Word("vaaka", 9, Gradation("k", "").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     declensions.matches(Gen:: S, "vaa'an")
   }
@@ -1581,7 +1581,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: A, Strong, word: vadelmikko" in {
     val word = Word("vadelmikko", 4, Gradation("kk", "k").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1601,7 +1601,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: A, Weak, word: vahakas" in {
     val word = Word("vahakas", 41, Gradation("kk", "k").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1621,7 +1621,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: B, Strong, word: vaippa" in {
     val word = Word("vaippa", 9, Gradation("pp", "p").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1641,7 +1641,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: B, Weak, word: valpas" in {
     val word = Word("valpas", 41, Gradation("pp", "p").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1661,7 +1661,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: C, Strong, word: valapatto" in {
     val word = Word("valapatto", 1, Gradation("tt", "t").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1681,7 +1681,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: C, Weak, word: valkaisematon" in {
     val word = Word("valkaisematon", 34, Gradation("tt", "t").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1701,7 +1701,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: D, Strong, word: valkaisematon" in {
     val word = Word("aika", 9, Gradation("k", "").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1721,7 +1721,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: D, Weak, word: varas" in {
     val word = Word("varas", 41, Gradation("k", "").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1741,7 +1741,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: E, Strong, word: varpu" in {
     val word = Word("varpu", 1, Gradation("p", "v").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1761,7 +1761,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: E, Weak, word: varvas" in {
     val word = Word("varvas", 41, Gradation("p", "v").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1781,7 +1781,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: F, Strong, word: vastaveto" in {
     val word = Word("vastaveto", 1, Gradation("t", "d").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1801,7 +1801,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: F, Weak, word: viihde" in {
     val word = Word("viihde", 48, Gradation("t", "d").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1821,7 +1821,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: G, Strong, word: viikinki" in {
     val word = Word("viikinki", 5, Gradation("nk", "ng").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1841,7 +1841,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: G, Weak, word: villakangas" in {
     val word = Word("villakangas", 41, Gradation("nk", "ng").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1861,7 +1861,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: H, Strong, word: ylempi" in {
     val word = Word("ylempi", 16, Gradation("mp", "mm").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1881,7 +1881,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: H, Weak, word: hammas" in {
     val word = Word("hammas", 41, Gradation("mp", "mm").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1901,7 +1901,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: I, Strong, word: huolto" in {
     val word = Word("huolto", 1, Gradation("lt", "ll").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1921,7 +1921,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: I, Weak, word: helle" in {
     val word = Word("helle", 48, Gradation("lt", "ll").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1941,7 +1941,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: J, Strong, word: hento" in {
     val word = Word("hento", 1, Gradation("nt", "nn").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1961,7 +1961,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: J, Weak, word: himmennin" in {
     val word = Word("himmennin", 33, Gradation("nt", "nn").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -1981,7 +1981,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: K, Strong, word: kaarto" in {
     val word = Word("kaarto", 1, Gradation("rt", "rr").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -2001,7 +2001,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: K, Weak, word: kierre" in {
     val word = Word("kierre", 48, Gradation("rt", "rr").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -2021,7 +2021,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: L, Strong, word: kurki" in {
     val word = Word("kurki", 7, Gradation("k", "j").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -2041,7 +2041,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: L, Weak, word: lahje" in {
     val word = Word("lahje", 48, Gradation("k", "j").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 
@@ -2061,7 +2061,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
   "addDeclensions" should "handle gradation: M, Strong, word: luku" in {
     val word = Word("luku", 1, Gradation("k", "v").opt)
-    val declensions = generateDeclensions(rules, word)
+    val declensions = generateDeclensions(word)
 
     //Singular
 

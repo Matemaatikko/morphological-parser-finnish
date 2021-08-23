@@ -113,21 +113,21 @@ object GradationHandler {
   def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: VerbMophemes): Option[GradationType] =
     import WordGradationType._
     (tpe, morphemes) match {
-      case (Straight, VerbMophemes.Standard(Indicative, Present, Persona.Passive, Positive)) =>
+      case (Straight, Standard(Indicative, Present, Persona.Passive, Positive)) =>
         Some(GradationType.Weak)
-      case (Straight, VerbMophemes.Standard(Imperative, Present, Persona.Active(Singular, Second), _)) =>
+      case (Straight, Standard(Imperative, Present, Persona.Active(Singular, Second), _)) =>
         Some(GradationType.Weak)
-      case (Straight, VerbMophemes.Standard(Indicative, Present, _, Negative)) =>
+      case (Straight, Standard(Indicative, Present, _, Negative)) =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.Standard(Indicative, Present, Persona.Passive, Negative)) =>
+      case (Inverted, Standard(Indicative, Present, Persona.Passive, Negative)) =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.Standard(Indicative, Present, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
+      case (Inverted, Standard(Indicative, Present, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
         Some(GradationType.Strong)
-      case (Inverted, VerbMophemes.Standard(Indicative, _, Persona.Passive, Positive)) if endsWith_tA(lemma)  =>
+      case (Inverted, Standard(Indicative, _, Persona.Passive, Positive)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.InfinitiveI(_)) if endsWith_tA(lemma)  =>
+      case (Inverted, AInfinitive(_)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
-      case (Inverted, VerbMophemes.InfinitiveII(_, Active)) if endsWith_tA(lemma)  =>
+      case (Inverted, EInfinitive(_, Active)) if endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
       case _ => None
     }

@@ -3,75 +3,32 @@ package morph_fin.rulings
 import morph_fin.rulings.FilePrint.printSuffix
 import morph_fin.rulings.PossessiveSuffix.*
 
-object Print {
-  import VerbMophemes._
-  def apply(morphemes: Morphemes): String = morphemes match {
-    case NomineMorphemes(cse, form) => cse.toString + " " + form.toString
-    case MorphemesWithPosSuffix(morphemes_, suffix) => apply(morphemes_) + printSuffix(Some(suffix))
-    case Standard(modus, tempus, Persona.Passive, mode) =>
-      modus.toString + " " + tempus.toString + " Passive" + (if mode == Negative then " Negative" else "")
-    case Standard(modus, tempus, Persona.Active(form, number), mode) =>
-      modus.toString + " " + tempus.toString + " Active " + form.toString + " " + number.toString + (if mode == Negative then " Negative" else "")
-    case InfinitiveI(Type.Short) =>
-      "Infinitive I"
-    case InfinitiveI(Type.Long) =>
-      "Infinitive I Long"
-    case InfinitiveII(cse, voice) =>
-      "Infinitive II " + voice.toString + " " + cse.toString
-    case InfinitiveIII(cse, voice) =>
-      "Infinitive III " + voice.toString + " " + cse.toString
-    case InfinitiveIV(cse) =>
-      "Infinitive IV " + cse.toString
-    case InfinitiveV =>
-      "Infinitive V"
-    case Participle(tempus, voice, declensionOpt) =>
-      "Participle " + voice.toString + " " + tempus.toString + printDeclension(declensionOpt)
-    case ParticipleAgent(mode, declensionOpt) =>
-      "Agent Participle " + (if mode == Negative then " Negative" else "")  + printDeclension(declensionOpt)
-  }
 
-  def printSuffix(suffixOpt: Option[PossessiveSuffix]): String =
-    import PossessiveSuffix._
-    suffixOpt match {
-      case Some(Body) => " , Possessive suffix body"
-      case Some(SingularFirst) => " , Possessive suffix: 1. Singular"
-      case Some(SingularSecond) => " , Possessive suffix: 2. Singular"
-      case Some(PluralFirst) => " , Possessive suffix: 1. Plural"
-      case Some(PluralSecond) => " , Possessive suffix: 2. Plural"
-      case Some(ThirdPos) => " , Possessive suffix: 3."
-      case None         => ""
-    }
-
-  def printDeclension(declensionOpt: Option[NomineMorphemes]): String =
-    declensionOpt match {
-      case Some(declension) => " "  + declension.number.toString + " " + declension.cse.toString
-      case None             => ""
-    }
-}
 
 object FilePrint {
-  import VerbMophemes._
   def apply(morphemes: Morphemes): String = morphemes match {
     case NomineMorphemes(cse, form) => printGrammaticalNumber(form) + ":" + printCase(cse)
     case MorphemesWithPosSuffix(morphemes_, suffix) => apply(morphemes_) + printSuffix(Some(suffix))
     case Standard(modus, tempus, persona, mode) =>
       printModus(modus) + ":" + printTempus(tempus) + ":" + printPersona(persona) + printMode(mode)
-    case InfinitiveI(Type.Short) =>
+    case AInfinitive(false) =>
       "Inf1"
-    case InfinitiveI(Type.Long) =>
+    case AInfinitive(true) =>
       "Inf1:L"
-    case InfinitiveII(cse, voice) =>
+    case EInfinitive(cse, voice) =>
       "Inf2:" + printCase(cse) + ":" + printVoice(voice)
-    case InfinitiveIII(cse, voice) =>
+    case MAInfinitive(cse, voice) =>
       "Inf3:" + printCase(cse) + ":" + printVoice(voice)
-    case InfinitiveIV(cse) =>
-      "Inf4:" + printCase(cse)
-    case InfinitiveV =>
-      "Inf5"
-    case Participle(tempus, voice, declensionOpt) =>
-      "Cip:" +printTempus(tempus) + ":" + printVoice(voice) + printDeclension(declensionOpt)
-    case ParticipleAgent(mode, declensionOpt) =>
-      "Cip:Age" + printMode(mode) + printDeclension(declensionOpt)
+    case InfinitiveIV => "Inf4:"
+    case InfinitiveV => "Inf5:"
+    case InfinitiveVI => "Inf6:"
+    case InfinitiveVII => "Inf7:"
+    case vAParticiple(Active) => "Par1:"
+    case vAParticiple(Passive) => "Par2:"
+    case nUtParticiple => "Par3:"
+    case tUParticiple => "Par4:"
+    case AgentParticiple => "Par5:"
+    case NegativeParticiple => "Par6:"
   }
 
   def printSuffix(suffixOpt: Option[PossessiveSuffix]): String =

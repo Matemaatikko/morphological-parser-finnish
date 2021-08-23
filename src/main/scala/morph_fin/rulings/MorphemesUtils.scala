@@ -7,7 +7,7 @@ object MorphemesUtils {
   }
 
   object V {
-    def apply(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode) = VerbMophemes.Standard(modus, tempus, persona, mode)
+    def apply(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode) = Standard(modus, tempus, persona, mode)
   }
 
   val Nom = Nominative
@@ -36,7 +36,7 @@ object MorphemesUtils {
     def ::(number: GNumber): NomineMorphemes = NomineMorphemes(cse, number)
 
   val NomS = Nom :: S
-  val Inf1 = VerbMophemes.InfinitiveI(Type.Short)
+  val Inf1 = AInfinitive(false)
 
   extension (morphemes: Morphemes)
     def ++(suffix: PossessiveSuffix): MorphemesWithPosSuffix = MorphemesWithPosSuffix(morphemes, suffix)

@@ -28,11 +28,7 @@ object DeclensionUtils {
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')
 
-//  def generateDeclensionsWithPossessiveSuffixes(rules: Seq[DeclensionRule], word: Word): Seq[ResultWord] =
-//    val withoutSuffixes = generateDeclensions(rules, word)
-//    withoutSuffixes.flatMap(a => PossessiveSuffixGeneration.addSuffixes(a, word.gradation))
-
-  def findRule(rules: Seq[DeclensionRule], lemma: String, number: Int): DeclensionRule =
+  def findRule(lemma: String, number: Int)(using rules: Seq[DeclensionRule]): DeclensionRule =
     val resultOpt = if(number == 49 && lemma.endsWith("e")) rules.find(_.ruleNumber == 492)
     else if (number == 49) rules.find(_.ruleNumber == 491)
     else rules.find(_.ruleNumber == number)
@@ -41,8 +37,8 @@ object DeclensionUtils {
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
    */
-  def generateDeclensions(rules: Seq[DeclensionRule], word: Word): Seq[ResultWord] =
-    val rule = findRule(rules, word.lemma, word.ruleNumber)
+  def generateDeclensions(word: Word)(using rules: Seq[DeclensionRule]): Seq[ResultWord] =
+    val rule = findRule(word.lemma, word.ruleNumber)
 
     //Resolve root
     val (root, lemma) = checkPlurality(rule, word)

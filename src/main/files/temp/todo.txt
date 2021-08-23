@@ -3,7 +3,7 @@
 - TODO refactor verb conjugation formation.
 
 - TODO collect adverbs
-- TODO collect Adjectives
+
 - TODO add declensions for adjectives
 
 - TODO address nunmerals
@@ -20,18 +20,3 @@
 - Statistics: How many adjectives (per all) in given rule can be matched with the list.
 - Remove comparative and superlative forms.
 
-
-Adjective endings:
-
--vA, -nen, -is, -As, -ttU, -nut, -tOn, -sA, -ra
-
-1 (can have. Example: aito)
-10 (-vA)
-14
-15
-16 (comparative)
-34
-36
-38
-41
-47

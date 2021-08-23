@@ -1,7 +1,6 @@
 package morph_fin.rulings
 
 import morph_fin.rulings.PossessiveSuffix.{PluralFirst, PluralSecond, SingularFirst, SingularSecond}
-import morph_fin.rulings.Print.printSuffix
 
 
 //Nomine
@@ -56,16 +55,14 @@ sealed trait Person
   case object Second extends Person
   case object Third extends Person
 
+sealed trait Comparation
+  case object Comparative extends Comparation
+  case object Superlative extends Comparation
+
 
 enum Persona:
   case Active(number: GNumber, person: Person)
   case Passive
-
-
-//Only for infinitive
-enum Type:
-  case Short, Long
-
 
 enum PossessiveSuffix:
   case Body
@@ -73,19 +70,30 @@ enum PossessiveSuffix:
   case PluralFirst, PluralSecond
   case ThirdPos
 
+
 //Morphemes
 
 trait Morphemes
 
 case class NomineMorphemes(cse: Case, number: GNumber) extends Morphemes
+case class ComparationMorphemes(comparation: Comparation, nomineMorphemes: NomineMorphemes) extends Morphemes
+case object stiAdverb extends Morphemes
+
 case class MorphemesWithPosSuffix(morphemes: Morphemes, suffix: PossessiveSuffix) extends Morphemes
 
-enum VerbMophemes extends Morphemes:
-  case Standard(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode)
-  case InfinitiveI(tpe: Type)
-  case InfinitiveII(cse: Case, voice: Voice)
-  case InfinitiveIII(cse: Case, voice: Voice)
-  case InfinitiveIV(cse: Case)
-  case InfinitiveV
-  case Participle(tempus: Tempus, voice: Voice, declension: Option[NomineMorphemes] = None)
-  case ParticipleAgent(mode: Mode, declensionOpt: Option[NomineMorphemes] = None)
+sealed trait VerbMophemes extends Morphemes
+  case class Standard(modus: Modus, tempus: Tempus, persona: Persona, mode: Mode) extends VerbMophemes
+  case class AInfinitive(long: Boolean)  extends VerbMophemes
+  case class EInfinitive(cse: Case, voice: Voice) extends VerbMophemes
+  case class MAInfinitive(cse: Case, voice: Voice) extends VerbMophemes
+  case object InfinitiveIV extends VerbMophemes
+  case object InfinitiveV extends VerbMophemes
+  case object InfinitiveVI extends VerbMophemes
+  case object InfinitiveVII extends VerbMophemes
+
+sealed trait Participle extends VerbMophemes
+  case class vAParticiple(voice: Voice) extends Participle
+  case object nUtParticiple extends Participle
+  case object tUParticiple extends Participle
+  case object AgentParticiple extends Participle
+  case object NegativeParticiple extends Participle
