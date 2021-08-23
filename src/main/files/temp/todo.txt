@@ -13,3 +13,25 @@
 
 - TODO Add possessive suffixes for some infinitives .
 - TODO Add Nomine inflections for participles
+
+- TODO fix -ilmeinen 18 -> 38
+
+
+- Statistics: How many adjectives (per all) in given rule can be matched with the list.
+- Remove comparative and superlative forms.
+
+
+Adjective endings:
+
+-vA, -nen, -is, -As, -ttU, -nut, -tOn, -sA, -ra
+
+1 (can have. Example: aito)
+10 (-vA)
+14
+15
+16 (comparative)
+34
+36
+38
+41
+47
