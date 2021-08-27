@@ -18,6 +18,8 @@
 # Persona:
 # S = Singular, P = Plural
 # 1., 2., 3.
+# -----------------------
+# Gen = General
 # ---------------------
 # Neg = Negative
 # Inf = Infinitive

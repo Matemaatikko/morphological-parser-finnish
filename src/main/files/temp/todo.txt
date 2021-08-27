@@ -1,10 +1,13 @@
+- TODO Make adjective detector (there are ways to make adjectives from nouns.)
+- ->TODO<--- reformat verb rules (verb_rules_2).
+
 
 - TODO refactor nomine rule parsing. (| -> :, -P endings)
 - TODO refactor verb conjugation formation.
 
-- TODO collect adverbs
+- TODO add -sti adverblike generation
+- TODO collect indeclinables
 
-- TODO add declensions for adjectives
 
 - TODO address nunmerals
 - TODO pronoun parsing
@@ -16,7 +19,4 @@
 
 - TODO fix -ilmeinen 18 -> 38
 
-
-- Statistics: How many adjectives (per all) in given rule can be matched with the list.
-- Remove comparative and superlative forms.
 
