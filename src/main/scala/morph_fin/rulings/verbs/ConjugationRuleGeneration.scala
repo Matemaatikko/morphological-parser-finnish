@@ -1,17 +1,15 @@
 package morph_fin.rulings.verbs
 
 import morph_fin.rulings.*
-import morph_fin.rulings.MorphemesUtils.S
-import morph_fin.rulings.nomines.GenerateDeclensionRules.splitByFirstConsonant
-import morph_fin.rulings.nomines.RepChar.{Ch, Rep}
-import morph_fin.rulings.nomines.{Declension, DeclensionRule, Gradation, LongestStartingSubstring, NomineExampleDeclensions, NomineGradationType, RepChar}
+import morph_fin.rulings.nouns.GenerateDeclensionRules.splitByFirstConsonant
+import morph_fin.rulings.nouns.RepChar.{Ch, Rep}
+import morph_fin.rulings.nouns.{Declension, DeclensionRule, Gradation, LongestStartingSubstring, NounExampleDeclensions, RepChar}
 import morph_fin.utils.Letters
-import MorphemesUtils._
 
 enum VerbGradationType:
   case Strong, Weak, Nothing, Missing
 
-case class Conjugation(morphemes: VerbMophemes, ending: Seq[RepChar], tpe: VerbGradationType)
+case class Conjugation(morphemes: Morphemes, ending: Seq[RepChar], tpe: VerbGradationType)
 case class ConjugationRule(
                              ruleNumber: Int,
                              drop: Int,
@@ -20,22 +18,16 @@ case class ConjugationRule(
                              cases: Seq[Conjugation])
 
 extension (rules: ConjugationRule)
-  def findCase(morphemes: VerbMophemes): Conjugation =
-    rules.cases.find(ending => ending.morphemes == morphemes).getOrElse(throw new Error("Non-comprehensive matching in rules"))
+  def findCase(morphemes: Morphemes): Conjugation =
+    rules.cases.find(ending => ending.morphemes.is(morphemes)).getOrElse(throw new Error("Non-comprehensive matching in rules"))
 
 object GenerateConjugationRules {
 
     def apply(exampleConjugations: VerbExampleConjugations): ConjugationRule =
-      val result = exampleConjugations.gradation match {
+      exampleConjugations.gradation match {
         case Some(gradation) => resolveGradation(exampleConjugations, gradation)
         case None            => resolveNonGradation(exampleConjugations)
       }
-      if result.ruleNumber == 77 || result.ruleNumber == 78 then result else  addMappedBendings(result)
-
-    def addMappedBendings(rules: ConjugationRule): ConjugationRule =
-      val cases = rules.cases
-      val mappedEndings = VerbMappings.list.map(tuple => Conjugation(tuple._1, cases.find(value => value.morphemes == tuple._2).get.ending,  VerbGradationType.Nothing))
-      rules.copy(cases = cases ++ mappedEndings)
 
     def resolveGradation(exampleConjugations: VerbExampleConjugations, gradation: Gradation): ConjugationRule =
       //Resolve root. Resolvation is based on verb_rules.txt file analysation. Root does not contain gradation part.
@@ -58,7 +50,7 @@ object GenerateConjugationRules {
      *
      *  Note: Some verbs with gradation have end of their gradation replaced by s in Active-Imperfect
      */
-    def resolveEnding(tuple: (VerbMophemes, String), root: String, gradation: Gradation): Conjugation =
+    def resolveEnding(tuple: (Morphemes, String), root: String, gradation: Gradation): Conjugation =
       import GradationType.*
       val endingWithGradation = tuple._2.drop(root.length)
       val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
@@ -72,12 +64,12 @@ object GenerateConjugationRules {
       val root = LongestStartingSubstring(words)
       val drop = exampleConjugations.lemma.length - root.length
 
-      val infinitive = exampleConjugations.cases.find(_._1 == Inf1).get
+      val infinitive = exampleConjugations.cases.find(_._1.root == AInfinitive).get
       val replacementVowels = infinitive._2.drop(root.length).takeWhile(Letters.isVowel(_))
       val cases = exampleConjugations.cases.map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
       ConjugationRule(exampleConjugations.number, drop, false, replacementVowels, cases)
 
-    def resolveNonGradationCase(morphemes: VerbMophemes, word: String, root: String, replacementVowels: Seq[Char]): Conjugation =
+    def resolveNonGradationCase(morphemes: Morphemes, word: String, root: String, replacementVowels: Seq[Char]): Conjugation =
       val ending = word.drop(root.length)
       val (start, end) = splitByFirstConsonant(ending)
       val resultEnding = start.map(c => if(replacementVowels.contains(c)) then Rep(c) else Ch(c)) ++ end.map(Ch(_))

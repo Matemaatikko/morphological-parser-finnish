@@ -1,4 +1,4 @@
-import morph_fin.rulings.nomines.{LoadAndParseNomineRules, RepChar}
+import morph_fin.rulings.nouns.{LoadAndParseNomineRules, RepChar}
 
 import morph_fin.rulings.MorphemesUtils._
 

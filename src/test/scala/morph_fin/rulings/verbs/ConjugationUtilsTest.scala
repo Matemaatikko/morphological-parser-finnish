@@ -1,7 +1,7 @@
 package morph_fin.rulings.verbs
 
 import morph_fin.rulings.Morphemes
-import morph_fin.rulings.nomines.{DeclensionUtils, Gradation, ResultWord, Word}
+import morph_fin.rulings.nouns.{DeclensionUtils, Gradation, InflectedWord, Word}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should
 import org.scalatest.*
@@ -15,12 +15,11 @@ extension[A] (a: A)
 
 class ConjugationUtilsTest extends AnyFlatSpec with should.Matchers {
 
-  import morph_fin.rulings.MorphemesUtils._
 
   import ConjugationUtils._
   val rules = LoadAndParseVerbRules.rules
 
-  extension(list: Seq[ResultWord])
+  extension(list: Seq[InflectedWord])
     def matches(morphemes: Morphemes, words: String*) =
       assert(list.filter(_.morphemes == morphemes).map(_.word.toString).toSet == words.toSet, morphemes)
 

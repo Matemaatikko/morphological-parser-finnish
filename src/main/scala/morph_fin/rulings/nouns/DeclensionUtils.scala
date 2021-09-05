@@ -1,11 +1,10 @@
-package morph_fin.rulings.nomines
+package morph_fin.rulings.nouns
 
 import morph_fin.*
 import morph_fin.kotus_format.Entry
-import morph_fin.rulings.nomines.{Declension, DeclensionRule, Gradation}
+import morph_fin.rulings.nouns.{Declension, DeclensionRule, Gradation}
 import morph_fin.rulings.*
 import morph_fin.utils.{Letters, Vocalization}
-import MorphemesUtils.*
 
 import java.nio.charset.StandardCharsets
 
@@ -17,9 +16,7 @@ case class StructuredWord(root: String, gradation: String, ending: String) {
 }
 
 case class Word(lemma: String, ruleNumber: Int, gradation: Option[Gradation])
-case class ResultWord(word: StructuredWord, morphemes: Morphemes, lemma: String)
-
-case class PSuffix(info: PossessiveSuffix, ending: String)
+case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: String)
 
 object DeclensionUtils {
 
@@ -37,7 +34,7 @@ object DeclensionUtils {
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
    */
-  def generateDeclensions(word: Word)(using rules: Seq[DeclensionRule]): Seq[ResultWord] =
+  def generateDeclensions(word: Word)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
     val rule = findRule(word.lemma, word.ruleNumber)
 
     //Resolve root
@@ -58,8 +55,8 @@ object DeclensionUtils {
   //=========================================================
 
   private inline def checkPlurality(rule: DeclensionRule, word: Word): (String, String) =
-    val singularEnding = rule.findCase(Nom::S).ending
-    val pluralEnding = rule.findCase(Nom::P).ending
+    val singularEnding = rule.findCase(Noun ~ Nominative ~ Singular).ending
+    val pluralEnding = rule.findCase(Noun ~ Nominative ~ Plural).ending
 
     if word.lemma.hasEnding(pluralEnding) then
       val vowelMap = Replacement.resolveMap(word.lemma, pluralEnding)
@@ -81,27 +78,28 @@ object DeclensionUtils {
     else word.lemma.dropRight(rule.drop)
 
   //Under rule 5 removes wrong 'i' from Nom:S if needed. Example: pick-upi -> pick-up
-  private inline def updateRule5(resultWord: ResultWord, ruleNumber: Int): ResultWord =
-    if(ruleNumber == 5 && resultWord.morphemes == Nom::S && resultWord.lemma.last != 'i')
+  private inline def updateRule5(resultWord: InflectedWord, ruleNumber: Int): InflectedWord =
+    if(ruleNumber == 5 && resultWord.morphemes.is(Nominative, Singular)&& resultWord.lemma.last != 'i')
     then
       val updatedWord = resultWord.word.copy(ending = "")
       resultWord.copy(word = updatedWord)
     else resultWord
 
-  private inline def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word, rule: DeclensionRule): ResultWord =
+  private inline def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word, rule: DeclensionRule): InflectedWord =
+    import GradationType._
     val updatedEnding = updateEnding(ending, lemma, rule)
     var exceptionalBeginning: Option[String] = None
-    val gradation = word.gradation match {
-      case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
-      case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
-      case Some(gradation) =>
+    val gradation = (word.gradation, ending.gradationTypeOpt) match {
+      case (Some(gradation), Some(Strong)) => gradation.strong
+      case (Some(gradation), Some(Weak)) => gradation.weak
+      case (Some(gradation), _) =>
         val wordGradationType = GradationHandler.getWordGradationTypeForNomine(lemma, gradation)
         val defaultGradationType = GradationHandler.getGradationTypeByEnding(root._2 + updatedEnding)
-        val exceptionGradationType = GradationHandler.resolveNomineException(lemma, updatedEnding, wordGradationType, ending.morphemes)
+        val exceptionGradationType = GradationHandler.resolveNounException(lemma, updatedEnding, wordGradationType, ending.morphemes)
         val tpe = exceptionGradationType.getOrElse(defaultGradationType)
         exceptionalBeginning = resolve_i_j(root._1, lemma, gradation, tpe)
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
-      case None            => ""
+      case (None, _)            => ""
     }
     val gradationWithApostropheIfNeeded = //Example: laaka -> laa'an
       if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption) && word.gradation.nonEmpty
@@ -109,7 +107,7 @@ object DeclensionUtils {
       else gradation
 
     val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradationWithApostropheIfNeeded, root._2 + updatedEnding)
-    ResultWord(resultWord, ending.morphemes, word.lemma)
+    InflectedWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
 
   /**
@@ -129,7 +127,7 @@ object DeclensionUtils {
 
 
   private inline def updateEnding(ending: Declension, lemma: String, rule: DeclensionRule): String =
-    val NomSEnding = rule.cases.find(_.morphemes == Nom::S).get.ending
+    val NomSEnding = rule.cases.find(_.morphemes.is(Nominative, Singular)).get.ending
     val alteredLemma = rule.ruleNumber match {
       case 5 if Letters.isConsonant(lemma.last) => lemma + 'i'
       case _ => lemma
@@ -143,7 +141,7 @@ object DeclensionUtils {
     }).mkString("")
 
     val illativeCondition = Letters.isVowel(lemma.last)
-      && ending.morphemes == Ill::S
+      && ending.morphemes.is(Illative, Singular)
       && !changed
       && listOfSomeVowels.contains(result.dropRight(1).last)
 

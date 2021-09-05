@@ -1,7 +1,6 @@
 package morph_fin.rulings.verbs
 
-import morph_fin.rulings.NomineMorphemes
-import morph_fin.rulings.nomines.*
+import morph_fin.rulings.nouns.*
 import morph_fin.rulings.*
 import morph_fin.rulings.GradationHandler
 import morph_fin.utils.Letters
@@ -9,22 +8,22 @@ import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalizatio
 
 object ConjugationUtils {
 
-  def generateConjugationsWithNomineEndings(word: Word)(using rules: Seq[ConjugationRule]): Seq[ResultWord] =
+  def generateConjugationsWithNomineEndings(word: Word)(using rules: Seq[ConjugationRule]): Seq[InflectedWord] =
     val words = generateConjugations(word)
 
     //Infinitives receiving possessive suffixes
-    val Inf1Long = words.find(_.morphemes == AInfinitive(true)).get
-    val Inf2IneAkt = words.find(_.morphemes == EInfinitive(Inessive, Active)).get
-    val Inf5 = words.find(_.morphemes == InfinitiveV).get
+    val Inf1Long = words.find(_.morphemes.root == AInfinitive).get
+    val Inf2IneAkt = words.find(a => a.morphemes.root == EInfinitive && a.morphemes.is(Inessive, Active)).get
+    val Inf5 = words.find(_.morphemes.root == InfinitiveV).get
 
     //Infinitive IV -> Create nominal form
-    val Inf4 = words.find(_.morphemes == InfinitiveIV).get
+    val Inf4 = words.find(_.morphemes.root == InfinitiveIV).get
 
     //Participles
 
     ???
 
-  def generateConjugations(word: Word)(using rules: Seq[ConjugationRule]): Seq[ResultWord] =
+  def generateConjugations(word: Word)(using rules: Seq[ConjugationRule]): Seq[InflectedWord] =
     val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No verb rule found for: ${word.ruleNumber}"))
     //Resolve root
     val root = word.lemma.dropRight(rule.drop)
@@ -36,11 +35,11 @@ object ConjugationUtils {
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, word, rule))
   end generateConjugations
 
-  def resolveWord(ending: Conjugation, root: (String, String), word: Word, rule: ConjugationRule): ResultWord =
+  def resolveWord(ending: Conjugation, root: (String, String), word: Word, rule: ConjugationRule): InflectedWord =
     val updatedEnding = updateEnding(ending, word.lemma, rule)
     val gradation = word.gradation match {
-      case Some(gradation) if ending.tpe == NomineGradationType.Strong => gradation.strong
-      case Some(gradation) if ending.tpe == NomineGradationType.Weak => gradation.weak
+      case Some(gradation) if ending.tpe == VerbGradationType.Strong => gradation.strong
+      case Some(gradation) if ending.tpe == VerbGradationType.Weak => gradation.weak
       case Some(gradation) =>
         val wordGradationType = GradationHandler.getWordGradationTypeForVerb(word.lemma, gradation)
         val defaultGradationType = GradationHandler.getGradationTypeByEnding(root._2 + updatedEnding)
@@ -52,10 +51,10 @@ object ConjugationUtils {
     val updatedGradation = if ending.tpe == VerbGradationType.Missing then gradation.dropRight(1) else gradation
     val structuredWord = StructuredWord(root._1, updatedGradation, root._2 + updatedEnding)
     val resultWord = handleSpecialCase(structuredWord, word.ruleNumber, ending.morphemes)
-    ResultWord(resultWord, ending.morphemes, word.lemma)
+    InflectedWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
   
-  val IndPreS3 = Standard(Indicative, Present, Persona.Active(Singular, Third), Positive)
+  val IndPreS3 = Finite ~ Indicative ~ Present ~ Active ~ SingularThird ~ Positive
 
   def handleSpecialCase(word: StructuredWord, ruleNumber: Int, morphemes: Morphemes): StructuredWord =
     if morphemes == IndPreS3 && word.ending.nonEmpty && ruleNumber != 64 then

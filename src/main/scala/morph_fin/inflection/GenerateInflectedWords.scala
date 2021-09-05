@@ -2,9 +2,9 @@ package morph_fin.inflection
 
 import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
 import morph_fin.kotus_format.{Bending, LoadUpdatedKotus, UpdatedWord}
-import morph_fin.rulings.nomines.{DeclensionRule, DeclensionUtils, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, ResultWord, Word}
+import morph_fin.rulings.nouns.{DeclensionRule, DeclensionUtils, Gradation, LoadAndParseNomineRules, PossessiveSuffixGeneration, InflectedWord, Word}
 import morph_fin.rulings.verbs.{ConjugationRule, ConjugationUtils, LoadAndParseVerbRules}
-import morph_fin.rulings.{FilePrint, GradationHandler, Morphemes, NomineMorphemes}
+import morph_fin.rulings._
 import morph_fin.utils.{FilesLocation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
@@ -75,7 +75,7 @@ object GenerateInflectedWords {
         val resulWords = getBendingsWithoutSuffix(suffixWord.value, suffixWord.bending)
         resulWords.flatMap(resultWord => {
           val gradationOpt = suffixWord.bending.gradationLetter.map(GradationHandler.getGradationByLetter(_))
-          if resultWord.morphemes.isInstanceOf[NomineMorphemes] then
+          if resultWord.morphemes.root == Noun then
             addPossessiveSuffixes(word, prefix, resultWord, gradationOpt)
           else {
             val result = addHyphenIfNeeded(prefix, resultWord.word.toString, word)
@@ -101,7 +101,7 @@ object GenerateInflectedWords {
       case _ => Nil
     }
 
-  def addPossessiveSuffixes(word: String, prefix: String, suffix: ResultWord, gradationOpt: Option[Gradation]): Seq[String] =
+  def addPossessiveSuffixes(word: String, prefix: String, suffix: InflectedWord, gradationOpt: Option[Gradation]): Seq[String] =
     val suffixInflectionsWithPosSuffixes = PossessiveSuffixGeneration.addSuffixes(suffix, gradationOpt)
     suffixInflectionsWithPosSuffixes.map(suffix => {
       val resultWord = addHyphenIfNeeded(prefix, suffix.word.toString, word)
@@ -138,15 +138,14 @@ object GenerateInflectedWords {
     DeclensionUtils.generateDeclensions(word)
       .flatMap(a => handle(a, word.gradation))
 
-  import morph_fin.rulings.MorphemesUtils._
   import morph_fin.rulings.PossessiveSuffix
 
-  def handle(resultWord: ResultWord, gradationOpt: Option[Gradation]): Seq[ResultWord] =
+  def handle(resultWord: InflectedWord, gradationOpt: Option[Gradation]): Seq[InflectedWord] =
     if PossessiveSuffixGeneration.isSuitableForSuffix(resultWord.morphemes) then
       val nonVnBody =  PossessiveSuffixGeneration.getRootForNonVnSuffixes(resultWord, gradationOpt)
       val vn = PossessiveSuffixGeneration.addVnSuffix(nonVnBody, gradationOpt)
 
-      val nonVn = ResultWord(nonVnBody.word.append("-P"), nonVnBody.morphemes ++ PossessiveSuffix.Body, nonVnBody.lemma)
+      val nonVn = InflectedWord(nonVnBody.word.append("-P"), nonVnBody.morphemes ~ PossessiveSuffix.Body, nonVnBody.lemma)
       Seq(resultWord, nonVn) ++ vn
     else Seq(resultWord)
 }

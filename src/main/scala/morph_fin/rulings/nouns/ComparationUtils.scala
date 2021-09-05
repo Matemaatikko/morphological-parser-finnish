@@ -1,6 +1,6 @@
-package morph_fin.rulings.nomines
+package morph_fin.rulings.nouns
 
-import morph_fin.rulings.{ComparationMorphemes, Comparative, NomineMorphemes}
+import morph_fin.rulings._
 import morph_fin.utils.{Hyphenation, Letters}
 
 
@@ -13,24 +13,26 @@ import morph_fin.utils.{Hyphenation, Letters}
 * juokseva juoksevan/juoksevampi juoksevin
 *
 *
+* kiva -> kivan -> kivampi - kivempi
+*      -> kivan -> kivoin / kivain
 */
 object ComparationUtils {
 
   //COMPARATIVE
 
-  def generateComparativeForms(SingularGenitiveWord: ResultWord)(using rules: Seq[DeclensionRule]): Seq[ResultWord] =
+  def generateComparativeForms(SingularGenitiveWord: InflectedWord)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
     val comparativeWords = generateComparativeWord(SingularGenitiveWord)
     comparativeWords.flatMap(a => addComparativeDeclensions(a, SingularGenitiveWord.lemma))
 
-  def addComparativeDeclensions(word: String, lemma: String)(using rules: Seq[DeclensionRule]): Seq[ResultWord] =
+  def addComparativeDeclensions(word: String, lemma: String)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
     val word_ = Word(word, 16, Option(Gradation("mp", "mm")))
     val declensions = DeclensionUtils.generateDeclensions(word_)
     declensions.map(declension => declension.copy(
       lemma = lemma,
-      morphemes = ComparationMorphemes(Comparative, declension.morphemes.asInstanceOf[NomineMorphemes])
+      morphemes = declension.morphemes ~ Comparative
     ))
 
-  def generateComparativeWord(SingularGenitiveWord: ResultWord): Seq[String] =
+  def generateComparativeWord(SingularGenitiveWord: InflectedWord): Seq[String] =
     import SingularGenitiveWord._
     if comparativeHandleExceptionWords(lemma).nonEmpty then comparativeHandleExceptionWords(lemma)
     else formatForComparative(word.toString)
@@ -57,19 +59,19 @@ object ComparationUtils {
 
   //SUPERLATIVE
 
-  def generateSuperlativeForms(SingularGenitiveWord: ResultWord)(using rules: Seq[DeclensionRule]): Seq[ResultWord] =
+  def generateSuperlativeForms(SingularGenitiveWord: InflectedWord)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
     val superlativeWords = generateSuperlativeWord(SingularGenitiveWord)
     superlativeWords.flatMap(a => addSuperlativeDeclensions(a, SingularGenitiveWord.lemma))
 
-  def addSuperlativeDeclensions(word: String, lemma: String)(using rules: Seq[DeclensionRule]): Seq[ResultWord] =
+  def addSuperlativeDeclensions(word: String, lemma: String)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
     val word_ = Word(word, 36, None)
     val declensions = DeclensionUtils.generateDeclensions(word_)
     declensions.map(declension => declension.copy(
       lemma = lemma,
-      morphemes = ComparationMorphemes(Comparative, declension.morphemes.asInstanceOf[NomineMorphemes])
+      morphemes = declension.morphemes ~ Superlative
     ))
 
-  def generateSuperlativeWord(SingularGenitiveWord: ResultWord): Seq[String] =
+  def generateSuperlativeWord(SingularGenitiveWord: InflectedWord): Seq[String] =
     import SingularGenitiveWord._
     if superlativeHandleExceptionWords(lemma).nonEmpty
     then superlativeHandleExceptionWords(lemma)

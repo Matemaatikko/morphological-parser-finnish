@@ -1,7 +1,7 @@
-package morph_fin.rulings.nomines
+package morph_fin.rulings.nouns
 
 import morph_fin.rulings.*
-import morph_fin.utils.FilesLocation
+import morph_fin.utils.{FilesLocation, Parser}
 
 import scala.annotation.tailrec
 import scala.io.{Codec, Source}
@@ -9,10 +9,10 @@ import scala.io.{Codec, Source}
 
 object LoadAndParseNomineRules {
 
-  def apply(): Seq[NomineExampleDeclensions] = {
-    val filename = FilesLocation.rules_path  + "/nomine_rules.txt"
+  def apply(): Seq[NounExampleDeclensions] = {
+    val filename = FilesLocation.rules_path  + "/noun_rules.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines) yield line
-    new NomineRulesParser(content.mkString("\n").iterator).parse
+    new NounRulesParser(content.mkString("\n").iterator).parse
   }
 
   def rules: Seq[DeclensionRule] = {
@@ -21,46 +21,13 @@ object LoadAndParseNomineRules {
 }
 
 case class Gradation(strong: String, weak: String)
-case class NomineExampleDeclensions(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(NomineMorphemes, String, Boolean)])
+case class NounExampleDeclensions(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(Morphemes, String, Boolean)])
 
-class NomineRulesParser(stream: Iterator[Char]) {
-  
+class NounRulesParser(stream: Iterator[Char]) extends Parser(stream){
+
   var currentCharacter: Option[Char] = Some(' ')
 
-  inline def peek: Char =
-    currentCharacter.getOrElse(throw new Exception("Failed to retreive a character from empty stream!"))
-
-  inline def consume: Char =
-    val last = peek
-    if (stream.hasNext) currentCharacter = Some(stream.next)
-    else currentCharacter = None
-    last
-
-  inline def skip(value: Char, error: String = ""): Unit =
-    if peek != value then throw new Exception(error + peek)
-    consume
-
-  inline def skipWhiteSpaces =
-    while (currentCharacter.exists(_.isWhitespace)) consume
-
-  inline def skipWhiteSpacesUnlessLineBreak =
-    while (currentCharacter.exists(a => a.isWhitespace && a != '\n'))  consume
-
-  inline def collectUntil(condition: => Boolean): String =
-    @tailrec
-    def iter(result: String): String =
-      if(!condition) iter(result + consume)
-      else result
-    iter("")
-
-  inline def doUntil[A](fun: => A, condition: => Boolean): Seq[A] =
-    @tailrec
-    def iter(result: Seq[A]): Seq[A] =
-      if(!condition) iter(result :+ fun)
-      else result
-    iter(Nil)
-
-  def parse: Seq[NomineExampleDeclensions] =
+  def parse: Seq[NounExampleDeclensions] =
     skipWhiteSpaces
     skipComments
     doUntil(parseNextEntry, !currentCharacter.contains('<'))
@@ -70,7 +37,7 @@ class NomineRulesParser(stream: Iterator[Char]) {
     skipWhiteSpaces
     if(peek == '#') skipComments
 
-  inline def parseNextEntry: NomineExampleDeclensions =
+  inline def parseNextEntry: NounExampleDeclensions =
     skipWhiteSpaces
     skip('<')
     val number = collectUntil( !peek.isDigit).toInt
@@ -79,10 +46,10 @@ class NomineRulesParser(stream: Iterator[Char]) {
     val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
     val lemma = lines.find(tuple => isLemma(tuple._1)).get._2.head
     val wordList = lines.flatMap(a => a._2.map(b => (a._1, b._1, b._2)))
-    NomineExampleDeclensions(number, lemma._1, gradation, wordList)
+    NounExampleDeclensions(number, lemma._1, gradation, wordList)
 
-  inline def isLemma(moprhemes: NomineMorphemes): Boolean =
-    moprhemes.cse == Nominative && moprhemes.number == Singular
+  inline def isLemma(moprhemes: Morphemes): Boolean =
+    moprhemes.is(Nominative, Singular)
 
   inline def parseGradation: Option[Gradation] =
     if peek == ':' then
@@ -98,13 +65,13 @@ class NomineRulesParser(stream: Iterator[Char]) {
       val strong = collectUntil( peek == '-')
       skip('-')
       val weak = collectUntil( peek == '>')
-      Some(nomines.Gradation(strong, weak))
+      Some(nouns.Gradation(strong, weak))
     else None
 
 
-  inline def parseLine: (NomineMorphemes, Seq[(String, Boolean)]) =
+  inline def parseLine: (Morphemes, Seq[(String, Boolean)]) =
     skipWhiteSpaces
-    val form = peek match {
+    val grammaticalNumber = peek match {
       case 'S' => Singular
       case 'P' => Plural
     }
@@ -115,9 +82,11 @@ class NomineRulesParser(stream: Iterator[Char]) {
     skip(':')
     skipWhiteSpaces
     val words = collectUntil(currentCharacter.isEmpty || currentCharacter.contains('\n')).split(' ')
-    val paranthesesRemoved = words.map(removePsuffix(_)).map(removeParanthesis(_))
+    val paranthesesRemoved = words
+      .map(removePsuffix(_))
+      .map(removeParanthesis(_))
     skipWhiteSpaces
-    (NomineMorphemes(cse, form), paranthesesRemoved)
+    (Noun ~ cse ~ grammaticalNumber, paranthesesRemoved)
 
   inline def removePsuffix(word: String): String =
     if word.trim.endsWith("-P") then word.trim.dropRight(2)

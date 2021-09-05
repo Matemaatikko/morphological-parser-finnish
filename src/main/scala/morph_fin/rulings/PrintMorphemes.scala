@@ -1,12 +1,13 @@
 package morph_fin.rulings
 
-import morph_fin.rulings.FilePrint.printSuffix
 import morph_fin.rulings.PossessiveSuffix.*
 
 
 
 object FilePrint {
-  def apply(morphemes: Morphemes): String = morphemes match {
+  def apply(morphemes: Morphemes): String = "TODO"
+
+  /*morphemes match {
     case NomineMorphemes(cse, form) => printGrammaticalNumber(form) + ":" + printCase(cse)
     case MorphemesWithPosSuffix(morphemes_, suffix) => apply(morphemes_) + printSuffix(Some(suffix))
     case Standard(modus, tempus, persona, mode) =>
@@ -67,7 +68,7 @@ object FilePrint {
       case Comitative  => "Kom"
     }
 
-  def printGrammaticalNumber(number: GNumber): String =
+  def printGrammaticalNumber(number: GrammaticalNumber): String =
     number match {
       case Singular => "S"
       case Plural   => "P"
@@ -113,5 +114,5 @@ object FilePrint {
     voice match {
       case Active    => "Akt"
       case Passive   => "Pas"
-    }
+    }*/
 }

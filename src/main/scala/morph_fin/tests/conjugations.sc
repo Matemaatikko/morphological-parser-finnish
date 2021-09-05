@@ -1,7 +1,7 @@
 import morph_fin.rulings.verbs.{ConjugationUtils, LoadAndParseVerbRules}
 import morph_fin.kotus_format.{KotusWord, *}
-import morph_fin.rulings.nomines.ResultWord
-import morph_fin.rulings.nomines.Word
+import morph_fin.rulings.nouns.InflectedWord
+import morph_fin.rulings.nouns.Word
 import morph_fin.rulings.Print
 
 val rules = LoadAndParseVerbRules.rules
@@ -9,7 +9,7 @@ val rules = LoadAndParseVerbRules.rules
 def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
   EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
 
-def printA(words: Seq[ResultWord]) =
+def printA(words: Seq[InflectedWord]) =
   println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
   println("============================")
 

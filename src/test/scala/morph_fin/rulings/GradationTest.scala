@@ -3,7 +3,7 @@ package morph_fin.rulings
 import org.scalatest.*
 import flatspec.*
 import matchers.*
-import morph_fin.rulings.nomines.Gradation
+import morph_fin.rulings.nouns.Gradation
 
 class GradationTest extends AnyFlatSpec with should.Matchers {
 
@@ -27,7 +27,7 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
   //TODO testing not comprehensive
 
   "resolveNomineException - method" should "work" in {
-    val result1 = resolveNomineException("tuote", "elle", WordGradationType.Inverted, NomineMorphemes(Allative, Singular))
+    val result1 = resolveNounException("tuote", "elle", WordGradationType.Inverted, Noun ~ Allative ~ Singular)
     assert(result1 == Some(GradationType.Strong))
   }
 

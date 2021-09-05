@@ -1,7 +1,7 @@
 package morph_fin.rulings.verbs
 
 import morph_fin.rulings.*
-import morph_fin.rulings.nomines.Gradation
+import morph_fin.rulings.nouns.Gradation
 import morph_fin.utils.{FilesLocation, Parser}
 
 import java.io.File
@@ -22,10 +22,9 @@ object LoadAndParseVerbRules {
   }
 }
 
-case class VerbExampleConjugations(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(VerbMophemes, String)])
+case class VerbExampleConjugations(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(Morphemes, String)])
 
 class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
-
 
   def parse: Seq[VerbExampleConjugations] =
     skipWhiteSpaces
@@ -48,9 +47,9 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
     val wordList = lines.flatMap(a => a._2.map(b => (a._1, b)))
     VerbExampleConjugations(number, lemma, gradation, wordList)
 
-  inline def isLemma(moprhemes: VerbMophemes): Boolean =
-    moprhemes match {
-      case AInfinitive(false) => true
+  inline def isLemma(moprhemes: Morphemes): Boolean =
+    moprhemes.root match {
+      case AInfinitive => true
       case _                  => false
     }
 
@@ -68,10 +67,10 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
       val strong = collectUntil( peek == '-')
       skip('-')
       val weak = collectUntil( peek == '>')
-      Some(nomines.Gradation(strong, weak))
+      Some(nouns.Gradation(strong, weak))
     else None
 
-  inline def parseLine: (VerbMophemes, Seq[String]) =
+  inline def parseLine: (Morphemes, Seq[String]) =
     skipComments
     val morphemes = peek match {
       case 'P' | 'A' => parseNormal
@@ -86,26 +85,28 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
 
   //=========================================
 
-  inline def parseNormal: Standard =
+  inline def parseNormal: Morphemes =
     val voice = parseVoice
     val modus = parseModus
     val tempus = parseTempus
     val persona = voice match {
       case Active  => parsePersona
-      case Passive => Persona.Passive
+      case Passive => Passive
     }
     val mode = parseMode
-    Standard(modus, tempus, persona, mode)
+    Finite ~ modus ~ tempus ~ persona ~ mode
 
-  inline def parsePersona: Persona.Active =
-    val form = parseForm
-    val persona = peek match {
-      case '1' => consume; First
-      case '2' => consume; Second
-      case '3' => consume; Third
+  inline def parsePersona: Person =
+    val persona = peek2 match {
+      case ('S', '1') => skipTimes(2); SingularFirst
+      case ('S', '2') => skipTimes(2); SingularSecond
+      case ('S', '3') => skipTimes(2); SingularThird
+      case ('P', '1') => skipTimes(2); PluralFirst
+      case ('P', '2') => skipTimes(2); PluralSecond
+      case ('P', '3') => skipTimes(2); PluralThird
     }
     skip(':')
-    Persona.Active(form, persona)
+    persona
 
   inline def parseForm = peek match {
     case 'P' => consume; Plural
@@ -142,7 +143,7 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
 
   //=========================================
 
-  def parseInfinitive: VerbMophemes =
+  def parseInfinitive: Morphemes =
     skipAll("Inf")
     peek match {
       case '1' => parseInfinitive1
@@ -152,34 +153,33 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
       case '5' => parseInfinitive5
     }
 
-  inline def parseInfinitive1: AInfinitive =
+  inline def parseInfinitive1: Infinitive =
     skipAll("1:")
-    val tpe = peek match {
-      case 'L' => skipAll("L:"); true
-      case _ => false
+    peek match {
+      case 'L' => skipAll("L:"); AInfinitiveLong
+      case _   => AInfinitive
     }
-    AInfinitive(tpe)
 
-  inline def parseInfinitive2: EInfinitive =
+  inline def parseInfinitive2: Morphemes =
     skipAll("2:")
     val cse = parseCase
     val voice = peek match {
       case 'A' => skipAll("Akt:");  Active
       case 'P' => skipAll("Pas:"); Passive
     }
-    EInfinitive(cse, voice)
+    EInfinitive ~ cse ~ voice
 
-  inline def parseInfinitive3: MAInfinitive =
+  inline def parseInfinitive3: Morphemes =
     skipAll("3:")
     val cse = parseCase
     val voice = parseVoice
-    MAInfinitive(cse, voice)
+    MAInfinitive ~ cse ~ voice
 
-  inline def parseInfinitive4: VerbMophemes =
+  inline def parseInfinitive4: Morphemes =
     skipAll("4:")
     InfinitiveIV
 
-  inline def parseInfinitive5: VerbMophemes =
+  inline def parseInfinitive5: Morphemes =
     skipAll("5:")
     InfinitiveV
 
@@ -208,11 +208,11 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
 
   //=========================================
 
-  inline def parseParticiple: Participle =
+  inline def parseParticiple: Morphemes =
     skipAll("Par")
     peek match {
-      case '1' => skipAll("1:"); vAParticiple(Active)
-      case '2' => skipAll("2:"); vAParticiple(Passive)
+      case '1' => skipAll("1:"); vAParticiple ~ Active
+      case '2' => skipAll("2:"); vAParticiple ~ Passive
       case '3' => skipAll("3:"); nUtParticiple
       case '4' => skipAll("4:"); tUParticiple
       case '5' => skipAll("5:"); AgentParticiple

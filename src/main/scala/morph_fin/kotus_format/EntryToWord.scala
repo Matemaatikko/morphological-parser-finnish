@@ -1,7 +1,7 @@
 package morph_fin.kotus_format
 
 import morph_fin.rulings.GradationHandler
-import morph_fin.rulings.nomines.{Gradation, Word}
+import morph_fin.rulings.nouns.{Gradation, Word}
 
 object EntryToWord {
 

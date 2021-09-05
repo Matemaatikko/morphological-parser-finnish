@@ -1,6 +1,7 @@
 package morph_fin.rulings
 
-import morph_fin.rulings.nomines.Gradation
+import morph_fin.rulings._
+import morph_fin.rulings.nouns.Gradation
 import morph_fin.utils.{Hyphenation, Letters}
 
 //Gradation
@@ -91,18 +92,18 @@ object GradationHandler {
    * In inverted consonant gradation words ending with 'e' can have strong gradation if the following syllabus contains two vowels.
    * Implementation for inverted exceptions does not follow this logic, but will give the same output.
    */
-  def resolveNomineException(lemma: String, ending: String, tpe: WordGradationType, morphemes: NomineMorphemes): Option[GradationType] =
+  def resolveNounException(lemma: String, ending: String, tpe: WordGradationType, morphemes: Morphemes): Option[GradationType] =
     import WordGradationType._
-    (tpe, morphemes) match {
-      case (Straight, NomineMorphemes(Illative, Singular | Plural)) =>
+    tpe match {
+      case Straight if morphemes.is(Illative) =>
         Some(GradationType.Strong)
-      case (Straight, NomineMorphemes(Genitive, Plural)) if ending.endsWith("in")   =>
+      case Straight if morphemes.is(Genitive, Plural) && ending.endsWith("in")   =>
         Some(GradationType.Strong)
-      case (Inverted, NomineMorphemes(Nominative | Partitive | Accusative, Singular)) =>
+      case Inverted if morphemes.is(Nominative, Singular) ||  morphemes.is(Partitive, Singular) ||  morphemes.is(Accusative, Singular) =>
         Some(GradationType.Weak)
-      case (Inverted, NomineMorphemes(Genitive, Plural)) if ending.endsWith("ten") &&  !ending.endsWith("tten") =>
+      case Inverted if morphemes.is(Genitive, Plural) && ending.endsWith("ten") &&  !ending.endsWith("tten") =>
         Some(GradationType.Weak)
-      case (Inverted, _)  =>
+      case Inverted =>
         Some(GradationType.Strong)
       case _ => None
     }
@@ -110,24 +111,24 @@ object GradationHandler {
   /**
    * The following method manages exceptions to consonant gradation for verbs.
    */
-  def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: VerbMophemes): Option[GradationType] =
+  def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: Morphemes): Option[GradationType] =
     import WordGradationType._
-    (tpe, morphemes) match {
-      case (Straight, Standard(Indicative, Present, Persona.Passive, Positive)) =>
+    tpe match {
+      case Straight if morphemes.is(Indicative, Present, Passive, Positive) =>
         Some(GradationType.Weak)
-      case (Straight, Standard(Imperative, Present, Persona.Active(Singular, Second), _)) =>
+      case Straight if morphemes.is(Imperative, Present, Active, SingularSecond) =>
         Some(GradationType.Weak)
-      case (Straight, Standard(Indicative, Present, _, Negative)) =>
+      case Straight if morphemes.is(Indicative, Present, Negative) =>
         Some(GradationType.Weak)
-      case (Inverted, Standard(Indicative, Present, Persona.Passive, Negative)) =>
+      case Inverted if morphemes.is(Indicative, Present, Passive, Negative) =>
         Some(GradationType.Weak)
-      case (Inverted, Standard(Indicative, Present, Persona.Active(_,_), Positive)) if endsWith_tA(lemma) =>
+      case Inverted if morphemes.is(Indicative, Present, Active, Positive) && endsWith_tA(lemma) =>
         Some(GradationType.Strong)
-      case (Inverted, Standard(Indicative, _, Persona.Passive, Positive)) if endsWith_tA(lemma)  =>
+      case Inverted if morphemes.is(Indicative, Passive, Positive) && endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
-      case (Inverted, AInfinitive(_)) if endsWith_tA(lemma)  =>
+      case Inverted if morphemes.root == AInfinitive && endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
-      case (Inverted, EInfinitive(_, Active)) if endsWith_tA(lemma)  =>
+      case Inverted if morphemes.root == EInfinitive && morphemes.is(Active) && endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
       case _ => None
     }

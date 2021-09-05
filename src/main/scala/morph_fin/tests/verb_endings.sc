@@ -1,4 +1,4 @@
-import morph_fin.rulings.nomines.RepChar
+import morph_fin.rulings.nouns.RepChar
 import morph_fin.rulings.verbs.LoadAndParseVerbRules
 
 val rules = LoadAndParseVerbRules.rules
