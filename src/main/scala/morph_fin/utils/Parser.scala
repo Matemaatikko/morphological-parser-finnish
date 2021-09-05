@@ -53,14 +53,14 @@ class Parser(stream: Iterator[Char]) {
   def collectUntil(condition: => Boolean): String =
     @tailrec
     def iter(result: String): String =
-      if(!condition) iter(result + consume)
+      if(!condition && peek != streamEnded) iter(result + consume)
       else result
     iter("")
 
   def doUntil[A](fun: => A, condition: => Boolean): Seq[A] =
     @tailrec
     def iter(result: Seq[A]): Seq[A] =
-      if(!condition) iter(result :+ fun)
+      if(!condition && peek != streamEnded) iter(result :+ fun)
       else result
     iter(Nil)
 }

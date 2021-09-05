@@ -45,7 +45,7 @@ object GradationHandler {
   /**
    * Some words ending with 'e' have straight gradation. Examples: nukke, jeppe, bourette
    */
-  def getWordGradationTypeForNomine(lemma: String, gradation: Gradation): WordGradationType =
+  def getWordGradationTypeForNoun(lemma: String, gradation: Gradation): WordGradationType =
     if lemma.last == 'e' && lemma.dropRight(1).endsWith(gradation.strong) then WordGradationType.Straight
     else allVowelsExcepte.contains(lemma.last) match {
       case true => WordGradationType.Straight
@@ -53,7 +53,7 @@ object GradationHandler {
     }
 
   /**
-   * root = beginnig + gradation (- ending)
+   * root = beginning + gradation (- ending)
    */
   def getWordGradationTypeForVerb(lemma: String, gradation: Gradation): WordGradationType =
     val root = if endsWith_tA(lemma) then lemma.dropRight(2) else lemma
@@ -92,7 +92,7 @@ object GradationHandler {
    * In inverted consonant gradation words ending with 'e' can have strong gradation if the following syllabus contains two vowels.
    * Implementation for inverted exceptions does not follow this logic, but will give the same output.
    */
-  def resolveNounException(lemma: String, ending: String, tpe: WordGradationType, morphemes: Morphemes): Option[GradationType] =
+  def resolveNounException(ending: String, tpe: WordGradationType, morphemes: Morphemes): Option[GradationType] =
     import WordGradationType._
     tpe match {
       case Straight if morphemes.is(Illative) =>

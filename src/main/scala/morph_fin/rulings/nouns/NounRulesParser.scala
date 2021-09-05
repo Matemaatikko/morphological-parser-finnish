@@ -25,12 +25,10 @@ case class NounExampleDeclensions(number: Int, lemma: String, gradation: Option[
 
 class NounRulesParser(stream: Iterator[Char]) extends Parser(stream){
 
-  var currentCharacter: Option[Char] = Some(' ')
-
   def parse: Seq[NounExampleDeclensions] =
     skipWhiteSpaces
     skipComments
-    doUntil(parseNextEntry, !currentCharacter.contains('<'))
+    doUntil(parseNextEntry, peek !=  '<')
 
   def skipComments: Unit =
     if(peek == '#') doUntil(consume, peek == '\n')
@@ -43,7 +41,7 @@ class NounRulesParser(stream: Iterator[Char]) extends Parser(stream){
     val number = collectUntil( !peek.isDigit).toInt
     val gradation = parseGradation
     skip('>')
-    val lines = doUntil(parseLine, currentCharacter.isEmpty || currentCharacter.contains('<')).toSeq
+    val lines = doUntil(parseLine, peek == '<').toSeq
     val lemma = lines.find(tuple => isLemma(tuple._1)).get._2.head
     val wordList = lines.flatMap(a => a._2.map(b => (a._1, b._1, b._2)))
     NounExampleDeclensions(number, lemma._1, gradation, wordList)
@@ -81,7 +79,7 @@ class NounRulesParser(stream: Iterator[Char]) extends Parser(stream){
     val cse = resolveCase(caseString)
     skip(':')
     skipWhiteSpaces
-    val words = collectUntil(currentCharacter.isEmpty || currentCharacter.contains('\n')).split(' ')
+    val words = collectUntil(peek == '\n').split(' ')
     val paranthesesRemoved = words
       .map(removePsuffix(_))
       .map(removeParanthesis(_))

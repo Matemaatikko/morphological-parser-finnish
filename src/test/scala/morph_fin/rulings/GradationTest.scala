@@ -10,10 +10,10 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
   import GradationHandler._
 
   "getWordGradationTypeForNomine - method" should "work" in {
-    assert(getWordGradationTypeForNomine("nukke", Gradation("kk", "k")) == WordGradationType.Straight)
-    assert(getWordGradationTypeForNomine("kannel", Gradation("kk", "k")) == WordGradationType.Inverted)
-    assert(getWordGradationTypeForNomine("auto", Gradation("kk", "k")) == WordGradationType.Straight)
-    assert(getWordGradationTypeForNomine("tuote", Gradation("kk", "k")) == WordGradationType.Inverted)
+    assert(getWordGradationTypeForNoun("nukke", Gradation("kk", "k")) == WordGradationType.Straight)
+    assert(getWordGradationTypeForNoun("kannel", Gradation("kk", "k")) == WordGradationType.Inverted)
+    assert(getWordGradationTypeForNoun("auto", Gradation("kk", "k")) == WordGradationType.Straight)
+    assert(getWordGradationTypeForNoun("tuote", Gradation("kk", "k")) == WordGradationType.Inverted)
   }
 
   "getGradationTypeByEnding - method" should "work" in {
@@ -27,7 +27,7 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
   //TODO testing not comprehensive
 
   "resolveNomineException - method" should "work" in {
-    val result1 = resolveNounException("tuote", "elle", WordGradationType.Inverted, Noun ~ Allative ~ Singular)
+    val result1 = resolveNounException("elle", WordGradationType.Inverted, Noun ~ Allative ~ Singular)
     assert(result1 == Some(GradationType.Strong))
   }
 

@@ -54,7 +54,7 @@ P:Ess: valoina
 P:Tra: valoiksi
 P:Ins: valoin
 P:Abe: valoitta
-P:Kom: valoine-P
+P:Com: valoine-P
 
 <2>
 S:Nom: palvelu

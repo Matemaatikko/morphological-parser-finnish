@@ -1,18 +1,19 @@
 import morph_fin.kotus_format.{Bending, Entry, EntryToWord, KotusWord}
-import morph_fin.rulings.Print
-import morph_fin.rulings.nouns.{DeclensionUtils, LoadAndParseNomineRules, PossessiveSuffixGeneration, InflectedWord, Word}
+import morph_fin.rulings.nouns.{DeclensionRule, DeclensionUtils, InflectedWord, LoadAndParseNomineRules, PossessiveSuffixGeneration, Word}
 import morph_fin.rulings.verbs.LoadAndParseVerbRules
 
-val nomineRulings = LoadAndParseNomineRules.rules
+LoadAndParseNomineRules.apply().mkString("\n")
+val rules = LoadAndParseNomineRules.rules
+given Seq[DeclensionRule] = rules
 
 def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
   EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
 
 def printA(words: Seq[InflectedWord]) =
-  println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))
+  println(words.map(a => a.word.toString + " : " + a.morphemes.toString).mkString("\n"))
   println("============================")
 
-def declesions(word: Word) = DeclensionUtils.generateDeclensions(nomineRulings, word)
+def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
 
 def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   val results = declesions(getWord(word, rule, gradationLetterOpt))

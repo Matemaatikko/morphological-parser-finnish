@@ -1,4 +1,5 @@
 - TODO nomine -> noun
+- TODO explore possibility to simplify using hyphenation
 
 - TODO Make adjective detector (there are ways to make adjectives from nouns.)
 - ->TODO<--- reformat verb rules (verb_rules_2).

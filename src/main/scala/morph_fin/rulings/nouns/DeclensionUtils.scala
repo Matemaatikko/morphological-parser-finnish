@@ -29,7 +29,7 @@ object DeclensionUtils {
     val resultOpt = if(number == 49 && lemma.endsWith("e")) rules.find(_.ruleNumber == 492)
     else if (number == 49) rules.find(_.ruleNumber == 491)
     else rules.find(_.ruleNumber == number)
-    resultOpt.getOrElse(throw new Exception(s"No nomine rule found for: ${number}"))
+    resultOpt.getOrElse(throw new Exception(s"No noun rule found for: ${number}"))
 
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
@@ -93,9 +93,9 @@ object DeclensionUtils {
       case (Some(gradation), Some(Strong)) => gradation.strong
       case (Some(gradation), Some(Weak)) => gradation.weak
       case (Some(gradation), _) =>
-        val wordGradationType = GradationHandler.getWordGradationTypeForNomine(lemma, gradation)
+        val wordGradationType = GradationHandler.getWordGradationTypeForNoun(lemma, gradation)
         val defaultGradationType = GradationHandler.getGradationTypeByEnding(root._2 + updatedEnding)
-        val exceptionGradationType = GradationHandler.resolveNounException(lemma, updatedEnding, wordGradationType, ending.morphemes)
+        val exceptionGradationType = GradationHandler.resolveNounException(updatedEnding, wordGradationType, ending.morphemes)
         val tpe = exceptionGradationType.getOrElse(defaultGradationType)
         exceptionalBeginning = resolve_i_j(root._1, lemma, gradation, tpe)
         if(tpe == GradationType.Strong) gradation.strong else gradation.weak
