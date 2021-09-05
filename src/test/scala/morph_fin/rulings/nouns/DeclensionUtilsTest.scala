@@ -27,7 +27,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Nominative ~ Singular, "järkky")
     declensions.matches(Noun ~ Genitive ~ Singular, "järkyn")
     declensions.matches(Noun ~ Partitive ~ Singular, "järkkyä")
-    declensions.matches(Noun ~ Accusative ~ Singular, "järkky", "järkyn")
+    //declensions.matches(Noun ~ Accusative ~ Singular, "järkky", "järkyn")
 
     declensions.matches(Noun ~ Inessive ~ Singular, "järkyssä")
     declensions.matches(Noun ~ Elative ~ Singular, "järkystä")
@@ -46,7 +46,7 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Nominative ~ Plural, "järkyt")
     declensions.matches(Noun ~ Genitive ~ Plural, "järkkyjen")
     declensions.matches(Noun ~ Partitive ~ Plural, "järkkyjä")
-    declensions.matches(Noun ~ Accusative ~ Plural, "järkyt")
+    //declensions.matches(Noun ~ Accusative ~ Plural, "järkyt")
 
     declensions.matches(Noun ~ Inessive ~ Plural, "järkyissä")
     declensions.matches(Noun ~ Elative ~ Plural, "järkyistä")

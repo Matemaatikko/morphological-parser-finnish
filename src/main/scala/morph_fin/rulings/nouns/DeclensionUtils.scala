@@ -39,12 +39,11 @@ object DeclensionUtils {
 
     //Resolve root
     val (root, lemma) = checkPlurality(rule, word)
-    val updatedRoot = checkRule49(root, rule)
 
     //Resolve gradation
     val rootDividedByGradation = word.gradation match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(updatedRoot, gradation, rule.ruleNumber, rule.drop)
-      case _                                    => (updatedRoot, "")
+      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop)
+      case _                                    => (root, "")
     }
 
     rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word, rule))
@@ -77,7 +76,7 @@ object DeclensionUtils {
     if(word.ruleNumber == 5 && Letters.isConsonant(word.lemma.last)) word.lemma
     else word.lemma.dropRight(rule.drop)
 
-  //Under rule 5 removes wrong 'i' from Nom:S if needed. Example: pick-upi -> pick-up
+  //Under rule 5 removes wrong 'i' from Nominative Singular if needed. Example: pick-upi -> pick-up
   private inline def updateRule5(resultWord: InflectedWord, ruleNumber: Int): InflectedWord =
     if(ruleNumber == 5 && resultWord.morphemes.is(Nominative, Singular)&& resultWord.lemma.last != 'i')
     then

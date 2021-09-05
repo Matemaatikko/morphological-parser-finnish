@@ -97,7 +97,9 @@ object GenerateDeclensionRules {
     val root = exampleDeclensions.lemma.dropRight(drop)
 
     //Resolve cases
-    val cases = exampleDeclensions.cases.map(resolveCase(_, root, gradation))
+    val cases = exampleDeclensions.cases
+      .map(resolveCase(_, root, gradation))
+      .filterNot(_.morphemes.is(Accusative))
     DeclensionRule(exampleDeclensions.number, drop, true, Nil, cases)
 
   /**
@@ -123,7 +125,9 @@ object GenerateDeclensionRules {
 
     val nominative = exampleDeclensions.cases.find(_._1.is(Nominative, Singular)).get
     val replacementVowels = nominative._2.drop(root.length).takeWhile(Letters.isVowel(_))
-    val cases = exampleDeclensions.cases.map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
+    val cases = exampleDeclensions.cases
+      .map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
+      .filterNot(_.morphemes.is(Accusative))
     DeclensionRule(exampleDeclensions.number, drop, false, replacementVowels, cases)
 
   def resolveNonGradationCase(morphemes: Morphemes, word: String, root: String, replacementVowels: Seq[Char]): Declension =

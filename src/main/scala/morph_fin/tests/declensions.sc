@@ -2,7 +2,6 @@ import morph_fin.kotus_format.{Bending, Entry, EntryToWord, KotusWord}
 import morph_fin.rulings.nouns.{DeclensionRule, DeclensionUtils, InflectedWord, LoadAndParseNomineRules, PossessiveSuffixGeneration, Word}
 import morph_fin.rulings.verbs.LoadAndParseVerbRules
 
-LoadAndParseNomineRules.apply().mkString("\n")
 val rules = LoadAndParseNomineRules.rules
 given Seq[DeclensionRule] = rules
 
@@ -36,4 +35,7 @@ printB("aallokas", 41, Some('A'))
 printB("aie", 48, Some('D'))
 printB("ajos", 39, None)
 printB("liittoutuneet", 47, None)
+
+printB("kantele", 49, None)
+printB("kannel", 49, Some('J'))
 
