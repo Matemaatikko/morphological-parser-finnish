@@ -1,4 +1,6 @@
 
+import morph_fin.kotus_format.ReformatKotus
+
 def timed[A](fun: => A): A = {
   val start = System.currentTimeMillis()
   val result = fun
@@ -11,6 +13,6 @@ def timed[A](fun: => A): A = {
 
 import morph_fin.inflection.{GenerateInflectedWords, TargetFile}
 
-timed(GenerateInflectedWords.apply(TargetFile.Noun))
+//timed(GenerateInflectedWords.apply(TargetFile.Noun))
 
-//timed(ReformatKotus.reformat)
+timed(ReformatKotus.reformat)

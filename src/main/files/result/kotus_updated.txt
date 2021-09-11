@@ -6980,7 +6980,7 @@ W:erisäätyisyys:B:40
 N:eritasoisesti
 W:eritasoisuus:B:40
 1:eritasoliittymä:P:eritaso:S:liittymä:B:10
-E:eritasonojapuut
+1:eritasonojapuut:P:eritasonoja:S:puu:B:18
 1:eritasoristeys:P:eritaso:S:risteys:B:39
 W:erite:B:48:L:C
 W:eritellä:B:67:L:C
@@ -10943,7 +10943,7 @@ W:herkkä:B:10:L:A
 1:herkkähermoisuus:P:herkkä:S:hermoisuus:B:40
 1:herkkähipiäinen:P:herkkä:S:hipiäinen:B:38
 1:herkkäihoinen:P:herkkä:S:ihoinen:B:38
-W:herkkäilmeinen:B:18
+W:herkkäilmeinen:B:38
 1:herkkäkuuloinen:P:herkkä:S:kuuloinen:B:38
 1:herkkäliikkeinen:P:herkkä:S:liikkeinen:B:38
 1:herkkänahkaisuus:P:herkkä:S:nahkaisuus:B:40
@@ -20369,7 +20369,7 @@ W:kangas:B:41:L:G
 W:kangaspakka:B:9:L:A
 1:kangaspala:P:kangas:S:pala:B:9
 1:kangasperhonen:P:kangas:S:perhonen:B:38
-E:kangaspuut
+1:kangaspuut:P:kangas:S:puu:B:18
 1:kangaspäällyksinen:P:kangas:S:päällyksinen:B:38
 1:kangaspäällys:P:kangas:S:päällys:B:39
 1:kangaspäällysteinen:P:kangas:S:päällysteinen:B:38
@@ -23410,7 +23410,7 @@ W:kerho:B:1
 W:kerholainen:B:38
 1:kerhonohjaaja:P:kerhon:S:ohjaaja:B:10
 1:kerhotoiminta:P:kerho:S:toiminta:B:9:L:J
-E:kerinpuut
+1:kerinpuut:P:kerin:S:puu:B:18
 W:kerintä:B:9:L:J
 W:kerintä:B:9:L:J
 W:keripukki:B:5:L:A
@@ -25456,7 +25456,7 @@ W:kiramo:B:2
 W:kiretä:B:72
 W:kireys:B:40
 W:kireä:B:15
-W:kireäilmeinen:B:18
+W:kireäilmeinen:B:38
 N:kireälle
 N:kireällä
 W:kireäpipoinen:B:38
@@ -30863,7 +30863,7 @@ N:kuta
 N:kutakuinkin
 W:kutale:B:48
 W:kutea:B:58:L:F
-E:kuteet
+1:kuteet:P:ku:S:tee:B:18
 N:kuteilla
 N:kuteille
 W:kuteinen:B:38
@@ -38176,7 +38176,7 @@ W:luolamaalaus:B:39
 W:luolasto:B:2
 W:luoma:B:10
 1:luomakunta:P:luoma:S:kunta:B:10:L:J
-E:luomapuut
+1:luomapuut:P:luoma:S:puu:B:18
 W:luomi:B:25
 W:luomi:B:25
 1:luomipuuteri:P:luomi:S:puuteri:B:6
@@ -38671,7 +38671,7 @@ W:luvuton:B:34:L:C
 N:luvuttomasti
 W:lux:B:5
 1:LVI-tekniikka:P:LVI:S:tekniikka:B:14:L:A
-1:LVI-työt:P:LVI:S:tie:B:19
+1:LVI-työt:P:LVI:S:työ:B:19
 W:lyhde:B:48:L:F
 W:lyhenemä:B:10
 W:lyhenne:B:48:L:J
@@ -43150,7 +43150,6 @@ W:miinus:B:39
 1:miinuspuoli:P:miinus:S:puoli:B:26
 W:miinustaa:B:53
 W:miitinki:B:5:L:G
-U:mikin
 W:mikkeli:B:6
 1:mikkelinpäivä:P:mikkelin:S:päivä:B:10
 W:mikki:B:5:L:A
@@ -43421,8 +43420,6 @@ W:missi:B:5
 W:missio:B:3
 1:missivuosi:P:missi:S:vuosi:B:27
 W:missiys:B:40
-U:missä
-U:missäkin
 E:missäpäin
 U:missään
 W:misteli:B:6
@@ -43726,7 +43723,7 @@ W:monias:B:41
 1:moniavioisuus:P:moni:S:avioisuus:B:40
 1:monihaarainen:P:moni:S:haarainen:B:38
 1:monihenkinen:P:moni:S:henkinen:B:38
-W:moni-ilmeinen:B:18
+W:moni-ilmeinen:B:38
 1:monijumalainen:P:moni:S:jumalainen:B:38
 W:monijumalaisuus:B:40
 1:monijäseninen:P:moni:S:jäseninen:B:38
@@ -47338,7 +47335,7 @@ N:nojalla
 N:nojallaan
 N:nojalleen
 1:nojapuuliike:P:nojapuu:S:liike:B:48:L:A
-E:nojapuut
+1:nojapuut:P:noja:S:puu:B:18
 N:nojassa
 W:nojata:B:73
 1:nojatuoli:P:noja:S:tuoli:B:5
@@ -49351,7 +49348,7 @@ W:omaharkintainen:B:38
 W:omahyväinen:B:38
 N:omahyväisesti
 W:omahyväisyys:B:40
-W:omailmeinen:B:18
+W:omailmeinen:B:38
 W:omainen:B:38
 S:omainen:B:38
 S:omaisesti:B:99
@@ -55243,7 +55240,7 @@ W:pitkittäisraita:B:9:L:F
 W:pitkittää:B:53:L:C
 W:pitkitys:B:39
 W:pitko:B:1
-E:pitkospuut
+1:pitkospuut:P:pitkos:S:puu:B:18
 W:pitkulainen:B:38
 W:pitkä:B:10
 1:pitkäaaltoalue:P:pitkäaalto:S:alue:B:48
@@ -56396,7 +56393,7 @@ W:porskuttaa:B:53:L:C
 W:porstua:B:12
 W:portaali:B:6
 1:portaalinosturi:P:portaali:S:nosturi:B:6
-1:portaat:P:por:S:taka:B:9:L:D
+E:portaat
 W:portaaton:B:34:L:C
 N:portaattomasti
 W:portaikko:B:4:L:A
@@ -63034,7 +63031,7 @@ N:riivatusti
 1:riivinrauta:P:riivin:S:rauta:B:9:L:F
 W:riiviö:B:3
 W:rikas:B:41:L:A
-W:rikasilmeinen:B:18
+W:rikasilmeinen:B:38
 1:rikaspiirteinen:P:rikas:S:piirteinen:B:38
 1:rikassisältöinen:P:rikas:S:sisältöinen:B:38
 W:rikastaa:B:53
@@ -65046,7 +65043,7 @@ W:rynttyyt:B:41
 W:ryntäillä:B:67
 W:ryntäily:B:2
 W:ryntäys:B:39
-1:ryntäät:P:ryn:S:täi:B:18
+E:ryntäät
 W:ryntö:B:1:L:J
 W:rypeä:B:58:L:E
 W:rypistellä:B:67
@@ -67070,7 +67067,7 @@ W:saunapalvi:B:5
 W:saunapata:B:9:L:F
 1:saunapolku:P:sauna:S:polku:B:1:L:D
 1:saunapuhdas:P:sauna:S:puhdas:B:41:L:F
-E:saunapuut
+1:saunapuut:P:sauna:S:puu:B:18
 1:saunapyyhe:P:sauna:S:pyyhe:B:48:L:D
 1:saunapäivä:P:sauna:S:päivä:B:10
 1:saunaranta:P:sauna:S:ranta:B:9:L:J
@@ -78723,7 +78720,7 @@ W:tikahtua:B:52:L:F
 W:tikankontti:B:5:L:C
 1:tikanpoika:P:tikan:S:poika:B:10:L:D
 1:tikapuuhermosto:P:tikapuu:S:hermosto:B:2
-E:tikapuut
+1:tikapuut:P:tika:S:puu:B:18
 1:tikarappuset:P:tika:S:rappunen:B:38
 1:tikaraput:P:tika:S:rappu:B:1:L:B
 W:tikari:B:6
@@ -79127,7 +79124,7 @@ N:tiukilla
 N:tiukille
 W:tiukka:B:9:L:A
 N:tiukkaan
-W:tiukkailmeinen:B:18
+W:tiukkailmeinen:B:38
 1:tiukkakantinen:P:tiukka:S:kantinen:B:38
 1:tiukkakatseinen:P:tiukka:S:katseinen:B:38
 1:tiukkapipo:P:tiukka:S:pipo:B:1
@@ -79882,7 +79879,7 @@ W:toukoaika:B:9:L:D
 1:toukokuinen:P:touko:S:kuinen:B:38
 1:toukokuu:P:touko:S:kuu:B:18
 1:toukopelto:P:touko:S:pelto:B:1:L:I
-1:toukotyöt:P:touko:S:tie:B:19
+1:toukotyöt:P:touko:S:työ:B:19
 1:touonteko:P:touon:S:teko:B:1:L:D
 W:tournedos:B:22
 W:toutain:B:33
@@ -85363,7 +85360,7 @@ W:vakautus:B:39
 1:vakautussopimus:P:vakautus:S:sopimus:B:39
 W:vakava:B:10
 1:vakavahenkinen:P:vakava:S:henkinen:B:38
-W:vakavailmeinen:B:18
+W:vakavailmeinen:B:38
 1:vakavakasvoinen:P:vakava:S:kasvoinen:B:38
 1:vakavakatseinen:P:vakava:S:katseinen:B:38
 1:vakavalaatuinen:P:vakava:S:laatuinen:B:38
@@ -91389,7 +91386,7 @@ N:vähäeleisesti
 W:vähäeleisyys:B:40
 1:vähäenergiainen:P:vähä:S:energiainen:B:38
 W:vähähappinen:B:38
-W:vähäilmeinen:B:18
+W:vähäilmeinen:B:38
 E:vähäilmeisesti
 W:vähäilmeisyys:B:40
 W:vähäinen:B:38
@@ -92415,7 +92412,7 @@ W:yksi:B:31
 1:yksiavioinen:P:yksi:S:avioinen:B:38
 1:yksiavioisuus:P:yksi:S:avioisuus:B:40
 1:yksihenkinen:P:yksi:S:henkinen:B:38
-W:yksi-ilmeinen:B:18
+W:yksi-ilmeinen:B:38
 N:yksiin
 1:yksijumalainen:P:yksi:S:jumalainen:B:38
 W:yksijumalaisuus:B:40
@@ -94252,4 +94249,7 @@ W:korkeakoulu:B:1
 W:jalokivi:B:7
 W:viileäkaappi:B:5:L:B
 W:raaka-aine:B:48
+N:missä
+N:mikin
+N:missäkin
 2:nuoripari:P:nuori:B:26:S:pari:B:5

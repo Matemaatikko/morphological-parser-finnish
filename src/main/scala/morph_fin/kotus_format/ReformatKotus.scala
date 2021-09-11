@@ -110,8 +110,17 @@ object ReformatKotus {
 
   given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
 
+
+  def fixIlmeinen(entry: Entry): Entry = entry match {
+    case Entry(word, Some(bending)) if word.value.endsWith("ilmeinen") && bending.rule == 18 => Entry(word, Some(bending.copy(rule = 38)))
+    case _ => entry
+  }
+
   def apply(rulings: Seq[DeclensionRule]): Seq[UpdatedWord] =
-    val list: Seq[Entry] = ParseKotus().filterNot(a => remove.contains(a.word.value)) ++ additions
+    val list: Seq[Entry] = ParseKotus()
+      .filterNot(a => remove.contains(a.word.value))
+      .map(fixIlmeinen(_))
+      ++ additions
 
     //===================================
 
