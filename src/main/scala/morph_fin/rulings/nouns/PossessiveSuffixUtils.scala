@@ -44,8 +44,9 @@ object PossessiveSuffixUtils {
   inline def getRootForNonVnSuffixes(suffixBody: InflectedWord, gradationOpt: Option[Gradation]): InflectedWord =
     val root = suffixBody.word.root
     val updatedGradation = updateGradation(suffixBody.word.gradation, suffixBody.morphemes, gradationOpt)
-    val updatedEnding = remove_t_and_n_fromEnding(suffixBody.word.ending)
-    suffixBody.copy(word = StructuredWord(root, updatedGradation, updatedEnding))
+    val updatedEnding = handle_mm_case(remove_t_and_n_fromEnding(suffixBody.word.ending))
+    val updatedEnding2 = handleTranslativeCase(updatedEnding, suffixBody.morphemes)
+    suffixBody.copy(word = StructuredWord(root, updatedGradation, updatedEnding2))
 
   /**
    * If possessive suffix is not allowed, then Nil is returned.
@@ -84,6 +85,16 @@ object PossessiveSuffixUtils {
   private inline def remove_t_and_n_fromEnding(ending: String): String =
     if ending.lastOption == Some('t') || ending.lastOption == Some('n')
     then ending.dropRight(1) else ending
+
+  //Example: kauniimma(n) -> kauniimpa(ni)
+  private inline def handle_mm_case(ending: String): String =
+    val lastDropped = ending.dropRight(1)
+    if lastDropped.endsWith("mm") then ending.dropRight(3) + "mp" + ending.last else ending
+
+  //kauniiksi -> kauniikseni
+  private inline def handleTranslativeCase(ending: String, morphemes: Morphemes): String =
+    if morphemes.is(Translative) then ending.dropRight(1) + "e"
+    else ending
 
   import morph_fin.utils.VocalizationUtils._
 

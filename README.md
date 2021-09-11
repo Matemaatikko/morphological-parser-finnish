@@ -154,7 +154,6 @@ Consonant gradation
 Incorrect inflection (To be fixed)
 =============================
 - The following words have incorrect inflection:
-  - hapan
   - jälsi
 - Some numerals have incorrect inflection. Example: 'kahdeksan'
 

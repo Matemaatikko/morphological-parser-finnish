@@ -15,4 +15,7 @@
 - TODO Add Nomine inflections for participles
 
 
+- TODO word hapan is wrong.
+
+
 

@@ -87,16 +87,25 @@ object GenerateDeclensionRules {
 
   import Declension.*
 
+  //===========================================
+
   def resolveGradation(exampleDeclensions: NounExampleDeclensions, gradation: Gradation): DeclensionRule =
     //Resolve root. Resolvation is based on nomine_rules.txt file analysation
     val drop = if exampleDeclensions.number == 35 then 4 else 3
     val root = exampleDeclensions.lemma.dropRight(drop)
 
+    val replacementDrop: Int = exampleDeclensions.number match {
+      case 4 | 14 | 16 => 1
+      case 34 | 35     => 2
+    }
+    val replacementVowels = resolveReplacementVowels(exampleDeclensions, exampleDeclensions.lemma.length - replacementDrop)
+
     //Resolve cases
     val cases = exampleDeclensions.cases
-      .map(resolveCase(_, root, gradation))
+      .map(resolveGradationCase(_, root, gradation, replacementVowels))
       .filterNot(_.morphemes.is(Accusative))
-    DeclensionRule(exampleDeclensions.number, drop, true, Nil, cases)
+
+    DeclensionRule(exampleDeclensions.number, drop, true, replacementVowels, cases)
 
   /**
    *  Removes root and gradation from cased word to resolve ending.
@@ -104,13 +113,18 @@ object GenerateDeclensionRules {
    *
    *  Boolean in triple tells if word has been parsed with paranthesis. i.e. (jalkain)
    */
-  def resolveCase(triple: (Morphemes, String, Boolean), root: String, gradation: Gradation): Declension =
+  def resolveGradationCase(triple: (Morphemes, String, Boolean), root: String, gradation: Gradation, replacementVowels: Seq[Char]): Declension =
     import GradationType.*
     val endingWithGradation = triple._2.drop(root.length)
     val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> Strong
       else endingWithGradation.drop(gradation.weak.length) -> Weak
-    Declension(triple._1, ending.map(Ch(_)), Some(tpe))
 
+    val updatedEnding = updateEndingWithReplacementRules(ending, triple._1, replacementVowels)
+
+    Declension(triple._1, updatedEnding, Some(tpe))
+
+
+  //===========================================
 
   def resolveNonGradation(exampleDeclensions: NounExampleDeclensions): DeclensionRule =
     val casedWords = exampleDeclensions.cases.map(_._2)
@@ -119,8 +133,7 @@ object GenerateDeclensionRules {
       then rootSuggestion.dropRight(1) else rootSuggestion
     val drop = exampleDeclensions.lemma.length - root.length
 
-    val nominative = exampleDeclensions.cases.find(_._1.is(Nominative, Singular)).get
-    val replacementVowels = nominative._2.drop(root.length).takeWhile(Letters.isVowel(_))
+    val replacementVowels = resolveReplacementVowels(exampleDeclensions, root.length)
     val cases = exampleDeclensions.cases
       .map(a => resolveNonGradationCase(a._1, a._2, root, replacementVowels))
       .filterNot(_.morphemes.is(Accusative))
@@ -128,9 +141,18 @@ object GenerateDeclensionRules {
 
   def resolveNonGradationCase(morphemes: Morphemes, word: String, root: String, replacementVowels: Seq[Char]): Declension =
     val ending = word.drop(root.length)
-    val (start, end) = if !morphemes.is(Illative, Singular) || ending.endsWith("seen") then splitByFirstConsonant(ending) else (ending, "")
-    val resultEnding = start.map(c => if(replacementVowels.contains(c)) then Rep(c) else Ch(c)) ++ end.map(Ch(_))
+    val resultEnding = updateEndingWithReplacementRules(ending, morphemes, replacementVowels)
     Declension(morphemes, resultEnding, None)
+
+  //==================================
+
+  private inline def resolveReplacementVowels(exampleDeclensions: NounExampleDeclensions, drop: Int): String =
+    val nominative = exampleDeclensions.cases.find(_._1.is(Nominative, Singular)).get
+    nominative._2.drop(drop).takeWhile(Letters.isVowel(_))
+
+  private inline def updateEndingWithReplacementRules(ending: String, morphemes: Morphemes, replacementVowels: Seq[Char]): Seq[RepChar] =
+    val (start, end) = if !morphemes.is(Illative, Singular) || ending.endsWith("seen") then splitByFirstConsonant(ending) else (ending, "")
+    start.map(c => if(replacementVowels.contains(c)) then Rep(c) else Ch(c)) ++ end.map(Ch(_))
 
   def splitByFirstConsonant(str: String): (String, String) =
     val index = str.indexWhere(Letters.isConsonant(_))

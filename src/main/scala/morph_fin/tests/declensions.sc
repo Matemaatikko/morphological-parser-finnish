@@ -6,6 +6,8 @@ import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules, LoadAnd
 val rules = LoadAndParseNomineRules.rules
 given Seq[DeclensionRule] = rules
 
+rules.find(_.ruleNumber == 34)
+
 def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
   EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
 
@@ -13,8 +15,8 @@ def printA(words: Seq[InflectedWord]) =
   println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))
   println("============================")
 
-//def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
-def declesions(word: Word) = AllDeclensionUtils.generateAllDeclections(word)
+def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
+//def declesions(word: Word) = AllDeclensionUtils.generateAllDeclections(word)
 
 def declesions2(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   declesions(getWord(word, rule, gradationLetterOpt))
@@ -28,7 +30,7 @@ def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 //printB("tie", 19)
 printB("ies", 41, Some('D'))
 printB("kaunis", 41)
-printB("hapan", 33, Some('B')) //Still wrong (e-a in middle of ending)
+printB("hapan", 34, Some('B')) //Still wrong (e-a in middle of ending)
 printB("jälsi", 28, Some('I')) //Still wrong (ls gradation replacement)
 printB("järkky", 1, Some('A'))
 printB("kalterit", 6, None)
