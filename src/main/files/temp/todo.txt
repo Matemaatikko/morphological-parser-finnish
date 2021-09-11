@@ -1,4 +1,5 @@
-- TODO Transitive (-ksi) with possessive suffix needs checking.
+- TODO commandline tool that helps testing
+- TODO Final formation for nouns
 
 - ->TODO<--- reformat verb rules (verb_rules_2).
 
@@ -14,8 +15,6 @@
 - TODO Add possessive suffixes for some infinitives .
 - TODO Add Nomine inflections for participles
 
-
-- TODO word hapan is wrong.
 
 
 
