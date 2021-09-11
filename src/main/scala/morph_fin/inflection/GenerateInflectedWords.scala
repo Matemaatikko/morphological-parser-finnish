@@ -114,7 +114,7 @@ object GenerateInflectedWords {
     else prefix + suffix
 
   def print(word: String, morphemes: Morphemes, lemma: String): String =
-    fill(word, 40) + ":" + fill(FilePrint(morphemes)+ ":", 25)  + lemma + "\n"
+    fill(word, 40) + ":" + fill(PrintMorphemes(morphemes)+ ":", 25)  + lemma + "\n"
 
   def fill(word: String, upTo: Int): String =
     val num = upTo - word.length

@@ -40,8 +40,11 @@ extension (morphemes: Morphemes)
     case a: Root => a == morphemes.root
   }
 
-  def isNot(_morphemes: Morpheme*): Boolean = ??? //!morphemes.is(_morphemes)
-  def isNot(_morphemes: Morphemes): Boolean = ??? //!morphemes.is(_morphemes)
+  def isNot(_morphemes: Morpheme*): Boolean =  _morphemes.exists(!morphemes.isImpl(_))
+  def isNot(_morphemes: Morphemes): Boolean = _morphemes match {
+    case Append(moprheme, tail) => morphemes.isNot(moprheme) || morphemes.isNot(tail)
+    case a: Root => a != morphemes.root
+  }
 
   def root: Root = morphemes match {
     case Append(_, _morph) => _morph.root

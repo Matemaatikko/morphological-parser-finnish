@@ -1,5 +1,6 @@
 import morph_fin.kotus_format.{Bending, Entry, EntryToWord, KotusWord}
-import morph_fin.rulings.nouns.{DeclensionRule, DeclensionUtils, InflectedWord, LoadAndParseNomineRules, PossessiveSuffixGeneration, Word}
+import morph_fin.rulings._
+import morph_fin.rulings.nouns.{ComparationUtils, DeclensionRule, DeclensionUtils, InflectedWord, LoadAndParseNomineRules, PossessiveSuffixGeneration, Word}
 import morph_fin.rulings.verbs.LoadAndParseVerbRules
 
 val rules = LoadAndParseNomineRules.rules
@@ -9,10 +10,14 @@ def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
   EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
 
 def printA(words: Seq[InflectedWord]) =
-  println(words.map(a => a.word.toString + " : " + a.morphemes.toString).mkString("\n"))
+  println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))
   println("============================")
 
 def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
+
+def declesions2(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
+  declesions(getWord(word, rule, gradationLetterOpt))
+
 
 def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   val results = declesions(getWord(word, rule, gradationLetterOpt))
@@ -38,4 +43,11 @@ printB("liittoutuneet", 47, None)
 
 printB("kantele", 49, None)
 printB("kannel", 49, Some('J'))
+
+
+val gen = declesions2("kaunis", 41, None).find(_.morphemes.is(Singular, Genitive)).get
+printA(ComparationUtils.generateSuperlativeInflections(gen))
+
+val ge2 = declesions2("keltainen", 38, None).find(_.morphemes.is(Singular, Genitive)).get
+printA(ComparationUtils.generateSuperlativeInflections(ge2))
 

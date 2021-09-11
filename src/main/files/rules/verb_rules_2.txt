@@ -30,6 +30,7 @@
 # -P = Only with possessive suffix
 # +P = Can have possessive suffix
 # -------------------------
+# Inf0 = A-infinitive (Long)
 # Inf1 = A-infinitive
 # Inf2 = E-infinitive
 # Inf3 = MA-infinitive
@@ -117,8 +118,8 @@ Pas:Imp:Pre:       sanottako
 
 #Infinitive
 
-Inf1:      sanoa
-Inf1:L:    sanoakse-P
+Inf1:    sanoa
+Inf0:    sanoakse-P
 
 Inf2:Ine:Akt: sanoessa
 Inf2:Ine:Pas: sanottaessa

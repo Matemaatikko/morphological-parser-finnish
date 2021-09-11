@@ -50,6 +50,8 @@ sealed trait Tempus extends Morpheme
   case object Perfect extends Tempus
   case object Pluperfect extends Tempus
 
+case object General extends Morpheme
+
 sealed trait Person extends Morpheme
   case object SingularFirst extends Person
   case object SingularSecond extends Person
