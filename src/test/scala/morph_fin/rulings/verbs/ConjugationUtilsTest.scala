@@ -1,13 +1,14 @@
 package morph_fin.rulings.verbs
 
 import morph_fin.rulings.Morphemes
-import morph_fin.rulings.nouns.{DeclensionUtils, Gradation, InflectedWord, Word}
+import morph_fin.rulings.nouns.{DeclensionUtils, InflectedWord, Word}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should
 import org.scalatest.*
 import flatspec.*
 import matchers.*
 import morph_fin.rulings.Morphemes
+import morph_fin.rulings.rules.LoadAndParseVerbRules
 
 extension[A] (a: A)
   def opt = Some(a)

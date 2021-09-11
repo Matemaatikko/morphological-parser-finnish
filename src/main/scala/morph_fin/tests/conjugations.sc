@@ -1,8 +1,9 @@
-import morph_fin.rulings.verbs.{ConjugationUtils, LoadAndParseVerbRules}
+import morph_fin.rulings.verbs.ConjugationUtils
 import morph_fin.kotus_format.{KotusWord, *}
 import morph_fin.rulings.nouns.InflectedWord
 import morph_fin.rulings.nouns.Word
 import morph_fin.rulings.Print
+import morph_fin.rulings.rules.LoadAndParseVerbRules
 
 val rules = LoadAndParseVerbRules.rules
 

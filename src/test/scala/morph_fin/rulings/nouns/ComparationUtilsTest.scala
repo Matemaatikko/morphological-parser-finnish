@@ -3,7 +3,8 @@ package morph_fin.rulings.nouns
 import org.scalatest.*
 import flatspec.*
 import matchers.*
-import morph_fin.rulings._
+import morph_fin.rulings.*
+import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNomineRules}
 
 extension[A] (a: A)
   def opt = Some(a)
@@ -51,6 +52,18 @@ class ComparationUtilsTest extends AnyFlatSpec with should.Matchers {
     val word = Word("solakka", 14, Gradation("kk", "k").opt)
     matchesComp(word, "solakampi")
     matchesSup(word, "solakoin", "solakin")
+  }
+
+  it should "work for -halpa-" in {
+    val word = Word("halpa", 9, Gradation("p", "v").opt)
+    matchesComp(word, "halvempi")
+    matchesSup(word, "halvin", "halvoin")
+  }
+
+  it should "work for -aito-" in {
+    val word = Word("aito", 1, Gradation("t", "d").opt)
+    matchesComp(word, "aidompi")
+    matchesSup(word, "aidoin")
   }
 
 

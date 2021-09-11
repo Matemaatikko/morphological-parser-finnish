@@ -1,6 +1,5 @@
-import morph_fin.rulings.nouns.{LoadAndParseNomineRules, RepChar}
-
-import morph_fin.rulings.MorphemesUtils._
+import morph_fin.rulings.MorphemesUtils.*
+import morph_fin.rulings.rules.{LoadAndParseNomineRules, RepChar}
 
 val nomineRulings = LoadAndParseNomineRules.rules
 

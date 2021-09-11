@@ -1,6 +1,7 @@
-package morph_fin.rulings.nouns
+package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
+import morph_fin.rulings.rules.{DeclensionRule, GenerateDeclensionRules}
 import morph_fin.utils.{FilesLocation, Parser}
 
 import scala.annotation.tailrec
@@ -63,7 +64,7 @@ class NounRulesParser(stream: Iterator[Char]) extends Parser(stream){
       val strong = collectUntil( peek == '-')
       skip('-')
       val weak = collectUntil( peek == '>')
-      Some(nouns.Gradation(strong, weak))
+      Some(rules.Gradation(strong, weak))
     else None
 
 

@@ -1,12 +1,15 @@
 package morph_fin.rulings.nouns
 
-import morph_fin.rulings.PossessiveSuffix._
-import morph_fin.rulings._
+import morph_fin.rulings.PossessiveSuffix.*
+import morph_fin.rulings.*
+import morph_fin.rulings.rules.Gradation
 import morph_fin.utils.Letters
 
-case class PSuffix(info: PossessiveSuffix, ending: String)
+case class PSuffix(suffixType: PossessiveSuffix, ending: String)
 
-object PossessiveSuffixGeneration {
+
+//TODO untested
+object PossessiveSuffixUtils {
 
   val suffixes = Seq(
     PSuffix(PossessiveSuffix.SingularFirst, "ni"),
@@ -21,7 +24,6 @@ object PossessiveSuffixGeneration {
     morphemes.isNot(Nominative, Singular) && morphemes.isNot(Accusative)
 
   /**
-   * TODO nominemorphemes might be hidden in verbal forms. Take this in account.
    * Note: Nominative, Singular is skipped due to its similarity to Genitive, Singular.
    */
   def addSuffixes(inflectedWord: InflectedWord, gradationOpt: Option[Gradation]): Seq[InflectedWord] =
@@ -29,12 +31,12 @@ object PossessiveSuffixGeneration {
     val suffixBody = getRootForNonVnSuffixes(inflectedWord, gradationOpt)
     val VnSuffix = addVnSuffix(suffixBody, gradationOpt)
 
-    if(isSuitableForSuffix(morphemes)) Seq(inflectedWord)
+    if(!isSuitableForSuffix(morphemes)) Seq(inflectedWord)
     else {
       Seq(inflectedWord) ++ suffixes.map(suffix =>
         val finalEnding = updateCorrectVowelsToEnding(suffixBody.word.ending + suffix.ending, inflectedWord.lemma.toString)
         val strWord = suffixBody.word.copy(ending = finalEnding)
-          InflectedWord(strWord, morphemes ~ suffix.info, suffixBody.lemma)
+        InflectedWord(strWord, morphemes ~ suffix.suffixType, suffixBody.lemma)
       ) ++ VnSuffix
     }
   end addSuffixes

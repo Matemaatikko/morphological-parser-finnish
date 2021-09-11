@@ -1,7 +1,6 @@
 package morph_fin.kotus_format
 
-
-import morph_fin.rulings.nouns.Gradation
+import morph_fin.rulings.rules.Gradation
 import morph_fin.utils.{FilesLocation, Parser}
 
 import scala.annotation.tailrec

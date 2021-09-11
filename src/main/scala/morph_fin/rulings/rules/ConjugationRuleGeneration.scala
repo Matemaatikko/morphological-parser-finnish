@@ -1,9 +1,8 @@
-package morph_fin.rulings.verbs
+package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
-import morph_fin.rulings.nouns.GenerateDeclensionRules.splitByFirstConsonant
-import morph_fin.rulings.nouns.RepChar.{Ch, Rep}
-import morph_fin.rulings.nouns.{Declension, DeclensionRule, Gradation, LongestStartingSubstring, NounExampleDeclensions, RepChar}
+import morph_fin.rulings.rules.GenerateDeclensionRules.splitByFirstConsonant
+import morph_fin.rulings.rules.{Gradation, LongestStartingSubstring, RepChar}
 import morph_fin.utils.Letters
 
 enum VerbGradationType:
@@ -17,9 +16,6 @@ case class ConjugationRule(
                              replacementVowels: Seq[Char],
                              cases: Seq[Conjugation])
 
-extension (rules: ConjugationRule)
-  def findCase(morphemes: Morphemes): Conjugation =
-    rules.cases.find(ending => ending.morphemes.is(morphemes)).getOrElse(throw new Error("Non-comprehensive matching in rules"))
 
 object GenerateConjugationRules {
 
@@ -43,7 +39,7 @@ object GenerateConjugationRules {
       ConjugationRule(exampleConjugations.number, dropForBending, true, Nil, endings)
 
 
-    import RepChar._
+    import morph_fin.rulings.rules.RepChar.*
     /**
      *  Removes root and gradation from cased word to resolve ending.
      *  Example: soudamme -> sou | d | amme -> -amme

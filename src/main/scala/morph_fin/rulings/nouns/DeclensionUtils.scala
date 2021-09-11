@@ -2,8 +2,8 @@ package morph_fin.rulings.nouns
 
 import morph_fin.*
 import morph_fin.kotus_format.Entry
-import morph_fin.rulings.nouns.{Declension, DeclensionRule, Gradation}
 import morph_fin.rulings.*
+import morph_fin.rulings.rules._
 import morph_fin.utils.{Letters, Vocalization}
 
 import java.nio.charset.StandardCharsets
@@ -15,7 +15,7 @@ case class StructuredWord(root: String, gradation: String, ending: String) {
   def last: Char = (root + gradation + ending).last
 }
 
-case class Word(lemma: String, ruleNumber: Int, gradation: Option[Gradation])
+case class Word(lemma: String, ruleNumber: Int, gradationOpt: Option[Gradation])
 case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: String)
 
 object DeclensionUtils {
@@ -41,7 +41,7 @@ object DeclensionUtils {
     val (root, lemma) = checkPlurality(rule, word)
 
     //Resolve gradation
-    val rootDividedByGradation = word.gradation match {
+    val rootDividedByGradation = word.gradationOpt match {
       case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop)
       case _                                    => (root, "")
     }
@@ -53,9 +53,12 @@ object DeclensionUtils {
 
   //=========================================================
 
+  private def findCase(rule: DeclensionRule, morphemes: Morphemes): Declension =
+    rule.cases.find(ending => ending.morphemes.is(morphemes)).getOrElse(throw new Error("Non-comprehensive matching in rules"))
+
   private inline def checkPlurality(rule: DeclensionRule, word: Word): (String, String) =
-    val singularEnding = rule.findCase(Noun ~ Nominative ~ Singular).ending
-    val pluralEnding = rule.findCase(Noun ~ Nominative ~ Plural).ending
+    val singularEnding = findCase(rule, Noun ~ Nominative ~ Singular).ending
+    val pluralEnding = findCase(rule, Noun ~ Nominative ~ Plural).ending
 
     if word.lemma.hasEnding(pluralEnding) then
       val vowelMap = Replacement.resolveMap(word.lemma, pluralEnding)
@@ -88,7 +91,7 @@ object DeclensionUtils {
     import GradationType._
     val updatedEnding = updateEnding(ending, lemma, rule)
     var exceptionalBeginning: Option[String] = None
-    val gradation = (word.gradation, ending.gradationTypeOpt) match {
+    val gradation = (word.gradationOpt, ending.gradationTypeOpt) match {
       case (Some(gradation), Some(Strong)) => gradation.strong
       case (Some(gradation), Some(Weak)) => gradation.weak
       case (Some(gradation), _) =>
@@ -101,7 +104,7 @@ object DeclensionUtils {
       case (None, _)            => ""
     }
     val gradationWithApostropheIfNeeded = //Example: laaka -> laa'an
-      if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption) && word.gradation.nonEmpty
+      if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption) && word.gradationOpt.nonEmpty
       then "\'"
       else gradation
 

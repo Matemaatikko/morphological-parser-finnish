@@ -3,6 +3,7 @@ package morph_fin.rulings.verbs
 import morph_fin.rulings.nouns.*
 import morph_fin.rulings.*
 import morph_fin.rulings.GradationHandler
+import morph_fin.rulings.rules._
 import morph_fin.utils.Letters
 import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalization}
 
@@ -28,7 +29,7 @@ object ConjugationUtils {
     //Resolve root
     val root = word.lemma.dropRight(rule.drop)
     //Resolve gradation
-    val rootDividedByGradation = word.gradation match {
+    val rootDividedByGradation = word.gradationOpt match {
       case Some(gradation)  => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop)
       case _                => (root, "")
     }
@@ -37,7 +38,7 @@ object ConjugationUtils {
 
   def resolveWord(ending: Conjugation, root: (String, String), word: Word, rule: ConjugationRule): InflectedWord =
     val updatedEnding = updateEnding(ending, word.lemma, rule)
-    val gradation = word.gradation match {
+    val gradation = word.gradationOpt match {
       case Some(gradation) if ending.tpe == VerbGradationType.Strong => gradation.strong
       case Some(gradation) if ending.tpe == VerbGradationType.Weak => gradation.weak
       case Some(gradation) =>

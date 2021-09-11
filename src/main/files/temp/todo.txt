@@ -1,6 +1,9 @@
 - TODO nomine -> noun
 - TODO explore possibility to simplify using hyphenation
 
+
+- TODO Transitive (-ksi) with possessive suffix needs checking.
+
 - TODO Make adjective detector (there are ways to make adjectives from nouns.)
 - ->TODO<--- reformat verb rules (verb_rules_2).
 
@@ -20,6 +23,6 @@
 - TODO Add possessive suffixes for some infinitives .
 - TODO Add Nomine inflections for participles
 
-- TODO fix -ilmeinen 18 -> 38
+- TODO fix >-ilmeinen 18 -> 38>
 
 

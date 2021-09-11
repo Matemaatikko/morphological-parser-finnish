@@ -2,8 +2,9 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
-import morph_fin.rulings.nouns.{DeclensionRule, DeclensionUtils, Gradation, LoadAndParseNomineRules, Word}
-import morph_fin.rulings.verbs.{ConjugationRule, ConjugationUtils, LoadAndParseVerbRules}
+import morph_fin.rulings.nouns.{DeclensionUtils, Word}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.verbs.ConjugationUtils
 import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}

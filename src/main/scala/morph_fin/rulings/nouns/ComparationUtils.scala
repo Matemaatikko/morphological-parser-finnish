@@ -1,21 +1,9 @@
 package morph_fin.rulings.nouns
 
-import morph_fin.rulings._
+import morph_fin.rulings.*
+import morph_fin.rulings.rules.{DeclensionRule, Gradation}
 import morph_fin.utils.{Hyphenation, Letters}
 
-
-//TODO Add tests
-/**
-* aito aidon/aidompi aidoin
-* halpa halvan/halvempi (a -> e) halvin
-* kaunis kauniin/kauniimpi kaunein
-* sininen sininen/sinisempi sinisin
-* juokseva juoksevan/juoksevampi juoksevin
-*
-*
-* kiva -> kivan -> kivampi - kivempi
-*      -> kivan -> kivoin / kivain
-*/
 object ComparationUtils {
 
   //COMPARATIVE
@@ -56,8 +44,8 @@ object ComparationUtils {
       case _ => Nil
     }
 
-  private inline def has_e_asBodyVowel(word: String) =
-    Hyphenation.apply(word).size == 2 && word.endsWith("a")
+  private inline def has_e_asBodyVowel(singularGenitive: String) =
+    Hyphenation.apply(singularGenitive).size == 2 && singularGenitive.endsWith("an")
 
   //===================================================
 

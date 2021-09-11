@@ -1,7 +1,7 @@
 package morph_fin.rulings
 
-import morph_fin.rulings._
-import morph_fin.rulings.nouns.Gradation
+import morph_fin.rulings.*
+import morph_fin.rulings.rules.Gradation
 import morph_fin.utils.{Hyphenation, Letters}
 
 //Gradation

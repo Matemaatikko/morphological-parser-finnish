@@ -3,10 +3,9 @@ package morph_fin.rulings.nouns
 import org.scalatest.*
 import flatspec.*
 import matchers.*
-import morph_fin.rulings._
+import morph_fin.rulings.*
+import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNomineRules}
 
-extension[A] (a: A)
-  def opt = Some(a)
 
 class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 

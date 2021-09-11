@@ -1,7 +1,7 @@
-package morph_fin.rulings.verbs
+package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
-import morph_fin.rulings.nouns.Gradation
+import morph_fin.rulings.rules.{ConjugationRule, GenerateConjugationRules, Gradation}
 import morph_fin.utils.{FilesLocation, Parser}
 
 import java.io.File
@@ -67,7 +67,7 @@ class VerbRulesParser(stream: Iterator[Char]) extends Parser(stream){
       val strong = collectUntil( peek == '-')
       skip('-')
       val weak = collectUntil( peek == '>')
-      Some(nouns.Gradation(strong, weak))
+      Some(rules.Gradation(strong, weak))
     else None
 
   inline def parseLine: (Morphemes, Seq[String]) =

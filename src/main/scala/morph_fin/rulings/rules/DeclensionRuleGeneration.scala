@@ -1,13 +1,14 @@
-package morph_fin.rulings.nouns
+package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
+import morph_fin.rulings.nouns.*
 import morph_fin.utils.Letters
 
 enum RepChar:
   case Ch(c: Char)
   case Rep(key: Char)
 
-import RepChar._
+import morph_fin.rulings.rules.RepChar.*
 
 object Replacement {
 
@@ -43,11 +44,6 @@ case class DeclensionRule(
                             replacementVowels: Seq[Char],
                             cases: Seq[Declension]
                           )
-
-extension (bending: DeclensionRule)
-  def findCase(morphemes: Morphemes): Declension =
-    bending.cases.find(ending => ending.morphemes.is(morphemes)).getOrElse(throw new Error("Non-comprehensive matching in rules"))
-
 
 /**
  * Idea of the following method is to find endings for each morphemes based on example declension.

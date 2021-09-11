@@ -1,7 +1,7 @@
 import morph_fin.kotus_format.{Bending, Entry, EntryToWord, KotusWord}
-import morph_fin.rulings._
-import morph_fin.rulings.nouns.{ComparationUtils, DeclensionRule, DeclensionUtils, InflectedWord, LoadAndParseNomineRules, PossessiveSuffixGeneration, Word}
-import morph_fin.rulings.verbs.LoadAndParseVerbRules
+import morph_fin.rulings.*
+import morph_fin.rulings.nouns._
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules, LoadAndParseVerbRules}
 
 val rules = LoadAndParseNomineRules.rules
 given Seq[DeclensionRule] = rules
@@ -13,7 +13,8 @@ def printA(words: Seq[InflectedWord]) =
   println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))
   println("============================")
 
-def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
+//def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
+def declesions(word: Word) = AllDeclensionUtils.generateAllDeclections(word)
 
 def declesions2(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   declesions(getWord(word, rule, gradationLetterOpt))
@@ -50,4 +51,7 @@ printA(ComparationUtils.generateSuperlativeInflections(gen))
 
 val ge2 = declesions2("keltainen", 38, None).find(_.morphemes.is(Singular, Genitive)).get
 printA(ComparationUtils.generateSuperlativeInflections(ge2))
+
+val ge3 = declesions2("halpa", 9, Some('E')).find(_.morphemes.is(Singular, Genitive)).get
+printA(ComparationUtils.generateComparativeInflections(ge3))
 
