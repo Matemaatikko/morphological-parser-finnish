@@ -3,7 +3,8 @@ package morph_fin.rulings.nouns
 import morph_fin.*
 import morph_fin.kotus_format.Entry
 import morph_fin.rulings.*
-import morph_fin.rulings.rules._
+import morph_fin.rulings.morpheme.{Illative, Morphemes, Nominative, Noun, Plural, Singular}
+import morph_fin.rulings.rules.*
 import morph_fin.utils.{Letters, Vocalization}
 
 import java.nio.charset.StandardCharsets
@@ -20,7 +21,6 @@ case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: Stri
 
 object DeclensionUtils {
 
-  import PossessiveSuffix._
 
   val listOfSomeVowels = Seq('a', 'o', 'u', 'y', 'ä', 'ö')
   val listOfAllVowels = Seq('a', 'o', 'i', 'e', 'u', 'y', 'ä', 'ö')

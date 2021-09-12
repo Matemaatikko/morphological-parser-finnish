@@ -6,7 +6,7 @@ import morph_fin.rulings.nouns.Word
 object EntryToWord {
 
   def apply(entry: Entry): Option[Word] =
-    entry.bending match {
+    entry.inflectionOpt match {
       case Some(bending) =>
         Some(Word(
           entry.word.value,

@@ -1,6 +1,7 @@
 package morph_fin.rulings.nouns
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Comparative, Genitive, Singular, Superlative}
 import morph_fin.rulings.rules.{DeclensionRule, Gradation}
 import morph_fin.utils.{Hyphenation, Letters}
 

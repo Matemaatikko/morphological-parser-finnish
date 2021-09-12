@@ -1,10 +1,11 @@
 package morph_fin.inflection
 
 import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
-import morph_fin.kotus_format.{Bending, LoadUpdatedKotus, UpdatedWord}
+import morph_fin.kotus_format.{Inflection, LoadUpdatedKotus, UpdatedWord}
 import morph_fin.rulings.nouns.{DeclensionUtils, InflectedWord, PossessiveSuffixUtils, Word}
 import morph_fin.rulings.verbs.ConjugationUtils
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Morphemes, Noun, PrintMorphemes}
 import morph_fin.rulings.rules.{ConjugationRule, DeclensionRule, Gradation, LoadAndParseNomineRules, LoadAndParseVerbRules}
 import morph_fin.utils.{FilesLocation, Letters}
 
@@ -15,6 +16,9 @@ enum TargetFile:
   case Verb, Noun, Compound, Indeclinable, Pronoun, Ignore
 
 object GenerateInflectedWords {
+
+  import morph_fin.rulings.morpheme.PossessiveSuffix
+
   given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
   given Seq[ConjugationRule] = LoadAndParseVerbRules.rules
 
@@ -44,7 +48,7 @@ object GenerateInflectedWords {
       case StandardBending(_, bending) if bending.rule < 50 => TargetFile.Noun
       case StandardBending(_, bending) if bending.rule > 51 && bending.rule < 79 => TargetFile.Verb
       case a: Pronoun => TargetFile.Pronoun
-      case a: NoBending => TargetFile.Indeclinable
+      case a: NoInflection => TargetFile.Indeclinable
       case a: Error => TargetFile.Indeclinable
       case _ => TargetFile.Ignore
     }
@@ -53,7 +57,7 @@ object GenerateInflectedWords {
     import TargetFile._
     val str: String = targetFile match {
       case Verb => verb
-      case Noun => noun
+      case TargetFile.Noun => noun
       case TargetFile.Compound => compound
       case Indeclinable => indeclinable
       case Pronoun => pronoun
@@ -73,9 +77,9 @@ object GenerateInflectedWords {
     import UpdatedWord._
     updatedWord match {
       case Compound(word, prefix, suffixWord) =>
-        val resulWords = getBendingsWithoutSuffix(suffixWord.value, suffixWord.bending)
+        val resulWords = getBendingsWithoutSuffix(suffixWord.subword, suffixWord.inflection)
         resulWords.flatMap(resultWord => {
-          val gradationOpt = suffixWord.bending.gradationLetter.map(GradationHandler.getGradationByLetter(_))
+          val gradationOpt = suffixWord.inflection.gradationLetter.map(GradationHandler.getGradationByLetter(_))
           if resultWord.morphemes.root == Noun then
             addPossessiveSuffixes(word, prefix, resultWord, gradationOpt)
           else {
@@ -84,20 +88,20 @@ object GenerateInflectedWords {
           }
         })
       case Compound2(word, prefixWord, suffixWord) =>
-        val prefixBendings = getBendingsWithoutSuffix(prefixWord.value, prefixWord.bending)
-        val suffixBendings = getBendingsWithoutSuffix(suffixWord.value, suffixWord.bending)
+        val prefixBendings = getBendingsWithoutSuffix(prefixWord.subword, prefixWord.inflection)
+        val suffixBendings = getBendingsWithoutSuffix(suffixWord.subword, suffixWord.inflection)
         val morphemes = prefixBendings.map(_.morphemes).distinct
         morphemes.flatMap(morphemes => {
           val prefixBending = prefixBendings.find(_.morphemes == morphemes).get
           val suffixBending = suffixBendings.find(_.morphemes == morphemes).get
-          val gradationOpt = suffixWord.bending.gradationLetter.map(GradationHandler.getGradationByLetter(_))
+          val gradationOpt = suffixWord.inflection.gradationLetter.map(GradationHandler.getGradationByLetter(_))
           addPossessiveSuffixes(word, prefixBending.word.toString, suffixBending, gradationOpt)
         })
       case StandardBending(word, bending) =>
         val bendings = getBendingsWithSuffix(word, bending)
         bendings.map(result => print(result.word.toString, result.morphemes, result.lemma))
       case Pronoun(value) => Seq(value + "\n")
-      case NoBending(value) => Seq(value+ "\n")
+      case NoInflection(value) => Seq(value+ "\n")
       case Error(value, _, _) => Seq(value+ "\n")
       case _ => Nil
     }
@@ -122,13 +126,13 @@ object GenerateInflectedWords {
     if(num > 0) word + " "*num
     else word
 
-  def getBendingsWithSuffix(lemma: String, bending: Bending) =
+  def getBendingsWithSuffix(lemma: String, bending: Inflection) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
     if(bending.rule < 50) genDeclensionsWithSuffixes(word)
     else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(word)
     else throw new Exception()
 
-  def getBendingsWithoutSuffix(lemma: String, bending: Bending) =
+  def getBendingsWithoutSuffix(lemma: String, bending: Inflection) =
     val word =  Word(lemma, bending.rule, bending.gradationLetter.map(GradationHandler.getGradationByLetter(_)))
     if(bending.rule < 50) DeclensionUtils.generateDeclensions(word)
     else if(bending.rule > 51 && bending.rule < 79) ConjugationUtils.generateConjugations(word)
@@ -138,8 +142,6 @@ object GenerateInflectedWords {
   def genDeclensionsWithSuffixes(word: Word) =
     DeclensionUtils.generateDeclensions(word)
       .flatMap(a => handle(a, word.gradationOpt))
-
-  import morph_fin.rulings.PossessiveSuffix
 
   def handle(resultWord: InflectedWord, gradationOpt: Option[Gradation]): Seq[InflectedWord] =
     if PossessiveSuffixUtils.isSuitableForSuffix(resultWord.morphemes) then

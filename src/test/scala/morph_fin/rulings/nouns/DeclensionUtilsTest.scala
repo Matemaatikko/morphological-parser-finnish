@@ -4,6 +4,7 @@ import org.scalatest.*
 import flatspec.*
 import matchers.*
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Abessive, Ablative, Adessive, Allative, Comitative, Elative, Essive, Genitive, Illative, Inessive, Instructive, Morphemes, Nominative, Noun, Partitive, Plural, Singular, Translative}
 import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNomineRules}
 
 

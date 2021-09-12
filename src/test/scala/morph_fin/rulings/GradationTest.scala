@@ -3,6 +3,7 @@ package morph_fin.rulings
 import org.scalatest.*
 import flatspec.*
 import matchers.*
+import morph_fin.rulings.morpheme.{Allative, Noun, Singular}
 import morph_fin.rulings.rules.Gradation
 
 class GradationTest extends AnyFlatSpec with should.Matchers {

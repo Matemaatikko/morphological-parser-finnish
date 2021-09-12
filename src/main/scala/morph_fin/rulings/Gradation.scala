@@ -1,6 +1,7 @@
 package morph_fin.rulings
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{AInfinitive, Accusative, Active, EInfinitive, Genitive, Illative, Imperative, Indicative, Morphemes, Negative, Nominative, Partitive, Passive, Plural, Positive, Present, Singular, SingularSecond}
 import morph_fin.rulings.rules.Gradation
 import morph_fin.utils.{Hyphenation, Letters}
 

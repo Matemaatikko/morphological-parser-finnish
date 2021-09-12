@@ -3,7 +3,8 @@ package morph_fin.rulings.verbs
 import morph_fin.rulings.nouns.*
 import morph_fin.rulings.*
 import morph_fin.rulings.GradationHandler
-import morph_fin.rulings.rules._
+import morph_fin.rulings.morpheme.{AInfinitive, Active, EInfinitive, Finite, Indicative, Inessive, InfinitiveIV, InfinitiveV, Morphemes, Positive, Present, SingularThird}
+import morph_fin.rulings.rules.*
 import morph_fin.utils.Letters
 import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalization}
 

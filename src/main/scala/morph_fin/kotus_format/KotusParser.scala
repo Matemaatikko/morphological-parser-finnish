@@ -31,8 +31,8 @@ enum KotusWord(val value: String, val noPrefix: Boolean):
   case Suffix(override val value: String) extends KotusWord(value, true)
   case Word(override val value: String) extends KotusWord(value, true)
 
-case class Bending(rule: Int, gradationLetter: Option[Char])
-case class Entry(word: KotusWord, bending: Option[Bending])
+case class Inflection(rule: Int, gradationLetter: Option[Char])
+case class Entry(word: KotusWord, inflectionOpt: Option[Inflection])
 
 class KotusParser(stream: Iterator[Char]) extends Parser(stream){
 
@@ -56,9 +56,9 @@ class KotusParser(stream: Iterator[Char]) extends Parser(stream){
     if bendingList.isEmpty then Seq(Entry(kotusWord, None))
     else bendingList.map(bending => Entry(kotusWord, Some(bending)))
 
-  def parseBendingList: Seq[Bending] =
+  def parseBendingList: Seq[Inflection] =
     @tailrec
-    def iter(result: Seq[Bending] = Nil): Seq[Bending] =
+    def iter(result: Seq[Inflection] = Nil): Seq[Inflection] =
       if(peek == 't')
         val bending = parseBending
         skip('<')
@@ -67,7 +67,7 @@ class KotusParser(stream: Iterator[Char]) extends Parser(stream){
 
     iter(Nil)
 
-  def parseBending: Seq[Bending] =
+  def parseBending: Seq[Inflection] =
     skip('t')
     skipUntil(peek == '>') //Possible info skipped
     skip('>')
@@ -86,6 +86,6 @@ class KotusParser(stream: Iterator[Char]) extends Parser(stream){
       Some(res) -> opt
     else None -> false
     skipAll("/t>")
-    if(optional) Seq(Bending(number, gradation), Bending(number, None)) else Seq(Bending(number, gradation))
+    if(optional) Seq(Inflection(number, gradation), Inflection(number, None)) else Seq(Inflection(number, gradation))
 
 }

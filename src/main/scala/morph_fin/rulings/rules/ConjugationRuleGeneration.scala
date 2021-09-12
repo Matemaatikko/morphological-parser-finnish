@@ -1,6 +1,7 @@
 package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{AInfinitive, Morphemes}
 import morph_fin.rulings.rules.GenerateDeclensionRules.splitByFirstConsonant
 import morph_fin.rulings.rules.{Gradation, LongestStartingSubstring, RepChar}
 import morph_fin.utils.Letters

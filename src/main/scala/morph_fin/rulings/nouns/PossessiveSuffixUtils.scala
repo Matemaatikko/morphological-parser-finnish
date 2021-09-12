@@ -1,7 +1,7 @@
 package morph_fin.rulings.nouns
 
-import morph_fin.rulings.PossessiveSuffix.*
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Accusative, Genitive, Illative, Morphemes, Nominative, PossessiveSuffix, Singular, Translative}
 import morph_fin.rulings.rules.Gradation
 import morph_fin.utils.Letters
 
@@ -16,7 +16,7 @@ object PossessiveSuffixUtils {
     PSuffix(PossessiveSuffix.SingularSecond, "si"),
     PSuffix(PossessiveSuffix.PluralFirst, "mme"),
     PSuffix(PossessiveSuffix.PluralSecond, "nne"),
-    PSuffix(ThirdPos, "nsa")
+    PSuffix(PossessiveSuffix.ThirdPos, "nsa")
   )
 
 

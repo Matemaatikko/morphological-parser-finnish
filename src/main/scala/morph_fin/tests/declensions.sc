@@ -1,6 +1,7 @@
-import morph_fin.kotus_format.{Bending, Entry, EntryToWord, KotusWord}
+import morph_fin.kotus_format.{Entry, EntryToWord, Inflection, KotusWord}
 import morph_fin.rulings.*
-import morph_fin.rulings.nouns._
+import morph_fin.rulings.morpheme.{Genitive, PrintMorphemes, Singular}
+import morph_fin.rulings.nouns.*
 import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules, LoadAndParseVerbRules}
 
 val rules = LoadAndParseNomineRules.rules
@@ -9,7 +10,7 @@ given Seq[DeclensionRule] = rules
 rules.find(_.ruleNumber == 34)
 
 def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
-  EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
+  EntryToWord(Entry(KotusWord.Word(word), Some(Inflection(number, gradationLetter)))).get
 
 def printA(words: Seq[InflectedWord]) =
   println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))

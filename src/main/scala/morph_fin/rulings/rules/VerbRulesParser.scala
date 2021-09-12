@@ -1,6 +1,7 @@
 package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{AInfinitive, AInfinitiveLong, Abessive, Ablative, Accusative, Active, Adessive, AgentParticiple, Allative, Case, Comitative, Conditional, EInfinitive, Elative, Essive, Finite, Genitive, Illative, Imperative, Imperfect, Indicative, Inessive, Infinitive, InfinitiveIV, InfinitiveV, Instructive, MAInfinitive, Mode, Morphemes, Negative, NegativeParticiple, Nominative, Partitive, Passive, Perfect, Person, Pluperfect, Plural, PluralFirst, PluralSecond, PluralThird, Positive, Potential, Present, Singular, SingularFirst, SingularSecond, SingularThird, Tempus, Translative, nUtParticiple, tUParticiple, vAParticiple}
 import morph_fin.rulings.rules.{ConjugationRule, GenerateConjugationRules, Gradation}
 import morph_fin.utils.{FilesLocation, Parser}
 

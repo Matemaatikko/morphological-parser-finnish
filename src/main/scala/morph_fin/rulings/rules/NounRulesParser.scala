@@ -1,6 +1,7 @@
 package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Abessive, Ablative, Accusative, Adessive, Allative, Case, Comitative, Elative, Essive, Genitive, Illative, Inessive, Instructive, Morphemes, Nominative, Noun, Partitive, Plural, Singular, Translative}
 import morph_fin.rulings.rules.{DeclensionRule, GenerateDeclensionRules}
 import morph_fin.utils.{FilesLocation, Parser}
 

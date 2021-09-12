@@ -4,6 +4,7 @@ import morph_fin.utils.{FilesLocation, Parser}
 
 import scala.io.{Codec, Source}
 
+
 object LoadUpdatedKotus {
   val fileName = FilesLocation.result_path + "/kotus_updated.txt"
 
@@ -51,9 +52,9 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
     val word = collectUntil(isEndOfLine)
     Pronoun(word)
 
-  inline def parseNoBending: NoBending =
+  inline def parseNoBending: NoInflection =
     val word = collectUntil(isEndOfLine)
-    NoBending(word)
+    NoInflection(word)
 
   inline def parsePrefix: Prefix =
     val word = collectUntil(isEndOfLine)
@@ -64,7 +65,7 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
     val bending = parseBending
     Suffix(word, bending)
 
-  inline def parseBending: Bending =
+  inline def parseBending: Inflection =
     skipAll(":B:")
     val bendingNumber = collectUntil(isEnding).toInt
     val gradationLetterOpt: Option[Char] = peek2 match {
@@ -73,16 +74,16 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
         Some(consume)
       case _ => None
     }
-    Bending(bendingNumber, gradationLetterOpt)
+    Inflection(bendingNumber, gradationLetterOpt)
 
   inline def parseError1: SuffixError =
     val word = collectUntil(isEndOfLine)
     SuffixError(word)
 
-  inline def parseError2: NoBending =
+  inline def parseError2: NoInflection =
     val word = collectUntil(isEnding)
     skipUntil(isEndOfLine)
-    NoBending(word)
+    NoInflection(word)
 
   inline def parseCompound1: Compound =
     val word = collectUntil(isEnding)
@@ -91,7 +92,7 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
     skipAll(":S:")
     val suffix = collectUntil(isEnding)
     val suffixBending = parseBending
-    Compound(word, prefix, BendingWord(suffix, suffixBending))
+    Compound(word, prefix, SubwordWithInflection(suffix, suffixBending))
 
   inline def parseCompound2: Compound2 =
     val word = collectUntil(isEnding)
@@ -101,5 +102,5 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
     skipAll(":S:")
     val suffix = collectUntil(isEnding)
     val suffixBending = parseBending
-    Compound2(word, BendingWord(prefix, prefixBending), BendingWord(suffix, suffixBending))
+    Compound2(word, SubwordWithInflection(prefix, prefixBending), SubwordWithInflection(suffix, suffixBending))
 }

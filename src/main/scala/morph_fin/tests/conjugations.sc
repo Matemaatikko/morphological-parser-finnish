@@ -8,7 +8,7 @@ import morph_fin.rulings.rules.LoadAndParseVerbRules
 val rules = LoadAndParseVerbRules.rules
 
 def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
-  EntryToWord(Entry(KotusWord.Word(word), Some(Bending(number, gradationLetter)))).get
+  EntryToWord(Entry(KotusWord.Word(word), Some(Inflection(number, gradationLetter)))).get
 
 def printA(words: Seq[InflectedWord]) =
   println(words.map(a => a.word.toString + " : " + Print(a.morphemes)).mkString("\n"))

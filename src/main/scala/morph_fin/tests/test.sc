@@ -1,14 +1,8 @@
-import morph_fin.*
-import morph_fin.inflection.GenerateInflectedWords
-import morph_fin.kotus_format.*
-import morph_fin.kotus_format.PrintUpdatedWord.{bendingString, toString}
-import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, Error, NoBending, Prefix, Pronoun, StandardBending, Suffix, SuffixError}
-import morph_fin.rulings.nouns.{DeclensionUtils, InflectedWord, Word}
-import morph_fin.rulings.verbs.ConjugationUtils
-import morph_fin.utils.{FilesLocation, Hyphenation}
+import morph_fin.rulings.nouns.NounPrinter
 
-import java.io.File
-import scala.collection.mutable
-import scala.io.{Codec, Source}
+
+val printer = new NounPrinter()
+
+print(printer.print("solakka"))
 
 

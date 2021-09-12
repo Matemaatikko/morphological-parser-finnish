@@ -1,7 +1,8 @@
-package morph_fin.rulings
+package morph_fin.rulings.morpheme
 
 import com.sun.istack.internal.Nullable
-import morph_fin.rulings.PossessiveSuffix.*
+import morph_fin.rulings.morpheme.PossessiveSuffix.*
+import morph_fin.rulings.morpheme.{AInfinitive, AInfinitiveLong, Abessive, Ablative, Accusative, Active, Adessive, AgentParticiple, Allative, Append, Comitative, Comparative, Conditional, EInfinitive, Elative, Essive, Finite, General, Genitive, Illative, Imperative, Imperfect, Indicative, Inessive, InfinitiveIV, InfinitiveV, InfinitiveVI, InfinitiveVII, Instructive, MAInfinitive, Morpheme, Morphemes, Negative, NegativeParticiple, Nominative, Noun, Partitive, Passive, Perfect, Pluperfect, Plural, PluralThird, Positive, Potential, Present, Singular, SingularThird, Superlative, Translative, stiAdverb}
 
 
 

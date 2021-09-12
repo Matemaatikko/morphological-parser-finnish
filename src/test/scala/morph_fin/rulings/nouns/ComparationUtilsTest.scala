@@ -4,6 +4,7 @@ import org.scalatest.*
 import flatspec.*
 import matchers.*
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Genitive, Singular}
 import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNomineRules}
 
 extension[A] (a: A)

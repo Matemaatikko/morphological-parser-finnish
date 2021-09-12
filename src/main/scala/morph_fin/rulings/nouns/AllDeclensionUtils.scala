@@ -1,6 +1,7 @@
 package morph_fin.rulings.nouns
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Genitive, Singular}
 import morph_fin.rulings.rules.{DeclensionRule, Gradation}
 
 //TODO untested

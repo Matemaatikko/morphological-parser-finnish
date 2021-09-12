@@ -2,6 +2,7 @@ package morph_fin.kotus_format
 
 import morph_fin.kotus_format
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Nominative, Plural}
 import morph_fin.rulings.nouns.{DeclensionUtils, Word}
 import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
 import morph_fin.rulings.verbs.ConjugationUtils
@@ -13,7 +14,7 @@ import scala.io.{Codec, Source}
 
 
 
-case class BendingWord(value: String, bending: Bending)
+case class SubwordWithInflection(subword: String, inflection: Inflection)
 
 enum ErrorSource:
   case CompoundNotFound
@@ -22,15 +23,15 @@ enum ErrorSource:
   case PluralCompoundException
 
 enum UpdatedWord(val value: String):
-  case Compound(word: String, prefix: String, suffix: BendingWord) extends UpdatedWord(word) //50
-  case Compound2(word: String, prefix: BendingWord, suffix: BendingWord) extends UpdatedWord(word) // 51
-  case StandardBending(word: String, bending: Bending) extends UpdatedWord(word)
-  case Suffix(word: String, bending: Bending) extends UpdatedWord(word)
+  case Compound(word: String, prefix: String, suffix: SubwordWithInflection) extends UpdatedWord(word) //50
+  case Compound2(word: String, prefix: SubwordWithInflection, suffix: SubwordWithInflection) extends UpdatedWord(word) // 51
+  case StandardBending(word: String, inflection: Inflection) extends UpdatedWord(word)
+  case Suffix(word: String, bending: Inflection) extends UpdatedWord(word)
   case Pronoun(word: String) extends UpdatedWord(word)
   case Prefix(word: String) extends UpdatedWord(word)
-  case NoBending(word: String) extends UpdatedWord(word)
+  case NoInflection(word: String) extends UpdatedWord(word)
   case SuffixError(word: String) extends UpdatedWord(word)
-  case Error(word: String, errorSource: ErrorSource, bendingOpt: Option[Bending] = None) extends UpdatedWord(word)
+  case Error(word: String, errorSource: ErrorSource, bendingOpt: Option[Inflection] = None) extends UpdatedWord(word)
 
 object PrintUpdatedWord{
   import UpdatedWord._
@@ -38,7 +39,7 @@ object PrintUpdatedWord{
   /***
    * U - pronoun
    * P - Prefix
-   * N - No bending
+   * N - No inflections
    * e - suffix error
    * E - other error
    * W - word
@@ -49,7 +50,7 @@ object PrintUpdatedWord{
   def apply(updated: UpdatedWord) : String = updated match {
     case Pronoun(value)          => s"U:${value}"
     case Prefix(value)           => s"P:${value}"
-    case NoBending(value)        => s"N:${value}"
+    case NoInflection(value)        => s"N:${value}"
     case SuffixError(value)      => s"e:${value}"
     case Error(value, source, bendingOpt) => s"E:${value}"+ bendingOpt.map(bendingString(_)).getOrElse("")
     case StandardBending(word, bending) =>
@@ -57,14 +58,14 @@ object PrintUpdatedWord{
     case Suffix(word, bending) =>
       s"S:${word}" + bendingString(bending)
     case Compound(word, prefix, suffix) =>
-      s"1:${word}:P:${prefix}:S:${suffix.value}" + bendingString(suffix.bending)
+      s"1:${word}:P:${prefix}:S:${suffix.subword}" + bendingString(suffix.inflection)
     case Compound2(word, prefix, suffix) =>
       s"2:${word}:P:${toString(prefix)}:S:${toString(suffix)}"
   }
-  def toString(bendingWord: BendingWord): String =
-    bendingWord.value + bendingString(bendingWord.bending)
+  def toString(bendingWord: SubwordWithInflection): String =
+    bendingWord.subword + bendingString(bendingWord.inflection)
 
-  def bendingString(bending: Bending): String = s":B:${bending.rule}" + bending.gradationLetter.map(l => s":L:$l").getOrElse("")
+  def bendingString(bending: Inflection): String = s":B:${bending.rule}" + bending.gradationLetter.map(l => s":L:$l").getOrElse("")
 }
 
 
@@ -79,27 +80,27 @@ val remove = Seq(
 )
 
 val additions = Seq(
-  Entry(KotusWord.Word("raamattu"), Some(Bending(4, Some('C')))),
-  Entry(KotusWord.Word("torvisieni"), Some(Bending(26, None))),
-  Entry(KotusWord.Word("viinimarja"), Some(Bending(9, None))),
-  Entry(KotusWord.Suffix("pestävä"), Some(Bending(10, None))),
-  Entry(KotusWord.Word("kulmain"), Some(Bending(33, None))),
-  Entry(KotusWord.Word("särkynyt"), Some(Bending(47, None))),
+  Entry(KotusWord.Word("raamattu"), Some(Inflection(4, Some('C')))),
+  Entry(KotusWord.Word("torvisieni"), Some(Inflection(26, None))),
+  Entry(KotusWord.Word("viinimarja"), Some(Inflection(9, None))),
+  Entry(KotusWord.Suffix("pestävä"), Some(Inflection(10, None))),
+  Entry(KotusWord.Word("kulmain"), Some(Inflection(33, None))),
+  Entry(KotusWord.Word("särkynyt"), Some(Inflection(47, None))),
 
-  Entry(KotusWord.Word("korkeakoulu"), Some(Bending(1, None))),
-  Entry(KotusWord.Word("jalokivi"), Some(Bending(7, None))),
-  Entry(KotusWord.Word("viileäkaappi"), Some(Bending(5, Some('B')))),
-  Entry(KotusWord.Word("raaka-aine"), Some(Bending(48, None))),
+  Entry(KotusWord.Word("korkeakoulu"), Some(Inflection(1, None))),
+  Entry(KotusWord.Word("jalokivi"), Some(Inflection(7, None))),
+  Entry(KotusWord.Word("viileäkaappi"), Some(Inflection(5, Some('B')))),
+  Entry(KotusWord.Word("raaka-aine"), Some(Inflection(48, None))),
   //No inflection pronouns
-  Entry(KotusWord.Word("missä"), Some(Bending(99, None))),
-  Entry(KotusWord.Word("mikin"), Some(Bending(99, None))),
-  Entry(KotusWord.Word("missäkin"), Some(Bending(99, None))),
+  Entry(KotusWord.Word("missä"), Some(Inflection(99, None))),
+  Entry(KotusWord.Word("mikin"), Some(Inflection(99, None))),
+  Entry(KotusWord.Word("missäkin"), Some(Inflection(99, None))),
 
-  Entry(KotusWord.Word("hapan"), Some(Bending(34, Some('B')))),
+  Entry(KotusWord.Word("hapan"), Some(Inflection(34, Some('B')))),
 )
 
 val corrections = Seq(
-  UpdatedWord.Compound2("nuoripari", BendingWord("nuori", Bending(26, None)), BendingWord("pari", Bending(5, None)))
+  UpdatedWord.Compound2("nuoripari", SubwordWithInflection("nuori", Inflection(26, None)), SubwordWithInflection("pari", Inflection(5, None)))
 )
 
 case class Data(
@@ -129,11 +130,11 @@ object ReformatKotus {
     //===================================
 
     val validSuffixes: Seq[Entry] = list
-      .filter(entry => entry.bending.nonEmpty &&
-        entry.bending.exists(bend => bend.rule != 99 && bend.rule != 101) &&
+      .filter(entry => entry.inflectionOpt.nonEmpty &&
+        entry.inflectionOpt.exists(bend => bend.rule != 99 && bend.rule != 101) &&
         entry.word.noPrefix)
 
-    val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
+    val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.inflectionOpt.exists(_.rule < 50)).flatMap(entry =>
         DeclensionUtils.generateDeclensions(EntryToWord(entry).get)
           .find(elem => elem.morphemes.is(Nominative, Plural))
           .map(casing => casing.word.toString -> entry)
@@ -141,7 +142,7 @@ object ReformatKotus {
 
     //===================================
 
-    val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.bending.exists(_.rule < 50)).flatMap(entry =>
+    val pluralWords: Map[String, Seq[Entry]]  = list.filter(_.inflectionOpt.exists(_.rule < 50)).flatMap(entry =>
         DeclensionUtils.generateDeclensions(EntryToWord(entry).get)
           .find(elem => elem.morphemes.is(Nominative, Plural))
           .map(casing => casing.word.toString -> entry)
@@ -169,7 +170,7 @@ object ReformatKotus {
       case Entry(KotusWord.Word(value), option) if option.isEmpty || option.exists(_.rule == 50)  => resolveCompound(value, false, option)(data)
       case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 51 => resolveCompound(value, true, Some(bending))(data)
       case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 101 => UpdatedWord.Pronoun(value)
-      case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoBending(value)
+      case Entry(KotusWord.Word(value), Some(bending)) if bending.rule == 99 => UpdatedWord.NoInflection(value)
       case Entry(KotusWord.Word(value), Some(bending)) => UpdatedWord.StandardBending(value, bending)
     }
 
@@ -179,7 +180,7 @@ object ReformatKotus {
    * ==============================
    * Examples: normaalijakauma, raaka-aine
    */
-  inline def resolveCompound(word: String, bendBoth: Boolean, bendingOpt: Option[Bending])
+  inline def resolveCompound(word: String, bendBoth: Boolean, bendingOpt: Option[Inflection])
                      (data: Data): UpdatedWord =
     try
       val resultOpt = findCompound(word)(data)
@@ -228,11 +229,11 @@ object ReformatKotus {
 
 
   inline def generateCompound(word: String, bendBoth: Boolean, prefix: String, suffixEntry: Entry)(data: Data): UpdatedWord =
-    val suffixWord = BendingWord(suffixEntry.word.value, suffixEntry.bending.get)
+    val suffixWord = SubwordWithInflection(suffixEntry.word.value, suffixEntry.inflectionOpt.get)
     if !bendBoth then UpdatedWord.Compound(word, prefix, suffixWord)
     else
       val prefixEntry = findEntry(prefix)(data).get
-      val prefixWord = BendingWord(prefixEntry.word.value, prefixEntry.bending.get)
+      val prefixWord = SubwordWithInflection(prefixEntry.word.value, prefixEntry.inflectionOpt.get)
       UpdatedWord.Compound2(word, prefixWord, suffixWord)
 
 
@@ -242,7 +243,7 @@ object ReformatKotus {
    * Examples: materiaali-toiminnot, isot-aivot
    *
    */
-  inline def resolveCompoundPlural(pluralWord: String, bendBoth: Boolean, bendingOpt: Option[Bending])
+  inline def resolveCompoundPlural(pluralWord: String, bendBoth: Boolean, bendingOpt: Option[Inflection])
                            (data: Data): UpdatedWord =
     try
       val resultOpt = findCompoundPlural(pluralWord)(data)
@@ -275,11 +276,11 @@ object ReformatKotus {
       .headOption
 
   inline def generateCompoundPlural(pluralWord: String, bendBoth: Boolean, prefix: String, suffixEntry: Entry)(data: Data): UpdatedWord =
-    val suffixWord = BendingWord(suffixEntry.word.value, suffixEntry.bending.get)
+    val suffixWord = SubwordWithInflection(suffixEntry.word.value, suffixEntry.inflectionOpt.get)
     if !bendBoth then UpdatedWord.Compound(pluralWord, prefix, suffixWord)
     else
       val prefixEntry = findPluralEntry(prefix)(data).get
-      val prefixWord = BendingWord(prefixEntry.word.value, prefixEntry.bending.get)
+      val prefixWord = SubwordWithInflection(prefixEntry.word.value, prefixEntry.inflectionOpt.get)
       UpdatedWord.Compound2(pluralWord, prefixWord, suffixWord)
 
 

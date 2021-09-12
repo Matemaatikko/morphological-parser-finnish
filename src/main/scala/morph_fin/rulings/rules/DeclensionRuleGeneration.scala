@@ -1,6 +1,7 @@
 package morph_fin.rulings.rules
 
 import morph_fin.rulings.*
+import morph_fin.rulings.morpheme.{Accusative, Illative, Morphemes, Nominative, Singular}
 import morph_fin.rulings.nouns.*
 import morph_fin.utils.Letters
 

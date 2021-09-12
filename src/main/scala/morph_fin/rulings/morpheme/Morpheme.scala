@@ -1,6 +1,7 @@
-package morph_fin.rulings
+package morph_fin.rulings.morpheme
 
-import morph_fin.rulings.PossessiveSuffix.{PluralFirst, PluralSecond, SingularFirst, SingularSecond}
+import morph_fin.rulings.morpheme.PossessiveSuffix.{PluralFirst, PluralSecond, SingularFirst, SingularSecond}
+import morph_fin.rulings.*
 
 trait Morpheme
 //Noun
