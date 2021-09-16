@@ -6,6 +6,17 @@ import morph_fin.kotus_format.*
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme._
 
+
+case class Filters(
+                  superlative: Boolean = true,
+                  comparative: Boolean = true,
+                  singular: Boolean = true,
+                  plural: Boolean = true,
+                  posessiveSuffix: Boolean = true,
+                  adverb: Boolean = true
+                  )
+
+
 class NounPrinter {
 
   def valueOf(x: (Morpheme, Morpheme)): Int = MorphemeOrdering.valueMap(x._1) + MorphemeOrdering.valueMap(x._2)
@@ -16,12 +27,13 @@ class NounPrinter {
     .filter(_.isInstanceOf[UpdatedWord.StandardBending])
     .map(_.asInstanceOf[UpdatedWord.StandardBending])
 
-  def print(lemma: String): String =
+  def print(lemma: String, filters: Filters = Filters()): String =
     val resultOpt = words.find(_.word == lemma)
 
     resultOpt match {
       case Some(UpdatedWord.StandardBending(lemma, inflection)) =>
-        resolve(getWord(lemma, inflection.rule, inflection.gradationLetter))
+        val word = getWord(lemma, inflection.rule, inflection.gradationLetter)
+        resolve(word, filters)
       case _ => ""
     }
 
@@ -29,8 +41,12 @@ class NounPrinter {
     val gradationOpt = gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
     Word(lemma, ruleNumber, gradationOpt)
 
-  def resolve(word: Word): String =
+  def resolve(word: Word, filters: Filters): String =
     val declensions = AllDeclensionUtils.generateAllDeclections(word)
+      .filter(a => filters.singular || a.morphemes.isNot(Singular))
+      .filter(a => filters.plural || a.morphemes.isNot(Plural))
+      .filter(a => filters.posessiveSuffix || a.morphemes.isNotPossessiveSuffix)
+
     val normal = declensions.filter(_.morphemes.isNotAny(Comparative, Superlative, stiAdverb))
       .groupBy(a => (a.morphemes.getCase.get, a.morphemes.getGrammaticalNumber.get))
       .toSeq
@@ -48,13 +64,15 @@ class NounPrinter {
 
     val adverb = declensions.filter(_.morphemes.is(stiAdverb))
 
+    given Boolean = filters.posessiveSuffix
+
     formTableString(normal)
-      + "\n\n Comparative: \n" + formTableString(comparative)
-      + "\n\n Superlative: \n" + formTableString(superlative)
-      + "\n\n sti-adverb: " + adverb.map(_.word.toString).mkString(", ")
+      + (if(filters.comparative) "\n\nComparative: \n" + formTableString(comparative) else "")
+      + (if(filters.superlative) "\n\nSuperlative: \n" + formTableString(superlative)  else "")
+      + (if(filters.adverb) "\n\nsti-adverb: " + adverb.map(_.word.toString).mkString(", ")  else "")
+  end resolve
 
-
-  def formTableString(list: Seq[((Morpheme, Morpheme), Seq[InflectedWord])]): String =
+  def formTableString(list: Seq[((Morpheme, Morpheme), Seq[InflectedWord])])(using possessiveSuffix: Boolean): String =
     val table = list.toSeq.map(a =>
       val ((cse, number), list) = a
 
@@ -65,7 +83,7 @@ class NounPrinter {
       val a5 = list.filter(_.morphemes.is(PossessiveSuffix.PluralFirst)).map(_.word.toString()).mkString(", ")
       val a6 = list.filter(_.morphemes.is(PossessiveSuffix.PluralSecond)).map(_.word.toString()).mkString(", ")
       val a7 = list.filter(_.morphemes.is(PossessiveSuffix.ThirdPos)).map(_.word.toString()).mkString(", ")
-        Seq(a1, a2, a3, a4, a5, a6, a7)
+      if(possessiveSuffix) Seq(a1, a2, a3, a4, a5, a6, a7) else Seq(a1, a2)
     )
     printTable(table)
 

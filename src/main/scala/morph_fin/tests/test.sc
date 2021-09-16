@@ -1,8 +1,8 @@
-import morph_fin.rulings.nouns.NounPrinter
+import morph_fin.rulings.nouns.{Filters, NounPrinter}
 
 
 val printer = new NounPrinter()
 
-print(printer.print("solakka"))
+print(printer.print("valo", Filters()))
 
 
