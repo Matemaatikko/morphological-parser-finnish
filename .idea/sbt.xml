@@ -10,7 +10,7 @@
             <option value="$PROJECT_DIR$/project" />
           </set>
         </option>
-        <option name="sbtVersion" value="1.5.2" />
+        <option name="sbtVersion" value="1.5.5" />
       </SbtProjectSettings>
     </option>
     <option name="maximumHeapSize" value="1000" />
