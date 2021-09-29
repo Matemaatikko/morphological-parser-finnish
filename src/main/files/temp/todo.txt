@@ -1,20 +1,21 @@
-- TODO commandline tool that helps testing
-- TODO Final formation for nouns
 
-- ->TODO<--- reformat verb rules (verb_rules_2).
+
 
 
 - TODO collect indeclinables
 
-
 - TODO address numerals
 - TODO pronoun parsing
-
 - TODO address "puolisataa"
 
-- TODO Add possessive suffixes for some infinitives .
-- TODO Add Nomine inflections for participles
+
+
+- TODO varma - varmennin
+- TODO remove mmin-adverb
+- TODO add other adverb constructions
 
 
 
-
+Verbs
+========================
+- ->TODO<--- reformat verb rules (verb_rules_2).

@@ -22,7 +22,6 @@ class GradationTest extends AnyFlatSpec with should.Matchers {
     assert(getGradationTypeByEnding("aku") == GradationType.Strong, "2")
     assert(getGradationTypeByEnding("ien") == GradationType.Strong, "3")
     assert(getGradationTypeByEnding("aille") == GradationType.Weak, "4")
-    assert(getGradationTypeByEnding("aalle") == GradationType.Strong, "5")
   }
 
   //TODO testing not comprehensive

@@ -26,7 +26,7 @@ object ComparationUtils {
     import singularGenitiveWord._
     val exceptions = comparativeHandleExceptionWords(lemma)
     if exceptions.nonEmpty then exceptions
-    else formatForComparative(word.toString)
+    else formatForComparative(word.value)
 
   private def formatForComparative(word: String): Seq[String] =
     if(has_e_asBodyVowel(word))
@@ -46,7 +46,7 @@ object ComparationUtils {
     }
 
   private inline def has_e_asBodyVowel(singularGenitive: String) =
-    Hyphenation.apply(singularGenitive).size == 2 && singularGenitive.endsWith("an")
+    Hyphenation.split(singularGenitive).size == 2 && singularGenitive.endsWith("an")
 
   //===================================================
 
@@ -77,7 +77,7 @@ object ComparationUtils {
     import singularGenitiveWord._
     val exeptions = superlativeHandleExceptionWords(lemma)
     if exeptions.nonEmpty then exeptions
-    else formatForSuperlative(word.toString.dropRight(1))
+    else formatForSuperlative(word.value.dropRight(1))
 
   private def formatForSuperlative(word: String): Seq[String] =
     val last2 = word.takeRight(2)

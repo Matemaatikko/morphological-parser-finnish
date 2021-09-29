@@ -4,7 +4,6 @@ import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Genitive, Singular}
 import morph_fin.rulings.rules.{DeclensionRule, Gradation}
 
-//TODO untested
 object AllDeclensionUtils {
 
   def generateAllDeclections(word: Word)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =

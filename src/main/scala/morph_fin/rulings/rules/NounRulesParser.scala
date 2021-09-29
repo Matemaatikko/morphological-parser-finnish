@@ -22,7 +22,10 @@ object LoadAndParseNomineRules {
   }
 }
 
-case class Gradation(strong: String, weak: String)
+//When weak gradtion is empty, then '^' is added for tracking purposes.
+case class Gradation(strong: String, weak: String){
+  def weakValue = if weak.isEmpty then "^" else weak
+}
 case class NounExampleDeclensions(number: Int, lemma: String, gradation: Option[Gradation], cases: Seq[(Morphemes, String, Boolean)])
 
 class NounRulesParser(stream: Iterator[Char]) extends Parser(stream){

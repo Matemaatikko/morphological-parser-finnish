@@ -8,7 +8,6 @@ import morph_fin.utils.Letters
 case class PSuffix(suffixType: PossessiveSuffix, ending: String)
 
 
-//TODO untested
 object PossessiveSuffixUtils {
 
   val suffixes = Seq(

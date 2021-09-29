@@ -5,6 +5,7 @@ import morph_fin.rulings.morpheme.{Comparative, Genitive, Noun, Singular, stiAdv
 import morph_fin.rulings.rules.DeclensionRule
 
 //TODO untested
+//TODO add other adverb-forms
 object AdverbUtils {
 
   def generate(singularGenitiveWord: InflectedWord)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
@@ -13,6 +14,6 @@ object AdverbUtils {
     val word = singularGenitiveWord.word.toString
 
     val adverb = InflectedWord(StructuredWord(word.dropRight(1), "", "sti"), Noun ~ stiAdverb, singularGenitiveWord.lemma)
-    val comp = InflectedWord(StructuredWord(word.dropRight(1), "", "mmin"), Noun ~ stiAdverb ~ Comparative, singularGenitiveWord.lemma)
-    Seq(adverb, comp)
+    //val comp = InflectedWord(StructuredWord(word.dropRight(1), "", "mmin"), Noun ~ stiAdverb ~ Comparative, singularGenitiveWord.lemma)
+    Seq(adverb)
 }

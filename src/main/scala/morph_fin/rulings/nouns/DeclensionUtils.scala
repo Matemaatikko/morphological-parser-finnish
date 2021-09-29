@@ -5,13 +5,18 @@ import morph_fin.kotus_format.Entry
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Illative, Morphemes, Nominative, Noun, Plural, Singular}
 import morph_fin.rulings.rules.*
-import morph_fin.utils.{Letters, Vocalization}
+import morph_fin.utils.{Hyphenation, Letters, Vocalization}
 
 import java.nio.charset.StandardCharsets
 
-
+/**
+* When consonant gradation occurs with weak gradation: "",
+* then empty gradation string is replaced with '^' for tracking puposes.
+* This marker is removed when word is printed using toString-method.
+*/
 case class StructuredWord(root: String, gradation: String, ending: String) {
-  override def toString: String = root + gradation + ending
+  override def toString: String = Hyphenation.addApostrophes(root + gradation + ending).replace("^", "")
+  def value: String = (root + gradation + ending).replace("^", "")
   def append(str: String) = StructuredWord(root, gradation, ending + str)
   def last: Char = (root + gradation + ending).last
 }
@@ -91,24 +96,20 @@ object DeclensionUtils {
     import GradationType._
     val updatedEnding = updateEnding(ending, lemma, rule)
     var exceptionalBeginning: Option[String] = None
-    val gradation = (word.gradationOpt, ending.gradationTypeOpt) match {
+    val gradation: String = (word.gradationOpt, ending.gradationTypeOpt) match {
       case (Some(gradation), Some(Strong)) => gradation.strong
-      case (Some(gradation), Some(Weak)) => gradation.weak
+      case (Some(gradation), Some(Weak)) => gradation.weakValue
       case (Some(gradation), _) =>
         val wordGradationType = GradationHandler.getWordGradationTypeForNoun(lemma, gradation)
         val defaultGradationType = GradationHandler.getGradationTypeByEnding(root._2 + updatedEnding)
         val exceptionGradationType = GradationHandler.resolveNounException(updatedEnding, wordGradationType, ending.morphemes)
         val tpe = exceptionGradationType.getOrElse(defaultGradationType)
         exceptionalBeginning = resolve_i_j(root._1, lemma, gradation, tpe)
-        if(tpe == GradationType.Strong) gradation.strong else gradation.weak
+        if(tpe == GradationType.Strong) gradation.strong else gradation.weakValue
       case (None, _)            => ""
     }
-    val gradationWithApostropheIfNeeded = //Example: laaka -> laa'an
-      if gradation.isEmpty && (root._1.lastOption == (root._2 + updatedEnding).headOption) && word.gradationOpt.nonEmpty
-      then "\'"
-      else gradation
 
-    val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradationWithApostropheIfNeeded, root._2 + updatedEnding)
+    val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradation, root._2 + updatedEnding)
     InflectedWord(resultWord, ending.morphemes, word.lemma)
   end resolveWord
 

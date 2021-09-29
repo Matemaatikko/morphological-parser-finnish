@@ -6,6 +6,7 @@ import morph_fin.rulings.rules.GenerateDeclensionRules.splitByFirstConsonant
 import morph_fin.rulings.rules.{Gradation, LongestStartingSubstring, RepChar}
 import morph_fin.utils.Letters
 
+//TODO what is the role of Missing???
 enum VerbGradationType:
   case Strong, Weak, Nothing, Missing
 
@@ -50,9 +51,14 @@ object GenerateConjugationRules {
     def resolveEnding(tuple: (Morphemes, String), root: String, gradation: Gradation): Conjugation =
       import GradationType.*
       val endingWithGradation = tuple._2.drop(root.length)
-      val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
-      else if endingWithGradation.startsWith(gradation.weak) then endingWithGradation.drop(gradation.weak.length) -> VerbGradationType.Weak
-      else endingWithGradation ->  VerbGradationType.Missing
+
+      val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong)
+        then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
+      else if endingWithGradation.startsWith(gradation.weak)
+        then endingWithGradation.drop(gradation.weak.length) -> VerbGradationType.Weak
+      else
+        println("PROBLEM: " + tuple) //TODO What missing means??
+        endingWithGradation ->  VerbGradationType.Missing
 
       Conjugation(tuple._1, ending.map(Ch(_)), tpe)
 

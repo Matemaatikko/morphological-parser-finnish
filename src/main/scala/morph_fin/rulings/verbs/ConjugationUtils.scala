@@ -41,13 +41,13 @@ object ConjugationUtils {
     val updatedEnding = updateEnding(ending, word.lemma, rule)
     val gradation = word.gradationOpt match {
       case Some(gradation) if ending.tpe == VerbGradationType.Strong => gradation.strong
-      case Some(gradation) if ending.tpe == VerbGradationType.Weak => gradation.weak
+      case Some(gradation) if ending.tpe == VerbGradationType.Weak => gradation.weakValue
       case Some(gradation) =>
         val wordGradationType = GradationHandler.getWordGradationTypeForVerb(word.lemma, gradation)
         val defaultGradationType = GradationHandler.getGradationTypeByEnding(root._2 + updatedEnding)
         val exceptionGradationType = GradationHandler.resolveVerbException(word.lemma, wordGradationType, ending.morphemes)
         val tpe = exceptionGradationType.getOrElse(defaultGradationType)
-        if(tpe == GradationType.Strong) gradation.strong else gradation.weak
+        if(tpe == GradationType.Strong) gradation.strong else gradation.weakValue
       case None            => ""
     }
     val updatedGradation = if ending.tpe == VerbGradationType.Missing then gradation.dropRight(1) else gradation
