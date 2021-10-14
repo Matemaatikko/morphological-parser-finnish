@@ -14,6 +14,7 @@
 - TODO remove mmin-adverb
 - TODO add other adverb constructions
 
+- TODO address vesi, käsi (GEN-S, NOM-P) possessive suffix
 
 
 Verbs

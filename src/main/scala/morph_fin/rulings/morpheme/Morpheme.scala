@@ -72,5 +72,12 @@ enum PossessiveSuffix extends Morpheme:
   case PluralFirst, PluralSecond
   case ThirdPos
 
-case object stiAdverb extends Morpheme
+
+trait Adverb extends Morpheme
+case object stiAdverb extends Adverb
+case object ltiAdverb extends Adverb
+case object isinAdverb extends Adverb
+case object ittainAdverb extends Adverb
+case object kkAinAdverb extends Adverb
+case object itseAdverb extends Adverb
 
