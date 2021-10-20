@@ -2,6 +2,7 @@ import morph_fin.inflection.EndingSeparator
 import morph_fin.kotus_format.{LoadUpdatedKotus, UpdatedWord}
 import morph_fin.rulings.nouns.{Filters, NounPrinter, StructuredWord, Word}
 import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.rules._
 
 
 val printer = new NounPrinter()

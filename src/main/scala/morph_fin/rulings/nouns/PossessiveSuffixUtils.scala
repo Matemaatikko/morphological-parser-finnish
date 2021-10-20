@@ -44,7 +44,7 @@ object PossessiveSuffixUtils {
     val root = suffixBody.word.root
     val updatedGradation = updateGradation(suffixBody.word.gradation, suffixBody.morphemes, gradationOpt)
     val updatedEnding = handle_mm_case(remove_t_and_n_fromEnding(suffixBody.word.ending))
-    val updatedEnding2 = handleTranslativeCase(updatedEnding, suffixBody.morphemes)
+    val updatedEnding2 = handleDECase(handleTranslativeCase(updatedEnding, suffixBody.morphemes))
     suffixBody.copy(word = StructuredWord(root, updatedGradation, updatedEnding2))
 
   /**
@@ -87,8 +87,12 @@ object PossessiveSuffixUtils {
 
   //Example: kauniimma(n) -> kauniimpa(ni)
   private inline def handle_mm_case(ending: String): String =
-    val lastDropped = ending.dropRight(1)
-    if lastDropped.endsWith("mm") then ending.dropRight(3) + "mp" + ending.last else ending
+    if ending.endsWith("mma") then ending.dropRight(3) + "mpa" else ending
+
+  //Example: kahde(n) -> kahte(ni)
+  private inline def handleDECase(ending: String): String =
+    if ending.endsWith("de") then ending.dropRight(2) + "te" else ending
+
 
   //kauniiksi -> kauniikseni
   private inline def handleTranslativeCase(ending: String, morphemes: Morphemes): String =

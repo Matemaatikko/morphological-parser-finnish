@@ -22,7 +22,7 @@ object GradationHandler {
     'M' -> 12
   )
 
-  private val gradationMap = Seq(
+  val gradationMap = Seq(
     "kk" -> "k",
     "pp" -> "p",
     "tt" -> "t",
@@ -137,17 +137,22 @@ object GradationHandler {
   inline def endsWith_tA(lemma: String): Boolean = (lemma.last == 'a' || lemma.last == 'ä') && lemma.dropRight(1).last == 't'
 
 
+  def endsWithGradation(value: String, gradation: String, tsGradation: Boolean): Boolean =
+    if tsGradation then value.endsWith(gradation) || value.endsWith(gradation.replace("t", "s"))
+    else value.endsWith(gradation)
+
+
   /**
    * @param root - root of all nomine bendings.
    * Example:
    * splitByGradationLocation("tanko", nk-ng) = (ta, o)
    * splitByGradationLocation("ies", k-_) = (i, es)
    */
-  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1, drop: Int = 0): (String, String) =
+  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1, drop: Int = 0, tsGradation: Boolean = false): (String, String) =
     def trySplit(amount: Int): Option[(String, String)] =
       val droppedRoot = root.dropRight(amount)
-      if droppedRoot.endsWith(gradation.strong) then Some(droppedRoot.dropRight(gradation.strong.length) , root.takeRight(amount))
-      else if droppedRoot.endsWith(gradation.weak) then Some(droppedRoot.dropRight(gradation.weak.length) , root.takeRight(amount))
+      if endsWithGradation(droppedRoot, gradation.strong, tsGradation) then Some(droppedRoot.dropRight(gradation.strong.length) , root.takeRight(amount))
+      else if endsWithGradation(droppedRoot, gradation.weak, tsGradation) then Some(droppedRoot.dropRight(gradation.weak.length) , root.takeRight(amount))
       else None
 
     def recursion(amount: Int): (String, String) =
@@ -160,8 +165,8 @@ object GradationHandler {
         }
 
     def resolveEmptyWeakCase: (String, String) =
-      if root.dropRight(0).endsWith(gradation.strong) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
-      else if root.dropRight(1).endsWith(gradation.strong) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
+      if endsWithGradation(root.dropRight(0), gradation.strong, tsGradation) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
+      else if endsWithGradation(root.dropRight(1), gradation.strong, tsGradation) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
       else if drop > 0 then (root.dropRight(0), root.takeRight(0))
       else if Letters.isConsonant(root.last) then (root.dropRight(2), root.takeRight(2))
       else (root.dropRight(1), root.takeRight(1))

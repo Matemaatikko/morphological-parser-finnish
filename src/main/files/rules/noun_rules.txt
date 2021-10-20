@@ -831,7 +831,7 @@ P:Ins: pienin
 P:Abe: pienittä
 P:Com: pienine-P
 
-<27>
+<27:G:S:t-d>
 S:Nom: käsi
 S:Gen: käden
 S:Par: kättä
@@ -862,7 +862,7 @@ P:Ins: käsin
 P:Abe: käsittä
 P:Com: käsine-P
 
-<28>
+<28:G:S:nt-nn>
 S:Nom: kynsi
 S:Gen: kynnen
 S:Par: kynttä
@@ -955,7 +955,7 @@ P:Ins: veitsin
 P:Abe: veitsittä
 P:Com: veitsine-P
 
-<31>
+<31:G:S:t-d>
 S:Nom: kaksi
 S:Gen: kahden
 S:Par: kahta

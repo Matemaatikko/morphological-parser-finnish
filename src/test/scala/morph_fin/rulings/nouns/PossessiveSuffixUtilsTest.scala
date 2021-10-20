@@ -12,4 +12,6 @@ class PossessiveSuffixUtilsTest extends AnyFlatSpec with should.Matchers {
 
 
   //TODO implement
+
+  //kalleus, kaksi, kauniimman, kauniiksi
 }

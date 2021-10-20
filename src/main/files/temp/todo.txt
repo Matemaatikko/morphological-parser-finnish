@@ -15,9 +15,6 @@
 
 - TODO Add missing tests
 
-- TODO address vesi, käsi (GEN-S, NOM-P) possessive suffix
-- TODO jälsi
-
 
 Verbs
 ========================

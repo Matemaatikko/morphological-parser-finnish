@@ -36,6 +36,13 @@ extension(ending: Seq[RepChar])
       case RepChar.Rep(c) => map.get(c).getOrElse(c)
     }).mkString("")
 
+extension(list: Seq[RepChar])
+  def value: String = list.toList match {
+    case Ch(c) :: tail => c + tail.value
+    case Rep(c) :: tail => c + tail.value
+    case Nil           => ""
+  }
+
 
 case class Declension(morphemes: Morphemes, ending: Seq[RepChar], gradationTypeOpt: Option[GradationType])
 case class DeclensionRule(
@@ -92,21 +99,29 @@ object GenerateDeclensionRules {
 
   def resolveGradation(exampleDeclensions: NounExampleDeclensions, gradation: Gradation): DeclensionRule =
     //Resolve root. Resolvation is based on nomine_rules.txt file analysation
-    val drop = if exampleDeclensions.number == 35 then 4 else 3
+    val drop = exampleDeclensions.number match {
+      case 35 => 4
+      case 27 | 31 => 2
+      case _  => 3
+    }
+
     val root = exampleDeclensions.lemma.dropRight(drop)
 
     val replacementDrop: Int = exampleDeclensions.number match {
-      case 4 | 14 | 16 => 1
-      case 34 | 35     => 2
+      case 4 | 14 | 16 | 27 | 28 | 31 => 1
+      case  34 | 35     => 2
     }
     val replacementVowels = resolveReplacementVowels(exampleDeclensions, exampleDeclensions.lemma.length - replacementDrop)
 
+    val tsGradation = Seq(27, 28, 31).contains(exampleDeclensions.number)
+
     //Resolve cases
     val cases = exampleDeclensions.cases
-      .map(resolveGradationCase(_, root, gradation, replacementVowels))
+      .map(resolveGradationCase(_, root, gradation, replacementVowels, tsGradation))
       .filterNot(_.morphemes.is(Accusative))
 
     DeclensionRule(exampleDeclensions.number, drop, true, replacementVowels, cases)
+
 
   /**
    *  Removes root and gradation from cased word to resolve ending.
@@ -114,11 +129,23 @@ object GenerateDeclensionRules {
    *
    *  Boolean in triple tells if word has been parsed with paranthesis. i.e. (jalkain)
    */
-  def resolveGradationCase(triple: (Morphemes, String, Boolean), root: String, gradation: Gradation, replacementVowels: Seq[Char]): Declension =
+  def resolveGradationCase(
+                            triple: (Morphemes, String, Boolean),
+                            root: String,
+                            gradation: Gradation,
+                            replacementVowels: Seq[Char],
+                            tsGradation: Boolean
+                          ): Declension =
     import GradationType.*
     val endingWithGradation = triple._2.drop(root.length)
-    val (ending, tpe) = if endingWithGradation.startsWith(gradation.strong) then endingWithGradation.drop(gradation.strong.length) -> Strong
-      else endingWithGradation.drop(gradation.weak.length) -> Weak
+    val (ending, tpe) =
+      if tsGradation && endingWithGradation.startsWith(gradation.strong.replace("t", "s")) then
+        endingWithGradation.drop(gradation.strong.length) -> Strong
+      else if endingWithGradation.startsWith(gradation.strong) then
+        endingWithGradation.drop(gradation.strong.length) -> Strong
+      else
+        endingWithGradation.drop(gradation.weak.length) -> Weak
+
 
     val updatedEnding = updateEndingWithReplacementRules(ending, triple._1, replacementVowels)
 

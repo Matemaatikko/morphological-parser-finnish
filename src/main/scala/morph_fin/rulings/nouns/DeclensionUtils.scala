@@ -44,22 +44,33 @@ object DeclensionUtils {
     else rules.find(_.ruleNumber == number)
     resultOpt.getOrElse(throw new Exception(s"No noun rule found for: ${number}"))
 
+  def gradationForStrongLemma(lemma: String): Option[Gradation] =
+    val value = lemma.dropRight(1).takeRight(2).replace("s", "t")
+    GradationHandler.gradationMap.find(_._1 == value).map(a => Gradation(a._1, a._2))
+
   /**
    * Note: word.lemma can be in plural or singular form. Both cases are handled.
    */
   def generateDeclensions(word: Word)(using rules: Seq[DeclensionRule]): Seq[InflectedWord] =
+    val gradationOpt = word.ruleNumber match {
+      case 27 | 31 => word.gradationOpt.orElse(Some(Gradation("t", "d")))
+      case 28 => word.gradationOpt.orElse(gradationForStrongLemma(word.lemma))
+      case _  => word.gradationOpt
+    }
     val rule = findRule(word.lemma, word.ruleNumber)
 
     //Resolve root
     val (root, lemma) = checkPlurality(rule, word)
 
+    val tsGradation = Seq(27, 28, 31).contains(word.ruleNumber)
+
     //Resolve gradation
-    val rootDividedByGradation = word.gradationOpt match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop)
+    val rootDividedByGradation = gradationOpt match {
+      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop, tsGradation)
       case _                                    => (root, "")
     }
 
-    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word, rule))
+    rule.cases.map(ending => resolveWord(ending, rootDividedByGradation, lemma, word.copy(gradationOpt = gradationOpt), rule, tsGradation))
       .map(resultWord => updateRule5(resultWord, word.ruleNumber))
   end generateDeclensions
 
@@ -100,7 +111,14 @@ object DeclensionUtils {
       resultWord.copy(word = updatedWord)
     else resultWord
 
-  private inline def resolveWord(ending: Declension, root: (String, String), lemma: String, word: Word, rule: DeclensionRule): InflectedWord =
+  private inline def resolveWord(
+                                  ending: Declension,
+                                  root: (String, String),
+                                  lemma: String,
+                                  word: Word,
+                                  rule: DeclensionRule,
+                                  tsGradation: Boolean
+                                ): InflectedWord =
     import GradationType._
     val updatedEnding = updateEnding(ending, lemma, rule)
     var exceptionalBeginning: Option[String] = None
@@ -118,8 +136,17 @@ object DeclensionUtils {
     }
 
     val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradation, root._2 + updatedEnding)
-    InflectedWord(resultWord, ending.morphemes, word.lemma, word.gradationOpt)
+    val tsUpdatedWord = if tsGradation then updateTSGradation(resultWord) else resultWord
+    InflectedWord(tsUpdatedWord, ending.morphemes, word.lemma, word.gradationOpt)
   end resolveWord
+
+  def updateTSGradation(structuredWord: StructuredWord): StructuredWord =
+    if(structuredWord.gradation.endsWith("t")  && structuredWord.ending.startsWith("i")) then
+      structuredWord.copy(gradation = structuredWord.gradation.replace("t", "s"))
+    else if(structuredWord.root.endsWith("k"))
+      structuredWord.copy(root = structuredWord.root.dropRight(1) + "h")
+    else
+      structuredWord
 
   /**
    * Words: aika, poika has i-j variation in consonant gradation.
