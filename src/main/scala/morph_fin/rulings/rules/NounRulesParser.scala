@@ -22,7 +22,7 @@ object LoadAndParseNomineRules {
   }
 }
 
-//When weak gradtion is empty, then '^' is added for tracking purposes.
+//When weak gradation is empty, then '^' is added for tracking purposes.
 case class Gradation(strong: String, weak: String){
   def weakValue = if weak.isEmpty then "^" else weak
 }

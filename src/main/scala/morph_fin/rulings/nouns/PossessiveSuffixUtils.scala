@@ -25,7 +25,7 @@ object PossessiveSuffixUtils {
   /**
    * Note: Nominative, Singular is skipped due to its similarity to Genitive, Singular.
    */
-  def addSuffixes(inflectedWord: InflectedWord, gradationOpt: Option[Gradation]): Seq[InflectedWord] =
+  def addSuffixes(inflectedWord: InflectedWord): Seq[InflectedWord] =
     import inflectedWord._
     val suffixBody = getRootForNonVnSuffixes(inflectedWord, gradationOpt)
     val VnSuffix = addVnSuffix(suffixBody, gradationOpt)

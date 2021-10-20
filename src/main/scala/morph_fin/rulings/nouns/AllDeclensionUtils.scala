@@ -12,11 +12,11 @@ object AllDeclensionUtils {
     val comparativeForms = ComparationUtils.generateComparativeInflections(genitive)
     val superlativeForms = ComparationUtils.generateSuperlativeInflections(genitive)
 
-    val adverbs = AdverbUtils.generate(genitive)
+    val adverbs = AdverbUtils.generate(cases)
 
-    val normalWithSuffixes = cases.flatMap(value => PossessiveSuffixUtils.addSuffixes(value, word.gradationOpt))
-    val comparativeWithSuffixes = comparativeForms.flatMap(value => PossessiveSuffixUtils.addSuffixes(value, Some(Gradation("mp", "mm"))))
-    val superlativeWithSuffixes = superlativeForms.flatMap(value => PossessiveSuffixUtils.addSuffixes(value, None))
+    val normalWithSuffixes = cases.flatMap(value => PossessiveSuffixUtils.addSuffixes(value))
+    val comparativeWithSuffixes = comparativeForms.flatMap(value => PossessiveSuffixUtils.addSuffixes(value))
+    val superlativeWithSuffixes = superlativeForms.flatMap(value => PossessiveSuffixUtils.addSuffixes(value))
 
-    normalWithSuffixes ++ comparativeWithSuffixes ++ superlativeWithSuffixes ++ adverbs
+    normalWithSuffixes ++ comparativeWithSuffixes ++ superlativeWithSuffixes // ++ adverbs
 }

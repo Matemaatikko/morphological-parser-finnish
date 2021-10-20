@@ -81,7 +81,7 @@ object GenerateInflectedWords {
         resulWords.flatMap(resultWord => {
           val gradationOpt = suffixWord.inflection.gradationLetter.map(GradationHandler.getGradationByLetter(_))
           if resultWord.morphemes.root == Noun then
-            addPossessiveSuffixes(word, prefix, resultWord, gradationOpt)
+            addPossessiveSuffixes(word, prefix, resultWord)
           else {
             val result = addHyphenIfNeeded(prefix, resultWord.word.toString, word)
             Seq(print(result, resultWord.morphemes, word))
@@ -95,7 +95,7 @@ object GenerateInflectedWords {
           val prefixBending = prefixBendings.find(_.morphemes == morphemes).get
           val suffixBending = suffixBendings.find(_.morphemes == morphemes).get
           val gradationOpt = suffixWord.inflection.gradationLetter.map(GradationHandler.getGradationByLetter(_))
-          addPossessiveSuffixes(word, prefixBending.word.toString, suffixBending, gradationOpt)
+          addPossessiveSuffixes(word, prefixBending.word.toString, suffixBending)
         })
       case StandardBending(word, bending) =>
         val bendings = getBendingsWithSuffix(word, bending)
@@ -106,8 +106,8 @@ object GenerateInflectedWords {
       case _ => Nil
     }
 
-  def addPossessiveSuffixes(word: String, prefix: String, suffix: InflectedWord, gradationOpt: Option[Gradation]): Seq[String] =
-    val suffixInflectionsWithPosSuffixes = PossessiveSuffixUtils.addSuffixes(suffix, gradationOpt)
+  def addPossessiveSuffixes(word: String, prefix: String, suffix: InflectedWord): Seq[String] =
+    val suffixInflectionsWithPosSuffixes = PossessiveSuffixUtils.addSuffixes(suffix)
     suffixInflectionsWithPosSuffixes.map(suffix => {
       val resultWord = addHyphenIfNeeded(prefix, suffix.word.toString, word)
       print(resultWord, suffix.morphemes, word)

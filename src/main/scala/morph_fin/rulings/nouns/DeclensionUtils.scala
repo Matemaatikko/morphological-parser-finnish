@@ -22,7 +22,15 @@ case class StructuredWord(root: String, gradation: String, ending: String) {
 }
 
 case class Word(lemma: String, ruleNumber: Int, gradationOpt: Option[Gradation])
-case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: String)
+case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: String, gradationOpt: Option[Gradation] = None){
+  def updateGradation(gradationType: GradationType): InflectedWord =
+    val gradationString = gradationType match {
+      case GradationType.Strong => gradationOpt.map(_.strong).getOrElse("")
+      case GradationType.Weak => gradationOpt.map(_.weakValue).getOrElse("")
+    }
+    val updatedWord = word.copy(gradation = gradationString)
+    copy(word = updatedWord)
+}
 
 object DeclensionUtils {
 
@@ -110,7 +118,7 @@ object DeclensionUtils {
     }
 
     val resultWord = StructuredWord(exceptionalBeginning.getOrElse(root._1), gradation, root._2 + updatedEnding)
-    InflectedWord(resultWord, ending.morphemes, word.lemma)
+    InflectedWord(resultWord, ending.morphemes, word.lemma, word.gradationOpt)
   end resolveWord
 
   /**
