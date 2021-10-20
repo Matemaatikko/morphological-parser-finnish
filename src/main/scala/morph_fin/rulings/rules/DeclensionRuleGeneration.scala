@@ -3,7 +3,7 @@ package morph_fin.rulings.rules
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Accusative, Illative, Morphemes, Nominative, Singular}
 import morph_fin.rulings.nouns.*
-import morph_fin.utils.Letters
+import morph_fin.utils.{Letters, LongestStartingSubstring}
 
 enum RepChar:
   case Ch(c: Char)
@@ -160,20 +160,4 @@ object GenerateDeclensionRules {
     if(index == -1) then (str, "")
     else str.splitAt(index)
 
-}
-
-/***
- * Example: Seq("algorithm", "algotim", "algonat") -> "algo"
- */
-object LongestStartingSubstring {
-  def apply(list: Seq[String]): String =
-    val sortedList = list.sorted
-    val first = sortedList.head
-    val last = sortedList.last
-    var i = 0
-    var result = ""
-    while(i < first.length && i < last.length && first(i) == last(i))
-      result += first(i)
-      i += 1
-    result
 }
