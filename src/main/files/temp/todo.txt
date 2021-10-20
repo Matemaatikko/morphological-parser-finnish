@@ -2,21 +2,30 @@
 
 - TODO In reformat-kotus replace compound1 with StandardBending (After you choose to take account compound words.)
 
-- TODO collect indeclinables
+- TODO collect indeclinables - partikkelit, adverbit etc.
+- TODO GO THROUGH TODO items
 
-- TODO address numerals
+
+>>>
+- TODO address numerals (kahdeksan)
 - TODO pronoun parsing
 - TODO address "puolisataa"
+>>>
 
 
-
-- TODO varma - varmennin
-- TODO remove mmin-adverb
-- TODO add other adverb constructions
+- TODO Add missing tests
 
 - TODO address vesi, käsi (GEN-S, NOM-P) possessive suffix
+- TODO jälsi
 
 
 Verbs
 ========================
-- ->TODO<--- reformat verb rules (verb_rules_2).
+- ->TODO <--- reformat verb rules (verb_rules_2).
+
+
+
+Secondary
+=========
+- TODO add other adverb constructions
+- TODO add adverb constructions to system

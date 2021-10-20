@@ -151,12 +151,6 @@ Consonant gradation
 -------------------
 
 
-Incorrect inflection (To be fixed)
-=============================
-- The following words have incorrect inflection:
-  - jälsi
-- Some numerals have incorrect inflection. Example: 'kahdeksan'
-
 Missing properties (Upcoming)
 =============================
 - inflection of pronouns

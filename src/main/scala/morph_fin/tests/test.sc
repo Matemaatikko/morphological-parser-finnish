@@ -4,10 +4,8 @@ import morph_fin.rulings.nouns.{Filters, NounPrinter, StructuredWord, Word}
 import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
 
 
-//val printer = new NounPrinter()
-
-
-//print(printer.print("vesi", Filters()))
+val printer = new NounPrinter()
+print(printer.print("kaunis", Filters()))
 
 
 //given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
@@ -18,6 +16,6 @@ import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
 //
 //println(words.toString())
 
-val separator = new EndingSeparator()
-separator.registerAll
+//val separator = new EndingSeparator()
+//separator.registerAll
 
