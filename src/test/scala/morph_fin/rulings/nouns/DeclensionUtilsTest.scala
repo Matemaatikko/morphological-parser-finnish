@@ -904,6 +904,36 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Comitative ~ Plural, "virsine")
   }
 
+  "addDeclensions" should "handle case: rule: 28, word: jälsi" in {
+    val word = Word("jälsi", 28, Gradation("lt", "ll").opt)
+    val declensions = generateDeclensions(word)
+
+    //Singular
+
+    declensions.matches(Noun ~ Nominative ~ Singular, "jälsi")
+    declensions.matches(Noun ~ Genitive ~ Singular, "jällen")
+    declensions.matches(Noun ~ Partitive ~ Singular, "jälttä")
+
+    declensions.matches(Noun ~ Illative ~ Singular, "jälteen")
+
+    declensions.matches(Noun ~ Adessive ~ Singular, "jällellä")
+
+    //Plural
+
+    declensions.matches(Noun ~ Nominative ~ Plural, "jället")
+    declensions.matches(Noun ~ Genitive ~ Plural, "jälsien", "jältten")
+    declensions.matches(Noun ~ Partitive ~ Plural, "jälsiä")
+
+    declensions.matches(Noun ~ Illative ~ Plural, "jälsiin")
+
+    declensions.matches(Noun ~ Adessive ~ Plural, "jälsillä")
+
+    declensions.matches(Noun ~ Essive ~ Plural, "jälsinä")
+
+    declensions.matches(Noun ~ Instructive ~ Plural, "jälsin")
+    declensions.matches(Noun ~ Comitative ~ Plural, "jälsine")
+  }
+
   "addDeclensions" should "handle case: rule: 29, word: lapsi" in {
     val word = Word("lapsi", 29, None)
     val declensions = generateDeclensions(word)
