@@ -1,5 +1,7 @@
 import morph_fin.inflection.EndingSeparator
-import morph_fin.rulings.nouns.{Filters, NounPrinter, StructuredWord}
+import morph_fin.kotus_format.{LoadUpdatedKotus, UpdatedWord}
+import morph_fin.rulings.nouns.{Filters, NounPrinter, StructuredWord, Word}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
 
 
 //val printer = new NounPrinter()
@@ -7,13 +9,15 @@ import morph_fin.rulings.nouns.{Filters, NounPrinter, StructuredWord}
 
 //print(printer.print("vesi", Filters()))
 
+
+//given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+//
+//val words= LoadUpdatedKotus.apply()
+//  .filter(_.isInstanceOf[UpdatedWord.Compound2])
+//  .mkString("\n")
+//
+//println(words.toString())
+
 val separator = new EndingSeparator()
 separator.registerAll
 
-println(separator.words.length)
-
-println(separator.endingList.head.list.size)
-println(separator.endingList.drop(1).head.list.size)
-println(separator.endingList.size)
-
-println(separator.endingList.map(_.list.mkString(",")).mkString("\n"))

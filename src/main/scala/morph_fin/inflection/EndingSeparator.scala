@@ -1,14 +1,19 @@
 package morph_fin.inflection
 
-import morph_fin.kotus_format.{LoadUpdatedKotus, UpdatedWord}
+import morph_fin.kotus_format.{LoadUpdatedKotus, PrintUpdatedWord, ReformatKotus, UpdatedWord}
 import morph_fin.rulings.GradationHandler
-import morph_fin.rulings.morpheme.Morphemes
+import morph_fin.rulings.morpheme.{Morphemes, PrintMorphemes}
 import morph_fin.rulings.nouns.{AllDeclensionUtils, InflectedWord, Word}
 import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
-import morph_fin.utils.LongestStartingSubstring
+import morph_fin.utils.{FilesLocation, LongestStartingSubstring}
+
+import java.io.{FileOutputStream, OutputStreamWriter}
+import java.nio.charset.StandardCharsets
 
 
-case class Ending(ending: String, morphemes: Morphemes)
+case class Ending(ending: String, morphemes: Morphemes){
+  override def toString: String = ending + " " + PrintMorphemes.apply(morphemes)
+}
 case class EndingList(list: Set[Ending])
 
 class EndingSeparator {
@@ -29,12 +34,16 @@ class EndingSeparator {
   val words: Seq[Word] = LoadUpdatedKotus.apply()
     .filter(_.isInstanceOf[UpdatedWord.StandardBending])
     .map(_.asInstanceOf[UpdatedWord.StandardBending])
-    .filter(_.inflection.rule <= 1)
+    .filter(_.inflection.rule <= 49)
     .map(a => getWord(a.word, a.inflection.rule, a.inflection.gradationLetter))
 
   private inline def getWord(lemma: String, ruleNumber: Int, gradationLetterOpt: Option[Char]): Word =
     val gradationOpt = gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
     Word(lemma, ruleNumber, gradationOpt)
+
+  val wordListFileName = FilesLocation.files_path + "/result/final-word-list.txt"
+  val endingFileName = FilesLocation.files_path + "/result/inflections.txt"
+  val writer = new OutputStreamWriter(new FileOutputStream(wordListFileName), StandardCharsets.UTF_8)
 
   def register(word: Word) =
     val declensions = AllDeclensionUtils.generateAllDeclections(word)
@@ -42,12 +51,21 @@ class EndingSeparator {
     val index = endingList.indexOf(endings)
     if index == -1 then
       endingList = endingList :+ endings
-      rootMap = rootMap :+ (root -> (endingList.size - 1) )
+      writer.write("\n" + word.lemma + "\t" + root + "\t" + (endingList.size - 1))
     else
-      rootMap = rootMap :+ (root -> index)
+      writer.write("\n" + word.lemma + "\t" + root + "\t" + index)
 
   def registerAll =
     words.foreach(register(_))
+    writer.close()
+    registerEndingList
+
+  def registerEndingList =
+    val writer2 = new OutputStreamWriter(new FileOutputStream(endingFileName), StandardCharsets.UTF_8)
+    endingList.zipWithIndex.foreach(value => writer2.write("\n" + value._2 + "|" + value._1.list.mkString(",")))
+    writer2.close()
+
+
 
 
 }

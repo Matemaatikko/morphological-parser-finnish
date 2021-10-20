@@ -1,6 +1,6 @@
 
 
-
+- TODO In reformat-kotus replace compound1 with StandardBending (After you choose to take account compound words.)
 
 - TODO collect indeclinables
 
