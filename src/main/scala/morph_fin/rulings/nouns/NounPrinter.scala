@@ -32,14 +32,11 @@ class NounPrinter {
 
     resultOpt match {
       case Some(UpdatedWord.StandardBending(lemma, inflection)) =>
-        val word = getWord(lemma, inflection.rule, inflection.gradationLetter)
+        val word = Word.from(lemma, inflection.rule, inflection.gradationLetter)
         resolve(word, filters)
       case _ => ""
     }
 
-  def getWord(lemma: String, ruleNumber: Int, gradationLetterOpt: Option[Char]): Word =
-    val gradationOpt = gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
-    Word(lemma, ruleNumber, gradationOpt)
 
   def resolve(word: Word, filters: Filters): String =
     val declensions = AllDeclensionUtils.generateAllDeclections(word)

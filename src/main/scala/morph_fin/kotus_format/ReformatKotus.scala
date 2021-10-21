@@ -68,6 +68,8 @@ object PrintUpdatedWord{
   def bendingString(bending: Inflection): String = s":B:${bending.rule}" + bending.gradationLetter.map(l => s":L:$l").getOrElse("")
 }
 
+val numerals = Seq("yksi", "kaksi", "kolme", "neljä", "viisi", "kuusi", "seitsemän", "kahdeksan", "yhdeksän")
+val orderNumerals = Seq("yhdes", "kahdes", "kolmas", "neljäs", "viides", "kuudes", "seitsemäs", "kahdeksas", "yhdeksäs")
 
 val remove = Seq(
   "ikenet",
@@ -76,8 +78,17 @@ val remove = Seq(
   "korkeakoulu", "jalokivi", "viileäkaappi", "raaka-aine",
   "missä", "mikin", "missäkin",
 
-  "hapan"
+  "hapan",
+  "puolisataa"
 )
+++ numerals.map(_ + "toista")
+++ numerals.drop(1).map(_ + "kymmentä")
+++ numerals.drop(1).map(_ + "sataa")
+++ numerals.drop(1).map(_ + "tuhatta")
+++ orderNumerals.map(_ + "toista")
+++ orderNumerals.drop(1).map(_ + "kymmenes")
+++ orderNumerals.drop(1).map(_ + "sadas")
+++ orderNumerals.drop(1).map(_ + "tuhannes")
 
 val additions = Seq(
   Entry(KotusWord.Word("raamattu"), Some(Inflection(4, Some('C')))),
@@ -97,7 +108,17 @@ val additions = Seq(
   Entry(KotusWord.Word("missäkin"), Some(Inflection(99, None))),
 
   Entry(KotusWord.Word("hapan"), Some(Inflection(34, Some('B')))),
+  Entry(KotusWord.Word("puolisata"), Some(Inflection(51, None))),
+  Entry(KotusWord.Word("toista"), Some(Inflection(99, None))),
 )
+++ numerals.map(_ + "toista").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ numerals.drop(1).map(_ + "kymmen").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ numerals.drop(1).map(_ + "sata").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ numerals.drop(1).map(_ + "tuhat").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ orderNumerals.map(_ + "toista").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ orderNumerals.drop(1).map(_ + "kymmenes").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ orderNumerals.drop(1).map(_ + "sadas").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
+++ orderNumerals.drop(1).map(_ + "tuhannes").map(value => Entry(KotusWord.Word(value), Some(Inflection(51, None))))
 
 val corrections = Seq(
   UpdatedWord.Compound2("nuoripari", SubwordWithInflection("nuori", Inflection(26, None)), SubwordWithInflection("pari", Inflection(5, None)))
@@ -131,7 +152,6 @@ object ReformatKotus {
 
     val validSuffixes: Seq[Entry] = list
       .filter(entry => entry.inflectionOpt.nonEmpty &&
-        entry.inflectionOpt.exists(bend => bend.rule != 99 && bend.rule != 101) &&
         entry.word.noPrefix)
 
     val pluralSuffixes: Seq[(String, Entry)]  = validSuffixes.filter(_.inflectionOpt.exists(_.rule < 50)).flatMap(entry =>
@@ -156,7 +176,7 @@ object ReformatKotus {
 
     val data = Data(list, listMap, validSuffixes, pluralSuffixes, pluralWords)
 
-    list.map(resolveValue(_)(data)) ++ corrections
+    (list.map(resolveValue(_)(data)) ++ corrections).filter(_.value != "toista")
   end apply
 
 

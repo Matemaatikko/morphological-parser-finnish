@@ -1605,4 +1605,32 @@ class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Comitative ~ Plural, "kanteleine")
   }
 
+  //NUMERALS
+
+  "addDeclensions" should "handle numeral: yksi" in {
+    val word = Word.from("yksi", 31, None)
+    val declensions = generateDeclensions(word)
+
+    declensions.matches(Noun ~ Nominative ~ Singular, "yksi")
+    declensions.matches(Noun ~ Genitive ~ Singular, "yhden")
+  }
+
+  "addDeclensions" should "handle numeral: kahdeksan" in {
+    val word = Word.from("kahdeksan", 10, None)
+    val declensions = generateDeclensions(word)
+
+    declensions.matches(Noun ~ Nominative ~ Singular, "kahdeksan")
+    declensions.matches(Noun ~ Genitive ~ Singular, "kahdeksan")
+    declensions.matches(Noun ~ Illative ~ Singular, "kahdeksaan")
+  }
+
+  "addDeclensions" should "handle numeral: kymmenen" in {
+    val word = Word.from("kymmenen", 32, None)
+    val declensions = generateDeclensions(word)
+
+    declensions.matches(Noun ~ Nominative ~ Singular, "kymmenen")
+    declensions.matches(Noun ~ Genitive ~ Singular, "kymmenen")
+    declensions.matches(Noun ~ Illative ~ Singular, "kymmeneen")
+  }
+
 }

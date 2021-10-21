@@ -1,15 +1,17 @@
 
 
 - TODO In reformat-kotus replace compound1 with StandardBending (After you choose to take account compound words.)
+- TODO indeclinable compound1 need to be dealt with
 
 - TODO collect indeclinables - partikkelit, adverbit etc.
 - TODO GO THROUGH TODO items
 
 
 >>>
-- TODO address numerals (kahdeksan)
+- TODO in reformat kotus - remove compound1
 - TODO pronoun parsing
-- TODO address "puolisataa"
+- TODO add compound-word inflection generation
+    - TODO test numerals on compound generation
 >>>
 
 

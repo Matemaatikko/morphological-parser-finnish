@@ -35,11 +35,7 @@ class EndingSeparator {
     .filter(_.isInstanceOf[UpdatedWord.StandardBending])
     .map(_.asInstanceOf[UpdatedWord.StandardBending])
     .filter(_.inflection.rule <= 49)
-    .map(a => getWord(a.word, a.inflection.rule, a.inflection.gradationLetter))
-
-  private inline def getWord(lemma: String, ruleNumber: Int, gradationLetterOpt: Option[Char]): Word =
-    val gradationOpt = gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
-    Word(lemma, ruleNumber, gradationOpt)
+    .map(a => Word.from(a.word, a.inflection.rule, a.inflection.gradationLetter))
 
   val wordListFileName = FilesLocation.files_path + "/result/final-word-list.txt"
   val endingFileName = FilesLocation.files_path + "/result/inflections.txt"
