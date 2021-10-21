@@ -6,6 +6,8 @@
 - TODO collect indeclinables - partikkelit, adverbit etc.
 - TODO GO THROUGH TODO items
 
+- TODO add compound words to Printer
+- TODO deal "kolme" plural inflection (has different inflection number)
 
 >>>
 - TODO in reformat kotus - remove compound1
@@ -13,7 +15,6 @@
 - TODO add compound-word inflection generation
     - TODO test numerals on compound generation
 >>>
-
 
 - TODO Add missing tests
 
