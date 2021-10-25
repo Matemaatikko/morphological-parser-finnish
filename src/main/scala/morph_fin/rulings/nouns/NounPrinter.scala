@@ -24,42 +24,44 @@ class NounPrinter {
   given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
 
   val words = LoadUpdatedKotus.apply()
-    .filter(_.isInstanceOf[UpdatedWord.StandardBending])
-    .map(_.asInstanceOf[UpdatedWord.StandardBending])
 
   def print(lemma: String, filters: Filters = Filters()): String =
-    val resultOpt = words.find(_.word == lemma)
+    val resultOpt = words.find(_.value == lemma)
 
     resultOpt match {
       case Some(UpdatedWord.StandardBending(lemma, inflection)) =>
         val word = Word.from(lemma, inflection.rule, inflection.gradationLetter)
-        resolve(word, filters)
+        val declensions = AllDeclensionUtils.generateAllDeclections(word)
+        resolve(declensions, filters)
+      case Some(UpdatedWord.Compound2(lemma, prefix, suffix)) =>
+        val declensions = AllDeclensionUtils.generateDeclectionsForCompound(lemma, prefix, suffix)
+        resolve(declensions, filters)
       case _ => ""
     }
 
 
-  def resolve(word: Word, filters: Filters): String =
-    val declensions = AllDeclensionUtils.generateAllDeclections(word)
+  def resolve(declensions: Seq[InflectedWord], filters: Filters): String =
+    val filteredDeclensions = declensions
       .filter(a => filters.singular || a.morphemes.isNot(Singular))
       .filter(a => filters.plural || a.morphemes.isNot(Plural))
       .filter(a => filters.posessiveSuffix || a.morphemes.isNotPossessiveSuffix)
 
-    val normal = declensions.filter(_.morphemes.isNotAny(Comparative, Superlative, stiAdverb))
+    val normal = filteredDeclensions.filter(_.morphemes.isNotAny(Comparative, Superlative, stiAdverb))
       .groupBy(a => (a.morphemes.getCase.get, a.morphemes.getGrammaticalNumber.get))
       .toSeq
       .sortBy(a => valueOf(a._1))
 
-    val comparative = declensions.filter(a => a.morphemes.is(Comparative) && a.morphemes.isNot(stiAdverb))
+    val comparative = filteredDeclensions.filter(a => a.morphemes.is(Comparative) && a.morphemes.isNot(stiAdverb))
       .groupBy(a => (a.morphemes.getCase.get, a.morphemes.getGrammaticalNumber.get))
       .toSeq
       .sortBy(a => valueOf(a._1))
 
-    val superlative = declensions.filter(_.morphemes.is(Superlative))
+    val superlative = filteredDeclensions.filter(_.morphemes.is(Superlative))
       .groupBy(a => (a.morphemes.getCase.get, a.morphemes.getGrammaticalNumber.get))
       .toSeq
       .sortBy(a => valueOf(a._1))
 
-    val adverb = declensions.filter(_.morphemes.is(stiAdverb))
+    val adverb = filteredDeclensions.filter(_.morphemes.is(stiAdverb))
 
     given Boolean = filters.posessiveSuffix
 

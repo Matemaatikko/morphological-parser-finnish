@@ -7,7 +7,7 @@ import morph_fin.rulings.rules.*
 //ReformatKotus.reformat
 
 val printer = new NounPrinter()
-print(printer.print("kymmen", Filters()))
+print(printer.print("kolme", Filters()))
 
 
 //given Seq[DeclensionRule] = LoadAndParseNomineRules.rules

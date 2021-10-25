@@ -1,19 +1,9 @@
-
-
-- TODO In reformat-kotus replace compound1 with StandardBending (After you choose to take account compound words.)
-- TODO indeclinable compound1 need to be dealt with
-
 - TODO collect indeclinables - partikkelit, adverbit etc.
 - TODO GO THROUGH TODO items
 
-- TODO add compound words to Printer
-- TODO deal "kolme" plural inflection (has different inflection number)
 
 >>>
-- TODO in reformat kotus - remove compound1
 - TODO pronoun parsing
-- TODO add compound-word inflection generation
-    - TODO test numerals on compound generation
 >>>
 
 - TODO Add missing tests

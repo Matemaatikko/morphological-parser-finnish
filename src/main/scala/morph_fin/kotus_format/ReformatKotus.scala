@@ -3,7 +3,7 @@ package morph_fin.kotus_format
 import morph_fin.kotus_format
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Nominative, Plural}
-import morph_fin.rulings.nouns.{DeclensionUtils, Word}
+import morph_fin.rulings.nouns.{DeclensionUtils, StructuredWord, Word}
 import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
 import morph_fin.rulings.verbs.ConjugationUtils
 import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
@@ -176,7 +176,13 @@ object ReformatKotus {
 
     val data = Data(list, listMap, validSuffixes, pluralSuffixes, pluralWords)
 
-    (list.map(resolveValue(_)(data)) ++ corrections).filter(_.value != "toista")
+    def numeralFixing(word: UpdatedWord) = word match {
+      case UpdatedWord.Compound2(s"${start}kymmen", prefix, suffix)  => UpdatedWord.Compound2(s"${start}kymmentä", prefix, suffix)
+      case UpdatedWord.Compound2(s"${start}sata", prefix, suffix)  => UpdatedWord.Compound2(s"${start}sataa", prefix, suffix)
+      case a => a
+    }
+
+    (list.map(resolveValue(_)(data)) ++ corrections).filter(_.value != "toista").map(numeralFixing(_))
   end apply
 
 
@@ -250,7 +256,10 @@ object ReformatKotus {
 
   inline def generateCompound(word: String, bendBoth: Boolean, prefix: String, suffixEntry: Entry)(data: Data): UpdatedWord =
     val suffixWord = SubwordWithInflection(suffixEntry.word.value, suffixEntry.inflectionOpt.get)
-    if !bendBoth then UpdatedWord.Compound(word, prefix, suffixWord)
+    if !bendBoth && suffixWord.inflection.rule != 99 then
+      UpdatedWord.StandardBending(prefix + suffixEntry.word.value, suffixEntry.inflectionOpt.get)
+    else if !bendBoth && suffixWord.inflection.rule == 99 then
+      UpdatedWord.NoInflection(word)
     else
       val prefixEntry = findEntry(prefix)(data).get
       val prefixWord = SubwordWithInflection(prefixEntry.word.value, prefixEntry.inflectionOpt.get)
@@ -297,7 +306,10 @@ object ReformatKotus {
 
   inline def generateCompoundPlural(pluralWord: String, bendBoth: Boolean, prefix: String, suffixEntry: Entry)(data: Data): UpdatedWord =
     val suffixWord = SubwordWithInflection(suffixEntry.word.value, suffixEntry.inflectionOpt.get)
-    if !bendBoth then UpdatedWord.Compound(pluralWord, prefix, suffixWord)
+    if !bendBoth && suffixWord.inflection.rule != 99 then
+      UpdatedWord.StandardBending(prefix + suffixEntry.word.value, suffixEntry.inflectionOpt.get)
+    else if !bendBoth && suffixWord.inflection.rule == 99 then
+      UpdatedWord.NoInflection(pluralWord)
     else
       val prefixEntry = findPluralEntry(prefix)(data).get
       val prefixWord = SubwordWithInflection(prefixEntry.word.value, prefixEntry.inflectionOpt.get)

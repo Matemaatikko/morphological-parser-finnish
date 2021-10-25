@@ -33,10 +33,18 @@ case class Word(
 
 object Word {
 
-  def from(lemma: String, ruleNumber: Int, gradationLetterOpt: Option[Char]): Word =
+  def from(lemma: String, ruleNumber: Int, gradationLetterOpt: Option[Char], compoundCase: Boolean = false): Word =
     val gradationOpt = gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
-    val (updatedLemma, nominativeReplacement) = handleExceptions(lemma)
+    val (updatedLemma, nominativeReplacement) = if compoundCase then handleCompoundExceptions(lemma) else handleExceptions(lemma)
     Word(updatedLemma, ruleNumber, gradationOpt, nominativeReplacement)
+
+  def handleCompoundExceptions(lemma: String): (String, Option[StructuredWord]) =
+    lemma match {
+      case "sata" => "sata" -> Some(StructuredWord("sataa", "", ""))
+      case "kymmen" => "kymmen" -> Some(StructuredWord("kymmentä", "", ""))
+      case _ => lemma -> None
+    }
+
 
   def handleExceptions(lemma: String): (String, Option[StructuredWord]) =
     lemma match {
@@ -50,6 +58,7 @@ object Word {
 
 
 case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: String, gradationOpt: Option[Gradation] = None){
+
   def updateGradation(gradationType: GradationType): InflectedWord =
     val gradationString = gradationType match {
       case GradationType.Strong => gradationOpt.map(_.strong).getOrElse("")
@@ -57,6 +66,14 @@ case class InflectedWord(word: StructuredWord, morphemes: Morphemes, lemma: Stri
     }
     val updatedWord = word.copy(gradation = gradationString)
     copy(word = updatedWord)
+
+  @`inline` final def +:*(prefix: String): InflectedWord =
+    val updated = word.copy(root = prefix + word.root)
+    this.copy(word = updated)
+
+  @`inline` final def *:+(suffix: String): InflectedWord =
+    val updated = word.copy(ending = word.ending + suffix)
+    this.copy(word = updated)
 }
 
 object DeclensionUtils {
