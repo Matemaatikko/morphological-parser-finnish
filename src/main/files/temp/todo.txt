@@ -2,10 +2,6 @@
 - TODO GO THROUGH TODO items
 
 
->>>
-- TODO pronoun parsing
->>>
-
 - TODO Add missing tests
 
 
