@@ -26,11 +26,10 @@
 # Par = Participle
 # Age = Agent
 # ---------------------
-# _ = Match all
 # -P = Only with possessive suffix
 # +P = Can have possessive suffix
 # -------------------------
-# Inf0 = A-infinitive (Long)
+# Inf0 = A-infinitive (Long) (With possessive suffix)
 # Inf1 = A-infinitive
 # Inf2 = E-infinitive
 # Inf3 = MA-infinitive
@@ -58,7 +57,12 @@ Akt:Ind:Pre:P2: sanotte
 Akt:Ind:Pre:P3: sanovat
 Pas:Ind:Pre:    sanotaan
 
-Akt:Ind:Pre:__:Neg: sano
+Akt:Ind:Pre:S1:Neg: sano
+Akt:Ind:Pre:S2:Neg: sano
+Akt:Ind:Pre:S3:Neg: sano
+Akt:Ind:Pre:P1:Neg: sano
+Akt:Ind:Pre:P2:Neg: sano
+Akt:Ind:Pre:P3:Neg: sano
 Pas:Ind:Pre:Neg:    sanota
 
 Akt:Ind:Imp:S1: sanoin
@@ -85,7 +89,12 @@ Akt:Pot:Pre:P2: sanonette
 Akt:Pot:Pre:P3: sanonevat
 Pas:Pot:Pre:    sanottaneen
 
-Akt:Pot:Pre:__:Neg: sanone
+Akt:Pot:Pre:S1:Neg: sanone
+Akt:Pot:Pre:S2:Neg: sanone
+Akt:Pot:Pre:S3:Neg: sanone
+Akt:Pot:Pre:P1:Neg: sanone
+Akt:Pot:Pre:P2:Neg: sanone
+Akt:Pot:Pre:P3:Neg: sanone
 Pas:Pot:Pre:Neg:    sanottane
 
 #Conditional
@@ -98,7 +107,12 @@ Akt:Con:Pre:P2: sanoisitte
 Akt:Con:Pre:P3: sanoisivat
 Pas:Con:Pre:    sanottaisiin
 
-Akt:Con:Pre:__:Neg: sanoisi
+Akt:Con:Pre:S1:Neg: sanoisi
+Akt:Con:Pre:S2:Neg: sanoisi
+Akt:Con:Pre:S3:Neg: sanoisi
+Akt:Con:Pre:P1:Neg: sanoisi
+Akt:Con:Pre:P2:Neg: sanoisi
+Akt:Con:Pre:P3:Neg: sanoisi
 Pas:Con:Pre:Neg:    sanottaisi
 
 
@@ -109,17 +123,19 @@ Akt:Imp:Pre:S3: sanokoon
 Akt:Imp:Pre:P1: sanokaamme
 Akt:Imp:Pre:P2: sanokaa
 Akt:Imp:Pre:P3: sanokoot
-Pas:Imp:Pre:   sanottakoon
+Pas:Imp:Pre:    sanottakoon
 
 Akt:Imp:Pre:S2:Neg: sano
 Akt:Imp:Pre:S3:Neg: sanoko
-Akt:Imp:Pre:P_:Neg: sanoko
-Pas:Imp:Pre:       sanottako
+Akt:Imp:Pre:P1:Neg: sanoko
+Akt:Imp:Pre:P2:Neg: sanoko
+Akt:Imp:Pre:P3:Neg: sanoko
+Pas:Imp:Pre:        sanottako
 
 #Infinitive
 
 Inf1:    sanoa
-Inf0:    sanoakse-P
+Inf0:    sanoakse
 
 Inf2:Ine:Akt: sanoessa
 Inf2:Ine:Pas: sanottaessa
@@ -135,9 +151,9 @@ Inf3:Ins:Pas: sanottaman
 
 Inf4: sanominen
 
-Inf5: sanomaisilla-P
-Inf6: sanovina-P
-Inf7: sanottavissa-P
+Inf5: sanomaisilla
+Inf6: sanovina
+Inf7: sanottavissa
 
 #Participle
 
@@ -175,13 +191,11 @@ Akt:Ind:Imp:P2: muistitte
 Akt:Ind:Imp:P3: muistivat
 Pas:Ind:Imp:    muistettiin
 
-Akt:Ind:Imp:S1:Neg: muistanut
-Akt:Ind:Imp:S2:Neg: muistanut
-Akt:Ind:Imp:S3:Neg: muistanut
-Akt:Ind:Imp:P1:Neg: muistaneet
-Akt:Ind:Imp:P2:Neg: muistaneet
-Akt:Ind:Imp:P3:Neg: muistaneet
-Pas:Ind:Imp:Neg:    muistettu
+#General
+
+Gen:Akt:S: muistanut
+Gen:Akt:P: muistaneet
+Gen:Pas:   muistettu
 
 #Potential
 
@@ -237,8 +251,8 @@ Pas:Imp:Pre:       muistettako
 
 #Infinitive
 
-Inf1:      muistaa
-Inf1:L:    muistaakse
+Inf0: muistaa
+Inf1: muistaakse
 
 Inf2:Ine:Akt: muistaessa
 Inf2:Ine:Pas: muistettaessa
@@ -252,19 +266,20 @@ Inf3:Abe:Akt: muistamatta
 Inf3:Ins:Akt: muistaman
 Inf3:Ins:Pas: muistettaman
 
-Inf4:Nom: muistaminen
-Inf4:Par: muistamista
+Inf4: muistaminen
 
 Inf5: muistamaisilla
+Inf6: muistavina
+Inf7: muistettavissa
 
 #Participle
 
-Cip:Pre:Akt: muistava
-Cip:Pre:Pas: muistettava
-Cip:Per:Akt: muistanut
-Cip:Per:Pas: muistettu
-Cip:Age:     muistama
-Cip:Age:Neg: muistamaton
+Par1: muistava
+Par2: muistettava
+Par3: muistanut
+Par4: muistettu
+Par5: muistama
+Par6: muistamaton
 
 
 <54:G:S:t-d>
@@ -293,13 +308,11 @@ Akt:Ind:Imp:P2: huusitte
 Akt:Ind:Imp:P3: huusivat
 Pas:Ind:Imp:    huudettiin
 
-Akt:Ind:Imp:S1:Neg: huutanut
-Akt:Ind:Imp:S2:Neg: huutanut
-Akt:Ind:Imp:S3:Neg: huutanut
-Akt:Ind:Imp:P1:Neg: huutaneet
-Akt:Ind:Imp:P2:Neg: huutaneet
-Akt:Ind:Imp:P3:Neg: huutaneet
-Pas:Ind:Imp:Neg:    huudettu
+#General
+
+Gen:Akt:S: huutanut
+Gen:Akt:P: huutaneet
+Gen:Pas:   huudettu
 
 #Potential
 
@@ -355,8 +368,8 @@ Pas:Imp:Pre:       huudettako
 
 #Infinitive
 
-Inf1:      huutaa
-Inf1:L:    huutaakse
+Inf1: huutaa
+Inf0: huutaakse
 
 Inf2:Ine:Akt: huutaessa
 Inf2:Ine:Pas: huudettaessa
@@ -370,19 +383,20 @@ Inf3:Abe:Akt: huutamatta
 Inf3:Ins:Akt: huutaman
 Inf3:Ins:Pas: huudettaman
 
-Inf4:Nom: huutaminen
-Inf4:Par: huutamista
+Inf4: huutaminen
 
 Inf5: huutamaisilla
+Inf6: huutavina
+Inf7: huudettavissa
 
 #Participle
 
-Cip:Pre:Akt: huutava
-Cip:Pre:Pas: huudettava
-Cip:Per:Akt: huutanut
-Cip:Per:Pas: huudettu
-Cip:Age:     huutama
-Cip:Age:Neg: huutamaton
+Par1: huutava
+Par2: huudettava
+Par3: huutanut
+Par4: huudettu
+Par5: huutama
+Par6: huutamaton
 
 
 <55:G:S:t-d>
@@ -411,13 +425,12 @@ Akt:Ind:Imp:P2: souditte sousimme
 Akt:Ind:Imp:P3: souditte sousitte
 Pas:Ind:Imp:    soudettiin
 
-Akt:Ind:Imp:S1:Neg: soutanut
-Akt:Ind:Imp:S2:Neg: soutanut
-Akt:Ind:Imp:S3:Neg: soutanut
-Akt:Ind:Imp:P1:Neg: soutaneet
-Akt:Ind:Imp:P2:Neg: soutaneet
-Akt:Ind:Imp:P3:Neg: soutaneet
-Pas:Ind:Imp:Neg:    soudettu
+#General
+
+Gen:Akt:S: soutanut
+Gen:Akt:P: soutaneet
+Gen:Pas:   soudettu
+
 
 #Potential
 
@@ -473,8 +486,8 @@ Pas:Imp:Pre:       soudettako
 
 #Infinitive
 
-Inf1:      soutaa
-Inf1:L:    soutaakse
+Inf1: soutaa
+Inf0: soutaakse
 
 Inf2:Ine:Akt: soutaessa
 Inf2:Ine:Pas: soudettaessa
@@ -488,19 +501,20 @@ Inf3:Abe:Akt: soutamatta
 Inf3:Ins:Akt: soutaman
 Inf3:Ins:Pas: soudettaman
 
-Inf4:Nom: soutaminen
-Inf4:Par: soutamista
+Inf4: soutaminen
 
 Inf5: soutamaisilla
+Inf6: soutavina
+Inf7: soudettavissa
 
 #Participle
 
-Cip:Pre:Akt: soutava
-Cip:Pre:Pas: soudettava
-Cip:Per:Akt: soutanut
-Cip:Per:Pas: soudettu
-Cip:Age:     soutama
-Cip:Age:Neg: soutamaton
+Par1: soutava
+Par2: soudettava
+Par3: soutanut
+Par4: soudettu
+Par5: soutama
+Par6: soutamaton
 
 <56>
 #Indicative
@@ -528,13 +542,11 @@ Akt:Ind:Imp:P2: kaivoitte
 Akt:Ind:Imp:P3: kaivoivat
 Pas:Ind:Imp:    kaivettiin
 
-Akt:Ind:Imp:S1:Neg: kaivanut
-Akt:Ind:Imp:S2:Neg: kaivanut
-Akt:Ind:Imp:S3:Neg: kaivanut
-Akt:Ind:Imp:P1:Neg: kaivaneet
-Akt:Ind:Imp:P2:Neg: kaivaneet
-Akt:Ind:Imp:P3:Neg: kaivaneet
-Pas:Ind:Imp:Neg:    kaivettu
+#General
+
+Gen:Akt:S: kaivanut
+Gen:Akt:P: kaivaneet
+Gen:Pas:   kaivettu
 
 #Potential
 
@@ -590,8 +602,8 @@ Pas:Imp:Pre:       kaivettako
 
 #Infinitive
 
-Inf1:      kaivaa
-Inf1:L:    kaivaakse
+Inf1: kaivaa
+Inf0: kaivaakse
 
 Inf2:Ine:Akt: kaivaessa
 Inf2:Ine:Pas: kaivettaessa
@@ -605,19 +617,20 @@ Inf3:Abe:Akt: kaivamatta
 Inf3:Ins:Akt: kaivaman
 Inf3:Ins:Pas: kaivettaman
 
-Inf4:Nom: kaivaminen
-Inf4:Par: kaivamista
+Inf4: kaivaminen
 
 Inf5: kaivamaisilla
+Inf6: kaivavina
+Inf7: kaivettavissa
 
 #Participle
 
-Cip:Pre:Akt: kaivava
-Cip:Pre:Pas: kaivettava
-Cip:Per:Akt: kaivanut
-Cip:Per:Pas: kaivettu
-Cip:Age:     kaivama
-Cip:Age:Neg: kaivamaton
+Par1: kaivava
+Par2: kaivettava
+Par3: kaivanut
+Par4: kaivettu
+Par5: kaivama
+Par6: kaivamaton
 
 <57:G:S:rt-rr>
 
@@ -646,13 +659,11 @@ Akt:Ind:Imp:P2: saarroitte saarsitte
 Akt:Ind:Imp:P3: saartoivat saarsivat
 Pas:Ind:Imp:    saarrettiin
 
-Akt:Ind:Imp:S1:Neg: saartanut
-Akt:Ind:Imp:S2:Neg: saartanut
-Akt:Ind:Imp:S3:Neg: saartanut
-Akt:Ind:Imp:P1:Neg: saartaneet
-Akt:Ind:Imp:P2:Neg: saartaneet
-Akt:Ind:Imp:P3:Neg: saartaneet
-Pas:Ind:Imp:Neg:    saarrettu
+#General
+
+Gen:Akt:S: saartanut
+Gen:Akt:P: saartaneet
+Gen:Pas:   saarrettu
 
 #Potential
 
@@ -708,8 +719,8 @@ Pas:Imp:Pre:       saarrettako
 
 #Infinitive
 
-Inf1:      saartaa
-Inf1:L:    saartaakse
+Inf1: saartaa
+Inf0: saartaakse
 
 Inf2:Ine:Akt: saartaessa
 Inf2:Ine:Pas: saarrettaessa
@@ -723,19 +734,20 @@ Inf3:Abe:Akt: saartamatta
 Inf3:Ins:Akt: saartaman
 Inf3:Ins:Pas: saarrettaman
 
-Inf4:Nom: saartaminen
-Inf4:Par: saartamista
+Inf4: saartaminen
 
 Inf5: saartamaisilla
+Inf6: saartavina
+Inf7: saarrettavissa
 
 #Participle
 
-Cip:Pre:Akt: saartava
-Cip:Pre:Pas: saarrettava
-Cip:Per:Akt: saartanut
-Cip:Per:Pas: saarrettu
-Cip:Age:     saartama
-Cip:Age:Neg: saartamaton
+Par1: saartava
+Par2: saarrettava
+Par3: saartanut
+Par4: saarrettu
+Par5: saartama
+Par6: saartamaton
 
 <58>
 
@@ -764,13 +776,11 @@ Akt:Ind:Imp:P2: laskitte
 Akt:Ind:Imp:P3: laskivat
 Pas:Ind:Imp:    laskettiin
 
-Akt:Ind:Imp:S1:Neg: laskenut
-Akt:Ind:Imp:S2:Neg: laskenut
-Akt:Ind:Imp:S3:Neg: laskenut
-Akt:Ind:Imp:P1:Neg: laskeneet
-Akt:Ind:Imp:P2:Neg: laskeneet
-Akt:Ind:Imp:P3:Neg: laskeneet
-Pas:Ind:Imp:Neg:    laskettu
+#General
+
+Gen:Akt:S: laskenut
+Gen:Akt:P: laskeneet
+Gen:Pas:   laskettu
 
 #Potential
 
@@ -826,8 +836,8 @@ Pas:Imp:Pre:       laskettako
 
 #Infinitive
 
-Inf1:      laskea
-Inf1:L:    laskeakse
+Inf1: laskea
+Inf0: laskeakse
 
 Inf2:Ine:Akt: laskiessa
 Inf2:Ine:Pas: laskettaessa
@@ -841,19 +851,20 @@ Inf3:Abe:Akt: laskematta
 Inf3:Ins:Akt: laskeman
 Inf3:Ins:Pas: laskettaman
 
-Inf4:Nom: laskeminen
-Inf4:Par: laskemista
+Inf4: laskeminen
 
 Inf5: laskemaisilla
+Inf6: laskevina
+Inf7: laskettavissa
 
 #Participle
 
-Cip:Pre:Akt: laskeva
-Cip:Pre:Pas: laskettava
-Cip:Per:Akt: laskenut
-Cip:Per:Pas: laskettu
-Cip:Age:     laskema
-Cip:Age:Neg: laskematon
+Par1: laskeva
+Par2: laskettava
+Par3: laskenut
+Par4: laskettu
+Par5: laskema
+Par6: laskematon
 
 <59:G:S:nt-nn>
 
@@ -882,13 +893,11 @@ Akt:Ind:Imp:P2: tunsitte
 Akt:Ind:Imp:P3: tunsivat
 Pas:Ind:Imp:    tunnettiin
 
-Akt:Ind:Imp:S1:Neg: tuntenut
-Akt:Ind:Imp:S2:Neg: tuntenut
-Akt:Ind:Imp:S3:Neg: tuntenut
-Akt:Ind:Imp:P1:Neg: tunteneet
-Akt:Ind:Imp:P2:Neg: tunteneet
-Akt:Ind:Imp:P3:Neg: tunteneet
-Pas:Ind:Imp:Neg:    tunnettu
+#General
+
+Gen:Akt:S: tuntenut
+Gen:Akt:P: tunteneet
+Gen:Pas:   tunnettu
 
 #Potential
 
@@ -944,8 +953,8 @@ Pas:Imp:Pre:       tunnettako
 
 #Infinitive
 
-Inf1:      tuntea
-Inf1:L:    tunteakse
+Inf1: tuntea
+Inf0: tunteakse
 
 Inf2:Ine:Akt: tuntiessa
 Inf2:Ine:Pas: tunnettaessa
@@ -959,19 +968,20 @@ Inf3:Abe:Akt: tuntematta
 Inf3:Ins:Akt: tunteman
 Inf3:Ins:Pas: tunnettaman
 
-Inf4:Nom: tunteminen
-Inf4:Par: tuntemista
+Inf4: tunteminen
 
 Inf5: tuntemaisilla
+Inf6: tuntevina
+Inf7: tunnettavissa
 
 #Participle
 
-Cip:Pre:Akt: tunteva
-Cip:Pre:Pas: tunnettava
-Cip:Per:Akt: tuntenut
-Cip:Per:Pas: tunnettu
-Cip:Age:     tuntema
-Cip:Age:Neg: tuntematon
+Par1: tunteva
+Par2: tunnettava
+Par3: tuntenut
+Par4: tunnettu
+Par5: tuntema
+Par6: tuntematon
 
 <60:G:S:t-d>
 
@@ -1000,13 +1010,11 @@ Akt:Ind:Imp:P2: lähditte (läksitte)
 Akt:Ind:Imp:P3: lähtivät (läksivät)
 Pas:Ind:Imp:    lähdettiin
 
-Akt:Ind:Imp:S1:Neg: lähtenyt
-Akt:Ind:Imp:S2:Neg: lähtenyt
-Akt:Ind:Imp:S3:Neg: lähtenyt
-Akt:Ind:Imp:P1:Neg: lähteneet
-Akt:Ind:Imp:P2:Neg: lähteneet
-Akt:Ind:Imp:P3:Neg: lähteneet
-Pas:Ind:Imp:Neg:    lähdetty
+#General
+
+Gen:Akt:S: lähtenyt
+Gen:Akt:P: lähteneet
+Gen:Pas:   lähdetty
 
 #Potential
 
@@ -1062,8 +1070,8 @@ Pas:Imp:Pre:       lähdettäkö
 
 #Infinitive
 
-Inf1:      lähteä
-Inf1:L:    lähteäkse
+Inf1: lähteä
+Inf0: lähteäkse
 
 Inf2:Ine:Akt: lähtiessä
 Inf2:Ine:Pas: lähdettäessä
@@ -1077,19 +1085,20 @@ Inf3:Abe:Akt: lähtemättä
 Inf3:Ins:Akt: lähtemän
 Inf3:Ins:Pas: lähdettämän
 
-Inf4:Nom: lähteminen
-Inf4:Par: lähtemistä
+Inf4: lähteminen
 
 Inf5: lähtemäisillään
+Inf6: lähtevinä
+Inf7: lähdettävissä
 
 #Participle
 
-Cip:Pre:Akt: lähtevä
-Cip:Pre:Pas: lähdettävä
-Cip:Per:Akt: lähtenyt
-Cip:Per:Pas: lähdetty
-Cip:Age:     lähtemä
-Cip:Age:Neg: lähtemätön
+Par1: lähtevä
+Par2: lähdettävä
+Par3: lähtenyt
+Par4: lähdetty
+Par5: lähtemä
+Par6: lähtemätön
 
 <61>
 
@@ -1118,13 +1127,11 @@ Akt:Ind:Imp:P2: sallitte
 Akt:Ind:Imp:P3: sallivat
 Pas:Ind:Imp:    sallittiin
 
-Akt:Ind:Imp:S1:Neg: sallinut
-Akt:Ind:Imp:S2:Neg: sallinut
-Akt:Ind:Imp:S3:Neg: sallinut
-Akt:Ind:Imp:P1:Neg: sallineet
-Akt:Ind:Imp:P2:Neg: sallineet
-Akt:Ind:Imp:P3:Neg: sallineet
-Pas:Ind:Imp:Neg:    sallittu
+#General
+
+Gen:Akt:S: sallinut
+Gen:Akt:P: sallineet
+Gen:Pas:   sallittu
 
 #Potential
 
@@ -1180,8 +1187,8 @@ Pas:Imp:Pre:       sallittako
 
 #Infinitive
 
-Inf1:      sallia
-Inf1:L:    salliakse
+Inf1: sallia
+Inf0: salliakse
 
 Inf2:Ine:Akt: salliesssa
 Inf2:Ine:Pas: sallittaessa
@@ -1195,19 +1202,20 @@ Inf3:Abe:Akt: sallimatta
 Inf3:Ins:Akt: salliman
 Inf3:Ins:Pas: sallittaman
 
-Inf4:Nom: salliminen
-Inf4:Par: sallimista
+Inf4: salliminen
 
 Inf5: sallimaisilla
+Inf6: sallivina
+Inf7: sallittavissa
 
 #Participle
 
-Cip:Pre:Akt: salliva
-Cip:Pre:Pas: sallittava
-Cip:Per:Akt: sallinut
-Cip:Per:Pas: sallittu
-Cip:Age:     sallima
-Cip:Age:Neg: sallimaton
+Par1: salliva
+Par2: sallittava
+Par3: sallinut
+Par4: sallittu
+Par5: sallima
+Par6: sallimaton
 
 
 <62>
@@ -1237,13 +1245,11 @@ Akt:Ind:Imp:P2: voitte
 Akt:Ind:Imp:P3: voivat
 Pas:Ind:Imp:    voitiin
 
-Akt:Ind:Imp:S1:Neg: voinut
-Akt:Ind:Imp:S2:Neg: voinut
-Akt:Ind:Imp:S3:Neg: voinut
-Akt:Ind:Imp:P1:Neg: voineet
-Akt:Ind:Imp:P2:Neg: voineet
-Akt:Ind:Imp:P3:Neg: voineet
-Pas:Ind:Imp:Neg:    voitu
+#General
+
+Gen:Akt:S: voinut
+Gen:Akt:P: voineet
+Gen:Pas:   voitu
 
 #Potential
 
@@ -1299,8 +1305,8 @@ Pas:Imp:Pre:       voitako
 
 #Infinitive
 
-Inf1:      voida
-Inf1:L:    voidakse
+Inf1: voida
+Inf0: voidakse
 
 Inf2:Ine:Akt: voidessa
 Inf2:Ine:Pas: voitaessa
@@ -1314,19 +1320,20 @@ Inf3:Abe:Akt: voimatta
 Inf3:Ins:Akt: voiman
 Inf3:Ins:Pas: voitaman
 
-Inf4:Nom: voiminen
-Inf4:Par: voimista
+Inf4: voiminen
 
 Inf5: voimaisilla
+Inf6: voivina
+Inf7: voitavissa
 
 #Participle
 
-Cip:Pre:Akt: voiva
-Cip:Pre:Pas: voitava
-Cip:Per:Akt: voinut
-Cip:Per:Pas: voitu
-Cip:Age:     voima
-Cip:Age:Neg: voimaton
+Par1: voiva
+Par2: voitava
+Par3: voinut
+Par4: voitu
+Par5: voima
+Par6: voimaton
 
 <63>
 
@@ -1355,13 +1362,11 @@ Akt:Ind:Imp:P2: saitte
 Akt:Ind:Imp:P3: saivat
 Pas:Ind:Imp:    saatiin
 
-Akt:Ind:Imp:S1:Neg: saanut
-Akt:Ind:Imp:S2:Neg: saanut
-Akt:Ind:Imp:S3:Neg: saanut
-Akt:Ind:Imp:P1:Neg: saaneet
-Akt:Ind:Imp:P2:Neg: saaneet
-Akt:Ind:Imp:P3:Neg: saaneet
-Pas:Ind:Imp:Neg:    saatu
+#General
+
+Gen:Akt:S: saanut
+Gen:Akt:P: saaneet
+Gen:Pas:   saatu
 
 #Potential
 
@@ -1417,8 +1422,8 @@ Pas:Imp:Pre:       saatako
 
 #Infinitive
 
-Inf1:      saada
-Inf1:L:    saadakse
+Inf1: saada
+Inf0: saadakse
 
 Inf2:Ine:Akt: saadessa
 Inf2:Ine:Pas: saataessa
@@ -1432,19 +1437,20 @@ Inf3:Abe:Akt: saamatta
 Inf3:Ins:Akt: saaman
 Inf3:Ins:Pas: saataman
 
-Inf4:Nom: saaminen
-Inf4:Par: saamista
+Inf4: saaminen
 
 Inf5: saamaisilla
+Inf6: saavina
+Inf7: saatavissa
 
 #Participle
 
-Cip:Pre:Akt: saava
-Cip:Pre:Pas: saatava
-Cip:Per:Akt: saanut
-Cip:Per:Pas: saatu
-Cip:Age:     saama
-Cip:Age:Neg: saamaton
+Par1: saava
+Par2: saatava
+Par3: saanut
+Par4: saatu
+Par5: saama
+Par6: saamaton
 
 <64>
 
@@ -1473,13 +1479,11 @@ Akt:Ind:Imp:P2: joitte
 Akt:Ind:Imp:P3: joivat
 Pas:Ind:Imp:    juotiin
 
-Akt:Ind:Imp:S1:Neg: juonut
-Akt:Ind:Imp:S2:Neg: juonut
-Akt:Ind:Imp:S3:Neg: juonut
-Akt:Ind:Imp:P1:Neg: juoneet
-Akt:Ind:Imp:P2:Neg: juoneet
-Akt:Ind:Imp:P3:Neg: juoneet
-Pas:Ind:Imp:Neg:    juotu
+#General
+
+Gen:Akt:S: juonut
+Gen:Akt:P: juoneet
+Gen:Pas:   juotu
 
 #Potential
 
@@ -1535,8 +1539,8 @@ Pas:Imp:Pre:       juotako
 
 #Infinitive
 
-Inf1:      juoda
-Inf1:L:    juodakse
+Inf1: juoda
+Inf0: juodakse
 
 Inf2:Ine:Akt: juodessa
 Inf2:Ine:Pas: juotaessa
@@ -1550,19 +1554,20 @@ Inf3:Abe:Akt: juomatta
 Inf3:Ins:Akt: juoman
 Inf3:Ins:Pas: juotaman
 
-Inf4:Nom: juominen
-Inf4:Par: juomista
+Inf4: juominen
 
 Inf5: juomaisilla
+Inf6: juovina
+Inf7: juotavissa
 
 #Participle
 
-Cip:Pre:Akt: juova
-Cip:Pre:Pas: juotava
-Cip:Per:Akt: juonut
-Cip:Per:Pas: juotu
-Cip:Age:     juoma
-Cip:Age:Neg: juomaton
+Par1: juova
+Par2: juotava
+Par3: juonut
+Par4: juotu
+Par5: juoma
+Par6: juomaton
 
 <65>
 
@@ -1572,7 +1577,7 @@ Akt:Ind:Pre:S2: käyt
 Akt:Ind:Pre:S3: käy
 Akt:Ind:Pre:P1: käymme
 Akt:Ind:Pre:P2: käytte
-Akt:Ind:Pre:P3: käyvat
+Akt:Ind:Pre:P3: käyvät
 Pas:Ind:Pre:    käydaan
 
 Akt:Ind:Pre:S1:Neg: käy
@@ -1581,7 +1586,7 @@ Akt:Ind:Pre:S3:Neg: käy
 Akt:Ind:Pre:P1:Neg: käy
 Akt:Ind:Pre:P2:Neg: käy
 Akt:Ind:Pre:P3:Neg: käy
-Pas:Ind:Pre:Neg:    käyda
+Pas:Ind:Pre:Neg:    käydä
 
 Akt:Ind:Imp:S1: kävin
 Akt:Ind:Imp:S2: kävit
@@ -1591,13 +1596,11 @@ Akt:Ind:Imp:P2: kävitte
 Akt:Ind:Imp:P3: kävivät
 Pas:Ind:Imp:    käytiin
 
-Akt:Ind:Imp:S1:Neg: käynyt
-Akt:Ind:Imp:S2:Neg: käynyt
-Akt:Ind:Imp:S3:Neg: käynyt
-Akt:Ind:Imp:P1:Neg: käyneet
-Akt:Ind:Imp:P2:Neg: käyneet
-Akt:Ind:Imp:P3:Neg: käyneet
-Pas:Ind:Imp:Neg:    käyty
+#General
+
+Gen:Akt:S: käynyt
+Gen:Akt:P: käyneet
+Gen:Pas:   käyty
 
 #Potential
 
@@ -1653,8 +1656,8 @@ Pas:Imp:Pre:       käytäkö
 
 #Infinitive
 
-Inf1:      käydä
-Inf1:L:    käydäkse
+Inf1: käydä
+Inf0: käydäkse
 
 Inf2:Ine:Akt: käydessä
 Inf2:Ine:Pas: käytäessä
@@ -1668,22 +1671,22 @@ Inf3:Abe:Akt: käymättä
 Inf3:Ins:Akt: käymän
 Inf3:Ins:Pas: käytämän
 
-Inf4:Nom: käyminen
-Inf4:Par: käymistä
+Inf4: käyminen
 
 Inf5: käymäisillään
+Inf6: käyvinä
+Inf7: käytävissä
 
 #Participle
 
-Cip:Pre:Akt: käyvä
-Cip:Pre:Pas: käytävä
-Cip:Per:Akt: käynyt
-Cip:Per:Pas: käyty
-Cip:Age:     käymä
-Cip:Age:Neg: käymätön
+Par1: käyvä
+Par2: käytävä
+Par3: käynyt
+Par4: käyty
+Par5: käymä
+Par6: käymätön
 
 <66>
-
 
 #Indicative
 Akt:Ind:Pre:S1: rohkaisin
@@ -1710,13 +1713,11 @@ Akt:Ind:Imp:P2: rohkaisitte
 Akt:Ind:Imp:P3: rohkaisivat
 Pas:Ind:Imp:    rohkaistiin
 
-Akt:Ind:Imp:S1:Neg: rohkaissut
-Akt:Ind:Imp:S2:Neg: rohkaissut
-Akt:Ind:Imp:S3:Neg: rohkaissut
-Akt:Ind:Imp:P1:Neg: rohkaisseet
-Akt:Ind:Imp:P2:Neg: rohkaisseet
-Akt:Ind:Imp:P3:Neg: rohkaisseet
-Pas:Ind:Imp:Neg:    rohkaistu
+#General
+
+Gen:Akt:S: rohkaissut
+Gen:Akt:P: rohkaisseet
+Gen:Pas:   rohkaistu
 
 #Potential
 
@@ -1772,8 +1773,8 @@ Pas:Imp:Pre:       rohkaistako
 
 #Infinitive
 
-Inf1:      rohkaista
-Inf1:L:    rohkaistakse
+Inf1: rohkaista
+Inf0: rohkaistakse
 
 Inf2:Ine:Akt: rohkaistessa
 Inf2:Ine:Pas: rohkaistaessa
@@ -1787,19 +1788,20 @@ Inf3:Abe:Akt: rohkaisematta
 Inf3:Ins:Akt: rohkaiseman
 Inf3:Ins:Pas: rohkaistaman
 
-Inf4:Nom: rohkaiseminen
-Inf4:Par: rohkaisemista
+Inf4: rohkaiseminen
 
 Inf5: rohkaisemaisilla
+Inf6: rohkaisevina
+Inf7: rohkaistavissa
 
 #Participle
 
-Cip:Pre:Akt: rohkaiseva
-Cip:Pre:Pas: rohkaistava
-Cip:Per:Akt: rohkaissut
-Cip:Per:Pas: rohkaistu
-Cip:Age:     rohkaisema
-Cip:Age:Neg: rohkaisematon
+Par1: rohkaiseva
+Par2: rohkaistava
+Par3: rohkaissut
+Par4: rohkaistu
+Par5: rohkaisema
+Par6: rohkaisematon
 
 <67>
 
@@ -1828,13 +1830,11 @@ Akt:Ind:Imp:P2: tulitte
 Akt:Ind:Imp:P3: tulivat
 Pas:Ind:Imp:    tultiin
 
-Akt:Ind:Imp:S1:Neg: tullut
-Akt:Ind:Imp:S2:Neg: tullut
-Akt:Ind:Imp:S3:Neg: tullut
-Akt:Ind:Imp:P1:Neg: tulleet
-Akt:Ind:Imp:P2:Neg: tulleet
-Akt:Ind:Imp:P3:Neg: tulleet
-Pas:Ind:Imp:Neg:    tultu
+#General
+
+Gen:Akt:S: tullut
+Gen:Akt:P: tulleet
+Gen:Pas:   tultu
 
 #Potential
 
@@ -1890,8 +1890,8 @@ Pas:Imp:Pre:       tultako
 
 #Infinitive
 
-Inf1:      tulla
-Inf1:L:    tullakse
+Inf1: tulla
+Inf0: tullakse
 
 Inf2:Ine:Akt: tullessa
 Inf2:Ine:Pas: tultaessa
@@ -1905,19 +1905,20 @@ Inf3:Abe:Akt: tulematta
 Inf3:Ins:Akt: tuleman
 Inf3:Ins:Pas: tultaman
 
-Inf4:Nom: tuleminen
-Inf4:Par: tulemista
+Inf4: tuleminen
 
 Inf5: tulemaisilla
+Inf6: tulevina
+Inf7: tultavissa
 
 #Participle
 
-Cip:Pre:Akt: tuleva
-Cip:Pre:Pas: tultava
-Cip:Per:Akt: tullut
-Cip:Per:Pas: tultu
-Cip:Age:     tulema
-Cip:Age:Neg: tulematon
+Par1: tuleva
+Par2: tultava
+Par3: tullut
+Par4: tultu
+Par5: tulema
+Par6: tulematon
 
 <68>
 
@@ -1946,13 +1947,11 @@ Akt:Ind:Imp:P2: tupakoitte (tupakoitsitte)
 Akt:Ind:Imp:P3: tupakoivat (tupakoitsivat)
 Pas:Ind:Imp:    tupakoitiin
 
-Akt:Ind:Imp:S1:Neg: tupakoinut
-Akt:Ind:Imp:S2:Neg: tupakoinut
-Akt:Ind:Imp:S3:Neg: tupakoinut
-Akt:Ind:Imp:P1:Neg: tupakoineet
-Akt:Ind:Imp:P2:Neg: tupakoineet
-Akt:Ind:Imp:P3:Neg: tupakoineet
-Pas:Ind:Imp:Neg:    tupakoitu
+#General
+
+Gen:Akt:S: tupakoinut
+Gen:Akt:P: tupakoineet
+Gen:Pas:   tupakoitu
 
 #Potential
 
@@ -2008,8 +2007,8 @@ Pas:Imp:Pre:       tupakoitako
 
 #Infinitive
 
-Inf1:      tupakoida
-Inf1:L:    tupakoidakse
+Inf1: tupakoida
+Inf0: tupakoidakse
 
 Inf2:Ine:Akt: tupakoidessa
 Inf2:Ine:Pas: tupakoitaessa
@@ -2023,19 +2022,20 @@ Inf3:Abe:Akt: tupakoimatta (tupakoitsematta)
 Inf3:Ins:Akt: tupakoiman
 Inf3:Ins:Pas: tupakoitaman
 
-Inf4:Nom: tupakoiminen (tupakoitseminen)
-Inf4:Par: tupakoimista (tupakoitsemista)
+Inf4: tupakoiminen (tupakoitseminen)
 
 Inf5: tupakoimaisilla (tupakoitsemaisilla)
+Inf6: tupakoivina (tupakoitsevina)
+Inf7: tupakoitavissa
 
 #Participle
 
-Cip:Pre:Akt: tupakoiva (tupakoitseva)
-Cip:Pre:Pas: tupakoitava
-Cip:Per:Akt: tupakoinut
-Cip:Per:Pas: tupakoitu
-Cip:Age:     tupakoima (tupakoitsema)
-Cip:Age:Neg: tupakoimaton (tupakoitsematon)
+Par1: tupakoiva (tupakoitseva)
+Par2: tupakoitava
+Par3: tupakoinut
+Par4: tupakoitu
+Par5: tupakoima (tupakoitsema)
+Par6: tupakoimaton (tupakoitsematon)
 
 <69>
 
@@ -2064,13 +2064,11 @@ Akt:Ind:Imp:P2: valitsitte
 Akt:Ind:Imp:P3: valitsivat
 Pas:Ind:Imp:    valittiin
 
-Akt:Ind:Imp:S1:Neg: valinnut
-Akt:Ind:Imp:S2:Neg: valinnut
-Akt:Ind:Imp:S3:Neg: valinnut
-Akt:Ind:Imp:P1:Neg: valinneet
-Akt:Ind:Imp:P2:Neg: valinneet
-Akt:Ind:Imp:P3:Neg: valinneet
-Pas:Ind:Imp:Neg:    valittu
+#General
+
+Gen:Akt:S: valinnut
+Gen:Akt:P: valinneet
+Gen:Pas:   valittu
 
 #Potential
 
@@ -2126,8 +2124,8 @@ Pas:Imp:Pre:       valittako
 
 #Infinitive
 
-Inf1:      valita
-Inf1:L:    valitakse
+Inf1: valita
+Inf0: valitakse
 
 Inf2:Ine:Akt: valitessa
 Inf2:Ine:Pas: valittaessa
@@ -2141,19 +2139,20 @@ Inf3:Abe:Akt: valitsematta
 Inf3:Ins:Akt: valitseman
 Inf3:Ins:Pas: valittaman
 
-Inf4:Nom: valitseminen
-Inf4:Par: valitsemista
+Inf4: valitseminen
 
 Inf5: valitsemaisilla
+Inf6: valitsevina
+Inf7: valittavissa
 
 #Participle
 
-Cip:Pre:Akt: valitseva
-Cip:Pre:Pas: valittava
-Cip:Per:Akt: valinnut
-Cip:Per:Pas: valittu
-Cip:Age:     valitsema
-Cip:Age:Neg: valitsematon
+Par1: valitseva
+Par2: valittava
+Par3: valinnut
+Par4: valittu
+Par5: valitsema
+Par6: valitsematon
 
 <70>
 
@@ -2182,13 +2181,11 @@ Akt:Ind:Imp:P2: juoksitte
 Akt:Ind:Imp:P3: juoksivat
 Pas:Ind:Imp:    juostiin
 
-Akt:Ind:Imp:S1:Neg: juossut
-Akt:Ind:Imp:S2:Neg: juossut
-Akt:Ind:Imp:S3:Neg: juossut
-Akt:Ind:Imp:P1:Neg: juosseet
-Akt:Ind:Imp:P2:Neg: juosseet
-Akt:Ind:Imp:P3:Neg: juosseet
-Pas:Ind:Imp:Neg:    juostu
+#General
+
+Gen:Akt:S: juossut
+Gen:Akt:P: juosseet
+Gen:Pas:   juostu
 
 #Potential
 
@@ -2244,8 +2241,8 @@ Pas:Imp:Pre:       juostako
 
 #Infinitive
 
-Inf1:      juosta
-Inf1:L:    juostakse
+Inf1: juosta
+Inf0: juostakse
 
 Inf2:Ine:Akt: juostessa
 Inf2:Ine:Pas: juostaessa
@@ -2259,19 +2256,20 @@ Inf3:Abe:Akt: juoksematta
 Inf3:Ins:Akt: juokseman
 Inf3:Ins:Pas: juostaman
 
-Inf4:Nom: juokseminen
-Inf4:Par: juoksemista
+Inf4: juokseminen
 
 Inf5: juoksemaisilla
+Inf6: juoksevina
+Inf7: juostavissa
 
 #Participle
 
-Cip:Pre:Akt: juokseva
-Cip:Pre:Pas: juostava
-Cip:Per:Akt: juossut
-Cip:Per:Pas: juostu
-Cip:Age:     juoksema
-Cip:Age:Neg: juoksematon
+Par1: juokseva
+Par2: juostava
+Par3: juossut
+Par4: juostu
+Par5: juoksema
+Par6: juoksematon
 
 
 <71>
@@ -2301,13 +2299,11 @@ Akt:Ind:Imp:P2: näitte
 Akt:Ind:Imp:P3: näkivät
 Pas:Ind:Imp:    nähtiin
 
-Akt:Ind:Imp:S1:Neg: nähnyt
-Akt:Ind:Imp:S2:Neg: nähnyt
-Akt:Ind:Imp:S3:Neg: nähnyt
-Akt:Ind:Imp:P1:Neg: nähneet
-Akt:Ind:Imp:P2:Neg: nähneet
-Akt:Ind:Imp:P3:Neg: nähneet
-Pas:Ind:Imp:Neg:    nähty
+#General
+
+Gen:Akt:S: nähnyt
+Gen:Akt:P: nähneet
+Gen:Pas:   nähty
 
 #Potential
 
@@ -2363,8 +2359,8 @@ Pas:Imp:Pre:       nähtäkö
 
 #Infinitive
 
-Inf1:      nähdä
-Inf1:L:    nähdäkse
+Inf1: nähdä
+Inf0: nähdäkse
 
 Inf2:Ine:Akt: nähdessä
 Inf2:Ine:Pas: nähtäessä
@@ -2378,19 +2374,20 @@ Inf3:Abe:Akt: näkemättä
 Inf3:Ins:Akt: näkemän
 Inf3:Ins:Pas: nähtämän
 
-Inf4:Nom: näkeminen
-Inf4:Par: näkemistä
+Inf4: näkeminen
 
 Inf5: näkemäisillään
+Inf6: näkevinä
+Inf7: nähtävissä
 
 #Participle
 
-Cip:Pre:Akt: näkevä
-Cip:Pre:Pas: nähtävä
-Cip:Per:Akt: nähnyt
-Cip:Per:Pas: nähty
-Cip:Age:     näkemä
-Cip:Age:Neg: näkemätön
+Par1: näkevä
+Par2: nähtävä
+Par3: nähnyt
+Par4: nähty
+Par5: näkemä
+Par6: näkemätön
 
 
 <72>
@@ -2420,13 +2417,11 @@ Akt:Ind:Imp:P2: vanhenitte
 Akt:Ind:Imp:P3: vanhenivat
 Pas:Ind:Imp:    vanhettiin
 
-Akt:Ind:Imp:S1:Neg: vanhennut
-Akt:Ind:Imp:S2:Neg: vanhennut
-Akt:Ind:Imp:S3:Neg: vanhennut
-Akt:Ind:Imp:P1:Neg: vanhenneet
-Akt:Ind:Imp:P2:Neg: vanhenneet
-Akt:Ind:Imp:P3:Neg: vanhenneet
-Pas:Ind:Imp:Neg:    vanhettu
+#General
+
+Gen:Akt:S: vanhennut
+Gen:Akt:P: vanhenneet
+Gen:Pas:   vanhettu
 
 #Potential
 
@@ -2482,8 +2477,8 @@ Pas:Imp:Pre:       vanhettako
 
 #Infinitive
 
-Inf1:      vanheta
-Inf1:L:    vanhetakse
+Inf1: vanheta
+Inf0: vanhetakse
 
 Inf2:Ine:Akt: vanhetessa
 Inf2:Ine:Pas: vanhettaessa
@@ -2497,19 +2492,20 @@ Inf3:Abe:Akt: vanhenematta
 Inf3:Ins:Akt: vanheneman
 Inf3:Ins:Pas: vanhettaman
 
-Inf4:Nom: vanheneminen
-Inf4:Par: vanhenemista
+Inf4: vanheneminen
 
 Inf5: vanhenemaisilla
+Inf6: vanhevina
+Inf7: vanhettavissa
 
 #Participle
 
-Cip:Pre:Akt: vanheneva
-Cip:Pre:Pas: vanhettava
-Cip:Per:Akt: vanhennut
-Cip:Per:Pas: vanhettu
-Cip:Age:     vanhenema
-Cip:Age:Neg: vanhenematon
+Par1: vanheneva
+Par2: vanhettava
+Par3: vanhennut
+Par4: vanhettu
+Par5: vanhenema
+Par6: vanhenematon
 
 
 <73>
@@ -2539,13 +2535,11 @@ Akt:Ind:Imp:P2: salasitte
 Akt:Ind:Imp:P3: salasivat
 Pas:Ind:Imp:    salattiin
 
-Akt:Ind:Imp:S1:Neg: salannut
-Akt:Ind:Imp:S2:Neg: salannut
-Akt:Ind:Imp:S3:Neg: salannut
-Akt:Ind:Imp:P1:Neg: salanneet
-Akt:Ind:Imp:P2:Neg: salanneet
-Akt:Ind:Imp:P3:Neg: salanneet
-Pas:Ind:Imp:Neg:    salattu
+#General
+
+Gen:Akt:S: salannut
+Gen:Akt:P: salanneet
+Gen:Pas:   salattu
 
 #Potential
 
@@ -2601,8 +2595,8 @@ Pas:Imp:Pre:       salattako
 
 #Infinitive
 
-Inf1:      salata
-Inf1:L:    salatakse
+Inf1: salata
+Inf0: salatakse
 
 Inf2:Ine:Akt: salatessa
 Inf2:Ine:Pas: salattaessa
@@ -2616,22 +2610,22 @@ Inf3:Abe:Akt: salaamatta
 Inf3:Ins:Akt: salaaman
 Inf3:Ins:Pas: salattaman
 
-Inf4:Nom: salaaminen
-Inf4:Par: salaamista
+Inf4: salaaminen
 
 Inf5: salaamaisilla
+Inf6: salaavina
+Inf7: salattavissa
 
 #Participle
 
-Cip:Pre:Akt: salaava
-Cip:Pre:Pas: salattava
-Cip:Per:Akt: salannut
-Cip:Per:Pas: salattu
-Cip:Age:     salaama
-Cip:Age:Neg: salaamaton
+Par1: salaava
+Par2: salattava
+Par3: salannut
+Par4: salattu
+Par5: salaama
+Par6: salaamaton
 
 <74>
-
 
 #Indicative
 Akt:Ind:Pre:S1: katkean
@@ -2658,13 +2652,11 @@ Akt:Ind:Imp:P2: katkesitte
 Akt:Ind:Imp:P3: katkesivat
 Pas:Ind:Imp:    katkettiin
 
-Akt:Ind:Imp:S1:Neg: katkennut
-Akt:Ind:Imp:S2:Neg: katkennut
-Akt:Ind:Imp:S3:Neg: katkennut
-Akt:Ind:Imp:P1:Neg: katkenneet
-Akt:Ind:Imp:P2:Neg: katkenneet
-Akt:Ind:Imp:P3:Neg: katkenneet
-Pas:Ind:Imp:Neg:    katkettu
+#General
+
+Gen:Akt:S: katkennut
+Gen:Akt:P: katkenneet
+Gen:Pas:   katkettu
 
 #Potential
 
@@ -2720,8 +2712,8 @@ Pas:Imp:Pre:       katkettako
 
 #Infinitive
 
-Inf1:      katketa
-Inf1:L:    katketakse
+Inf1: katketa
+Inf0: katketakse
 
 Inf2:Ine:Akt: katketessa
 Inf2:Ine:Pas: katkettaessa
@@ -2735,19 +2727,20 @@ Inf3:Abe:Akt: katkeamatta
 Inf3:Ins:Akt: katkeaman
 Inf3:Ins:Pas: katkettaman
 
-Inf4:Nom: katkeaminen
-Inf4:Par: katkeamista
+Inf4: katkeaminen
 
 Inf5: katkeamaisilla
+Inf6: katkeavina
+Inf7: katkettavissa
 
 #Participle
 
-Cip:Pre:Akt: katkeava
-Cip:Pre:Pas: katkettava
-Cip:Per:Akt: katkennut
-Cip:Per:Pas: katkettu
-Cip:Age:     katkeama
-Cip:Age:Neg: katkeamaton
+Par1: katkeava
+Par2: katkettava
+Par3: katkennut
+Par4: katkettu
+Par5: katkeama
+Par6: katkeamaton
 
 
 <75>
@@ -2777,13 +2770,11 @@ Akt:Ind:Imp:P2: selvisitte
 Akt:Ind:Imp:P3: selvisivät
 Pas:Ind:Imp:    selvittiin
 
-Akt:Ind:Imp:S1:Neg: selvinnyt
-Akt:Ind:Imp:S2:Neg: selvinnyt
-Akt:Ind:Imp:S3:Neg: selvinnyt
-Akt:Ind:Imp:P1:Neg: selvinneet
-Akt:Ind:Imp:P2:Neg: selvinneet
-Akt:Ind:Imp:P3:Neg: selvinneet
-Pas:Ind:Imp:Neg:    selvitty
+#General
+
+Gen:Akt:S: selvinnyt
+Gen:Akt:P: selvinneet
+Gen:Pas:   selvitty
 
 #Potential
 
@@ -2839,8 +2830,8 @@ Pas:Imp:Pre:       selvittäkö
 
 #Infinitive
 
-Inf1:      selvitä
-Inf1:L:    selvitäkse
+Inf1: selvitä
+Inf0: selvitäkse
 
 Inf2:Ine:Akt: selvitessä
 Inf2:Ine:Pas: selvittäessä
@@ -2854,19 +2845,20 @@ Inf3:Abe:Akt: selviämättä
 Inf3:Ins:Akt: selviämän
 Inf3:Ins:Pas: selvittämän
 
-Inf4:Nom: selviäminen
-Inf4:Par: selviämistä
+Inf4: selviäminen
 
 Inf5: selviämäisillään
+Inf6: selviävinä
+Inf7: selvittävissä
 
 #Participle
 
-Cip:Pre:Akt: selviävä
-Cip:Pre:Pas: selvittävä
-Cip:Per:Akt: selvinnyt
-Cip:Per:Pas: selvitty
-Cip:Age:     selviämä
-Cip:Age:Neg: selviämätön
+Par1: selviävä
+Par2: selvittävä
+Par3: selvinnyt
+Par4: selvitty
+Par5: selviämä
+Par6: selviämätön
 
 
 <76:G:S:t-d>
@@ -2896,13 +2888,11 @@ Akt:Ind:Imp:P2: taisitte
 Akt:Ind:Imp:P3: taisivat
 Pas:Ind:Imp:    taidettiin taittiin
 
-Akt:Ind:Imp:S1:Neg: taitanut tainnut
-Akt:Ind:Imp:S2:Neg: taitanut tainnut
-Akt:Ind:Imp:S3:Neg: taitanut tainnut
-Akt:Ind:Imp:P1:Neg: taitaneet tainneet
-Akt:Ind:Imp:P2:Neg: taitaneet tainneet
-Akt:Ind:Imp:P3:Neg: taitaneet tainneet
-Pas:Ind:Imp:Neg:    taidettu (taittu)
+#General
+
+Gen:Akt:S: taitanut tainnut
+Gen:Akt:P: taitaneet tainneet
+Gen:Pas:   taidettu (taittu)
 
 #Potential
 
@@ -2958,8 +2948,8 @@ Pas:Imp:Pre:       taittako (taidettako)
 
 #Infinitive
 
-Inf1:      taitaa
-Inf1:L:    taitaakse
+Inf1: taitaa
+Inf0: taitaakse
 
 Inf2:Ine:Akt: taitaessa
 Inf2:Ine:Pas: taidettaessa
@@ -2973,19 +2963,20 @@ Inf3:Abe:Akt: taitamatta
 Inf3:Ins:Akt: taitaman
 Inf3:Ins:Pas: taidettaman
 
-Inf4:Nom: taitaminen
-Inf4:Par: taitamista
+Inf4: taitaminen
 
 Inf5: taitamaisilla
+Inf6: taitavina
+Inf7: taidettavissa
 
 #Participle
 
-Cip:Pre:Akt: taitava
-Cip:Pre:Pas: taidettava
-Cip:Per:Akt: taitanut tainnut
-Cip:Per:Pas: taidettu (taittu)
-Cip:Age:     taitama
-Cip:Age:Neg: taitamaton
+Par1: taitava
+Par2: taidettava
+Par3: taitanut tainnut
+Par4: taidettu (taittu)
+Par5: taitama
+Par6: taitamaton
 
 <77>
 
@@ -2995,7 +2986,7 @@ Akt:Ind:Imp:S3:     kumaji
 Akt:Con:Pre:S3:     kumajaisi
 Akt:Con:Pre:S3:Neg: kumajaisi
 Akt:Ind:Pre:S3:Neg: kumaja
-Cip:Pre:Akt:        kumajava
+Par1:               kumajava
 
 
 <78>

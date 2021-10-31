@@ -7,7 +7,7 @@
 
 Verbs
 ========================
-- ->TODO <--- reformat verb rules (verb_rules_2).
+- TODO Reformat parser for rules_2
 
 
 
