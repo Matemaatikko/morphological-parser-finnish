@@ -58,7 +58,7 @@ object GenerateConjugationRules {
       else if endingWithGradation.startsWith(gradation.weak)
         then endingWithGradation.drop(gradation.weak.length) -> VerbGradationType.Weak
       else
-        println("PROBLEM: " + tuple) //TODO What missing means??
+        //TODO Rewrite take t-s gradation into account.
         endingWithGradation ->  VerbGradationType.Missing
 
       Conjugation(tuple._1, ending.map(Ch(_)), tpe)

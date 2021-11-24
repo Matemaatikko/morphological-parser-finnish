@@ -8,7 +8,7 @@
 Verbs
 ========================
 - TODO Reformat parser for rules_2
-
+- TODO tests for verb conjugations
 
 
 Secondary
