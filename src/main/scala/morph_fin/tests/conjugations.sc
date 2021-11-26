@@ -7,23 +7,21 @@ import morph_fin.rulings._
 import morph_fin.rulings.rules.{ConjugationRule, LoadAndParseVerbRules}
 
 
-val rules = LoadAndParseVerbRules.apply()
 
-println(rules.mkString("\n\n\n"))
+given Seq[ConjugationRule] = LoadAndParseVerbRules.rules
 
-//given Seq[ConjugationRule] = LoadAndParseVerbRules.rules
-//def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
-//  EntryToWord(Entry(KotusWord.Word(word), Some(Inflection(number, gradationLetter)))).get
-//
-//def printA(words: Seq[InflectedWord]) =
-//  println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))
-//  println("============================")
-//
-//def conjugations(word: Word) = ConjugationUtils.generateConjugations(word)
-//
-//def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
-//  val results = conjugations(getWord(word, rule, gradationLetterOpt))
-//  printA(results)
-//
-//
-//printB("viedä", 64, None)
+def getWord(word: String, number: Int, gradationLetter: Option[Char] = None) =
+  EntryToWord(Entry(KotusWord.Word(word), Some(Inflection(number, gradationLetter)))).get
+
+def printA(words: Seq[InflectedWord]) =
+  println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))
+  println("============================")
+
+def conjugations(word: Word) = ConjugationUtils.generateConjugations(word)
+
+def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
+  val results = conjugations(getWord(word, rule, gradationLetterOpt))
+  printA(results)
+
+
+printB("viedä", 64, None)

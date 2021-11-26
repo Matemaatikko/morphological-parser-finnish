@@ -50,7 +50,7 @@ object ConjugationUtils {
         if(tpe == GradationType.Strong) gradation.strong else gradation.weakValue
       case None            => ""
     }
-    val updatedGradation = if ending.tpe == VerbGradationType.Missing then gradation.dropRight(1) else gradation
+    val updatedGradation = if ending.tpe == VerbGradationType.TSGradation then gradation.dropRight(1) + "s" else gradation
     val structuredWord = StructuredWord(root._1, updatedGradation, root._2 + updatedEnding)
     val resultWord = handleSpecialCase(structuredWord, word.ruleNumber, ending.morphemes)
     InflectedWord(resultWord, ending.morphemes, word.lemma)

@@ -7,9 +7,8 @@ import morph_fin.rulings.rules.GenerateDeclensionRules.splitByFirstConsonant
 import morph_fin.rulings.rules.{Gradation, RepChar}
 import morph_fin.utils.Letters
 
-//TODO what is the role of Missing???
 enum VerbGradationType:
-  case Strong, Weak, Nothing, Missing
+  case Strong, Weak, Nothing, TSGradation
 
 case class Conjugation(morphemes: Morphemes, ending: Seq[RepChar], tpe: VerbGradationType)
 case class ConjugationRule(
@@ -57,9 +56,9 @@ object GenerateConjugationRules {
         then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.Strong
       else if endingWithGradation.startsWith(gradation.weak)
         then endingWithGradation.drop(gradation.weak.length) -> VerbGradationType.Weak
-      else
-        //TODO Rewrite take t-s gradation into account.
-        endingWithGradation ->  VerbGradationType.Missing
+      else if gradation.strong.endsWith("t") && endingWithGradation.startsWith(gradation.strong.dropRight(1) + "s") //t-s gradation
+        then endingWithGradation.drop(gradation.strong.length) -> VerbGradationType.TSGradation
+      else throw new Exception("Failed to resolve gradation: " + root + ", " + endingWithGradation)
 
       Conjugation(tuple._1, ending.map(Ch(_)), tpe)
 
