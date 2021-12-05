@@ -5,14 +5,14 @@ import flatspec.*
 import matchers.*
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Abessive, Ablative, Adessive, Allative, Comitative, Elative, Essive, Genitive, Illative, Inessive, Instructive, Morphemes, Nominative, Noun, Partitive, Plural, Singular, Translative}
-import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNounRules}
 
 
 class DeclensionUtilsTest extends AnyFlatSpec with should.Matchers {
 
 
   import DeclensionUtils._
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
 
   extension(list: Seq[InflectedWord])
     def matches(morphemes: Morphemes, words: String*) =

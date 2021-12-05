@@ -3,12 +3,12 @@ package morph_fin.rulings.nouns
 import org.scalatest.*
 import flatspec.*
 import matchers.*
-import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNounRules}
 
 class PossessiveSuffixUtilsTest extends AnyFlatSpec with should.Matchers {
 
   import PossessiveSuffixUtils._
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
 
 
   //TODO implement

@@ -1,7 +1,7 @@
 import morph_fin.rulings.MorphemesUtils.*
-import morph_fin.rulings.rules.{LoadAndParseNomineRules, RepChar}
+import morph_fin.rulings.rules.{LoadAndParseNounRules, RepChar}
 
-val nomineRulings = LoadAndParseNomineRules.rules
+val nomineRulings = LoadAndParseNounRules.rules
 
 def toStr(c: RepChar): String =
   c match {

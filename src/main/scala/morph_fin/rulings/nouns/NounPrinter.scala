@@ -1,10 +1,11 @@
 package morph_fin.rulings.nouns
 
 import morph_fin.kotus_format.LoadUpdatedKotus
-import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNounRules}
 import morph_fin.kotus_format.*
 import morph_fin.rulings.*
-import morph_fin.rulings.morpheme._
+import morph_fin.rulings.morpheme.*
+import morph_fin.utils.TablePrinter
 
 
 case class Filters(
@@ -21,7 +22,7 @@ class NounPrinter {
 
   def valueOf(x: (Morpheme, Morpheme)): Int = MorphemeOrdering.valueMap(x._1) + MorphemeOrdering.valueMap(x._2)
 
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
 
   val words = LoadUpdatedKotus.apply()
 
@@ -84,32 +85,6 @@ class NounPrinter {
       val a7 = list.filter(_.morphemes.is(PossessiveSuffix.ThirdPos)).map(_.word.toString()).mkString(", ")
       if(possessiveSuffix) Seq(a1, a2, a3, a4, a5, a6, a7) else Seq(a1, a2)
     )
-    printTable(table)
-
-
-  //It is assumed that listOfRows is table.
-  def printTable(listOfRows: Seq[Seq[String]]): String =
-    val numberOfRows = listOfRows.length
-    val numberOfColumns = listOfRows(0).length
-
-    val maxLenghtsInColumns: Seq[Int] = for(i <- 0 until numberOfColumns) yield {
-      var max = 0
-      for(j <- 0 until numberOfRows) {
-        val elem = listOfRows(j)(i)
-        if(elem.length > max) max = elem.length
-      }
-      max
-    }
-
-    val lineSeparator = "-"*(maxLenghtsInColumns.sum + 3*numberOfColumns)
-
-    (for(j <- 0 until numberOfRows) yield {
-      val row = listOfRows(j)
-      val filled = for(i <- 0 until numberOfColumns) yield {
-        val elem = row(i)
-        elem + " "*(maxLenghtsInColumns(i) - elem.length)
-      }
-      filled.mkString("| ", " | ", " |\n")
-    }).mkString(lineSeparator+"\n", lineSeparator+"\n", lineSeparator)
-
+    TablePrinter.printTable(table)
+  
 }

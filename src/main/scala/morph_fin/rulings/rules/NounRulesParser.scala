@@ -9,7 +9,7 @@ import scala.annotation.tailrec
 import scala.io.{Codec, Source}
 
 
-object LoadAndParseNomineRules {
+object LoadAndParseNounRules {
 
   def apply(): Seq[NounExampleDeclensions] = {
     val filename = FilesLocation.rules_path  + "/noun_rules.txt"

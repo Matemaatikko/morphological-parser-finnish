@@ -2,7 +2,7 @@ import morph_fin.inflection.EndingSeparator
 import morph_fin.kotus_format.{LoadUpdatedKotus, ReformatKotus, UpdatedWord}
 import morph_fin.rulings.nouns.{Filters, NounPrinter, StructuredWord, Word}
 import morph_fin.rulings.pronouns.LoadPronounInflections
-import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNounRules}
 import morph_fin.rulings.rules.*
 
 //ReformatKotus.reformat

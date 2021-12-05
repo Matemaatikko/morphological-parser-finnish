@@ -2,9 +2,9 @@ import morph_fin.kotus_format.{Entry, EntryToWord, Inflection, KotusWord}
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Genitive, PrintMorphemes, Singular}
 import morph_fin.rulings.nouns.*
-import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules, LoadAndParseVerbRules}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNounRules, LoadAndParseVerbRules}
 
-val rules = LoadAndParseNomineRules.rules
+val rules = LoadAndParseNounRules.rules
 given Seq[DeclensionRule] = rules
 
 rules.find(_.ruleNumber == 34)

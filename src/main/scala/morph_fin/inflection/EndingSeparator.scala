@@ -4,7 +4,7 @@ import morph_fin.kotus_format.{LoadUpdatedKotus, PrintUpdatedWord, ReformatKotus
 import morph_fin.rulings.GradationHandler
 import morph_fin.rulings.morpheme.{Morphemes, PrintMorphemes}
 import morph_fin.rulings.nouns.{AllDeclensionUtils, InflectedWord, Word}
-import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNounRules}
 import morph_fin.utils.{FilesLocation, LongestStartingSubstring}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
@@ -29,7 +29,7 @@ class EndingSeparator {
 
     (root, EndingList(endingList.toSet))
 
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
 
   val words: Seq[Word] = LoadUpdatedKotus.apply()
     .filter(_.isInstanceOf[UpdatedWord.StandardBending])

@@ -33,7 +33,7 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
       case 'S' => skipAll("S:"); parseSuffix
       case 'e' => skipAll("e:"); parseError1
       case 'E' => skipAll("E:"); parseError2
-      case '1' => skipAll("1:"); parseCompound1
+     // case '1' => skipAll("1:"); parseCompound1
       case '2' => skipAll("2:"); parseCompound2
     }
     result
@@ -85,14 +85,14 @@ class UpdatedKotusLineParser(stream: Iterator[Char]) extends Parser(stream){
     skipUntil(isEndOfLine)
     NoInflection(word)
 
-  inline def parseCompound1: Compound =
-    val word = collectUntil(isEnding)
-    skipAll(":P:")
-    val prefix = collectUntil(isEnding)
-    skipAll(":S:")
-    val suffix = collectUntil(isEnding)
-    val suffixBending = parseBending
-    Compound(word, prefix, SubwordWithInflection(suffix, suffixBending))
+//  inline def parseCompound1: Compound =
+//    val word = collectUntil(isEnding)
+//    skipAll(":P:")
+//    val prefix = collectUntil(isEnding)
+//    skipAll(":S:")
+//    val suffix = collectUntil(isEnding)
+//    val suffixBending = parseBending
+//    Compound(word, prefix, SubwordWithInflection(suffix, suffixBending))
 
   inline def parseCompound2: Compound2 =
     val word = collectUntil(isEnding)

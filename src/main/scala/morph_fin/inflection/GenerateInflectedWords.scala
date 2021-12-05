@@ -1,12 +1,12 @@
 package morph_fin.inflection
 
-import morph_fin.kotus_format.UpdatedWord.{Compound, Compound2, StandardBending}
+import morph_fin.kotus_format.UpdatedWord.{Compound2, StandardBending}
 import morph_fin.kotus_format.{Inflection, LoadUpdatedKotus, UpdatedWord}
 import morph_fin.rulings.nouns.{DeclensionUtils, InflectedWord, PossessiveSuffixUtils, Word}
 import morph_fin.rulings.verbs.ConjugationUtils
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Morphemes, Noun, PrintMorphemes}
-import morph_fin.rulings.rules.{ConjugationRule, DeclensionRule, Gradation, LoadAndParseNomineRules, LoadAndParseVerbRules}
+import morph_fin.rulings.rules.{ConjugationRule, DeclensionRule, Gradation, LoadAndParseNounRules, LoadAndParseVerbRules}
 import morph_fin.utils.{FilesLocation, Letters}
 
 import java.io.{FileOutputStream, OutputStreamWriter}
@@ -19,7 +19,7 @@ object GenerateInflectedWords {
 
   import morph_fin.rulings.morpheme.PossessiveSuffix
 
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
   given Seq[ConjugationRule] = LoadAndParseVerbRules.rules
 
   val verb = FilesLocation.result_path + s"/inflections/verbs.txt"
@@ -43,7 +43,7 @@ object GenerateInflectedWords {
   def getTarget(updatedWord: UpdatedWord): TargetFile =
     import UpdatedWord._
     updatedWord match {
-      case a: Compound => TargetFile.Compound
+      //case a: Compound => TargetFile.Compound
       case a: Compound2 => TargetFile.Compound
       case StandardBending(_, bending) if bending.rule < 50 => TargetFile.Noun
       case StandardBending(_, bending) if bending.rule > 51 && bending.rule < 79 => TargetFile.Verb
@@ -76,17 +76,17 @@ object GenerateInflectedWords {
   def generate(updatedWord: UpdatedWord): Seq[String] =
     import UpdatedWord._
     updatedWord match {
-      case Compound(word, prefix, suffixWord) =>
-        val resulWords = getBendingsWithoutSuffix(suffixWord.subword, suffixWord.inflection)
-        resulWords.flatMap(resultWord => {
-          val gradationOpt = suffixWord.inflection.gradationLetter.map(GradationHandler.getGradationByLetter(_))
-          if resultWord.morphemes.root == Noun then
-            addPossessiveSuffixes(word, prefix, resultWord)
-          else {
-            val result = addHyphenIfNeeded(prefix, resultWord.word.toString, word)
-            Seq(print(result, resultWord.morphemes, word))
-          }
-        })
+//      case Compound(word, prefix, suffixWord) =>
+//        val resulWords = getBendingsWithoutSuffix(suffixWord.subword, suffixWord.inflection)
+//        resulWords.flatMap(resultWord => {
+//          val gradationOpt = suffixWord.inflection.gradationLetter.map(GradationHandler.getGradationByLetter(_))
+//          if resultWord.morphemes.root == Noun then
+//            addPossessiveSuffixes(word, prefix, resultWord)
+//          else {
+//            val result = addHyphenIfNeeded(prefix, resultWord.word.toString, word)
+//            Seq(print(result, resultWord.morphemes, word))
+//          }
+//        })
       case Compound2(word, prefixWord, suffixWord) =>
         val prefixBendings = getBendingsWithoutSuffix(prefixWord.subword, prefixWord.inflection)
         val suffixBendings = getBendingsWithoutSuffix(suffixWord.subword, suffixWord.inflection)

@@ -5,7 +5,7 @@ import flatspec.*
 import matchers.*
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Genitive, Singular}
-import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, Gradation, LoadAndParseNounRules}
 
 extension[A] (a: A)
   def opt = Some(a)
@@ -13,7 +13,7 @@ extension[A] (a: A)
 class ComparationUtilsTest extends AnyFlatSpec with should.Matchers {
 
   import ComparationUtils._
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
 
   def matchesComp(word: Word, expected: String*) =
     val gen = DeclensionUtils.generateDeclensions(word).find(_.morphemes.is(Genitive, Singular)).get

@@ -4,7 +4,7 @@ import morph_fin.kotus_format
 import morph_fin.rulings.*
 import morph_fin.rulings.morpheme.{Nominative, Plural}
 import morph_fin.rulings.nouns.{DeclensionUtils, StructuredWord, Word}
-import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNomineRules}
+import morph_fin.rulings.rules.{DeclensionRule, LoadAndParseNounRules}
 import morph_fin.rulings.verbs.ConjugationUtils
 import morph_fin.utils.{FilesLocation, Hyphenation, Letters}
 
@@ -23,7 +23,7 @@ enum ErrorSource:
   case PluralCompoundException
 
 enum UpdatedWord(val value: String):
-  case Compound(word: String, prefix: String, suffix: SubwordWithInflection) extends UpdatedWord(word) //50
+  //case Compound(word: String, prefix: String, suffix: SubwordWithInflection) extends UpdatedWord(word) //50
   case Compound2(word: String, prefix: SubwordWithInflection, suffix: SubwordWithInflection) extends UpdatedWord(word) // 51
   case StandardBending(word: String, inflection: Inflection) extends UpdatedWord(word)
   case Suffix(word: String, bending: Inflection) extends UpdatedWord(word)
@@ -57,8 +57,8 @@ object PrintUpdatedWord{
       s"W:${word}" + bendingString(bending)
     case Suffix(word, bending) =>
       s"S:${word}" + bendingString(bending)
-    case Compound(word, prefix, suffix) =>
-      s"1:${word}:P:${prefix}:S:${suffix.subword}" + bendingString(suffix.inflection)
+//    case Compound(word, prefix, suffix) =>
+//      s"1:${word}:P:${prefix}:S:${suffix.subword}" + bendingString(suffix.inflection)
     case Compound2(word, prefix, suffix) =>
       s"2:${word}:P:${toString(prefix)}:S:${toString(suffix)}"
   }
@@ -134,7 +134,7 @@ case class Data(
 
 object ReformatKotus {
 
-  given Seq[DeclensionRule] = LoadAndParseNomineRules.rules
+  given Seq[DeclensionRule] = LoadAndParseNounRules.rules
 
 
   def fixIlmeinen(entry: Entry): Entry = entry match {
@@ -320,7 +320,7 @@ object ReformatKotus {
 
 
   def reformat: Unit =
-    val nomineBendings = LoadAndParseNomineRules.rules
+    val nomineBendings = LoadAndParseNounRules.rules
     val result: Seq[UpdatedWord] = apply(nomineBendings)
 /*    val errors = result.flatMap(word => word match {
       case a: UpdatedWord.Error => Some(a)
