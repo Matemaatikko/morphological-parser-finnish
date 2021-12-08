@@ -10,21 +10,6 @@ import morph_fin.utils.VocalizationUtils.{resolveVocalization, updateVocalizatio
 
 object ConjugationUtils {
 
-  def generateConjugationsWithNomineEndings(word: Word)(using rules: Seq[ConjugationRule]): Seq[InflectedWord] =
-    val words = generateConjugations(word)
-
-    //Infinitives receiving possessive suffixes
-    val Inf1Long = words.find(_.morphemes.root == AInfinitive).get
-    val Inf2IneAkt = words.find(a => a.morphemes.root == EInfinitive && a.morphemes.is(Inessive, Active)).get
-    val Inf5 = words.find(_.morphemes.root == InfinitiveV).get
-
-    //Infinitive IV -> Create nominal form
-    val Inf4 = words.find(_.morphemes.root == InfinitiveIV).get
-
-    //Participles
-
-    ???
-
   def generateConjugations(word: Word)(using rules: Seq[ConjugationRule]): Seq[InflectedWord] =
     val rule = rules.find(_.ruleNumber == word.ruleNumber).getOrElse(throw new Exception(s"No verb rule found for: ${word.ruleNumber}"))
     //Resolve root

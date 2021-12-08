@@ -22,6 +22,25 @@ object PossessiveSuffixUtils {
   def isSuitableForSuffix(morphemes: Morphemes) =
     morphemes.isNot(Nominative, Singular) && morphemes.isNot(Accusative)
 
+
+  /**
+ * Note: Nominative, Singular is skipped due to its similarity to Genitive, Singular.
+ */
+  def onlySuffixes(inflectedWord: InflectedWord): Seq[InflectedWord] =
+    import inflectedWord._
+    val suffixBody = getRootForNonVnSuffixes(inflectedWord, gradationOpt)
+    val VnSuffix = addVnSuffix(suffixBody, gradationOpt)
+
+    if(!isSuitableForSuffix(morphemes)) Nil
+    else {
+      suffixes.map(suffix =>
+        val finalEnding = updateCorrectVowelsToEnding(suffixBody.word.ending + suffix.ending, inflectedWord.lemma.toString)
+        val strWord = suffixBody.word.copy(ending = finalEnding)
+          InflectedWord(strWord, morphemes ~ suffix.suffixType, suffixBody.lemma)
+      ) ++ VnSuffix
+    }
+  end onlySuffixes
+
   /**
    * Note: Nominative, Singular is skipped due to its similarity to Genitive, Singular.
    */

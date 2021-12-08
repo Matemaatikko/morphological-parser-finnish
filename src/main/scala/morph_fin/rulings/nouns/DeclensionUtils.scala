@@ -26,7 +26,7 @@ case class StructuredWord(root: String, gradation: String, ending: String) {
 case class Word(
                  lemma: String,
                  ruleNumber: Int,
-                 gradationOpt: Option[Gradation],
+                 gradationOpt: Option[Gradation] = None,
                  nominativeReplacement: Option[StructuredWord] = None
                )
 

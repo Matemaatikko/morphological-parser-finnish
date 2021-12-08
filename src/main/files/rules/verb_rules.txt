@@ -155,6 +155,9 @@ Inf5: sanomaisilla
 Inf6: sanovina
 Inf7: sanottavissa
 
+# sanottua+P, sanovan, sanovina+P, sanoneen | sanottavissa, sanotun | sanomaisilla+P
+
+
 #Participle
 
 Par1: sanova

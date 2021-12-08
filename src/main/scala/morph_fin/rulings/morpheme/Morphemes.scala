@@ -49,6 +49,12 @@ sealed trait Morphemes {
     case Append(_, rest)         => rest.getGrammaticalNumber
     case _                       => None
   }
+
+  def updateRoot(root: Root): Morphemes = this match {
+    case Append(value, rest) => Append(value, rest.updateRoot(root))
+    case r: Root => root
+    case a => a
+  }
 }
 sealed trait Root extends Morphemes
 
