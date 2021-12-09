@@ -130,7 +130,7 @@ Act:Imp:Pre:S3:Neg: sanoko
 Act:Imp:Pre:P1:Neg: sanoko
 Act:Imp:Pre:P2:Neg: sanoko
 Act:Imp:Pre:P3:Neg: sanoko
-Pas:Imp:Pre:        sanottako
+Pas:Imp:Pre:Neg:    sanottako
 
 #Infinitive
 
@@ -250,7 +250,7 @@ Act:Imp:Pre:S3:Neg: muistako
 Act:Imp:Pre:P1:Neg: muistako
 Act:Imp:Pre:P2:Neg: muistako
 Act:Imp:Pre:P3:Neg: muistako
-Pas:Imp:Pre:       muistettako
+Pas:Imp:Pre:Neg:    muistettako
 
 #Infinitive
 
@@ -367,7 +367,7 @@ Act:Imp:Pre:S3:Neg: huutako
 Act:Imp:Pre:P1:Neg: huutako
 Act:Imp:Pre:P2:Neg: huutako
 Act:Imp:Pre:P3:Neg: huutako
-Pas:Imp:Pre:       huudettako
+Pas:Imp:Pre:Neg:       huudettako
 
 #Infinitive
 
@@ -485,7 +485,7 @@ Act:Imp:Pre:S3:Neg: soutako
 Act:Imp:Pre:P1:Neg: soutako
 Act:Imp:Pre:P2:Neg: soutako
 Act:Imp:Pre:P3:Neg: soutako
-Pas:Imp:Pre:       soudettako
+Pas:Imp:Pre:Neg:       soudettako
 
 #Infinitive
 
@@ -601,7 +601,7 @@ Act:Imp:Pre:S3:Neg: kaivako
 Act:Imp:Pre:P1:Neg: kaivako
 Act:Imp:Pre:P2:Neg: kaivako
 Act:Imp:Pre:P3:Neg: kaivako
-Pas:Imp:Pre:       kaivettako
+Pas:Imp:Pre:Neg:       kaivettako
 
 #Infinitive
 
@@ -718,7 +718,7 @@ Act:Imp:Pre:S3:Neg: saartako
 Act:Imp:Pre:P1:Neg: saartako
 Act:Imp:Pre:P2:Neg: saartako
 Act:Imp:Pre:P3:Neg: saartako
-Pas:Imp:Pre:       saarrettako
+Pas:Imp:Pre:Neg:       saarrettako
 
 #Infinitive
 
@@ -835,7 +835,7 @@ Act:Imp:Pre:S3:Neg: laskeko
 Act:Imp:Pre:P1:Neg: laskeko
 Act:Imp:Pre:P2:Neg: laskeko
 Act:Imp:Pre:P3:Neg: laskeko
-Pas:Imp:Pre:       laskettako
+Pas:Imp:Pre:Neg:       laskettako
 
 #Infinitive
 
@@ -952,7 +952,7 @@ Act:Imp:Pre:S3:Neg: tunteko
 Act:Imp:Pre:P1:Neg: tunteko
 Act:Imp:Pre:P2:Neg: tunteko
 Act:Imp:Pre:P3:Neg: tunteko
-Pas:Imp:Pre:       tunnettako
+Pas:Imp:Pre:Neg:       tunnettako
 
 #Infinitive
 
@@ -1069,7 +1069,7 @@ Act:Imp:Pre:S3:Neg: lähtekö
 Act:Imp:Pre:P1:Neg: lähtekö
 Act:Imp:Pre:P2:Neg: lähtekö
 Act:Imp:Pre:P3:Neg: lähtekö
-Pas:Imp:Pre:       lähdettäkö
+Pas:Imp:Pre:Neg:       lähdettäkö
 
 #Infinitive
 
@@ -1186,7 +1186,7 @@ Act:Imp:Pre:S3:Neg: salliko
 Act:Imp:Pre:P1:Neg: salliko
 Act:Imp:Pre:P2:Neg: salliko
 Act:Imp:Pre:P3:Neg: salliko
-Pas:Imp:Pre:       sallittako
+Pas:Imp:Pre:Neg:       sallittako
 
 #Infinitive
 
@@ -1304,7 +1304,7 @@ Act:Imp:Pre:S3:Neg: voiko
 Act:Imp:Pre:P1:Neg: voiko
 Act:Imp:Pre:P2:Neg: voiko
 Act:Imp:Pre:P3:Neg: voiko
-Pas:Imp:Pre:       voitako
+Pas:Imp:Pre:Neg:       voitako
 
 #Infinitive
 
@@ -1421,7 +1421,7 @@ Act:Imp:Pre:S3:Neg: saako
 Act:Imp:Pre:P1:Neg: saako
 Act:Imp:Pre:P2:Neg: saako
 Act:Imp:Pre:P3:Neg: saako
-Pas:Imp:Pre:       saatako
+Pas:Imp:Pre:Neg:       saatako
 
 #Infinitive
 
@@ -1538,7 +1538,7 @@ Act:Imp:Pre:S3:Neg: juoko
 Act:Imp:Pre:P1:Neg: juoko
 Act:Imp:Pre:P2:Neg: juoko
 Act:Imp:Pre:P3:Neg: juoko
-Pas:Imp:Pre:       juotako
+Pas:Imp:Pre:Neg:       juotako
 
 #Infinitive
 
@@ -1655,7 +1655,7 @@ Act:Imp:Pre:S3:Neg: käykö
 Act:Imp:Pre:P1:Neg: käykö
 Act:Imp:Pre:P2:Neg: käykö
 Act:Imp:Pre:P3:Neg: käykö
-Pas:Imp:Pre:       käytäkö
+Pas:Imp:Pre:Neg:       käytäkö
 
 #Infinitive
 
@@ -1772,7 +1772,7 @@ Act:Imp:Pre:S3:Neg: rohkaisko
 Act:Imp:Pre:P1:Neg: rohkaisko
 Act:Imp:Pre:P2:Neg: rohkaisko
 Act:Imp:Pre:P3:Neg: rohkaisko
-Pas:Imp:Pre:       rohkaistako
+Pas:Imp:Pre:Neg:       rohkaistako
 
 #Infinitive
 
@@ -1889,7 +1889,7 @@ Act:Imp:Pre:S3:Neg: tulko
 Act:Imp:Pre:P1:Neg: tulko
 Act:Imp:Pre:P2:Neg: tulko
 Act:Imp:Pre:P3:Neg: tulko
-Pas:Imp:Pre:       tultako
+Pas:Imp:Pre:Neg:       tultako
 
 #Infinitive
 
@@ -2006,7 +2006,7 @@ Act:Imp:Pre:S3:Neg: tupakoiko
 Act:Imp:Pre:P1:Neg: tupakoiko
 Act:Imp:Pre:P2:Neg: tupakoiko
 Act:Imp:Pre:P3:Neg: tupakoiko
-Pas:Imp:Pre:       tupakoitako
+Pas:Imp:Pre:Neg:       tupakoitako
 
 #Infinitive
 
@@ -2123,7 +2123,7 @@ Act:Imp:Pre:S3:Neg: valitko
 Act:Imp:Pre:P1:Neg: valitko
 Act:Imp:Pre:P2:Neg: valitko
 Act:Imp:Pre:P3:Neg: valitko
-Pas:Imp:Pre:       valittako
+Pas:Imp:Pre:Neg:       valittako
 
 #Infinitive
 
@@ -2240,7 +2240,7 @@ Act:Imp:Pre:S3:Neg: juosko
 Act:Imp:Pre:P1:Neg: juosko
 Act:Imp:Pre:P2:Neg: juosko
 Act:Imp:Pre:P3:Neg: juosko
-Pas:Imp:Pre:       juostako
+Pas:Imp:Pre:Neg:       juostako
 
 #Infinitive
 
@@ -2358,7 +2358,7 @@ Act:Imp:Pre:S3:Neg: nähkö
 Act:Imp:Pre:P1:Neg: nähkö
 Act:Imp:Pre:P2:Neg: nähkö
 Act:Imp:Pre:P3:Neg: nähkö
-Pas:Imp:Pre:       nähtäkö
+Pas:Imp:Pre:Neg:       nähtäkö
 
 #Infinitive
 
@@ -2476,7 +2476,7 @@ Act:Imp:Pre:S3:Neg: vanhetko
 Act:Imp:Pre:P1:Neg: vanhetko
 Act:Imp:Pre:P2:Neg: vanhetko
 Act:Imp:Pre:P3:Neg: vanhetko
-Pas:Imp:Pre:       vanhettako
+Pas:Imp:Pre:Neg:       vanhettako
 
 #Infinitive
 
@@ -2594,7 +2594,7 @@ Act:Imp:Pre:S3:Neg: salatko
 Act:Imp:Pre:P1:Neg: salatko
 Act:Imp:Pre:P2:Neg: salatko
 Act:Imp:Pre:P3:Neg: salatko
-Pas:Imp:Pre:       salattako
+Pas:Imp:Pre:Neg:       salattako
 
 #Infinitive
 
@@ -2711,7 +2711,7 @@ Act:Imp:Pre:S3:Neg: katketko
 Act:Imp:Pre:P1:Neg: katketko
 Act:Imp:Pre:P2:Neg: katketko
 Act:Imp:Pre:P3:Neg: katketko
-Pas:Imp:Pre:       katkettako
+Pas:Imp:Pre:Neg:       katkettako
 
 #Infinitive
 
@@ -2829,7 +2829,7 @@ Act:Imp:Pre:S3:Neg: selvitkö
 Act:Imp:Pre:P1:Neg: selvitkö
 Act:Imp:Pre:P2:Neg: selvitkö
 Act:Imp:Pre:P3:Neg: selvitkö
-Pas:Imp:Pre:       selvittäkö
+Pas:Imp:Pre:Neg:       selvittäkö
 
 #Infinitive
 
@@ -2947,7 +2947,7 @@ Act:Imp:Pre:S3:Neg: taitako
 Act:Imp:Pre:P1:Neg: taitako
 Act:Imp:Pre:P2:Neg: taitako
 Act:Imp:Pre:P3:Neg: taitako
-Pas:Imp:Pre:       taittako (taidettako)
+Pas:Imp:Pre:Neg:       taittako (taidettako)
 
 #Infinitive
 

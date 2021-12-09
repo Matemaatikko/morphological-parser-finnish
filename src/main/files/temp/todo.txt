@@ -7,12 +7,10 @@
 
 Verbs
 ========================
-- TODO tests for verb conjugations
-
 - TODO Printer for verbs
-- TODO Add nominal conjugations
 
-- TODO Typical ts-gradation cases need to be checked.
+- TODO tests for verb conjugations
+- TODO Typical ts-gradation cases need to be tested.
 
 
 Secondary

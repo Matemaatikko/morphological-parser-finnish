@@ -1,6 +1,6 @@
 import morph_fin.rulings.verbs.{AllConjugationUtils, ConjugationUtils}
 import morph_fin.kotus_format.{KotusWord, *}
-import morph_fin.rulings.morpheme.PrintMorphemes
+import morph_fin.rulings.morpheme._
 import morph_fin.rulings.nouns.InflectedWord
 import morph_fin.rulings.nouns.Word
 import morph_fin.rulings.*
@@ -27,7 +27,13 @@ def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 
 def printAll(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   val results = allConjugations(getWord(word, rule, gradationLetterOpt))
+  //println(results.filter(_.morphemes.is(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive)).map(_.word.toString))
   printA(results)
 
 
-printAll("viedä", 64, None)
+
+
+//printAll("saunoa", 52, None)
+
+val a = Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive
+PrintMorphemes(a)

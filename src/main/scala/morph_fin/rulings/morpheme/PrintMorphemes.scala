@@ -1,7 +1,7 @@
 package morph_fin.rulings.morpheme
 
 import com.sun.istack.internal.Nullable
-import morph_fin.rulings.morpheme.PossessiveSuffix.*
+import morph_fin.rulings.morpheme.PossessiveSuffix
 import morph_fin.rulings.morpheme.{AInfinitive, AInfinitiveLong, Abessive, Ablative, Accusative, Active, Adessive, AgentParticiple, Allative, Append, Comitative, Comparative, Conditional, EInfinitive, Elative, Essive, Finite, General, Genitive, Illative, Imperative, Imperfect, Indicative, Inessive, InfinitiveIV, InfinitiveV, InfinitiveVI, InfinitiveVII, Instructive, MAInfinitive, Morpheme, Morphemes, Negative, NegativeParticiple, Nominative, Noun, Partitive, Passive, Perfect, Pluperfect, Plural, PluralThird, Positive, Potential, Present, Singular, SingularThird, Superlative, Translative, stiAdverb}
 
 
@@ -40,7 +40,7 @@ object PrintMorphemes {
     Indicative  -> "Ind",
     Conditional -> "Con",
     Potential   -> "Pot",
-    Imperative  -> "Impra",
+    Imperative  -> "Impera",
 
     Present    -> "Pre",
     Perfect    -> "Per",
@@ -60,12 +60,12 @@ object PrintMorphemes {
     Comparative -> "Comp",
     Superlative -> "Sup",
 
-    PossessiveSuffix.Body           -> "Poss:Body",
-    PossessiveSuffix.SingularFirst  -> "Poss:S1",
-    PossessiveSuffix.SingularSecond -> "Poss:S2",
-    PossessiveSuffix.PluralFirst    -> "Poss:P1",
-    PossessiveSuffix.PluralSecond   -> "Poss:P2",
-    PossessiveSuffix.ThirdPos       -> "Poss:3",
+    PossessiveSuffix.Body           -> "Poss-Body",
+    PossessiveSuffix.SingularFirst  -> "Poss-S1",
+    PossessiveSuffix.SingularSecond -> "Poss-S2",
+    PossessiveSuffix.PluralFirst    -> "Poss-P1",
+    PossessiveSuffix.PluralSecond   -> "Poss-P2",
+    PossessiveSuffix.ThirdPos       -> "Poss-3",
 
     stiAdverb -> "Adv"
   )
@@ -75,11 +75,15 @@ object PrintMorphemes {
 
   def apply(morphemes: Morphemes): String = toList(morphemes).mkString(":")
 
-  def toList(morphemes: Morphemes): Seq[String] = morphemes match {
+  def toList(morphemes: Morphemes): Seq[String] =
+    println(morphemes)
+    morphemes match {
     case Append(morpheme, rest) =>
       val prt = print(morpheme)
+      println(prt)
       prt match {
-        case Some(value) => toList(rest) :+ value
+        case Some(value) =>
+          toList(rest) :+ value
         case None => toList(rest)
       }
     case Noun                   => Seq("Noun")
