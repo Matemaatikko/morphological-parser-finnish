@@ -23,7 +23,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
   // GRADATION
   //===================================================================
 
-  "addDeclensions" should "handle gradation: A, Strong, word: vadelmikko" in {
+  "generateDeclensions" should "handle gradation: A, Strong, word: vadelmikko" in {
     val word = Word("vadelmikko", 4, Gradation("kk", "k").opt)
     val declensions = generateDeclensions(word)
 
@@ -43,7 +43,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "vadelmikoilla")
   }
 
-  "addDeclensions" should "handle gradation: A, Weak, word: vahakas" in {
+  "generateDeclensions" should "handle gradation: A, Weak, word: vahakas" in {
     val word = Word("vahakas", 41, Gradation("kk", "k").opt)
     val declensions = generateDeclensions(word)
 
@@ -63,7 +63,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "vahakkailla")
   }
 
-  "addDeclensions" should "handle gradation: B, Strong, word: vaippa" in {
+  "generateDeclensions" should "handle gradation: B, Strong, word: vaippa" in {
     val word = Word("vaippa", 9, Gradation("pp", "p").opt)
     val declensions = generateDeclensions(word)
 
@@ -83,7 +83,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "vaipoilla")
   }
 
-  "addDeclensions" should "handle gradation: B, Weak, word: valpas" in {
+  "generateDeclensions" should "handle gradation: B, Weak, word: valpas" in {
     val word = Word("valpas", 41, Gradation("pp", "p").opt)
     val declensions = generateDeclensions(word)
 
@@ -103,7 +103,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "valppailla")
   }
 
-  "addDeclensions" should "handle gradation: C, Strong, word: valapatto" in {
+  "generateDeclensions" should "handle gradation: C, Strong, word: valapatto" in {
     val word = Word("valapatto", 1, Gradation("tt", "t").opt)
     val declensions = generateDeclensions(word)
 
@@ -123,7 +123,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "valapatoilla")
   }
 
-  "addDeclensions" should "handle gradation: C, Weak, word: valkaisematon" in {
+  "generateDeclensions" should "handle gradation: C, Weak, word: valkaisematon" in {
     val word = Word("valkaisematon", 34, Gradation("tt", "t").opt)
     val declensions = generateDeclensions(word)
 
@@ -143,7 +143,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "valkaisemattomilla")
   }
 
-  "addDeclensions" should "handle gradation: D, Strong, word: valkaisematon" in {
+  "generateDeclensions" should "handle gradation: D, Strong, word: valkaisematon" in {
     val word = Word("aika", 9, Gradation("k", "").opt)
     val declensions = generateDeclensions(word)
 
@@ -163,7 +163,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "ajoilla")
   }
 
-  "addDeclensions" should "handle gradation: D, Weak, word: varas" in {
+  "generateDeclensions" should "handle gradation: D, Weak, word: varas" in {
     val word = Word("varas", 41, Gradation("k", "").opt)
     val declensions = generateDeclensions(word)
 
@@ -183,7 +183,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "varkailla")
   }
 
-  "addDeclensions" should "handle gradation: E, Strong, word: varpu" in {
+  "generateDeclensions" should "handle gradation: E, Strong, word: varpu" in {
     val word = Word("varpu", 1, Gradation("p", "v").opt)
     val declensions = generateDeclensions(word)
 
@@ -203,7 +203,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "varvuilla")
   }
 
-  "addDeclensions" should "handle gradation: E, Weak, word: varvas" in {
+  "generateDeclensions" should "handle gradation: E, Weak, word: varvas" in {
     val word = Word("varvas", 41, Gradation("p", "v").opt)
     val declensions = generateDeclensions(word)
 
@@ -223,7 +223,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "varpailla")
   }
 
-  "addDeclensions" should "handle gradation: F, Strong, word: vastaveto" in {
+  "generateDeclensions" should "handle gradation: F, Strong, word: vastaveto" in {
     val word = Word("vastaveto", 1, Gradation("t", "d").opt)
     val declensions = generateDeclensions(word)
 
@@ -243,7 +243,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "vastavedoilla")
   }
 
-  "addDeclensions" should "handle gradation: F, Weak, word: viihde" in {
+  "generateDeclensions" should "handle gradation: F, Weak, word: viihde" in {
     val word = Word("viihde", 48, Gradation("t", "d").opt)
     val declensions = generateDeclensions(word)
 
@@ -263,7 +263,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "viihteillä")
   }
 
-  "addDeclensions" should "handle gradation: G, Strong, word: viikinki" in {
+  "generateDeclensions" should "handle gradation: G, Strong, word: viikinki" in {
     val word = Word("viikinki", 5, Gradation("nk", "ng").opt)
     val declensions = generateDeclensions(word)
 
@@ -283,7 +283,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "viikingeillä")
   }
 
-  "addDeclensions" should "handle gradation: G, Weak, word: villakangas" in {
+  "generateDeclensions" should "handle gradation: G, Weak, word: villakangas" in {
     val word = Word("villakangas", 41, Gradation("nk", "ng").opt)
     val declensions = generateDeclensions(word)
 
@@ -303,7 +303,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "villakankailla")
   }
 
-  "addDeclensions" should "handle gradation: H, Strong, word: ylempi" in {
+  "generateDeclensions" should "handle gradation: H, Strong, word: ylempi" in {
     val word = Word("ylempi", 16, Gradation("mp", "mm").opt)
     val declensions = generateDeclensions(word)
 
@@ -323,7 +323,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "ylemmillä")
   }
 
-  "addDeclensions" should "handle gradation: H, Weak, word: hammas" in {
+  "generateDeclensions" should "handle gradation: H, Weak, word: hammas" in {
     val word = Word("hammas", 41, Gradation("mp", "mm").opt)
     val declensions = generateDeclensions(word)
 
@@ -343,7 +343,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "hampailla")
   }
 
-  "addDeclensions" should "handle gradation: I, Strong, word: huolto" in {
+  "generateDeclensions" should "handle gradation: I, Strong, word: huolto" in {
     val word = Word("huolto", 1, Gradation("lt", "ll").opt)
     val declensions = generateDeclensions(word)
 
@@ -363,7 +363,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "huolloilla")
   }
 
-  "addDeclensions" should "handle gradation: I, Weak, word: helle" in {
+  "generateDeclensions" should "handle gradation: I, Weak, word: helle" in {
     val word = Word("helle", 48, Gradation("lt", "ll").opt)
     val declensions = generateDeclensions(word)
 
@@ -383,7 +383,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "helteillä")
   }
 
-  "addDeclensions" should "handle gradation: J, Strong, word: hento" in {
+  "generateDeclensions" should "handle gradation: J, Strong, word: hento" in {
     val word = Word("hento", 1, Gradation("nt", "nn").opt)
     val declensions = generateDeclensions(word)
 
@@ -403,7 +403,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "hennoilla")
   }
 
-  "addDeclensions" should "handle gradation: J, Weak, word: himmennin" in {
+  "generateDeclensions" should "handle gradation: J, Weak, word: himmennin" in {
     val word = Word("himmennin", 33, Gradation("nt", "nn").opt)
     val declensions = generateDeclensions(word)
 
@@ -423,7 +423,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "himmentimillä")
   }
 
-  "addDeclensions" should "handle gradation: K, Strong, word: kaarto" in {
+  "generateDeclensions" should "handle gradation: K, Strong, word: kaarto" in {
     val word = Word("kaarto", 1, Gradation("rt", "rr").opt)
     val declensions = generateDeclensions(word)
 
@@ -443,7 +443,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "kaarroilla")
   }
 
-  "addDeclensions" should "handle gradation: K, Weak, word: kierre" in {
+  "generateDeclensions" should "handle gradation: K, Weak, word: kierre" in {
     val word = Word("kierre", 48, Gradation("rt", "rr").opt)
     val declensions = generateDeclensions(word)
 
@@ -463,7 +463,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "kierteillä")
   }
 
-  "addDeclensions" should "handle gradation: L, Strong, word: kurki" in {
+  "generateDeclensions" should "handle gradation: L, Strong, word: kurki" in {
     val word = Word("kurki", 7, Gradation("k", "j").opt)
     val declensions = generateDeclensions(word)
 
@@ -483,7 +483,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "kurjilla")
   }
 
-  "addDeclensions" should "handle gradation: L, Weak, word: lahje" in {
+  "generateDeclensions" should "handle gradation: L, Weak, word: lahje" in {
     val word = Word("lahje", 48, Gradation("k", "j").opt)
     val declensions = generateDeclensions(word)
 
@@ -503,7 +503,7 @@ class DeclensionUtilsGradationTest extends AnyFlatSpec with should.Matchers {
     declensions.matches(Noun ~ Adessive ~ Plural, "lahkeilla")
   }
 
-  "addDeclensions" should "handle gradation: M, Strong, word: luku" in {
+  "generateDeclensions" should "handle gradation: M, Strong, word: luku" in {
     val word = Word("luku", 1, Gradation("k", "v").opt)
     val declensions = generateDeclensions(word)
 

@@ -22,7 +22,7 @@ class ConjugationUtilsTest extends AnyFlatSpec with should.Matchers {
     def matches(morphemes: Morphemes, words: String*) =
       assert(list.filter(_.morphemes.is(morphemes)).map(_.word.toString).toSet == words.toSet, morphemes)
 
-  "addConjugations" should "handle case: saunoa" in {
+  "generateConjugations" should "handle word: saunoa" in {
     val word = Word("saunoa", 52, None)
     val conjugations = generateConjugations(word)
 

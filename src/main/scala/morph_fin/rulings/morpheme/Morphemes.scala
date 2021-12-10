@@ -31,6 +31,8 @@ sealed trait Morphemes {
     PossessiveSuffix.ThirdPos,
   )
 
+  def isNotComparativeForm: Boolean = isNotAny(Comparative, Superlative)
+
   def isNotAny(_morphemes: Morpheme*): Boolean =  _morphemes.forall(!this.isImpl(_))
 
   def root: Root = this match {

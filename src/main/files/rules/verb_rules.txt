@@ -1193,7 +1193,7 @@ Pas:Imp:Pre:Neg:       sallittako
 Inf1: sallia
 Inf0: salliakse
 
-Inf2:Ine:Act: salliesssa
+Inf2:Ine:Act: salliessa
 Inf2:Ine:Pas: sallittaessa
 Inf2:Ins:Act: sallien
 

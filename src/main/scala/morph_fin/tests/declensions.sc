@@ -16,8 +16,8 @@ def printA(words: Seq[InflectedWord]) =
   println(words.map(a => a.word.toString + " : " + PrintMorphemes(a.morphemes)).mkString("\n"))
   println("============================")
 
-def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
-//def declesions(word: Word) = AllDeclensionUtils.generateAllDeclections(word)
+//def declesions(word: Word) = DeclensionUtils.generateDeclensions(word)
+def declesions(word: Word) = AllDeclensionUtils.generateAllDeclections(word)
 
 def declesions2(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
   declesions(getWord(word, rule, gradationLetterOpt))
@@ -30,7 +30,7 @@ def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 
 //printB("tie", 19)
 
-printB("sanomaton", 34, Some('C'))
+printB("painiminen", 38, None)
 
 
 //printB("kaunis", 41)

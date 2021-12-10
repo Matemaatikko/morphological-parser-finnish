@@ -33,7 +33,5 @@ def printAll(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 
 
 
-//printAll("saunoa", 52, None)
+printAll("painia", 61, None)
 
-val a = Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive
-PrintMorphemes(a)

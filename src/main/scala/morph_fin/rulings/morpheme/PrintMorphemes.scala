@@ -76,11 +76,9 @@ object PrintMorphemes {
   def apply(morphemes: Morphemes): String = toList(morphemes).mkString(":")
 
   def toList(morphemes: Morphemes): Seq[String] =
-    println(morphemes)
     morphemes match {
     case Append(morpheme, rest) =>
       val prt = print(morpheme)
-      println(prt)
       prt match {
         case Some(value) =>
           toList(rest) :+ value
