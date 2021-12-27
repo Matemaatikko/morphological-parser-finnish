@@ -40,7 +40,7 @@ class ConjugationInfinitiveTest extends AnyFlatSpec with should.Matchers {
 
   }
 
-  "declensions" should "generete correctly for IVth infinitive of word: painia" in {
+  "conjugationUtils" should "generete correctly for IVth infinitive of word: painia" in {
     val word = Word("painia", 61, None)
     val conjugations = AllConjugationUtils.generateAllConjugations(word)
 

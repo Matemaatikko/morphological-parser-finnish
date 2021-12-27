@@ -115,12 +115,14 @@ object GradationHandler {
   def resolveVerbException(lemma: String, tpe: WordGradationType, morphemes: Morphemes): Option[GradationType] =
     import WordGradationType._
     tpe match {
+      // STRAIGHT
       case Straight if morphemes.is(Indicative, Present, Passive, Positive) =>
         Some(GradationType.Weak)
-      case Straight if morphemes.is(Imperative, Present, Active, SingularSecond) =>
+      case Straight if morphemes.is(Imperative, Present, SingularSecond) =>
         Some(GradationType.Weak)
       case Straight if morphemes.is(Indicative, Present, Negative) =>
         Some(GradationType.Weak)
+      // INVERTED
       case Inverted if morphemes.is(Indicative, Present, Passive, Negative) =>
         Some(GradationType.Weak)
       case Inverted if morphemes.is(Indicative, Present, Active, Positive) && endsWith_tA(lemma) =>
