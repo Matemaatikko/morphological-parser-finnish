@@ -196,4 +196,63 @@ class ConjugationUtilsRulesTest extends AnyFlatSpec with should.Matchers {
     conjugations.matches(NegativeParticiple, "parantamaton")
   }
 
+
+  "generateConjugations" should "handle class 55 with word: kiitää " in {
+    val word = Word("kiitää", 55, Some(Gradation("t", "d")))
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "kiidän")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "kiidetään")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "kiidä")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "kiidetä")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "kiisit", "kiidit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "kiidettiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "kiitänyt")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "kiitäneet")
+    conjugations.matches(Finite ~ General ~ Passive, "kiidetty")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "kiitänee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "kiidettäneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "kiitäne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "kiidettäne")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "kiitäisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "kiidettäisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "kiitäisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "kiidettäisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "kiitäkää")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "kiidettäköön")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "kiidä")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "kiitäkö")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "kiidettäkö")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "kiitää")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "kiitämällä")
+    conjugations.matches(InfinitiveV, "kiitämäisillä")
+    conjugations.matches(InfinitiveVI, "kiitävinä")
+    conjugations.matches(InfinitiveVII, "kiidettävissä")
+    conjugations.matches(vAParticiple ~ Active, "kiitävä")
+    conjugations.matches(NegativeParticiple, "kiitämätön")
+  }
+
 }
