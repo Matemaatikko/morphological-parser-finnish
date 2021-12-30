@@ -52,9 +52,8 @@ object ConjugationUtils {
 
 
   def updateEnding(ending: Conjugation, lemma: String, rule: ConjugationRule): String =
-    val replacementVowels = lemma.takeRight(rule.drop).takeWhile(Letters.isVowel(_))
-    assert(rule.replacementVowels.length == replacementVowels.length)
-    val replacementMap = (0 until replacementVowels.length).map(i => rule.replacementVowels(i) -> replacementVowels(i)).toMap
+    val AInfEnding = rule.cases.find(_.morphemes.is(AInfinitive)).get.ending
+    val replacementMap = Replacement.resolveMap(lemma, AInfEnding)
 
     val result = ending.ending.map(_ match {
       case RepChar.Rep(c) => replacementMap(c).toString

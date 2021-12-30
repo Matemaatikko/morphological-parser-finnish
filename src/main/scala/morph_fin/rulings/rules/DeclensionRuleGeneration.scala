@@ -5,6 +5,19 @@ import morph_fin.rulings.morpheme.{Accusative, Illative, Morphemes, Nominative, 
 import morph_fin.rulings.nouns.*
 import morph_fin.utils.{Letters, LongestStartingSubstring}
 
+
+/**
+ * Definition replacement system
+ * =============================
+ * root = common prefix for all inflections
+ * word = root + ending
+ * --------------------
+ * All vowels in ending of lemma are defined as replacement vowels.
+ * Example: "taikoa"
+ * root = tai, ending = koa, replacement vowels = o, a
+ * Similarly corresponding replacement vowels for "taintua" are "u" and "a" (Both words have same inflection class).
+ */
+
 enum RepChar:
   case Ch(c: Char)
   case Rep(key: Char)
@@ -13,6 +26,11 @@ import morph_fin.rulings.rules.RepChar.*
 
 object Replacement {
 
+  /**
+   * Example:
+   * Word = kallio, ending = Seq(Ch(t), Rep(a))
+   * Result: Map('o' -> 'a')
+   */
   def resolveMap(word: String, ending: Seq[RepChar]): Map[Char, Char] =
     assert(word.length >= ending.length)
     (0 until ending.length).flatMap(i => ending(i) match {

@@ -137,4 +137,63 @@ class ConjugationUtilsRulesTest extends AnyFlatSpec with should.Matchers {
     conjugations.matches(vAParticiple ~ Active, "pakkauttava")
     conjugations.matches(NegativeParticiple, "pakkauttamaton")
   }
+
+  "generateConjugations" should "handle class 54 with word: parantaa " in {
+    val word = Word("parantaa", 54, Some(Gradation("nt", "nn")))
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "parannan")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "parannetaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "paranna")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "paranneta")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "paransit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "parannettiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "parantanut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "parantaneet")
+    conjugations.matches(Finite ~ General ~ Passive, "parannettu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "parantanee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "parannettaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "parantane")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "parannettane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "parantaisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "parannettaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "parantaisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "parannettaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "parantakaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "parannettakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "paranna")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "parantako")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "parannettako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "parantaa")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "parantamalla")
+    conjugations.matches(InfinitiveV, "parantamaisilla")
+    conjugations.matches(InfinitiveVI, "parantavina")
+    conjugations.matches(InfinitiveVII, "parannettavissa")
+    conjugations.matches(vAParticiple ~ Active, "parantava")
+    conjugations.matches(NegativeParticiple, "parantamaton")
+  }
+
 }
