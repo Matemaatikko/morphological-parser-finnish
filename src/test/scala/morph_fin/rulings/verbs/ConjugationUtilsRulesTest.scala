@@ -255,4 +255,120 @@ class ConjugationUtilsRulesTest extends AnyFlatSpec with should.Matchers {
     conjugations.matches(NegativeParticiple, "kiitämätön")
   }
 
+  "generateConjugations" should "handle class 56 with word: laulaa " in {
+    val word = Word("laulaa", 56, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "laulan")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "lauletaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "laula")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "lauleta")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "lauloit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "laulettiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "laulanut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "laulaneet")
+    conjugations.matches(Finite ~ General ~ Passive, "laulettu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "laulanee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "laulettaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "laulane")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "laulettane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "laulaisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "laulettaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "laulaisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "laulettaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "laulakaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "laulettakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "laula")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "laulako")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "laulettako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "laulaa")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "laulamalla")
+    conjugations.matches(InfinitiveV, "laulamaisilla")
+    conjugations.matches(InfinitiveVI, "laulavina")
+    conjugations.matches(InfinitiveVII, "laulettavissa")
+    conjugations.matches(vAParticiple ~ Active, "laulava")
+    conjugations.matches(NegativeParticiple, "laulamaton")
+  }
+
+  "generateConjugations" should "handle class 57 with word: kaartaa " in {
+    val word = Word("kaartaa", 57, Some(Gradation("rt", "rr")))
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "kaarran")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "kaarretaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "kaarra")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "kaarreta")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "kaarroit", "kaarsit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "kaarrettiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "kaartanut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "kaartaneet")
+    conjugations.matches(Finite ~ General ~ Passive, "kaarrettu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "kaartanee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "kaarrettaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "kaartane")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "kaarrettane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "kaartaisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "kaarrettaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "kaartaisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "kaarrettaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "kaartakaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "kaarrettakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "kaarra")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "kaartako")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "kaarrettako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "kaartaa")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "kaartamalla")
+    conjugations.matches(InfinitiveV, "kaartamaisilla")
+    conjugations.matches(InfinitiveVI, "kaartavina")
+    conjugations.matches(InfinitiveVII, "kaarrettavissa")
+    conjugations.matches(vAParticiple ~ Active, "kaartava")
+    conjugations.matches(NegativeParticiple, "kaartamaton")
+  }
+
 }
