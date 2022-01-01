@@ -34,7 +34,7 @@ case class Word(
 object Word {
 
   def from(lemma: String, ruleNumber: Int, gradationLetterOpt: Option[Char], compoundCase: Boolean = false): Word =
-    val gradationOpt = gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
+    val gradationOpt = if ruleNumber == 76 then None else gradationLetterOpt.map(GradationHandler.getGradationByLetter(_))
     val (updatedLemma, nominativeReplacement) = if compoundCase then handleCompoundExceptions(lemma) else handleExceptions(lemma)
     Word(updatedLemma, ruleNumber, gradationOpt, nominativeReplacement)
 
@@ -110,7 +110,7 @@ object DeclensionUtils {
 
     //Resolve gradation
     val rootDividedByGradation = gradationOpt match {
-      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop, tsGradation)
+      case Some(gradation) if !rule.isGradation => GradationHandler.splitByGradationLocation(root, gradation, rule.ruleNumber, rule.drop > 0, tsGradation)
       case _ => (root, "")
     }
 

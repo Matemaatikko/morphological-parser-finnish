@@ -725,4 +725,615 @@ class ConjugationUtilsRulesTest extends AnyFlatSpec with should.Matchers {
   }
 
 
+  "generateConjugations" should "handle class 67 with word: laulella " in {
+    val word = Word("laulella", 67, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "laulelen")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "laulellaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "laulele")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "laulella")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "laulelit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "lauleltiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "laulellut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "laulelleet")
+    conjugations.matches(Finite ~ General ~ Passive, "lauleltu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "laulellee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "lauleltaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "laulelle")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "lauleltane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "laulelisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "lauleltaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "laulelisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "lauleltaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "laulelkaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "lauleltakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "laulele")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "laulelko")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "lauleltako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "laulella")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "laulelemalla")
+    conjugations.matches(InfinitiveV, "laulelemaisilla")
+    conjugations.matches(InfinitiveVI, "laulelevina")
+    conjugations.matches(InfinitiveVII, "lauleltavissa")
+    conjugations.matches(vAParticiple ~ Active, "lauleleva")
+    conjugations.matches(NegativeParticiple, "laulelematon")
+  }
+
+  "generateConjugations" should "handle class 68 with word: luennoida " in {
+    val word = Word("luennoida", 68, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "luennoin", "luennoitsen")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "luennoidaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "luennoi", "luennoitse")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "luennoida")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "luennoit", "luennoitsit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "luennoitiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "luennoinut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "luennoineet")
+    conjugations.matches(Finite ~ General ~ Passive, "luennoitu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "luennoinee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "luennoitaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "luennoine")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "luennoitane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "luennoisimme", "luennoitsisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "luennoitaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "luennoisi", "luennoitsisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "luennoitaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "luennoikaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "luennoitakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "luennoi", "luennoitse")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "luennoiko")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "luennoitako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "luennoida")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "luennoimalla", "luennoitsemalla")
+    conjugations.matches(InfinitiveV, "luennoimaisilla", "luennoitsemaisilla")
+    conjugations.matches(InfinitiveVI, "luennoivina", "luennoitsevina")
+    conjugations.matches(InfinitiveVII, "luennoitavissa")
+    conjugations.matches(vAParticiple ~ Active, "luennoiva", "luennoitseva")
+    conjugations.matches(NegativeParticiple, "luennoimaton", "luennoitsematon")
+  }
+
+
+  "generateConjugations" should "handle class 69 with word: merkitä " in {
+    val word = Word("merkitä", 69, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "merkitsen")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "merkitään")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "merkitse")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "merkitä")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "merkitsit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "merkittiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "merkinnyt")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "merkinneet")
+    conjugations.matches(Finite ~ General ~ Passive, "merkitty")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "merkinnee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "merkittäneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "merkinne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "merkittäne")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "merkitsisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "merkittäisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "merkitsisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "merkittäisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "merkitkää")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "merkittäköön")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "merkitse")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "merkitkö")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "merkittäkö")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "merkitä")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "merkitsemällä")
+    conjugations.matches(InfinitiveV, "merkitsemäisillä")
+    conjugations.matches(InfinitiveVI, "merkitsevinä")
+    conjugations.matches(InfinitiveVII, "merkittävissä")
+    conjugations.matches(vAParticiple ~ Active, "merkitsevä")
+    conjugations.matches(NegativeParticiple, "merkitsemätön")
+  }
+
+  "generateConjugations" should "handle class 70 with word: syöstä " in {
+    val word = Word("syöstä", 70, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "syöksen")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "syöstään")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "syökse")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "syöstä")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "syöksit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "syöstiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "syössyt")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "syösseet")
+    conjugations.matches(Finite ~ General ~ Passive, "syösty")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "syössee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "syöstäneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "syösse")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "syöstäne")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "syöksisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "syöstäisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "syöksisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "syöstäisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "syöskää")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "syöstäköön")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "syökse")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "syöskö")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "syöstäkö")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "syöstä")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "syöksemällä")
+    conjugations.matches(InfinitiveV, "syöksemäisillä")
+    conjugations.matches(InfinitiveVI, "syöksevinä")
+    conjugations.matches(InfinitiveVII, "syöstävissä")
+    conjugations.matches(vAParticiple ~ Active, "syöksevä")
+    conjugations.matches(NegativeParticiple, "syöksemätön")
+  }
+
+  "generateConjugations" should "handle class 71 with word: tehdä " in {
+    val word = Word("tehdä", 71, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "teen")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "tehdään")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "tee")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "tehdä")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "teit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "tehtiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "tehnyt")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "tehneet")
+    conjugations.matches(Finite ~ General ~ Passive, "tehty")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "tehnee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "tehtäneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "tehne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "tehtäne")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "tekisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "tehtäisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "tekisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "tehtäisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "tehkää")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "tehtäköön")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "tee")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "tehkö")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "tehtäkö")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "tehdä")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "tekemällä")
+    conjugations.matches(InfinitiveV, "tekemäisillä")
+    conjugations.matches(InfinitiveVI, "tekevinä")
+    conjugations.matches(InfinitiveVII, "tehtävissä")
+    conjugations.matches(vAParticiple ~ Active, "tekevä")
+    conjugations.matches(NegativeParticiple, "tekemätön")
+  }
+
+  "generateConjugations" should "handle class 72 with word: paeta " in {
+    val word = Word("paeta", 72, Some(Gradation("k", "")))
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "pakenen")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "paetaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "pakene")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "paeta")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "pakenit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "paettiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "paennut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "paenneet")
+    conjugations.matches(Finite ~ General ~ Passive, "paettu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "paennee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "paettaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "paenne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "paettane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "pakenisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "paettaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "pakenisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "paettaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "paetkaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "paettakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "pakene")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "paetko")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "paettako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "paeta")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "pakenemalla")
+    conjugations.matches(InfinitiveV, "pakenemaisilla")
+    conjugations.matches(InfinitiveVI, "pakenevina")
+    conjugations.matches(InfinitiveVII, "paettavissa")
+    conjugations.matches(vAParticiple ~ Active, "pakeneva")
+    conjugations.matches(NegativeParticiple, "pakenematon")
+  }
+
+  "generateConjugations" should "handle class 73 with word: paikata " in {
+    val word = Word("paikata", 73, Some(Gradation("kk", "k")))
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "paikkaan")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "paikataan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "paikkaa")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "paikata")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "paikkasit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "paikattiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "paikannut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "paikanneet")
+    conjugations.matches(Finite ~ General ~ Passive, "paikattu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "paikannee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "paikattaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "paikanne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "paikattane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "paikkaisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "paikattaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "paikkaisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "paikattaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "paikatkaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "paikattakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "paikkaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "paikatko")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "paikattako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "paikata")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "paikkaamalla")
+    conjugations.matches(InfinitiveV, "paikkaamaisilla")
+    conjugations.matches(InfinitiveVI, "paikkaavina")
+    conjugations.matches(InfinitiveVII, "paikattavissa")
+    conjugations.matches(vAParticiple ~ Active, "paikkaava")
+    conjugations.matches(NegativeParticiple, "paikkaamaton")
+  }
+
+
+  "generateConjugations" should "handle class 74 with word: pinota " in {
+    val word = Word("pinota", 74, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "pinoan")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "pinotaan")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "pinoa")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "pinota")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "pinosit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "pinottiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "pinonnut")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "pinonneet")
+    conjugations.matches(Finite ~ General ~ Passive, "pinottu")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "pinonnee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "pinottaneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "pinonne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "pinottane")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "pinoisimme", "pinoaisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "pinottaisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "pinoisi", "pinoaisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "pinottaisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "pinotkaa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "pinottakoon")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "pinoa")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "pinotko")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "pinottako")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "pinota")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "pinoamalla")
+    conjugations.matches(InfinitiveV, "pinoamaisilla")
+    conjugations.matches(InfinitiveVI, "pinoavina")
+    conjugations.matches(InfinitiveVII, "pinottavissa")
+    conjugations.matches(vAParticiple ~ Active, "pinoava")
+    conjugations.matches(NegativeParticiple, "pinoamaton")
+  }
+
+  "generateConjugations" should "handle class 75 with word: selvitä " in {
+    val word = Word("selvitä", 75, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "selviän")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "selvitään")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "selviä")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "selvitä")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "selvisit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "selvittiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "selvinnyt")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "selvinneet")
+    conjugations.matches(Finite ~ General ~ Passive, "selvitty")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "selvinnee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "selvittäneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "selvinne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "selvittäne")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "selviäisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "selvittäisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "selviäisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "selvittäisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "selvitkää")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "selvittäköön")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "selviä")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "selvitkö")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "selvittäkö")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "selvitä")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "selviämällä")
+    conjugations.matches(InfinitiveV, "selviämäisillä")
+    conjugations.matches(InfinitiveVI, "selviävinä")
+    conjugations.matches(InfinitiveVII, "selvittävissä")
+    conjugations.matches(vAParticiple ~ Active, "selviävä")
+    conjugations.matches(NegativeParticiple, "selviämätön")
+  }
+
+  "generateConjugations" should "handle class 76 with word: tietää " in {
+    val word = Word("tietää", 76, None)
+    val conjugations = generateConjugations(word)
+
+    // Present
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Positive, "tiedän")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Positive, "tiedetään")
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularFirst ~ Negative, "tiedä")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ Passive ~ Negative, "tiedetä")
+
+    // Imperfect
+
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularSecond ~ Positive, "tiesit")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ Passive ~ Positive, "tiedettiin", "tiettiin")
+
+    // General-form
+    conjugations.matches(Finite ~ General ~ Active ~ Singular, "tietänyt", "tiennyt")
+    conjugations.matches(Finite ~ General ~ Active ~ Plural, "tietäneet", "tienneet")
+    conjugations.matches(Finite ~ General ~ Passive, "tiedetty", "tietty")
+
+    // Potential
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularThird  ~ Positive, "tietänee", "tiennee")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Positive, "tiedettäneen", "tiettäneen")
+
+    conjugations.matches(Finite ~ Potential ~ Present ~ SingularFirst ~ Negative, "tietäne", "tienne")
+    conjugations.matches(Finite ~ Potential ~ Present ~ Passive ~ Negative, "tiedettäne", "tiettäne")
+
+    // Conditional
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ PluralFirst ~ Positive, "tietäisimme")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Positive, "tiedettäisiin", "tiettäisiin")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularFirst ~ Negative, "tietäisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ Passive ~ Negative, "tiedettäisi", "tiettäisi")
+
+    // Imperative
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralSecond ~ Positive, "tietäkää")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Positive, "tiedettäköön", "tiettäköön")
+
+    conjugations.matches(Finite ~ Imperative ~ Present ~ SingularSecond ~ Negative, "tiedä")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ PluralThird ~ Negative, "tietäkö")
+    conjugations.matches(Finite ~ Imperative ~ Present ~ Passive ~ Negative, "tiedettäkö", "tiettäkö")
+
+    // Nominal forms
+
+    conjugations.matches(AInfinitive, "tietää")
+    conjugations.matches(MAInfinitive ~ Adessive ~ Active, "tietämällä")
+    conjugations.matches(InfinitiveV, "tietämäisillä")
+    conjugations.matches(InfinitiveVI, "tietävinä")
+    conjugations.matches(InfinitiveVII, "tiedettävissä")
+    conjugations.matches(vAParticiple ~ Active, "tietävä")
+    conjugations.matches(NegativeParticiple, "tietämätön")
+  }
+
+  "generateConjugations" should "handle class 77 with word: heläjää " in {
+    val word = Word("heläjää", 77, None)
+    val conjugations = generateConjugations(word)
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularThird ~ Positive, "heläjää")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularThird ~ Negative, "heläjä")
+    conjugations.matches(Finite ~ Indicative ~ Imperfect ~ SingularThird ~ Positive, "heläji")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularThird ~ Positive, "heläjäisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularThird ~ Negative, "heläjäisi")
+
+    conjugations.matches(AInfinitive, "heläjää")
+    conjugations.matches(vAParticiple ~ Active, "heläjävä")
+  }
+
+  "generateConjugations" should "handle class 78 with word: kilkkaa " in {
+    val word = Word("kilkkaa", 78, None)
+    val conjugations = generateConjugations(word)
+
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularThird ~ Positive, "kilkkaa")
+    conjugations.matches(Finite ~ Indicative ~ Present ~ SingularThird ~ Negative, "kilkkaa")
+
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularThird ~ Positive, "kilkkaisi")
+    conjugations.matches(Finite ~ Conditional ~ Present ~ SingularThird ~ Negative, "kilkkaisi")
+
+    conjugations.matches(AInfinitive, "kilkkaa")
+  }
+
+
 }

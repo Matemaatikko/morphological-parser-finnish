@@ -2379,7 +2379,7 @@ Inf3:Ins:Pas: nähtämän
 
 Inf4: näkeminen
 
-Inf5: näkemäisillään
+Inf5: näkemäisillä
 Inf6: näkevinä
 Inf7: nähtävissä
 
@@ -2469,14 +2469,14 @@ Act:Imp:Pre:S3: vanhetkoon
 Act:Imp:Pre:P1: vanhetkaamme
 Act:Imp:Pre:P2: vanhetkaa
 Act:Imp:Pre:P3: vanhetkoot
-Pas:Imp:Pre:   vanhettakoon
+Pas:Imp:Pre:    vanhettakoon
 
 Act:Imp:Pre:S2:Neg: vanhene
 Act:Imp:Pre:S3:Neg: vanhetko
 Act:Imp:Pre:P1:Neg: vanhetko
 Act:Imp:Pre:P2:Neg: vanhetko
 Act:Imp:Pre:P3:Neg: vanhetko
-Pas:Imp:Pre:Neg:       vanhettako
+Pas:Imp:Pre:Neg:    vanhettako
 
 #Infinitive
 
@@ -2498,7 +2498,7 @@ Inf3:Ins:Pas: vanhettaman
 Inf4: vanheneminen
 
 Inf5: vanhenemaisilla
-Inf6: vanhevina
+Inf6: vanhenevina
 Inf7: vanhettavissa
 
 #Participle
@@ -2671,12 +2671,12 @@ Act:Pot:Pre:P2: katkennette
 Act:Pot:Pre:P3: katkennevat
 Pas:Pot:Pre:    katkettaneen
 
-Act:Pot:Pre:S1:Neg: katkene
-Act:Pot:Pre:S2:Neg: katkene
-Act:Pot:Pre:S3:Neg: katkene
-Act:Pot:Pre:P1:Neg: katkene
-Act:Pot:Pre:P2:Neg: katkene
-Act:Pot:Pre:P3:Neg: katkene
+Act:Pot:Pre:S1:Neg: katkenne
+Act:Pot:Pre:S2:Neg: katkenne
+Act:Pot:Pre:S3:Neg: katkenne
+Act:Pot:Pre:P1:Neg: katkenne
+Act:Pot:Pre:P2:Neg: katkenne
+Act:Pot:Pre:P3:Neg: katkenne
 Pas:Pot:Pre:Neg:    katkettane
 
 #Conditional
@@ -2850,7 +2850,7 @@ Inf3:Ins:Pas: selvittämän
 
 Inf4: selviäminen
 
-Inf5: selviämäisillään
+Inf5: selviämäisillä
 Inf6: selviävinä
 Inf7: selvittävissä
 
@@ -2985,10 +2985,10 @@ Par6: taitamaton
 
 Inf1:               kumajaa
 Act:Ind:Pre:S3:     kumajaa
+Act:Ind:Pre:S3:Neg: kumaja
 Act:Ind:Imp:S3:     kumaji
 Act:Con:Pre:S3:     kumajaisi
 Act:Con:Pre:S3:Neg: kumajaisi
-Act:Ind:Pre:S3:Neg: kumaja
 Par1:               kumajava
 
 
@@ -2996,6 +2996,6 @@ Par1:               kumajava
 
 Inf1:               kaikaa
 Act:Ind:Pre:S3:     kaikaa
+Act:Ind:Pre:S3:Neg: kaikaa
 Act:Con:Pre:S3:     kaikaisi
 Act:Con:Pre:S3:Neg: kaikaisi
-Act:Ind:Pre:S3:Neg: kaikaa

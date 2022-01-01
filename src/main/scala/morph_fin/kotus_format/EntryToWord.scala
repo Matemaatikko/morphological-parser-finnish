@@ -7,12 +7,7 @@ object EntryToWord {
 
   def apply(entry: Entry): Option[Word] =
     entry.inflectionOpt match {
-      case Some(bending) =>
-        Some(Word(
-          entry.word.value,
-          bending.rule,
-          bending.gradationLetter.map(GradationHandler.getGradationByLetter(_))
-        ))
+      case Some(bending) => Some(Word.from(entry.word.value, bending.rule, bending.gradationLetter))
       case None => None
     }
 

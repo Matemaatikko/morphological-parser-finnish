@@ -33,5 +33,5 @@ def printAll(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 
 
 
-printAll("painia", 61, None)
+printAll("tietää", 76, Some('F'))
 

@@ -125,7 +125,7 @@ object GradationHandler {
       // INVERTED
       case Inverted if morphemes.is(Indicative, Present, Passive, Negative) =>
         Some(GradationType.Weak)
-      case Inverted if morphemes.is(Indicative, Present, Active, Positive) && endsWith_tA(lemma) =>
+      case Inverted if morphemes.is(Indicative, Present, Positive) && morphemes.isNot(Passive) && endsWith_tA(lemma) =>
         Some(GradationType.Strong)
       case Inverted if morphemes.is(Indicative, Passive, Positive) && endsWith_tA(lemma)  =>
         Some(GradationType.Weak)
@@ -145,12 +145,13 @@ object GradationHandler {
 
 
   /**
-   * @param root - root of all nomine bendings.
+   * @param root - common substring of all inflections for specific lemma
+   * @param drop - Only used on nouns.
    * Example:
    * splitByGradationLocation("tanko", nk-ng) = (ta, o)
    * splitByGradationLocation("ies", k-_) = (i, es)
    */
-  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1, drop: Int = 0, tsGradation: Boolean = false): (String, String) =
+  def splitByGradationLocation(root: String, gradation: Gradation, ruleNumber: Int = -1, positiveNounDropValue: Boolean = false, tsGradation: Boolean = false): (String, String) =
     def trySplit(amount: Int): Option[(String, String)] =
       val droppedRoot = root.dropRight(amount)
       if endsWithGradation(droppedRoot, gradation.strong, tsGradation) then Some(droppedRoot.dropRight(gradation.strong.length) , root.takeRight(amount))
@@ -169,7 +170,7 @@ object GradationHandler {
     def resolveEmptyWeakCase: (String, String) =
       if endsWithGradation(root.dropRight(0), gradation.strong, tsGradation) then (root.dropRight(0).dropRight(gradation.strong.length) , root.takeRight(0))
       else if endsWithGradation(root.dropRight(1), gradation.strong, tsGradation) then (root.dropRight(1).dropRight(gradation.strong.length) , root.takeRight(1))
-      else if drop > 0 then (root.dropRight(0), root.takeRight(0))
+      else if positiveNounDropValue then (root.dropRight(0), root.takeRight(0))
       else if Letters.isConsonant(root.last) then (root.dropRight(2), root.takeRight(2))
       else (root.dropRight(1), root.takeRight(1))
 
