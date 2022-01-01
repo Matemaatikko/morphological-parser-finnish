@@ -27,6 +27,7 @@ object GenerateConjugationRules {
         case None            => resolveNonGradation(exampleConjugations)
       }
 
+    //Cases where all words in the class have gradation.
     def resolveGradation(exampleConjugations: VerbExampleConjugations, gradation: Gradation): ConjugationRule =
       //Resolve root. Resolvation is based on verb_rules.txt file analysation. Root does not contain gradation part.
       val dropForRoot = exampleConjugations.number match {
@@ -62,9 +63,16 @@ object GenerateConjugationRules {
 
       Conjugation(tuple._1, ending.map(Ch(_)), tpe)
 
+    def resolveRoot(lemma: String, words: Seq[String]): String =
+      val commonPrefix = LongestStartingSubstring(words)
+      val noEndVowels = lemma.reverse.dropWhile(Letters.isVowel(_)).reverse
+      if commonPrefix.length <= noEndVowels.length then commonPrefix else noEndVowels
+
+
+    //Cases where gradation is not quaranteed
     def resolveNonGradation(exampleConjugations: VerbExampleConjugations): ConjugationRule =
       val words = exampleConjugations.cases.map(_._2)
-      val root = LongestStartingSubstring(words)
+      val root = resolveRoot(exampleConjugations.lemma, words)
       val drop = exampleConjugations.lemma.length - root.length
 
       val infinitive = exampleConjugations.cases.find(_._1.root == AInfinitive).get

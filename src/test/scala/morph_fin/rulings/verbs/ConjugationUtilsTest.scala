@@ -6,8 +6,8 @@ import org.scalatest.matchers.should
 import org.scalatest.*
 import flatspec.*
 import matchers.*
-import morph_fin.rulings.morpheme._
-import morph_fin.rulings.rules.{ConjugationRule, LoadAndParseVerbRules}
+import morph_fin.rulings.morpheme.*
+import morph_fin.rulings.rules.{ConjugationRule, Gradation, LoadAndParseVerbRules}
 
 class ConjugationUtilsTest extends AnyFlatSpec with should.Matchers {
 
