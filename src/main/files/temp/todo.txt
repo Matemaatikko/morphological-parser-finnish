@@ -1,16 +1,7 @@
-- TODO collect indeclinables - partikkelit, adverbit etc.
+- TODO Final file format generation
+- TODO FST - implementation
+- TODO FST based parser
 - TODO GO THROUGH TODO items
-
-
-- TODO Add missing tests
-
-
-Verbs
-========================
-- TODO Printer for verbs
-
-- TODO tests for verb conjugations
-- TODO Typical ts-gradation cases need to be tested.
 
 
 Secondary

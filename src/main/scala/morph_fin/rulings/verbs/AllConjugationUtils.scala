@@ -8,8 +8,27 @@ import PossessiveSuffixUtils.*
 
 object AllConjugationUtils {
 
-  //Note exception cases: 77 and 78.
-  def generateAllConjugations(word: Word)(using rules: Seq[ConjugationRule], rules2: Seq[DeclensionRule]): Seq[InflectedWord] =
+  def generateAllConjugations(word: Word)(using rules: Seq[ConjugationRule], rules2: Seq[DeclensionRule]) =
+    word.ruleNumber match {
+      case 77 => generateAllConjugationsRule77(word)
+      case 78 => generateAllConjugationsRule78(word)
+      case _ => generateAllConjugationsOther(word)
+    }
+
+  private inline def generateAllConjugationsRule77(word: Word)(using rules: Seq[ConjugationRule], rules2: Seq[DeclensionRule]): Seq[InflectedWord] =
+    val cases = generateConjugations(word)
+
+    val vaParAct = cases.find(a => a.morphemes.root == vAParticiple && a.morphemes.is(Active)).get
+    val vaParActResult = AllDeclensionUtils.generateAllDeclections(Word(vaParAct.word.toString, 10)).map(update(_, vAParticiple)).map(append(_, Active))
+
+    cases.filter(_ != vaParAct) ++ vaParActResult
+
+
+  private inline def generateAllConjugationsRule78(word: Word)(using rules: Seq[ConjugationRule], rules2: Seq[DeclensionRule]): Seq[InflectedWord] =
+    generateConjugations(word)
+
+
+  private inline def generateAllConjugationsOther(word: Word)(using rules: Seq[ConjugationRule], rules2: Seq[DeclensionRule]): Seq[InflectedWord] =
     val cases = generateConjugations(word)
 
     //Infinitives receiving possessive suffixes
@@ -49,7 +68,7 @@ object AllConjugationUtils {
       ++ nutParResult ++ tuParResult
       ++ ageParResult ++ ageNegParResult
 
-  end generateAllConjugations
+  end generateAllConjugationsOther
 
   inline def update(word: InflectedWord, root: Root): InflectedWord =
     val updated = word.morphemes.updateRoot(root)

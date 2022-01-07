@@ -31,7 +31,7 @@ def printB(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 //printB("tie", 19)
 
 //printB("painiminen", 38, None)
-printB("aie", 48, Some('D'))
+printB("kirnu", 1, None)
 
 //printB("kaunis", 41)
 //printB("hapan", 34, Some('B')) //Still wrong (e-a in middle of ending)

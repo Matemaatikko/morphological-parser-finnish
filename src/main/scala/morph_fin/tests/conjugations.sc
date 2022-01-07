@@ -33,5 +33,5 @@ def printAll(word: String, rule: Int, gradationLetterOpt: Option[Char] = None) =
 
 println(LoadAndParseVerbRules.rules.find(_.ruleNumber == 52).get.cases.mkString("\n"))
 
-printAll("tietää", 76, Some('F'))
+printAll("kaikaa", 78, None)
 
