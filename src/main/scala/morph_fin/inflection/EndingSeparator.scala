@@ -129,11 +129,14 @@ class EndingSeparator {
     writer.close()
     registerEndings
 
+  def processEndings(endings: Seq[EndingList]): Seq[(String, String, String)] =
+    endings.zipWithIndex.flatMap(tuple => tuple._1.list.map(ending => (tuple._2.toString, ending.ending, PrintMorphemes.apply(ending.morphemes))))
+
   def registerEndings =
     val writer2 = new OutputStreamWriter(new FileOutputStream(endingFileName), StandardCharsets.UTF_8)
-    nounEndings.zipWithIndex.foreach(value => writer2.write("\nN" + value._2 + "|" + value._1.list.mkString(",")))
+    processEndings(nounEndings).foreach(triple => writer2.write("\nN" + triple._1 + "\t" + triple._3 + "\t" + triple._2))
     writer2.flush()
-    verbEndings.zipWithIndex.foreach(value => writer2.write("\nV" + value._2 + "|" + value._1.list.mkString(",")))
+    processEndings(verbEndings).foreach(triple => writer2.write("\nV" + triple._1 + "\t" + triple._3 + "\t" + triple._2))
     writer2.close()
 }
 

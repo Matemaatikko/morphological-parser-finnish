@@ -63,4 +63,6 @@ class Parser(stream: Iterator[Char]) {
       if(!condition && peek != streamEnded) iter(result :+ fun)
       else result
     iter(Nil)
+
+  def hasEnded: Boolean = peek == streamEnded
 }

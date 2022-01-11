@@ -1,6 +1,6 @@
-- TODO Final file format generation
-- TODO FST - implementation
-- TODO FST based parser
+- vaParticiple active and passive separation (Optional)
+
+
 - TODO GO THROUGH TODO items
 
 

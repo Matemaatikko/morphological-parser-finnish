@@ -1,23 +1,23 @@
 package morph_fin.fsa
 
 
-case class State[A](map: Map[Char, State[A]], value: Option[A])
-def Empty[A] = State[A](Map(), None)
+case class State[A](map: Map[Char, State[A]], values: Seq[A])
+def Empty[A] = State[A](Map(), Nil)
 
 
 extension[A] (s: State[A])
   //def print: String =  s.value.toString + "\n" + s.map.toList.map(tuple => tuple._1 + "->" + tuple._2.print).mkString("[","\n", "]")
-  def find(path: String): Option[A] =
-    if path.isEmpty then s.value
+  def find(path: String): Seq[A] =
+    if path.isEmpty then s.values
     else
-      s.map.get(path.head).flatMap(_.find(path.tail))
+      s.map.get(path.head).map(_.find(path.tail)).getOrElse(Nil)
 
-  def traverse(path: String): Option[(A, String)] =
-    if path.isEmpty then s.value.map(v => v -> path)
+  def traverse(path: String): Seq[(A, String)] =
+    if path.isEmpty then s.values.map(v => v -> path)
     else
       s.map.get(path.head) match {
-        case Some(state) => state.traverse(path.tail)
-        case None        => s.value.map(v => v -> path)
+        case Some(state) => s.values.map(v => v -> path) ++ state.traverse(path.tail)
+        case None        => s.values.map(v => v -> path)
       }
 
 object FSABuilder {
@@ -25,7 +25,7 @@ object FSABuilder {
   def update[A](head: State[A], path: String, value: A): State[A] =
     if path.isEmpty then
       //If duplicate path then original value is replaced.
-      head.copy(value = Some(value))
+      head.copy(values = head.values :+ value)
     else
       val (key, rest) = (path.head, path.tail)
       val next = head.map.get(key)
