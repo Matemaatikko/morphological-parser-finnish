@@ -1,5 +1,4 @@
-package morph_fin.fsa
-
+package morph_fin.parser
 
 case class State[A](map: Map[Char, State[A]], values: Seq[A])
 def Empty[A] = State[A](Map(), Nil)

@@ -1,8 +1,5 @@
 package morph_fin.parser
 
-import morph_fin.fsa._
-import morph_fin.inflection.{Inflection, InflectionRule, InflectionsReader, Lemma, WordListReader}
-
 case class ParsingResult(lemma: String, morphemes: String)
 case class Link(key: String, lemma: String)
 

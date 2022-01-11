@@ -1,6 +1,4 @@
-import morph_fin.fsa._
-import morph_fin.inflection.{Inflection, InflectionRule, InflectionsReader, Lemma, WordListReader}
-import morph_fin.parser.{FinMorphParser, Link}
+import morph_fin.parser._
 
 def timed[A](f: => A): A = {
   val start = System.currentTimeMillis()

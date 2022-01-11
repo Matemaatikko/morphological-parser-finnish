@@ -1,4 +1,4 @@
-package morph_fin.inflection
+package morph_fin.parser
 
 import morph_fin.utils.{FilesLocation, Parser}
 
@@ -23,5 +23,4 @@ class InflectionEntryParser(stream: Iterator[Char]) extends Parser(stream) {
     val morphemes = collectUntil(peek =='\t'); skip('\t')
     val ending = collectUntil(hasEnded)
     key -> Inflection(ending, morphemes)
-
 }

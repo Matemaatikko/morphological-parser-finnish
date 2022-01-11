@@ -1,4 +1,4 @@
-package morph_fin.inflection
+package morph_fin.parser
 
 import morph_fin.utils.{FilesLocation, Parser}
 

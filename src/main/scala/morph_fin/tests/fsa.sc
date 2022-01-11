@@ -1,4 +1,4 @@
-import morph_fin.fsa._
+import morph_fin.parser._
 
 val init = Empty[Int]
 
