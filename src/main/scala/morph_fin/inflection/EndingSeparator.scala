@@ -52,7 +52,7 @@ class EndingSeparator {
   val nouns = standardInflection.filter(_.ruleNumber <= 49)
   val verbs = standardInflection.filter(_.ruleNumber >= 52)
 
-  val wordListFileName = FilesLocation.files_path + "/result/final-word-list.txt"
+  val wordListFileName = FilesLocation.files_path + "/result/words.txt"
   val endingFileName = FilesLocation.files_path + "/result/inflections.txt"
   val writer = new OutputStreamWriter(new FileOutputStream(wordListFileName), StandardCharsets.UTF_8)
 
