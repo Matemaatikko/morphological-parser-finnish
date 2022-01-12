@@ -1,13 +1,12 @@
 package morph_fin.parser
 
-import morph_fin.utils.{FilesLocation, Parser}
 
 import scala.io.{Codec, Source}
 
 object WordListReader {
 
   def read(): Seq[Lemma] = {
-    val filename = FilesLocation.result_path  + "/words.txt"
+    val filename = FileLocation.result_path  + "/words.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines if line.nonEmpty) yield WordEntryParser(line.iterator).parse
     content.toSeq
   }

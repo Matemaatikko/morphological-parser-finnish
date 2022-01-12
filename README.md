@@ -233,7 +233,7 @@ morphologically equivalent with Comp:P:Ins and Sup:P:Ins respectively.
 
 Lisence
 =======
-The code and produced documents are published under: <b> Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) </b>
+The project is published under: <b> Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) </b>
 [Lisence](https://creativecommons.org/licenses/by-nc/4.0/). 
 
 © Juho Salmensuu 2021

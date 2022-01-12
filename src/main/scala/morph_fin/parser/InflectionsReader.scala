@@ -1,12 +1,11 @@
 package morph_fin.parser
 
-import morph_fin.utils.{FilesLocation, Parser}
 
 import scala.io.{Codec, Source}
 
 object InflectionsReader {
   def read(): Seq[InflectionRule] = {
-    val filename = FilesLocation.result_path  + "/inflections.txt"
+    val filename = FileLocation.result_path  + "/inflections.txt"
     val content = for (line <- Source.fromFile(filename)(Codec.UTF8).getLines if line.nonEmpty) yield InflectionEntryParser(line.iterator).parse
     content.toSeq.groupBy(_._1).map(tuple => InflectionRule(tuple._1, tuple._2.map(_._2))).toSeq
   }
