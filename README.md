@@ -9,8 +9,17 @@ Usage example
 import morph_fin.parser._
 
 val parser = new FinMorphParser
-parser.parse("juoksevamme") // == List(ParsingResult(juosta,vAPar:Nom:P:Poss-P1:Act), ParsingResult(juosta,vAPar:Gen:S:Poss-P1:Act), ParsingResult(juokseva,Noun:Gen:S:Poss-P1), ParsingResult(juokseva,Noun:Nom:P:Poss-P1))
+parser.parse("juoksevamme") 
+/** == List(
+ * ParsingResult(juosta,vAPar:Nom:P:Poss-P1:Act), 
+ * ParsingResult(juosta,vAPar:Gen:S:Poss-P1:Act), 
+ * ParsingResult(juokseva,Noun:Gen:S:Poss-P1), 
+ * ParsingResult(juokseva,Noun:Nom:P:Poss-P1))
+*/
 ```
+
+The code for the parser can be found in [Code](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/src/main/scala/morph_fin/parser).
+
 
 Terminology
 ===========
@@ -102,7 +111,7 @@ Implementing a morphological parser using these files is quite straightforward.
 List of words in the form: <b>[lemma]</b> <b>[root]</b> <b>[inflection class]</b>. 
 Inflections from inflection class are added to a root via concatenation.
 
-File location: [Words](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/src/main/files/results/words.txt)
+File location: [Words](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/files/results/words.txt)
 
 Example:
 ```
@@ -120,7 +129,7 @@ ainutlaatuisuus	ainutlaatuisuu	N1
 ###inflections.txt
 Connects morphological information and ending to inflection class.
 
-File location: [Inflections](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/src/main/files/results/inflections.txt)
+File location: [Inflections](https://github.com/Matemaatikko/morphological-parser-finnish/tree/master/files/results/inflections.txt)
 
 Example:
 ```
@@ -230,10 +239,14 @@ For example, <i>juokseminen</i> (Verb 4. Infinitive) and <i>juokseminen</i> (Nou
 Similarly, we don't construct comparative and superlative-forms for -sti-adverb-constructions, since those forms are
 morphologically equivalent with Comp:P:Ins and Sup:P:Ins respectively.
 
+Missing/Upcoming Features
+================
+- Adverb constructions for nouns.
+
 
 Lisence
 =======
 The project is published under: <b> Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) </b>
-[Lisence](https://creativecommons.org/licenses/by-nc/4.0/). 
+[Lisence](https://creativecommons.org/licenses/by-nc/4.0/).
 
-© Juho Salmensuu 2021
+© Juho Salmensuu 2021 (juho_salmensuu [at] hotmail.com)
